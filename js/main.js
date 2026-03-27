@@ -128,25 +128,11 @@ heroTl
         duration: 0.6,
         ease: 'power2.out'
     }, '-=0.2')
-    .to('.hero__scroll', {
+    .to('.hero__trust', {
         opacity: 1,
-        duration: 0.5,
+        duration: 0.8,
         ease: 'power2.out'
-    }, '-=0.1');
-
-// Hero image: fade in with slight scale
-gsap.fromTo('.hero__image img', {
-    opacity: 0,
-    scale: 0.95,
-    y: 30
-}, {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    duration: 1.2,
-    delay: 0.4,
-    ease: 'power3.out'
-});
+    }, '-=0.2');
 
 // ===== COUNTER ANIMATION =====
 function animateCounters() {
