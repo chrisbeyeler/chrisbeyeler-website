@@ -22,48 +22,49 @@ lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
 
-// ===== PARTICLES.JS =====
+// ===== PARTICLES.JS — subtle, premium =====
 if (document.getElementById('particles-js')) {
+    const isMobile = window.innerWidth < 768;
     particlesJS('particles-js', {
         particles: {
-            number: { value: 60, density: { enable: true, value_area: 900 } },
-            color: { value: ['#FF9220', '#46BFED', '#33D099', '#E33A74'] },
+            number: { value: isMobile ? 20 : 40, density: { enable: true, value_area: 1200 } },
+            color: { value: ['#FF9220', '#46BFED'] },
             shape: { type: 'circle' },
             opacity: {
-                value: 0.3,
+                value: 0.15,
                 random: true,
-                anim: { enable: true, speed: 0.5, opacity_min: 0.1 }
+                anim: { enable: true, speed: 0.3, opacity_min: 0.05 }
             },
             size: {
                 value: 2,
                 random: true,
-                anim: { enable: true, speed: 1, size_min: 0.5 }
+                anim: { enable: false }
             },
             line_linked: {
                 enable: true,
-                distance: 150,
+                distance: 180,
                 color: '#46BFED',
-                opacity: 0.12,
+                opacity: 0.06,
                 width: 1
             },
             move: {
                 enable: true,
-                speed: 0.8,
+                speed: 0.5,
                 direction: 'none',
                 random: true,
                 out_mode: 'out',
-                attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                attract: { enable: false }
             }
         },
         interactivity: {
             detect_on: 'canvas',
             events: {
-                onhover: { enable: true, mode: 'grab' },
+                onhover: { enable: !isMobile, mode: 'grab' },
                 onclick: { enable: false },
                 resize: true
             },
             modes: {
-                grab: { distance: 140, line_linked: { opacity: 0.3 } }
+                grab: { distance: 120, line_linked: { opacity: 0.15 } }
             }
         },
         retina_detect: true
@@ -75,23 +76,20 @@ const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
-// Scroll detection for nav background
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
+    if (window.scrollY > 60) {
         nav.classList.add('nav--scrolled');
     } else {
         nav.classList.remove('nav--scrolled');
     }
 });
 
-// Mobile toggle
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
     });
 }
 
-// Close mobile nav on link click
 navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -99,32 +97,32 @@ navLinks.querySelectorAll('a').forEach(link => {
 });
 
 // ===== HERO ANIMATIONS =====
-const heroTl = gsap.timeline({ delay: 0.3 });
+const heroTl = gsap.timeline({ delay: 0.2 });
 
 heroTl
     .to('.hero__badge', {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        duration: 0.7,
         ease: 'power3.out'
     })
     .to('.hero__title-line', {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out'
-    }, '-=0.4')
+        duration: 0.9,
+        stagger: 0.12,
+        ease: 'power4.out'
+    }, '-=0.3')
     .to('.hero__subtitle', {
         opacity: 1,
         duration: 0.6,
         ease: 'power2.out'
-    }, '-=0.3')
+    }, '-=0.4')
     .to('.hero__trust', {
         opacity: 1,
         duration: 0.6,
         ease: 'power2.out'
-    }, '-=0.2')
+    }, '-=0.3')
     .to('.hero__ctas', {
         opacity: 1,
         duration: 0.6,
@@ -132,9 +130,23 @@ heroTl
     }, '-=0.2')
     .to('.hero__scroll', {
         opacity: 1,
-        duration: 0.6,
+        duration: 0.5,
         ease: 'power2.out'
     }, '-=0.1');
+
+// Hero image: fade in with slight scale
+gsap.fromTo('.hero__image img', {
+    opacity: 0,
+    scale: 0.95,
+    y: 30
+}, {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    duration: 1.2,
+    delay: 0.4,
+    ease: 'power3.out'
+});
 
 // ===== COUNTER ANIMATION =====
 function animateCounters() {
@@ -162,11 +174,10 @@ function animateCounters() {
 animateCounters();
 
 // ===== SECTION REVEAL ANIMATIONS =====
-// Fade up for section titles
 gsap.utils.toArray('.section__title').forEach(title => {
     gsap.from(title, {
         opacity: 0,
-        y: 40,
+        y: 30,
         duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
@@ -177,11 +188,10 @@ gsap.utils.toArray('.section__title').forEach(title => {
     });
 });
 
-// Fade up for subtitles
 gsap.utils.toArray('.section__subtitle').forEach(sub => {
     gsap.from(sub, {
         opacity: 0,
-        y: 30,
+        y: 20,
         duration: 0.6,
         delay: 0.1,
         ease: 'power3.out',
@@ -193,12 +203,12 @@ gsap.utils.toArray('.section__subtitle').forEach(sub => {
     });
 });
 
-// Stagger keynote cards
+// Keynote cards
 gsap.from('.keynote-card', {
     opacity: 0,
-    y: 60,
-    duration: 0.8,
-    stagger: 0.15,
+    y: 40,
+    duration: 0.7,
+    stagger: 0.1,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.keynotes__grid',
@@ -207,12 +217,12 @@ gsap.from('.keynote-card', {
     }
 });
 
-// Stagger counter cards
+// Counter cards
 gsap.from('.counter', {
     opacity: 0,
-    y: 40,
+    y: 30,
     duration: 0.6,
-    stagger: 0.1,
+    stagger: 0.08,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.about__counters',
@@ -221,13 +231,12 @@ gsap.from('.counter', {
     }
 });
 
-// Stagger role cards
+// Role cards
 gsap.from('.role-card', {
     opacity: 0,
-    y: 30,
-    scale: 0.95,
-    duration: 0.6,
-    stagger: 0.1,
+    y: 20,
+    duration: 0.5,
+    stagger: 0.08,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.about__roles',
@@ -239,9 +248,9 @@ gsap.from('.role-card', {
 // Timeline items
 gsap.from('.timeline__item', {
     opacity: 0,
-    x: -30,
-    duration: 0.6,
-    stagger: 0.15,
+    x: -20,
+    duration: 0.5,
+    stagger: 0.1,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.about__timeline',
@@ -250,12 +259,26 @@ gsap.from('.timeline__item', {
     }
 });
 
+// Gallery items
+gsap.from('.keynotes__gallery-item', {
+    opacity: 0,
+    y: 30,
+    duration: 0.7,
+    stagger: 0.12,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.keynotes__gallery',
+        start: 'top 80%',
+        once: true
+    }
+});
+
 // Testimonials
 gsap.from('.testimonial', {
     opacity: 0,
-    y: 40,
+    y: 30,
     duration: 0.6,
-    stagger: 0.15,
+    stagger: 0.1,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.testimonials__grid',
@@ -264,12 +287,12 @@ gsap.from('.testimonial', {
     }
 });
 
-// About bio text
+// About bio
 gsap.from('.about__bio p', {
     opacity: 0,
-    y: 20,
-    duration: 0.6,
-    stagger: 0.1,
+    y: 15,
+    duration: 0.5,
+    stagger: 0.08,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.about__bio',
@@ -281,8 +304,8 @@ gsap.from('.about__bio p', {
 // Presskit
 gsap.from('.media__presskit', {
     opacity: 0,
-    y: 40,
-    duration: 0.8,
+    y: 30,
+    duration: 0.7,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.media__presskit',
@@ -294,8 +317,8 @@ gsap.from('.media__presskit', {
 // Contact form
 gsap.from('.contact__form', {
     opacity: 0,
-    y: 40,
-    duration: 0.8,
+    y: 30,
+    duration: 0.7,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.contact__form',
@@ -307,11 +330,11 @@ gsap.from('.contact__form', {
 // ===== VANILLA TILT (3D Cards) =====
 if (window.innerWidth > 768) {
     VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
-        max: 8,
+        max: 5,
         speed: 400,
         glare: true,
-        'max-glare': 0.15,
-        perspective: 1000,
+        'max-glare': 0.08,
+        perspective: 1200,
     });
 }
 
@@ -319,14 +342,14 @@ if (window.innerWidth > 768) {
 const quotesSwiper = new Swiper('.media__quotes', {
     loop: true,
     autoplay: {
-        delay: 5000,
+        delay: 6000,
         disableOnInteraction: false,
     },
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
     },
-    speed: 800,
+    speed: 900,
     effect: 'fade',
     fadeEffect: {
         crossFade: true
@@ -343,9 +366,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// ===== REDUCE PARTICLES ON MOBILE =====
-if (window.innerWidth < 768 && window.pJSDom && window.pJSDom[0]) {
-    window.pJSDom[0].pJS.particles.number.value = 25;
-    window.pJSDom[0].pJS.fn.particlesRefresh();
-}
