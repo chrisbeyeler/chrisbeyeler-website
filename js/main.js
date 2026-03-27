@@ -250,7 +250,7 @@ gsap.from('.keynotes__gallery-item', {
     opacity: 0,
     y: 30,
     duration: 0.7,
-    stagger: 0.12,
+    stagger: 0.1,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.keynotes__gallery',
@@ -262,9 +262,9 @@ gsap.from('.keynotes__gallery-item', {
 // Testimonials
 gsap.from('.testimonial', {
     opacity: 0,
-    y: 30,
-    duration: 0.6,
-    stagger: 0.1,
+    y: 40,
+    duration: 0.7,
+    stagger: 0.12,
     ease: 'power3.out',
     scrollTrigger: {
         trigger: '.testimonials__grid',
@@ -283,6 +283,46 @@ gsap.from('.about__bio p', {
     scrollTrigger: {
         trigger: '.about__bio',
         start: 'top 80%',
+        once: true
+    }
+});
+
+// Essay content
+gsap.from('.essay__lead', {
+    opacity: 0,
+    y: 30,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.essay__lead',
+        start: 'top 85%',
+        once: true
+    }
+});
+
+gsap.from('.essay__text p', {
+    opacity: 0,
+    y: 20,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.essay__text',
+        start: 'top 85%',
+        once: true
+    }
+});
+
+// Article cards
+gsap.from('.article-card', {
+    opacity: 0,
+    y: 30,
+    duration: 0.6,
+    stagger: 0.08,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.articles__grid',
+        start: 'top 85%',
         once: true
     }
 });
@@ -309,6 +349,44 @@ gsap.from('.contact__form', {
     scrollTrigger: {
         trigger: '.contact__form',
         start: 'top 85%',
+        once: true
+    }
+});
+
+// Podcast section
+gsap.from('.podcast__visual', {
+    opacity: 0,
+    x: -40,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.podcast__hero',
+        start: 'top 80%',
+        once: true
+    }
+});
+
+gsap.from('.podcast__info', {
+    opacity: 0,
+    x: 40,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.podcast__hero',
+        start: 'top 80%',
+        once: true
+    }
+});
+
+// Essay visual
+gsap.from('.essay__visual', {
+    opacity: 0,
+    x: 40,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.essay__grid',
+        start: 'top 80%',
         once: true
     }
 });
