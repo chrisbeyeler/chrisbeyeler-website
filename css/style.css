@@ -382,14 +382,14 @@ h4 { font-size: clamp(1rem, 1.4vw, 1.15rem); }
     inset: 0;
     z-index: 2;
     background:
-        linear-gradient(0deg, var(--bg-primary) 0%, rgba(8, 12, 22, 0.88) 30%, rgba(8, 12, 22, 0.4) 60%, rgba(8, 12, 22, 0.65) 100%);
+        linear-gradient(0deg, var(--bg-primary) 0%, rgba(8, 12, 22, 0.85) 25%, rgba(8, 12, 22, 0.25) 55%, rgba(8, 12, 22, 0.5) 100%);
 }
 
 .hero__content {
     position: relative;
     z-index: 3;
     padding-bottom: 0;
-    padding-top: 30vh;
+    padding-top: 45vh;
 }
 
 .hero__badge {
@@ -416,7 +416,8 @@ h4 { font-size: clamp(1rem, 1.4vw, 1.15rem); }
     display: block;
     opacity: 0;
     transform: translateY(40px);
-    line-height: 1.08;
+    line-height: 1.15;
+    padding-bottom: 0.05em;
     text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
 }
 .hero__title-accent {
