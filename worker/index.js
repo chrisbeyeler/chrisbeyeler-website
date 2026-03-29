@@ -207,24 +207,31 @@ export default {
         return Response.json({ reply: 'Bitte stell mir eine Frage.' }, { headers: corsHeaders });
       }
 
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': env.ANTHROPIC_API_KEY,
-          'anthropic-version': '2023-06-01',
-        },
-        body: JSON.stringify({
-          model: 'claude-haiku-4-5-20251001',
-          max_tokens: 600,
-          system: SYSTEM_PROMPT,
-          messages: messages.slice(-10),
-        }),
-      });
+      // Gemini API (primary, free tier)
+      const geminiMessages = messages.slice(-10).map(m => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.content }]
+      }));
+
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${env.GOOGLE_API_KEY}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents: geminiMessages,
+            generationConfig: {
+              maxOutputTokens: 500,
+              temperature: 0.7,
+            },
+          }),
+        }
+      );
 
       if (!response.ok) {
         const err = await response.text();
-        console.error('API Error:', err);
+        console.error('Gemini Error:', err);
         return Response.json(
           { reply: 'Entschuldigung, ich bin gerade nicht verfuegbar. Kontaktiere Chris direkt unter chris@beyonder.ch.' },
           { status: 200, headers: corsHeaders }
@@ -232,7 +239,7 @@ export default {
       }
 
       const data = await response.json();
-      const reply = data.content?.[0]?.text || 'Keine Antwort erhalten.';
+      const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Keine Antwort erhalten.';
 
       return Response.json({ reply }, { headers: corsHeaders });
 
