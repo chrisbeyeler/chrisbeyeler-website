@@ -265,10 +265,10 @@ scrollReveal('.essay__visual',
     '.essay__grid');
 
 // Contact form
-scrollReveal('.contact__form',
+scrollReveal('.contact__card',
     { opacity: 0, y: 25 },
-    { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
-    '.contact__form');
+    { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out' },
+    '.contact__grid');
 
 // ===== VANILLA TILT (3D Cards) =====
 if (window.innerWidth > 768) {
