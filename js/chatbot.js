@@ -3,7 +3,7 @@
    FAQ-basierter Fallback + optional API-Anbindung
    =================================================================== */
 
-const CHATBOT_API = 'https://chrisbeyeler-chatbot.beyonder.workers.dev/chat';
+const CHATBOT_API = 'https://chrisbeyeler-chatbot.chrisbeyeler.workers.dev/chat';
 
 // FAQ-Datenbank fuer lokalen Fallback (RAG-Wissensbasis)
 const FAQ_DATABASE = {

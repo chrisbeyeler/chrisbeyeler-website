@@ -940,43 +940,49 @@
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
     <script>
-    // Contact Form (AJAX, kein Redirect)
+    // Contact Form — Worker mit Fallback auf mailto
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('contactSubmit');
             const feedback = document.getElementById('contactFeedback');
-            const origText = btn.textContent;
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value.trim();
+            const subjectMap = { keynote: 'Keynote-Anfrage', workshop: 'Workshop-Anfrage', presse: 'Medien/Presse', sonstiges: 'Kontaktanfrage' };
+            const subjectText = subjectMap[subject] || 'Kontaktanfrage';
+
             btn.textContent = 'Wird gesendet...';
             btn.disabled = true;
             feedback.className = 'contact__feedback';
             feedback.style.display = 'none';
+
             try {
-                const res = await fetch('https://chrisbeyeler-chatbot.beyonder.workers.dev/contact', {
+                const res = await fetch('https://chrisbeyeler-chatbot.chrisbeyeler.workers.dev/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        name: document.getElementById('contactName').value,
-                        email: document.getElementById('contactEmail').value,
-                        subject: document.getElementById('contactSubject').value,
-                        message: document.getElementById('contactMessage').value,
-                    }),
+                    body: JSON.stringify({ name, email, subject, message }),
                 });
                 const data = await res.json();
                 if (data.ok) {
                     feedback.className = 'contact__feedback contact__feedback--success';
                     feedback.textContent = data.message;
                     contactForm.reset();
-                } else {
-                    feedback.className = 'contact__feedback contact__feedback--error';
-                    feedback.textContent = data.error || 'Senden fehlgeschlagen.';
+                    btn.textContent = 'Nachricht senden';
+                    btn.disabled = false;
+                    return;
                 }
-            } catch {
-                feedback.className = 'contact__feedback contact__feedback--error';
-                feedback.textContent = 'Verbindungsfehler. Schreib direkt an chris@beyonder.ch.';
-            }
-            btn.textContent = origText;
+            } catch {}
+
+            // Fallback: mailto
+            const body = `Hoi Chris\n\n${message}\n\nBeste Grüsse\n${name}\n${email}`;
+            const mailtoUrl = `mailto:chris@beyonder.ch?subject=${encodeURIComponent('[chrisbeyeler.ch] ' + subjectText)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoUrl;
+            feedback.className = 'contact__feedback contact__feedback--success';
+            feedback.textContent = 'Dein Mail-Programm sollte sich öffnen. Falls nicht: chris@beyonder.ch';
+            btn.textContent = 'Nachricht senden';
             btn.disabled = false;
         });
     }
