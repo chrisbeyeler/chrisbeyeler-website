@@ -5,42 +5,78 @@
 
 const CHATBOT_API = 'https://chrisbeyeler-chatbot.beyonder.workers.dev/chat';
 
-// FAQ-Datenbank fuer lokalen Fallback
+// FAQ-Datenbank fuer lokalen Fallback (RAG-Wissensbasis)
 const FAQ_DATABASE = {
     'keynote': {
-        keywords: ['keynote', 'vortrag', 'speech', 'buehne', 'preis', 'kosten', 'buchen', 'anfragen'],
-        answer: 'Chris bietet verschiedene Keynote-Formate an: "The State of AI", "AI in Marketing", "5 Erfolgsfaktoren fuer KI in KMU" und "Wie KI die Arbeit beeinflusst". Dauer: 30-90 Minuten. Fuer Preise und Verfuegbarkeit kontaktiere Chris direkt unter chris@beyonder.ch oder nutze das Kontaktformular auf der Seite.'
+        keywords: ['keynote', 'vortrag', 'speech', 'buehne', 'buchen', 'anfragen', 'referent', 'speaker', 'rede'],
+        answer: 'Chris bietet 4 Keynote-Themen an: "The State of AI" (KI-Ueberblick mit Live-Demos), "AI in Marketing" (Praxisbeispiele fuer Marketingteams), "5 Erfolgsfaktoren fuer KI in KMU" (sofort anwendbar) und "Wie KI die Arbeit beeinflusst" (Future of Work). Dauer: 30-90 Minuten. Alle Themen individuell anpassbar. 70+ Keynotes auf Buehnen wie OMT Summit, AI in Marketing Konferenz Zuerich, Power Pur und Digital Day Bern. Anfragen: chris@beyonder.ch'
+    },
+    'preis': {
+        keywords: ['preis', 'kosten', 'budget', 'was kostet', 'preisliste', 'tarif', 'offerte', 'angebot'],
+        answer: 'Fuer ein individuelles Angebot kontaktiere Chris direkt unter chris@beyonder.ch. Die Preise haengen von Format (Keynote, Workshop, Moderation), Dauer und Anpassungen ab. Mehr Infos unter beyonder.ch/preise.'
     },
     'themen': {
-        keywords: ['themen', 'topic', 'inhalt', 'worüber', 'wovon', 'angebot'],
-        answer: 'Chris spricht ueber: KI-Strategie, KI im Marketing, KI fuer KMU, die Zukunft der Arbeit mit KI, Prompt Engineering und die ethische Nutzung von KI. Alle Vortraege koennen individuell angepasst werden.'
+        keywords: ['themen', 'topic', 'inhalt', 'worueber', 'wovon', 'state of ai', 'marketing', 'kmu', 'arbeit'],
+        answer: 'Die 4 Hauptthemen: 1) The State of AI (Trends, Demos), 2) AI in Marketing (Content, Personalisierung, Automation), 3) 5 Erfolgsfaktoren fuer KI in KMU (Strategie, ROI), 4) Wie KI die Arbeit beeinflusst (neue Rollen, Leadership). Alle individuell anpassbar. Chris spricht auch ueber Prompt Engineering, KI-Ethik und digitale Transformation.'
     },
     'chris': {
-        keywords: ['chris', 'beyeler', 'wer', 'person', 'bio', 'über', 'ueber'],
-        answer: 'Chris Beyeler ist KI-Experte, Keynote Speaker, Gruender & CEO der BEYONDER AG und Praesident von swissAI. Er wurde als Digital Shaper 2026 (Ringier/Bilanz) ausgezeichnet und hat ueber 2000 Menschen im Umgang mit KI ausgebildet. Sein Podcast "AI Cast" hat ueber 148 Episoden.'
+        keywords: ['chris', 'beyeler', 'wer', 'person', 'bio', 'ueber'],
+        answer: 'Chris Beyeler ist KI-Experte, Keynote Speaker, Gruender & CEO der BEYONDER AG und Praesident von swissAI. Digital Shaper 2026 (Ringier/Bilanz). Seit 2016 in der KI-Welt aktiv, 2000+ Menschen ausgebildet, 70+ Keynotes, 148+ Podcast-Episoden. Dozent an HWZ, MAZ und SIB. Sein Weg: von MySign ueber siroop und RecruitingHUB zu BEYONDER.'
+    },
+    'karriere': {
+        keywords: ['karriere', 'lebenslauf', 'cv', 'werdegang', 'erfahrung', 'recruiting', 'siroop', 'mysign'],
+        answer: 'Chris Karriere: 2004-2008 Ausbildung Mediamatiker. 2008-2016 MySign (Frontend bis Teamleiter Marketing). 2016-2017 siroop (Swisscom/Coop) als Head of Content, erste Beruehrung mit generativer KI. 2017-2018 CEO RecruitingHUB (KI im HR). 2019 BEYONDER gegruendet. 2023 swissAI gegruendet. 2025 BEYONDER wird AG. 2026 Digital Shaper.'
     },
     'swissai': {
-        keywords: ['swissai', 'kimpact', 'verein', 'verband', 'schweiz'],
-        answer: 'swissAI (frueher KImpact) ist der Schweizer Verein zur Foerderung von Kuenstlicher Intelligenz. Chris Beyeler ist Praesident. Ziel ist es, dass mehr Menschen und Unternehmen in der Schweiz KI kompetent, kritisch und verantwortungsvoll nutzen. Mehr: swissai.ch'
+        keywords: ['swissai', 'kimpact', 'verein', 'verband', 'schweiz', 'ki verband'],
+        answer: 'swissAI (frueher KImpact) ist der Schweizer Verband fuer Kuenstliche Intelligenz mit ca. 300 Mitgliedern. Chris Beyeler ist Praesident. Gegruendet 2023, gemeinnuetzig. Mission: Wissen, Dialog und verantwortungsvolle Innovation foerdern. Mehr: swissai.ch'
     },
     'beyonder': {
-        keywords: ['beyonder', 'agentur', 'firma', 'unternehmen', 'ag'],
-        answer: 'BEYONDER AG ist die von Chris 2019 gegruendete und 2025 in eine AG umgewandelte KI-Beratung mit Sitz im Aargau. Das Team bildet Unternehmen in der ganzen Schweiz im Umgang mit KI aus: Schulungen, Workshops, Strategieberatung. Mehr: beyonder.ch'
+        keywords: ['beyonder', 'firma', 'unternehmen', 'ag', 'kompetenzzentrum', 'team'],
+        answer: 'BEYONDER AG ist das Schweizer KI-Kompetenzzentrum in Gebenstorf (AG). Gegruendet 2019, seit Juli 2025 AG mit Vollfokus auf KI. Team: Chris Beyeler (CEO), David Henzmann, Michael Kyburz, Raphael Pflugi, Luca Conconi. Dienstleistungen: Schulungen, Beratung, Implementierung, Keynotes. Kunden: SUVA, Rotes Kreuz, BKW, Mobiliar u.v.m. Google Rating: 4.9/5 (108 Reviews). Mehr: beyonder.ch'
+    },
+    'schulung': {
+        keywords: ['workshop', 'schulung', 'training', 'kurs', 'lernen', 'masterclass', 'weiterbildung'],
+        answer: 'BEYONDER bietet verschiedene Formate: KI-Business Masterclass (6 Std, max 6 TN, inkl. Zmittag), KI-Basiskurs (Halbtag/Ganztag), massgeschneiderte Team-Workshops (5-200+ Personen), und Dozentschaften. Praxisnah mit dem CORE+ Prompt Framework. 4.9 Sterne auf Google mit 108 Reviews. Anfragen: chris@beyonder.ch'
     },
     'podcast': {
-        keywords: ['podcast', 'ai cast', 'episode', 'spotify', 'apple'],
-        answer: 'Der "AI Cast" ist Chris Beyelers Podcast ueber Kuenstliche Intelligenz mit ueber 148 Episoden seit 2019. Verfuegbar auf Spotify, Apple Podcasts und YouTube. Er ist einer der aeltesten deutschsprachigen KI-Podcasts der Schweiz.'
-    },
-    'workshop': {
-        keywords: ['workshop', 'schulung', 'training', 'kurs', 'lernen', 'masterclass'],
-        answer: 'Chris bietet Halbtags- und Ganztags-Workshops zu verschiedenen KI-Themen an: von der KI-Einfuehrung bis zum Deep-Dive in Prompt Engineering. Massgeschneidert fuer Teams von 5 bis 200+ Personen. Anfragen: chris@beyonder.ch'
+        keywords: ['podcast', 'ai cast', 'episode', 'spotify', 'apple', 'youtube', 'marketing booster'],
+        answer: 'Der AI Cast (frueher Marketing BOOSTER) ist der Schweizer KI-Podcast von Chris Beyeler. 148+ Episoden seit 2019, 1000 Abonnenten, 8000 Reichweite pro Folge. Themen: KI in der Praxis, Mensch & Maschine, Zukunft & Verantwortung. Verfuegbar auf Spotify, Apple Podcasts und YouTube. Mehr: aicast.ch'
     },
     'kontakt': {
-        keywords: ['kontakt', 'email', 'mail', 'erreichen', 'schreiben'],
-        answer: 'Du erreichst Chris am besten per E-Mail: chris@beyonder.ch. Oder nutze das Kontaktformular weiter unten auf der Seite. Fuer dringende Anfragen: LinkedIn @chrisbeyeler.'
+        keywords: ['kontakt', 'email', 'mail', 'erreichen', 'schreiben', 'telefon', 'adresse'],
+        answer: 'Chris erreichst du am besten per E-Mail: chris@beyonder.ch. BEYONDER AG: +41 56 560 11 00, Wambisterstrasse 1a, 5412 Gebenstorf. Social Media: LinkedIn, Instagram, TikTok @chrisbeyeler. Oder nutze das Kontaktformular weiter unten auf der Seite.'
+    },
+    'digital_shaper': {
+        keywords: ['digital shaper', 'auszeichnung', 'award', 'ringier', 'bilanz', 'acrobat'],
+        answer: 'Chris wurde 2026 als Digital Shaper ausgezeichnet (Ringier/Bilanz/Handelszeitung, Kategorie "AI Acrobats"). Die Digital Shapers werden jaehrlich von digitalswitzerland gekuert und ehren Persoenlichkeiten, die die Digitalisierung in der Schweiz vorantreiben.'
+    },
+    'dozent': {
+        keywords: ['dozent', 'hwz', 'maz', 'sib', 'hochschule', 'universitaet', 'lehre', 'studiengang'],
+        answer: 'Chris ist Dozent an der HWZ (Hochschule fuer Wirtschaft Zuerich), am MAZ (Medienausbildungszentrum) und am SIB. Er war zudem Studiengangsleiter am zB. Zentrum Bildung. Total hat er ueber 2000 Menschen im Bereich KI ausgebildet.'
+    },
+    'review': {
+        keywords: ['review', 'bewertung', 'rezension', 'google', 'proven', 'sterne', 'erfahrung', 'feedback'],
+        answer: 'BEYONDER hat 4.9 von 5 Sternen auf Google (108 Reviews) und 4.47 auf ProvenExpert. Teilnehmer loben die praxisnahen Inhalte, Chris verstaendliche Erklaerungen und die motivierende Atmosphaere. Einzelne Stimmen: "Hat meine Erwartungen uebertroffen" (Daniel Keller), "Bringt Inspiration auf die Buehne" (Romi Hofer).'
+    },
+    'essay': {
+        keywords: ['essay', 'manifest', 'text', 'artikel', 'zukunft', 'meinung'],
+        answer: 'Chris hat ein KI-Essay veroeffentlicht: "Gestalte deine Zukunft mit Kuenstlicher Intelligenz. Nicht mit Angst und blindem Vertrauen, sondern mit kritischem Denken und aktivem Handeln." Volltext unter essay.chrisbeyeler.ch'
+    },
+    'medien': {
+        keywords: ['medien', 'presse', 'interview', 'srf', 'zeitung', 'pressekit', 'foto'],
+        answer: 'Chris ist bekannt aus SRF, Ringier/Bilanz, persoenlich.com, Aargauer Zeitung, Handelszeitung, topsoft, Netzwoche und vielen weiteren. Das Pressekit mit Bio-Texten und Profi-Fotos findest du auf chrisbeyeler.ch. Medienanfragen: chris@beyonder.ch'
+    },
+    'core': {
+        keywords: ['core', 'framework', 'prompt', 'prompting', 'methode', 'skill-stack'],
+        answer: 'CORE+ ist BEYONDERs eigenes Framework fuer effektives Prompting. Es funktioniert wie ein Navigationsgeraet fuer den Prompting-Prozess und fuehrt strukturiert zu klaren, wirkungsvollen Inputs. Das Plus steht fuer "bleib im Gespraech", weil gute Ergebnisse durch Zusammenarbeit entstehen, auch mit KI.'
+    },
+    'format': {
+        keywords: ['format', 'dauer', 'lang', 'kurz', 'halbtag', 'ganztag', 'moderation', 'podium'],
+        answer: 'Verfuegbare Formate: Keynote (30-60 Min), Workshop (Halb- oder Ganztag), Moderation (Events & Panels), Podiumsdiskussion. Die KI-Business Masterclass dauert 6 Stunden mit max. 6 Teilnehmern. Alles individuell anpassbar.'
     },
     'default': {
-        answer: 'Gute Frage! Ich kann dir Infos zu Chris Beyeler, seinen Keynotes, BEYONDER AG, swissAI, dem AI Cast Podcast oder KI-Workshops geben. Fuer detaillierte Anfragen erreichst du Chris direkt unter chris@beyonder.ch.'
+        answer: 'Ich kann dir Infos geben zu: Chris Beyeler (Bio, Karriere), Keynotes (Themen, Formate, Buchen), BEYONDER AG (Team, Dienstleistungen), swissAI (Verband), AI Cast (Podcast), oder KI-Workshops. Fuer detaillierte Anfragen: chris@beyonder.ch'
     }
 };
 

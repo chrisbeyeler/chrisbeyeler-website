@@ -87,13 +87,11 @@
         <div id="particles-js" class="hero__particles"></div>
         <div class="hero__overlay"></div>
         <div class="hero__content container">
-            <div class="hero__badge">Digital Shaper 2026</div>
-            <h1 class="hero__title">
-                <span class="hero__title-line">KI verstehen.</span>
-                <span class="hero__title-line">KI nutzen.</span>
-                <span class="hero__title-line hero__title-accent">KI gestalten.</span>
-            </h1>
-            <p class="hero__subtitle">Keynote Speaker &bull; KI-Stratege &bull; Pr&auml;sident swissAI</p>
+            <div class="hero__stage">
+                <div class="hero__stage-label">Digital Shaper 2026</div>
+                <h1 class="hero__stage-headline">Künstliche Intelligenz<br><em>verstehen, nutzen, gestalten.</em></h1>
+                <p class="hero__stage-sub">Keynote Speaker &nbsp;&middot;&nbsp; KI-Stratege &nbsp;&middot;&nbsp; Pr&auml;sident swissAI</p>
+            </div>
             <div class="hero__ctas">
                 <a href="#contact" class="btn btn--primary">Keynote anfragen</a>
                 <a href="#keynotes" class="btn btn--secondary">Keynotes entdecken</a>
@@ -103,19 +101,19 @@
             <div class="container">
                 <div class="hero__trust">
                     <div class="hero__trust-item">
-                        <span class="hero__trust-number" data-count="2000">0</span><span class="hero__trust-plus">+</span>
+                        <span class="hero__trust-num-wrap"><span class="hero__trust-number" data-count="2000">0</span><span class="hero__trust-plus">+</span></span>
                         <span class="hero__trust-label">Menschen ausgebildet</span>
                     </div>
                     <div class="hero__trust-item">
-                        <span class="hero__trust-number" data-count="70">0</span>
+                        <span class="hero__trust-num-wrap"><span class="hero__trust-number" data-count="70">0</span></span>
                         <span class="hero__trust-label">Keynotes</span>
                     </div>
                     <div class="hero__trust-item">
-                        <span class="hero__trust-number" data-count="148">0</span><span class="hero__trust-plus">+</span>
+                        <span class="hero__trust-num-wrap"><span class="hero__trust-number" data-count="148">0</span><span class="hero__trust-plus">+</span></span>
                         <span class="hero__trust-label">Podcast-Episoden</span>
                     </div>
                     <div class="hero__trust-item">
-                        <span class="hero__trust-number" data-count="100">0</span><span class="hero__trust-plus">+</span>
+                        <span class="hero__trust-num-wrap"><span class="hero__trust-number" data-count="100">0</span><span class="hero__trust-plus">+</span></span>
                         <span class="hero__trust-label">5-Sterne Reviews</span>
                     </div>
                 </div>
@@ -131,62 +129,82 @@
 
             <div class="keynotes__grid">
                 <div class="keynote-card" data-tilt>
-                    <div class="keynote-card__icon">01</div>
-                    <h3 class="keynote-card__title">The State of AI</h3>
-                    <p class="keynote-card__desc">Wo steht KI heute? Ein fundierter Überblick über die aktuellsten Entwicklungen, Chancen und Risiken, weltweit und in der Schweiz. Daten, Demos und die wichtigsten Trends, die jede Branche betreffen.</p>
-                    <div class="keynote-card__meta">
-                        <span class="keynote-card__format">Keynote</span>
-                        <span class="keynote-card__duration">30-60 Min</span>
+                    <div class="keynote-card__image">
+                        <img src="img/chris-stage-keynote.jpg" alt="The State of AI Keynote" loading="lazy">
                     </div>
-                    <div class="keynote-card__tags">
-                        <span class="tag">Strategie</span>
-                        <span class="tag">Trends</span>
-                        <span class="tag">Live-Demos</span>
-                    </div>
-                </div>
-
-                <div class="keynote-card" data-tilt>
-                    <div class="keynote-card__icon">02</div>
-                    <h3 class="keynote-card__title">The State of AI in Marketing</h3>
-                    <p class="keynote-card__desc">Wie KI Marketing revolutioniert: Content-Erstellung, Personalisierung, Automation. Mit Praxisbeispielen aus der Schweiz und international. Sofort umsetzbare Strategien für Marketingteams.</p>
-                    <div class="keynote-card__meta">
-                        <span class="keynote-card__format">Keynote</span>
-                        <span class="keynote-card__duration">30-60 Min</span>
-                    </div>
-                    <div class="keynote-card__tags">
-                        <span class="tag">Marketing</span>
-                        <span class="tag">Content</span>
-                        <span class="tag">Praxis</span>
+                    <div class="keynote-card__body">
+                        <div class="keynote-card__icon">01</div>
+                        <h3 class="keynote-card__title">The State of AI</h3>
+                        <p class="keynote-card__desc">Wo steht KI heute? Ein fundierter Überblick über die aktuellsten Entwicklungen, Chancen und Risiken, weltweit und in der Schweiz. Daten, Demos und die wichtigsten Trends, die jede Branche betreffen.</p>
+                        <div class="keynote-card__meta">
+                            <span class="keynote-card__format">Keynote</span>
+                            <span class="keynote-card__duration">30-60 Min</span>
+                        </div>
+                        <div class="keynote-card__tags">
+                            <span class="tag">Strategie</span>
+                            <span class="tag">Trends</span>
+                            <span class="tag">Live-Demos</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="keynote-card" data-tilt>
-                    <div class="keynote-card__icon">03</div>
-                    <h3 class="keynote-card__title">5 Erfolgsfaktoren f&uuml;r KI in KMU</h3>
-                    <p class="keynote-card__desc">Der praxisorientierte Leitfaden für Schweizer KMU: Strategie, Schulung, Implementierung. Bodenständig, wirksam, sofort anwendbar. Mit konkreten Use-Cases und ROI-Beispielen.</p>
-                    <div class="keynote-card__meta">
-                        <span class="keynote-card__format">Keynote + Workshop</span>
-                        <span class="keynote-card__duration">Flexibel</span>
+                    <div class="keynote-card__image">
+                        <img src="img/chris-stage-omt.jpg" alt="AI in Marketing Keynote" loading="lazy">
                     </div>
-                    <div class="keynote-card__tags">
-                        <span class="tag">KMU</span>
-                        <span class="tag">Strategie</span>
-                        <span class="tag">ROI</span>
+                    <div class="keynote-card__body">
+                        <div class="keynote-card__icon">02</div>
+                        <h3 class="keynote-card__title">The State of AI in Marketing</h3>
+                        <p class="keynote-card__desc">Wie KI Marketing revolutioniert: Content-Erstellung, Personalisierung, Automation. Mit Praxisbeispielen aus der Schweiz und international. Sofort umsetzbare Strategien für Marketingteams.</p>
+                        <div class="keynote-card__meta">
+                            <span class="keynote-card__format">Keynote</span>
+                            <span class="keynote-card__duration">30-60 Min</span>
+                        </div>
+                        <div class="keynote-card__tags">
+                            <span class="tag">Marketing</span>
+                            <span class="tag">Content</span>
+                            <span class="tag">Praxis</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="keynote-card" data-tilt>
-                    <div class="keynote-card__icon">04</div>
-                    <h3 class="keynote-card__title">Wie KI die Arbeit beeinflusst</h3>
-                    <p class="keynote-card__desc">Die Transformation der Arbeitswelt durch KI: Neue Rollen, neue Kompetenzen, neue Chancen. Von der Angst zur Autonomie. Konkrete Handlungsempfehlungen für Teams und Führungskräfte.</p>
-                    <div class="keynote-card__meta">
-                        <span class="keynote-card__format">Keynote + Podium</span>
-                        <span class="keynote-card__duration">30-90 Min</span>
+                    <div class="keynote-card__image">
+                        <img src="img/chris-stage-byoai.jpg" alt="5 Erfolgsfaktoren KI KMU" loading="lazy">
                     </div>
-                    <div class="keynote-card__tags">
-                        <span class="tag">Arbeitswelt</span>
-                        <span class="tag">Future of Work</span>
-                        <span class="tag">Leadership</span>
+                    <div class="keynote-card__body">
+                        <div class="keynote-card__icon">03</div>
+                        <h3 class="keynote-card__title">5 Erfolgsfaktoren f&uuml;r KI in KMU</h3>
+                        <p class="keynote-card__desc">Der praxisorientierte Leitfaden für Schweizer KMU: Strategie, Schulung, Implementierung. Bodenständig, wirksam, sofort anwendbar. Mit konkreten Use-Cases und ROI-Beispielen.</p>
+                        <div class="keynote-card__meta">
+                            <span class="keynote-card__format">Keynote + Workshop</span>
+                            <span class="keynote-card__duration">Flexibel</span>
+                        </div>
+                        <div class="keynote-card__tags">
+                            <span class="tag">KMU</span>
+                            <span class="tag">Strategie</span>
+                            <span class="tag">ROI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="keynote-card" data-tilt>
+                    <div class="keynote-card__image">
+                        <img src="img/chris-stage-new-1.jpg" alt="KI und Arbeitswelt Keynote" loading="lazy">
+                    </div>
+                    <div class="keynote-card__body">
+                        <div class="keynote-card__icon">04</div>
+                        <h3 class="keynote-card__title">Wie KI die Arbeit beeinflusst</h3>
+                        <p class="keynote-card__desc">Die Transformation der Arbeitswelt durch KI: Neue Rollen, neue Kompetenzen, neue Chancen. Von der Angst zur Autonomie. Konkrete Handlungsempfehlungen für Teams und Führungskräfte.</p>
+                        <div class="keynote-card__meta">
+                            <span class="keynote-card__format">Keynote + Podium</span>
+                            <span class="keynote-card__duration">30-90 Min</span>
+                        </div>
+                        <div class="keynote-card__tags">
+                            <span class="tag">Arbeitswelt</span>
+                            <span class="tag">Future of Work</span>
+                            <span class="tag">Leadership</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -252,7 +270,6 @@
                     <div class="logos-row__track">
                         <img src="img/events/omt-summit.svg" alt="OMT Summit" class="logo-item" loading="lazy">
                         <img src="img/events/ai-in-marketing.svg" alt="AI in Marketing" class="logo-item" loading="lazy">
-                        <img src="img/events/tuev-aicon.svg" alt="TÜV AICon" class="logo-item" loading="lazy">
                         <img src="img/events/business-schmiede.svg" alt="Business Schmiede" class="logo-item" loading="lazy">
                         <img src="img/events/automotive-summit.svg" alt="Automotive Summit" class="logo-item" loading="lazy">
                         <img src="img/events/ki-live.svg" alt="KI.LIVE" class="logo-item" loading="lazy">
@@ -261,7 +278,6 @@
                         <!-- Duplicate for seamless loop -->
                         <img src="img/events/omt-summit.svg" alt="" class="logo-item" loading="lazy" aria-hidden="true">
                         <img src="img/events/ai-in-marketing.svg" alt="" class="logo-item" loading="lazy" aria-hidden="true">
-                        <img src="img/events/tuev-aicon.svg" alt="" class="logo-item" loading="lazy" aria-hidden="true">
                         <img src="img/events/business-schmiede.svg" alt="" class="logo-item" loading="lazy" aria-hidden="true">
                         <img src="img/events/automotive-summit.svg" alt="" class="logo-item" loading="lazy" aria-hidden="true">
                         <img src="img/events/ki-live.svg" alt="" class="logo-item" loading="lazy" aria-hidden="true">
@@ -291,7 +307,7 @@
                     <div class="about__bio">
                         <p class="about__bio-lead">Chris Beyeler lebt und atmet Künstliche Intelligenz. Quellcode im Blut, Neugier im Kopf, Vermitteln im Herz.</p>
                         <p>Als Präsident von swissAI und Gründer von BEYONDER baut er Brücken zwischen Mensch und Maschine: wirksam, bodenständig, inspirierend. Mit über 148 Folgen des AI Cast prägt er seit Jahren den Diskurs rund um KI in der Schweiz.</p>
-                        <p>Sein Weg: Vom Software-Entwickler über RecruitingHUB (sein erstes AI-Startup) und siroop (Swisscom/Coop) zu BEYONDER, das er 2019 gründete und 2025 zur AG formte. Heute bildet er mit seinem Team Unternehmen in der ganzen Schweiz im Umgang mit KI aus.</p>
+                        <p>Sein Weg: 2016 kam er als einer der Ersten in der Schweiz mit generativer KI in Berührung und wurde zum Early Adopter. Vom Software-Entwickler über RecruitingHUB und siroop (Swisscom/Coop) zu BEYONDER, das er 2019 gründete und 2025 zur AG formte. Heute bildet er mit seinem Team Unternehmen in der ganzen Schweiz im Umgang mit KI aus.</p>
                     </div>
 
                     <!-- Timeline -->
@@ -299,8 +315,15 @@
                         <div class="timeline__item">
                             <div class="timeline__dot"></div>
                             <div class="timeline__content">
+                                <span class="timeline__year">2016</span>
+                                <span class="timeline__text">Early Adopter generative KI</span>
+                            </div>
+                        </div>
+                        <div class="timeline__item">
+                            <div class="timeline__dot"></div>
+                            <div class="timeline__content">
                                 <span class="timeline__year">2017</span>
-                                <span class="timeline__text">RecruitingHUB, CEO (erstes AI-Startup)</span>
+                                <span class="timeline__text">RecruitingHUB, CEO</span>
                             </div>
                         </div>
                         <div class="timeline__item">
@@ -338,19 +361,19 @@
             <!-- Counter Section -->
             <div class="about__counters">
                 <div class="counter">
-                    <span class="counter__number" data-count="2000">0</span><span class="counter__plus">+</span>
+                    <span class="counter__num-wrap"><span class="counter__number" data-count="2000">0</span><span class="counter__plus">+</span></span>
                     <span class="counter__label">Menschen ausgebildet</span>
                 </div>
                 <div class="counter">
-                    <span class="counter__number" data-count="70">0</span>
+                    <span class="counter__num-wrap"><span class="counter__number" data-count="70">0</span></span>
                     <span class="counter__label">Keynotes & Speeches</span>
                 </div>
                 <div class="counter">
-                    <span class="counter__number" data-count="148">0</span><span class="counter__plus">+</span>
+                    <span class="counter__num-wrap"><span class="counter__number" data-count="148">0</span><span class="counter__plus">+</span></span>
                     <span class="counter__label">Podcast-Episoden</span>
                 </div>
                 <div class="counter">
-                    <span class="counter__number" data-count="30">0</span><span class="counter__plus">+</span>
+                    <span class="counter__num-wrap"><span class="counter__number" data-count="30">0</span><span class="counter__plus">+</span></span>
                     <span class="counter__label">Firmenkunden</span>
                 </div>
             </div>
@@ -358,12 +381,12 @@
             <!-- Roles -->
             <div class="about__roles">
                 <div class="role-card glass-card">
-                    <img src="img/logo-beyonder.png" alt="BEYONDER" class="role-card__logo" loading="lazy">
+                    <img src="img/logo-beyonder.png" alt="BEYONDER" class="role-card__logo role-card__logo--rounded" loading="lazy">
                     <h4>BEYONDER AG</h4>
                     <p>Gründer & CEO</p>
                 </div>
                 <div class="role-card glass-card">
-                    <img src="img/logo-swissai-color.png" alt="swissAI" class="role-card__logo" loading="lazy">
+                    <img src="img/logo-swissai.png" alt="swissAI" class="role-card__logo" loading="lazy">
                     <h4>swissAI</h4>
                     <p>Präsident</p>
                 </div>
@@ -372,10 +395,10 @@
                     <p>Host & Produzent</p>
                     <small>148+ Episoden</small>
                 </div>
-                <div class="role-card glass-card">
-                    <h4>HWZ / MAZ / SIB</h4>
-                    <p>Dozent</p>
-                    <small>2000+ Ausgebildet</small>
+                <div class="role-card role-card--highlight glass-card">
+                    <h4>HWZ &middot; MAZ &middot; SIB &middot; zB.</h4>
+                    <p>Dozent & ehem. Studiengangsleiter</p>
+                    <small>2000+ Menschen ausgebildet</small>
                 </div>
             </div>
         </div>
@@ -387,15 +410,28 @@
             <h2 class="section__title">Was andere <span class="accent">sagen</span></h2>
             <p class="section__subtitle">Feedback von Teilnehmern, Veranstaltern und Medien</p>
 
+            <div class="testimonials__ratings">
+                <div class="testimonials__rating">
+                    <span class="testimonials__rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    <span class="testimonials__rating-score">4.9</span>
+                    <span class="testimonials__rating-source">Google Reviews (108)</span>
+                </div>
+                <div class="testimonials__rating">
+                    <span class="testimonials__rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    <span class="testimonials__rating-score">4.47</span>
+                    <span class="testimonials__rating-source">ProvenExpert</span>
+                </div>
+            </div>
+
             <div class="testimonials__grid">
                 <div class="testimonial glass-card">
                     <div class="testimonial__stars">
                         <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                     </div>
-                    <blockquote class="testimonial__quote">&laquo;Die komplexe Materie der KI auf eine verständliche und zugängliche Weise zu vermitteln. Absolut empfehlenswert für jedes Unternehmen, das KI verstehen und einsetzen will.&raquo;</blockquote>
+                    <blockquote class="testimonial__quote">&laquo;Am Digital Day f&uuml;r den Berner Tourismus hatten wir das Vergn&uuml;gen, Chris Beyeler als Keynote Speaker zum Thema K&uuml;nstliche Intelligenz zu haben. Absolut empfehlenswert.&raquo;</blockquote>
                     <div class="testimonial__author">
-                        <span class="testimonial__name">Anonyme Bewertung</span>
-                        <span class="testimonial__source">ProvenExpert, 5/5</span>
+                        <span class="testimonial__name">Made in Bern AG</span>
+                        <span class="testimonial__source">Google Review</span>
                     </div>
                 </div>
 
@@ -403,10 +439,10 @@
                     <div class="testimonial__stars">
                         <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                     </div>
-                    <blockquote class="testimonial__quote">&laquo;Die KI-Schulung mit Chris Beyeler war insgesamt sehr wertvoll, mit viel Enthusiasmus und praktischen Beispielen. Man merkt sofort: hier spricht jemand mit echter Praxiserfahrung.&raquo;</blockquote>
+                    <blockquote class="testimonial__quote">&laquo;Deine Keynote und die Podiumsdiskussion waren fesselnd und auf den Punkt. Ich habe dich als kompetenten, begeisternden Speaker erlebt.&raquo;</blockquote>
                     <div class="testimonial__author">
-                        <span class="testimonial__name">Workshop-Teilnehmer</span>
-                        <span class="testimonial__source">ProvenExpert, 4.2/5</span>
+                        <span class="testimonial__name">Bettina Wertli-R&uuml;egg</span>
+                        <span class="testimonial__source">Google Review</span>
                     </div>
                 </div>
 
@@ -414,10 +450,10 @@
                     <div class="testimonial__stars">
                         <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                     </div>
-                    <blockquote class="testimonial__quote">&laquo;Seine Fähigkeit, komplexe Themen verständlich zu erklären und abwechslungsreiche Inhalte zu bieten, hat uns begeistert. Top Speaker für jedes Event.&raquo;</blockquote>
+                    <blockquote class="testimonial__quote">&laquo;Der KI-Workshop von Chris Beyeler in der &ouml;ffentlichen Verwaltung hat meine Erwartungen in jeder Hinsicht &uuml;bertroffen.&raquo;</blockquote>
                     <div class="testimonial__author">
-                        <span class="testimonial__name">Event-Veranstalter</span>
-                        <span class="testimonial__source">Google Reviews</span>
+                        <span class="testimonial__name">Daniel Keller</span>
+                        <span class="testimonial__source">Google Review</span>
                     </div>
                 </div>
 
@@ -425,10 +461,10 @@
                     <div class="testimonial__stars">
                         <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                     </div>
-                    <blockquote class="testimonial__quote">&laquo;Chris hat unser Team vom Skeptiker zum begeisterten KI-Anwender gemacht. Die Kombination aus Fachwissen und didaktischem Geschick ist einzigartig.&raquo;</blockquote>
+                    <blockquote class="testimonial__quote">&laquo;Chris Beyeler bringt nicht nur Wissen auf die B&uuml;hne, sondern gleich eine ganze Ladung Inspiration dazu.&raquo;</blockquote>
                     <div class="testimonial__author">
-                        <span class="testimonial__name">KMU-Geschäftsführer</span>
-                        <span class="testimonial__source">ProvenExpert, 5/5</span>
+                        <span class="testimonial__name">Romi Hofer</span>
+                        <span class="testimonial__source">Google Review</span>
                     </div>
                 </div>
 
@@ -436,10 +472,10 @@
                     <div class="testimonial__stars">
                         <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                     </div>
-                    <blockquote class="testimonial__quote">&laquo;Man sollte sich einfach mal hinsetzen, probieren und loslegen. Genau diese Haltung vermittelt Chris auf der Bühne. Authentisch, motivierend, fundiert.&raquo;</blockquote>
+                    <blockquote class="testimonial__quote">&laquo;Sehr gute und praxisorientierte Weiterbildung. Die KI-Business Masterclass bei BEYONDER AG vermittelt konkrete Kompetenzen f&uuml;r den sinnvollen Einsatz von KI im Unternehmensalltag. Klare Empfehlung.&raquo;</blockquote>
                     <div class="testimonial__author">
-                        <span class="testimonial__name">Konferenz-Organisator</span>
-                        <span class="testimonial__source">SRF News</span>
+                        <span class="testimonial__name">Albrecht Aspacher</span>
+                        <span class="testimonial__source">Google Review</span>
                     </div>
                 </div>
 
@@ -447,10 +483,10 @@
                     <div class="testimonial__stars">
                         <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                     </div>
-                    <blockquote class="testimonial__quote">&laquo;Präzise, praxisnah und mit Schweizer Bodenhaftung. Chris schafft es, selbst KI-Skeptiker mitzunehmen und echte Begeisterung zu wecken.&raquo;</blockquote>
+                    <blockquote class="testimonial__quote">&laquo;Ich habe Chris w&auml;hrend der Power Pur Veranstaltung gesehen, seine Pr&auml;sentation war ausgezeichnet! Ich kann Chris aufgrund seiner Professionalit&auml;t und seines Wissens &uuml;ber KI empfehlen. Bravo!&raquo;</blockquote>
                     <div class="testimonial__author">
-                        <span class="testimonial__name">HR-Verantwortliche</span>
-                        <span class="testimonial__source">ProvenExpert, 5/5</span>
+                        <span class="testimonial__name">Stefano Gazzaniga</span>
+                        <span class="testimonial__source">Google Review</span>
                     </div>
                 </div>
             </div>
@@ -477,6 +513,9 @@
                         <img src="img/media/netzwoche.svg" alt="Netzwoche" class="logo-item logo-item--media" loading="lazy">
                         <img src="img/media/swissinfo.svg" alt="swissinfo" class="logo-item logo-item--media" loading="lazy">
                         <img src="img/media/organisator.svg" alt="Organisator" class="logo-item logo-item--media" loading="lazy">
+                        <img src="img/media/bilanz.svg" alt="Bilanz" class="logo-item logo-item--media" loading="lazy">
+                        <img src="img/media/handelszeitung.svg" alt="Handelszeitung" class="logo-item logo-item--media" loading="lazy">
+                        <img src="img/media/st-galler-tagblatt.svg" alt="St. Galler Tagblatt" class="logo-item logo-item--media" loading="lazy">
                         <img src="img/media/nauch.svg" alt="nau.ch" class="logo-item logo-item--media" loading="lazy">
                         <img src="img/media/marketingch.svg" alt="marketing.ch" class="logo-item logo-item--media" loading="lazy">
                         <!-- Duplicate for seamless loop -->
@@ -484,6 +523,9 @@
                         <img src="img/media/ringier.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
                         <img src="img/media/persoenlich.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
                         <img src="img/media/aargauer-zeitung.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
+                        <img src="img/media/bilanz.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
+                        <img src="img/media/handelszeitung.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
+                        <img src="img/media/st-galler-tagblatt.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
                         <img src="img/media/mk.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
                         <img src="img/media/it-reseller.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
                         <img src="img/media/topsoft.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true">
@@ -545,27 +587,27 @@
                 <div class="articles__grid">
                     <a href="https://www.persoenlich.com/blog/die-lust-am-ki-mythos-und-warum-sie-gefahrlich-ist" target="_blank" rel="noopener" class="article-card glass-card">
                         <div class="article-card__img">
-                            <img src="img/media/persoenlich.svg" alt="persoenlich.com" class="article-card__logo" loading="lazy">
+                            <img src="img/articles/persoenlich-ki-mythos.jpg" alt="Die Lust am KI-Mythos" class="article-card__thumb" loading="lazy">
                         </div>
                         <div class="article-card__body">
                             <span class="article-card__source">persoenlich.com</span>
-                            <span class="article-card__title">Die Lust am KI-Mythos und warum sie gefaehrlich ist</span>
+                            <span class="article-card__title">Die Lust am KI-Mythos und warum sie gefährlich ist</span>
                             <span class="article-card__date">Feb 2026</span>
                         </div>
                     </a>
                     <a href="https://www.aargauerzeitung.ch/aargau/kanton-aargau/ki-bilder-tipps-von-aargauer-experten-und-quiz-ld.4089477" target="_blank" rel="noopener" class="article-card glass-card">
                         <div class="article-card__img">
-                            <img src="img/media/aargauer-zeitung.svg" alt="Aargauer Zeitung" class="article-card__logo" loading="lazy">
+                            <img src="img/articles/aargauer-zeitung-ki-bilder.jpg" alt="KI-Bilder Tipps" class="article-card__thumb" loading="lazy">
                         </div>
                         <div class="article-card__body">
                             <span class="article-card__source">Aargauer Zeitung</span>
                             <span class="article-card__title">KI-Bilder: Tipps von Experten und Quiz</span>
-                            <span class="article-card__date">Maer 2026</span>
+                            <span class="article-card__date">März 2026</span>
                         </div>
                     </a>
                     <a href="https://www.srf.ch/news/schweiz/chatgpt-und-co-ki-kurse-in-der-schweiz-boomen" target="_blank" rel="noopener" class="article-card glass-card">
                         <div class="article-card__img">
-                            <img src="img/media/srf.svg" alt="SRF" class="article-card__logo" loading="lazy">
+                            <img src="img/articles/srf-ki-kurse.jpg" alt="KI-Kurse in der Schweiz" class="article-card__thumb" loading="lazy">
                         </div>
                         <div class="article-card__body">
                             <span class="article-card__source">SRF News</span>
@@ -575,17 +617,17 @@
                     </a>
                     <a href="https://www.itbusiness.ch/news/people-corporate/beyeler-geh%C3%B6rt-zu-den-digital-shapers-2026" target="_blank" rel="noopener" class="article-card glass-card">
                         <div class="article-card__img">
-                            <img src="img/media/ringier.svg" alt="Ringier" class="article-card__logo" loading="lazy">
+                            <img src="img/articles/itbusiness-digital-shapers.jpg" alt="Digital Shapers 2026" class="article-card__thumb" loading="lazy">
                         </div>
                         <div class="article-card__body">
                             <span class="article-card__source">IT Business</span>
-                            <span class="article-card__title">Beyeler gehoert zu den Digital Shapers 2026</span>
+                            <span class="article-card__title">Beyeler gehört zu den Digital Shapers 2026</span>
                             <span class="article-card__date">2026</span>
                         </div>
                     </a>
                     <a href="https://topsoft.ch/themen/chris-beyeler-ki-ist-nicht-die-loesung-aller-probleme/" target="_blank" rel="noopener" class="article-card glass-card">
                         <div class="article-card__img">
-                            <img src="img/media/topsoft.svg" alt="topsoft" class="article-card__logo" loading="lazy">
+                            <img src="img/articles/topsoft-ki-probleme.jpg" alt="KI ist nicht die Lösung" class="article-card__thumb" loading="lazy">
                         </div>
                         <div class="article-card__body">
                             <span class="article-card__source">topsoft</span>
@@ -595,11 +637,11 @@
                     </a>
                     <a href="https://www.persoenlich.com/prcorporate-communication/mit-neuer-rechtsform-und-anderem-geschaftsfeld" target="_blank" rel="noopener" class="article-card glass-card">
                         <div class="article-card__img">
-                            <img src="img/media/persoenlich.svg" alt="persoenlich.com" class="article-card__logo" loading="lazy">
+                            <img src="img/articles/persoenlich-beyonder-ag.jpg" alt="BEYONDER AG" class="article-card__thumb" loading="lazy">
                         </div>
                         <div class="article-card__body">
                             <span class="article-card__source">persoenlich.com</span>
-                            <span class="article-card__title">BEYONDER: Neue Rechtsform, neues Geschaeftsfeld</span>
+                            <span class="article-card__title">BEYONDER: Neue Rechtsform, neues Geschäftsfeld</span>
                             <span class="article-card__date">2025</span>
                         </div>
                     </a>
@@ -611,9 +653,13 @@
                 <h3>Pressekit</h3>
                 <p>Bio-Texte, Profi-Fotos und Themen&uuml;bersicht f&uuml;r Medienanfragen.</p>
                 <div class="media__presskit-links">
-                    <a href="assets/pressekit/bio-kurz.txt" class="btn btn--small">Bio (kurz)</a>
-                    <a href="assets/pressekit/bio-lang.txt" class="btn btn--small">Bio (lang)</a>
-                    <a href="assets/pressekit/" class="btn btn--small">Fotos</a>
+                    <a href="assets/pressekit/bio-kurz.txt" class="btn btn--small" download>Bio (kurz)</a>
+                    <a href="assets/pressekit/bio-lang.txt" class="btn btn--small" download>Bio (lang)</a>
+                    <a href="assets/pressekit/fotos/" class="btn btn--small">Fotos (8 Motive, Hoch- &amp; Querformat)</a>
+                </div>
+                <div class="media__presskit-topics">
+                    <p class="media__presskit-topics-label">Keynote-Themen</p>
+                    <p>The State of AI &nbsp;&middot;&nbsp; AI in Marketing &nbsp;&middot;&nbsp; 5 Erfolgsfaktoren f&uuml;r KI in KMU &nbsp;&middot;&nbsp; Wie KI die Arbeit beeinflusst</p>
                 </div>
                 <p class="media__presskit-contact">Medienanfragen: <a href="mailto:chris@beyonder.ch">chris@beyonder.ch</a></p>
             </div>
@@ -621,26 +667,51 @@
             <!-- Podcast-Gastauftritte -->
             <div class="media__guest-podcasts">
                 <h3 class="media__articles-title">Zu Gast in Podcasts</h3>
-                <div class="guest-podcasts__list">
-                    <a href="https://www.mach-dis-ding.ch/2026/02/19/von-der-marketingagentur-zur-ki-agentur/" target="_blank" rel="noopener" class="guest-podcast glass-card">
-                        <span class="guest-podcast__name">Mach dis Ding</span>
-                        <span class="guest-podcast__topic">Von der Marketingagentur zur KI-Agentur</span>
+                <div class="guest-podcasts__grid">
+                    <a href="https://www.mach-dis-ding.ch/2026/02/19/von-der-marketingagentur-zur-ki-agentur/" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                        <div class="guest-podcast-card__img">
+                            <img src="img/podcasts/mach-dis-ding.jpg" alt="Mach dis Ding Podcast" loading="lazy">
+                        </div>
+                        <div class="guest-podcast-card__body">
+                            <span class="guest-podcast-card__name">Mach dis Ding</span>
+                            <span class="guest-podcast-card__topic">Von der Marketingagentur zur KI-Agentur</span>
+                        </div>
                     </a>
-                    <a href="https://www.boostr.ch/folge-3-podcasts-image-ai-zwischen-tiefschlaf-und-chance-warum-die-schweiz-bei-ki-jetzt-umdenken-muss/" target="_blank" rel="noopener" class="guest-podcast glass-card">
-                        <span class="guest-podcast__name">BOOSTR Image AI</span>
-                        <span class="guest-podcast__topic">Warum die Schweiz bei KI umdenken muss</span>
+                    <a href="https://www.boostr.ch/folge-3-podcasts-image-ai-zwischen-tiefschlaf-und-chance-warum-die-schweiz-bei-ki-jetzt-umdenken-muss/" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                        <div class="guest-podcast-card__img">
+                            <img src="img/podcasts/boostr-image-ai.jpg" alt="BOOSTR Image AI Podcast" loading="lazy">
+                        </div>
+                        <div class="guest-podcast-card__body">
+                            <span class="guest-podcast-card__name">BOOSTR Image AI</span>
+                            <span class="guest-podcast-card__topic">Warum die Schweiz bei KI umdenken muss</span>
+                        </div>
                     </a>
-                    <a href="https://www.thomashutter.com/podcast-marketing-trends-2025/" target="_blank" rel="noopener" class="guest-podcast glass-card">
-                        <span class="guest-podcast__name">Digital Marketing Upgrade</span>
-                        <span class="guest-podcast__topic">Marketing-Trends 2025</span>
+                    <a href="https://www.thomashutter.com/podcast-marketing-trends-2025/" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                        <div class="guest-podcast-card__img">
+                            <img src="img/podcasts/digital-marketing-upgrade.jpg" alt="Digital Marketing Upgrade Podcast" loading="lazy">
+                        </div>
+                        <div class="guest-podcast-card__body">
+                            <span class="guest-podcast-card__name">Digital Marketing Upgrade</span>
+                            <span class="guest-podcast-card__topic">Marketing-Trends 2025</span>
+                        </div>
                     </a>
-                    <a href="https://www.podcast.de/episode/670967865/50-was-du-2025-ueber-ki-wissen-musst-um-erfolgreich-durchzustarten-mit-chris-beyeler" target="_blank" rel="noopener" class="guest-podcast glass-card">
-                        <span class="guest-podcast__name">Make IT Podcast #50</span>
-                        <span class="guest-podcast__topic">Was du über KI wissen musst</span>
+                    <a href="https://www.podcast.de/episode/670967865/50-was-du-2025-ueber-ki-wissen-musst-um-erfolgreich-durchzustarten-mit-chris-beyeler" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                        <div class="guest-podcast-card__img">
+                            <img src="img/podcasts/ai-cast.jpg" alt="Make IT Podcast" loading="lazy">
+                        </div>
+                        <div class="guest-podcast-card__body">
+                            <span class="guest-podcast-card__name">Make IT Podcast #50</span>
+                            <span class="guest-podcast-card__topic">Was du über KI wissen musst</span>
+                        </div>
                     </a>
-                    <a href="https://www.mikebite.com/podcasts/chris-beyeler-ki-kuenstliche-intelligenz-veraendert-alles" target="_blank" rel="noopener" class="guest-podcast glass-card">
-                        <span class="guest-podcast__name">mikebite</span>
-                        <span class="guest-podcast__topic">KI veraendert alles</span>
+                    <a href="https://www.mikebite.com/podcasts/chris-beyeler-ki-kuenstliche-intelligenz-veraendert-alles" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                        <div class="guest-podcast-card__img">
+                            <img src="img/podcasts/mikebite.jpg" alt="mikebite Podcast" loading="lazy">
+                        </div>
+                        <div class="guest-podcast-card__body">
+                            <span class="guest-podcast-card__name">mikebite</span>
+                            <span class="guest-podcast-card__topic">KI verändert alles</span>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -651,32 +722,78 @@
     <section class="section podcast" id="podcast">
         <div class="container">
             <h2 class="section__title">AI Cast</h2>
-            <p class="section__subtitle">Der Schweizer Podcast über Künstliche Intelligenz</p>
+            <p class="section__subtitle">Der Schweizer Podcast über Künstliche Intelligenz. Hören, Sehen, Lesen.</p>
 
             <div class="podcast__hero">
                 <div class="podcast__visual">
-                    <img src="img/workshop.jpg" alt="AI Cast Podcast" class="podcast__cover" loading="lazy">
+                    <img src="img/podcasts/ai-cast.jpg" alt="AI Cast Podcast Cover" class="podcast__cover" loading="lazy">
                 </div>
                 <div class="podcast__info">
-                    <div class="podcast__stats">
-                        <div class="podcast__stat">
-                            <span class="podcast__stat-number" data-count="148">0</span><span class="counter__plus">+</span>
-                            <span class="podcast__stat-label">Episoden seit 2019</span>
-                        </div>
-                    </div>
+                    <p class="podcast__host-tagline">Host: Chris Beyeler &mdash; Content-Nerd, Tech-Visionär und Brückenbauer.</p>
 
-                    <!-- Spotify Embed -->
-                    <div class="podcast__embed">
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/3M3pGoFAwT6TGwdMBio6f6?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <div class="podcast__stats-grid">
+                        <div class="podcast__stat">
+                            <span class="podcast__stat-number" data-count="140">0</span><span class="counter__plus">+</span>
+                            <span class="podcast__stat-label">Episoden</span>
+                        </div>
+                        <div class="podcast__stat">
+                            <span class="podcast__stat-number" data-count="1000">0</span>
+                            <span class="podcast__stat-label">Abonnements kanalübergreifend</span>
+                        </div>
+                        <div class="podcast__stat">
+                            <span class="podcast__stat-number" data-count="900">0</span>
+                            <span class="podcast__stat-label">Publikum / Folge</span>
+                        </div>
+                        <div class="podcast__stat">
+                            <span class="podcast__stat-number" data-count="8000">0</span>
+                            <span class="podcast__stat-label">Reichweite pro Folge</span>
+                        </div>
                     </div>
 
                     <!-- Platform Links -->
                     <div class="podcast__platforms">
+                        <a href="https://www.aicast.ch" target="_blank" rel="noopener" class="podcast__platform podcast__platform--primary">aicast.ch</a>
                         <a href="https://open.spotify.com/show/3M3pGoFAwT6TGwdMBio6f6" target="_blank" rel="noopener" class="podcast__platform">Spotify</a>
                         <a href="https://podcasts.apple.com/us/podcast/marketing-booster-beyonder/id1476341514" target="_blank" rel="noopener" class="podcast__platform">Apple Podcasts</a>
                         <a href="https://youtube.com/beyondernow" target="_blank" rel="noopener" class="podcast__platform">YouTube</a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Story -->
+            <div class="podcast__story">
+                <div class="podcast__story-content">
+                    <h3>Die Story dahinter</h3>
+                    <p>Ursprünglich als "Marketing BOOSTER" gestartet, war dieser Podcast nie ein reiner Marketing-Talk. Schon früh zeigte sich Chris' Leidenschaft für die technische Seite der Kommunikation. Der Fokus verschob sich schnell und konsequent auf Technologie und Innovation, bis Künstliche Intelligenz zum unangefochtenen Kern wurde. Der Name änderte sich, die DNA blieb: Neugier, Tiefe und Praxisbezug.</p>
+                </div>
+                <div class="podcast__topics">
+                    <h3>Die Themen</h3>
+                    <div class="podcast__topic-list">
+                        <div class="podcast__topic glass-card">
+                            <h4>KI in der Praxis</h4>
+                            <p>Wie Unternehmen von der Spielerei zur Wertschöpfung kommen.</p>
+                        </div>
+                        <div class="podcast__topic glass-card">
+                            <h4>Mensch &amp; Maschine</h4>
+                            <p>Wie wir Technologie nutzen, um menschlicher zu arbeiten, nicht roboterhafter.</p>
+                        </div>
+                        <div class="podcast__topic glass-card">
+                            <h4>Zukunft &amp; Verantwortung</h4>
+                            <p>Wo die Reise hingeht und wie wir sie ethisch gestalten.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spotify Embed -->
+            <div class="podcast__embed">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/3M3pGoFAwT6TGwdMBio6f6?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <!-- Warum zuhören -->
+            <div class="podcast__why glass-card">
+                <h3>Warum Du zuhören solltest</h3>
+                <p>Weil Du verstehen willst, bevor Du urteilst. Weil Du wissen willst, wie Du KI als Werkzeug für Kreativität und Effizienz nutzt. Chris verbindet Content, Design und Technik zu einem faszinierenden Gesamtbild, immer wirksam, immer bodenständig und oft mit einer Prise Humor.</p>
             </div>
         </div>
     </section>
