@@ -833,20 +833,20 @@
             <h2 class="section__title">Kontakt</h2>
             <p class="section__subtitle">Keynote buchen, Medienanfrage oder einfach Hallo sagen</p>
 
-            <form class="contact__form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
+            <form class="contact__form" id="contactForm">
                 <div class="contact__form-row">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="contactName">Name</label>
+                        <input type="text" id="contactName" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">E-Mail</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="contactEmail">E-Mail</label>
+                        <input type="email" id="contactEmail" name="email" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="subject">Betreff</label>
-                    <select id="subject" name="subject">
+                    <label for="contactSubject">Betreff</label>
+                    <select id="contactSubject" name="subject">
                         <option value="keynote">Keynote anfragen</option>
                         <option value="workshop">Workshop buchen</option>
                         <option value="presse">Medien / Presse</option>
@@ -854,10 +854,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="message">Nachricht</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label for="contactMessage">Nachricht</label>
+                    <textarea id="contactMessage" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="btn btn--primary btn--full">Nachricht senden</button>
+                <button type="submit" class="btn btn--primary btn--full" id="contactSubmit">Nachricht senden</button>
+                <div class="contact__feedback" id="contactFeedback"></div>
             </form>
 
             <div class="contact__alt">
@@ -938,5 +939,47 @@
     <!-- Main JS -->
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
+    <script>
+    // Contact Form (AJAX, kein Redirect)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmit');
+            const feedback = document.getElementById('contactFeedback');
+            const origText = btn.textContent;
+            btn.textContent = 'Wird gesendet...';
+            btn.disabled = true;
+            feedback.className = 'contact__feedback';
+            feedback.style.display = 'none';
+            try {
+                const res = await fetch('https://chrisbeyeler-chatbot.beyonder.workers.dev/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: document.getElementById('contactName').value,
+                        email: document.getElementById('contactEmail').value,
+                        subject: document.getElementById('contactSubject').value,
+                        message: document.getElementById('contactMessage').value,
+                    }),
+                });
+                const data = await res.json();
+                if (data.ok) {
+                    feedback.className = 'contact__feedback contact__feedback--success';
+                    feedback.textContent = data.message;
+                    contactForm.reset();
+                } else {
+                    feedback.className = 'contact__feedback contact__feedback--error';
+                    feedback.textContent = data.error || 'Senden fehlgeschlagen.';
+                }
+            } catch {
+                feedback.className = 'contact__feedback contact__feedback--error';
+                feedback.textContent = 'Verbindungsfehler. Schreib direkt an chris@beyonder.ch.';
+            }
+            btn.textContent = origText;
+            btn.disabled = false;
+        });
+    }
+    </script>
 </body>
 </html>

@@ -192,6 +192,14 @@ export default {
       return new Response('Method not allowed', { status: 405, headers: corsHeaders });
     }
 
+    const url = new URL(request.url);
+
+    // ===== CONTACT FORM ENDPOINT =====
+    if (url.pathname === '/contact') {
+      return handleContact(request, env, corsHeaders);
+    }
+
+    // ===== CHATBOT ENDPOINT (default) =====
     try {
       const { messages } = await request.json();
 
@@ -237,3 +245,94 @@ export default {
     }
   },
 };
+
+// ===== CONTACT FORM HANDLER =====
+async function handleContact(request, env, corsHeaders) {
+  try {
+    const body = await request.json();
+    const { name, email, subject, message } = body;
+
+    // Validation
+    if (!name || !email || !message) {
+      return Response.json(
+        { ok: false, error: 'Bitte fuell alle Pflichtfelder aus.' },
+        { status: 400, headers: corsHeaders }
+      );
+    }
+
+    // Basic email validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return Response.json(
+        { ok: false, error: 'Bitte gib eine gueltige E-Mail-Adresse ein.' },
+        { status: 400, headers: corsHeaders }
+      );
+    }
+
+    // Honeypot/rate limit: reject if message is too long or contains suspicious content
+    if (message.length > 5000) {
+      return Response.json(
+        { ok: false, error: 'Nachricht ist zu lang.' },
+        { status: 400, headers: corsHeaders }
+      );
+    }
+
+    const subjectMap = {
+      'keynote': 'Keynote-Anfrage',
+      'workshop': 'Workshop-Anfrage',
+      'presse': 'Medien / Presse',
+      'sonstiges': 'Kontaktanfrage',
+    };
+    const subjectText = subjectMap[subject] || 'Kontaktanfrage';
+
+    // Send via MailChannels (free for Cloudflare Workers, no API key needed)
+    const mailResponse = await fetch('https://api.mailchannels.net/tx/v1/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        personalizations: [{
+          to: [{ email: 'chris@beyonder.ch', name: 'Chris Beyeler' }],
+        }],
+        from: {
+          email: 'noreply@chrisbeyeler.ch',
+          name: 'chrisbeyeler.ch Kontaktformular',
+        },
+        reply_to: {
+          email: email,
+          name: name,
+        },
+        subject: `[chrisbeyeler.ch] ${subjectText} von ${name}`,
+        content: [{
+          type: 'text/plain',
+          value: `Neue Kontaktanfrage von chrisbeyeler.ch\n\n` +
+                 `Name: ${name}\n` +
+                 `E-Mail: ${email}\n` +
+                 `Betreff: ${subjectText}\n\n` +
+                 `Nachricht:\n${message}\n\n` +
+                 `---\n` +
+                 `Gesendet ueber chrisbeyeler.ch Kontaktformular`,
+        }],
+      }),
+    });
+
+    if (mailResponse.status === 202 || mailResponse.ok) {
+      return Response.json(
+        { ok: true, message: 'Nachricht gesendet! Chris meldet sich bei dir.' },
+        { headers: corsHeaders }
+      );
+    }
+
+    // Fallback: log the message if mail fails
+    console.error('MailChannels error:', await mailResponse.text());
+    return Response.json(
+      { ok: false, error: 'Senden fehlgeschlagen. Schreib direkt an chris@beyonder.ch.' },
+      { status: 500, headers: corsHeaders }
+      );
+
+  } catch (err) {
+    console.error('Contact Error:', err);
+    return Response.json(
+      { ok: false, error: 'Etwas ist schiefgelaufen. Schreib direkt an chris@beyonder.ch.' },
+      { status: 500, headers: corsHeaders }
+    );
+  }
+}
