@@ -661,7 +661,7 @@
                     <p class="media__presskit-topics-label">Keynote-Themen</p>
                     <p>The State of AI &nbsp;&middot;&nbsp; AI in Marketing &nbsp;&middot;&nbsp; 5 Erfolgsfaktoren f&uuml;r KI in KMU &nbsp;&middot;&nbsp; Wie KI die Arbeit beeinflusst</p>
                 </div>
-                <p class="media__presskit-contact">Medienanfragen: <a href="mailto:chris@beyonder.ch">chris@beyonder.ch</a></p>
+                <p class="media__presskit-contact">Medienanfragen: <a href="#" class="js-mail" data-n="hoi" data-d="beyonder.ch">E-Mail</a></p>
             </div>
 
             <!-- Podcast-Gastauftritte -->
@@ -833,36 +833,12 @@
             <h2 class="section__title">Kontakt</h2>
             <p class="section__subtitle">Keynote buchen, Medienanfrage oder einfach Hallo sagen</p>
 
-            <form class="contact__form" id="contactForm">
-                <div class="contact__form-row">
-                    <div class="form-group">
-                        <label for="contactName">Name</label>
-                        <input type="text" id="contactName" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactEmail">E-Mail</label>
-                        <input type="email" id="contactEmail" name="email" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="contactSubject">Betreff</label>
-                    <select id="contactSubject" name="subject">
-                        <option value="keynote">Keynote anfragen</option>
-                        <option value="workshop">Workshop buchen</option>
-                        <option value="presse">Medien / Presse</option>
-                        <option value="sonstiges">Sonstiges</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="contactMessage">Nachricht</label>
-                    <textarea id="contactMessage" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn--primary btn--full" id="contactSubmit">Nachricht senden</button>
-                <div class="contact__feedback" id="contactFeedback"></div>
-            </form>
+            <div class="contact__actions">
+                <a href="https://beyonder.ch/uber-uns/ki-kompetenzzentrum-aargau---kontakt" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Kontakt aufnehmen</a>
+                <a href="#" class="btn btn--secondary js-mail" data-n="hoi" data-d="beyonder.ch">E-Mail schreiben</a>
+            </div>
 
             <div class="contact__alt">
-                <p>Oder direkt: <a href="mailto:chris@beyonder.ch">chris@beyonder.ch</a></p>
                 <p><a href="https://beyonder.ch/uber-uns/ki-kompetenzzentrum-aargau---kontakt" target="_blank" rel="noopener">KI-Kompetenzzentrum Aargau besuchen</a></p>
             </div>
         </div>
@@ -941,24 +917,16 @@
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
     <script>
-    // Contact Form — mailto mit formatierter Nachricht
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const fb = document.getElementById('contactFeedback');
-            const n = document.getElementById('contactName').value.trim();
-            const em = document.getElementById('contactEmail').value.trim();
-            const s = document.getElementById('contactSubject');
-            const msg = document.getElementById('contactMessage').value.trim();
-            const subj = { keynote:'Keynote-Anfrage', workshop:'Workshop-Anfrage', presse:'Medien/Presse', sonstiges:'Kontaktanfrage' }[s.value] || 'Kontaktanfrage';
-            const body = 'Hoi Chris\n\n' + msg + '\n\nBeste Grüsse\n' + n + '\n' + em;
-            window.open('mailto:chris@beyonder.ch?subject=' + encodeURIComponent('[chrisbeyeler.ch] ' + subj) + '&body=' + encodeURIComponent(body), '_self');
-            fb.textContent = 'Dein Mail-Programm sollte sich öffnen. Falls nicht: chris@beyonder.ch';
-            fb.className = 'contact__feedback contact__feedback--success';
-            fb.style.display = 'block';
-        });
-    }
+    // E-Mail Obfuskation (Anti-Spam)
+    document.querySelectorAll('.js-mail').forEach(el => {
+        const n = el.dataset.n;
+        const d = el.dataset.d;
+        const addr = n + '@' + d;
+        el.href = 'mai' + 'lto:' + addr;
+        if (el.textContent === 'E-Mail' || el.textContent === 'E-Mail schreiben') {
+            el.textContent = el.textContent;
+        }
+    });
     </script>
 </body>
 </html>
