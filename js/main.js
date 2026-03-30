@@ -530,12 +530,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     function findHeroAnswer(q) {
         q = q.toLowerCase();
-        if (q.includes('2016') || q.includes('seit wann') || q.includes('wer ist') || q.includes('chris')) return 'Chris Beyeler ist KI-Experte, Keynote Speaker, Gründer & CEO der BEYONDER AG und Präsident von swissAI. Digital Shaper 2026. Seit 2016 aktiv, 2000+ Menschen ausgebildet, 70+ Keynotes.';
-        if (q.includes('swissai') || q.includes('verband')) return 'swissAI ist der Schweizer Verband für Künstliche Intelligenz mit ~300 Mitgliedern. Chris Beyeler ist Präsident. Gegründet 2023. Mission: Wissen, Dialog und verantwortungsvolle Innovation.';
-        if (q.includes('beyonder') || q.includes('firma')) return 'BEYONDER AG ist das Schweizer KI-Kompetenzzentrum in Gebenstorf. Schulungen, Beratung, Keynotes. Kunden: SUVA, Rotes Kreuz, BKW, Mobiliar. 4.9/5 Google (108 Reviews).';
-        if (q.includes('teilnehmer') || q.includes('review') || q.includes('sagen')) return '4.9/5 Sternen (108 Reviews). "Hat meine Erwartungen übertroffen" – Daniel Keller. "Bringt Inspiration auf die Bühne" – Romi Hofer.';
-        if (q.includes('keynote') || q.includes('vortrag') || q.includes('themen')) return '4 Keynotes: "The State of AI", "AI in Marketing", "5 Erfolgsfaktoren KI in KMU", "Wie KI die Arbeit beeinflusst". 30-90 Min, individuell anpassbar.';
-        return 'Ich kann dir Infos geben zu Chris Beyeler, Keynotes, BEYONDER, swissAI oder KI-Workshops. Was möchtest du wissen?';
+        if (q.includes('alt') || q.includes('alter') || q.includes('geburtstag') || q.includes('geboren')) return 'Alter ist nur eine Zahl. Seit 2016 im KI-Game, über 2000 Menschen ausgebildet, immer noch neugierig wie am ersten Tag. Das zählt mehr, oder?';
+        if (q.includes('2016') || q.includes('seit wann') || q.includes('wer ist') || q.includes('chris')) return 'Ich bin die digitale Version von Chris Beyeler. KI-Experte, Keynote Speaker, CEO der BEYONDER AG, Präsident von swissAI. Digital Shaper 2026. Seit 2016 im KI-Game, 2000+ Menschen ausgebildet, 70+ Keynotes.';
+        if (q.includes('swissai') || q.includes('verband')) return 'swissAI ist der Schweizer KI-Verband, den ich 2023 gegründet habe. Rund 300 Mitglieder, gemeinnützig. Mission: Wissen, Dialog und verantwortungsvolle Innovation. Mehr auf swissai.ch';
+        if (q.includes('beyonder') || q.includes('firma')) return 'BEYONDER ist mein KI-Kompetenzzentrum in Gebenstorf. Schulungen, Beratung, Keynotes. Kunden wie SUVA, Rotes Kreuz, BKW, Mobiliar. 4.9/5 auf Google mit 108 Reviews.';
+        if (q.includes('teilnehmer') || q.includes('review') || q.includes('sagen')) return '4.9/5 Sterne, 108 Google Reviews. "Hat meine Erwartungen übertroffen" (Daniel Keller). "Bringt Inspiration auf die Bühne" (Romi Hofer). Das freut mich jedes Mal.';
+        if (q.includes('keynote') || q.includes('vortrag') || q.includes('themen')) return 'Ich hab vier Keynotes: "The State of AI", "AI in Marketing", "5 Erfolgsfaktoren KI in KMU" und "Wie KI die Arbeit beeinflusst". 30-90 Min, alles anpassbar. Schreib mir: chris@beyonder.ch';
+        if (q.includes('preis') || q.includes('kosten') || q.includes('budget')) return 'Preise nenne ich hier nicht. Schreib mir direkt an chris@beyonder.ch für ein individuelles Angebot.';
+        return 'Ich bin die digitale Version von Chris Beyeler und kann dir Infos geben zu Keynotes, BEYONDER, swissAI oder KI-Workshops. Was interessiert dich?';
     }
 
     // ── CLOSE MINI-CHAT ──
