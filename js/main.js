@@ -452,6 +452,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         } t();
     }
 
+    // ── MOBILE PLACEHOLDER ──
+    function updatePlaceholder() {
+        if (!heroAskInput) return;
+        if (window.innerWidth <= 768) {
+            heroAskInput.setAttribute('placeholder', 'Frag Chris AI etwas...');
+        } else {
+            heroAskInput.setAttribute('placeholder', 'Frag die digitale Version von Chris etwas...');
+        }
+    }
+    updatePlaceholder();
+    window.addEventListener('resize', updatePlaceholder);
+
     // ── CHAT INPUT ──
     function handleAsk() {
         var q = heroAskInput.value.trim(); if (!q) return;
@@ -474,8 +486,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     function openMiniChat(question, anchor) {
         var answer = findHeroAnswer(question);
         var hRect = hero.getBoundingClientRect();
+        var isMobileChat = window.innerWidth <= 768;
         var cl, ct;
-        if (anchor) {
+        if (isMobileChat) {
+            // Mobile: zentriert, unterhalb vom Ask-Input
+            var aR = document.getElementById('heroAsk').getBoundingClientRect();
+            cl = 16;
+            ct = aR.top - hRect.top + aR.height + 10;
+            // Sicherstellen, dass der Chat nicht über den Hero-Bereich rausragt
+            if (ct + 280 > hRect.height) ct = hRect.height - 300;
+            if (ct < 60) ct = 60;
+        } else if (anchor) {
             var bR = anchor.getBoundingClientRect();
             cl = bR.left - hRect.left + bR.width + 16; ct = bR.top - hRect.top;
             if (cl + 400 > hRect.width) cl = bR.left - hRect.left - 400;
