@@ -546,9 +546,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         setTimeout(function() { heroChat.style.display = 'none'; }, 300);
     });
     document.getElementById('heroChatExpand').addEventListener('click', function(e) {
-        e.preventDefault(); heroChat.classList.remove('active');
-        setTimeout(function() { heroChat.style.display = 'none'; }, 300);
-        var t = document.getElementById('chatbotTrigger'); if (t) t.click();
+        e.preventDefault(); e.stopPropagation();
+        heroChat.classList.remove('active');
+        setTimeout(function() {
+            heroChat.style.display = 'none';
+            var chatWindow = document.getElementById('chatbotWindow');
+            if (chatWindow) chatWindow.classList.add('active');
+            var chatInput = document.getElementById('chatbotInput');
+            if (chatInput) chatInput.focus();
+        }, 350);
     });
     document.addEventListener('click', function(e) {
         if (heroChat.classList.contains('active') && !e.target.closest('.hero-chat') && !e.target.closest('.hero-bubble') && !e.target.closest('.hero-ask')) {
