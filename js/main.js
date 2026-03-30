@@ -319,3 +319,227 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ===== HERO INTERACTIVE: Glitch, Spotlight, Bubbles, Verb Typewriter, Chat =====
+(function() {
+    var hero = document.getElementById('hero');
+    var heroBg = document.getElementById('heroBg');
+    var headline = document.getElementById('heroHeadline');
+    var verbSpan = document.getElementById('heroVerb');
+    var glitchCanvas = document.getElementById('heroGlitch');
+    var spotlight = document.getElementById('heroSpotlight');
+    var bubbles = document.querySelectorAll('.hero-bubble');
+    var heroChat = document.getElementById('heroChat');
+    var heroChatMessages = document.getElementById('heroChatMessages');
+    var heroAskInput = document.getElementById('heroAskInput');
+    var scanlines = document.getElementById('heroScanlines');
+
+    if (!hero || !glitchCanvas || !spotlight) return;
+
+    var glitchCtx = glitchCanvas.getContext('2d');
+    var spotCtx = spotlight.getContext('2d');
+    var bgImg = heroBg.querySelector('img');
+    var mouseX = 0, mouseY = 0, glitchActive = false, scanlinesShown = false, glitchFrame;
+
+    function resize() {
+        var r = hero.getBoundingClientRect();
+        glitchCanvas.width = spotlight.width = r.width;
+        glitchCanvas.height = spotlight.height = r.height;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // ── HEADLINE VERB TYPEWRITER ──
+    var verbs = ['verstehen.', 'nutzen.', 'gestalten.'];
+    var verbIdx = 0;
+    function typeVerb() {
+        var word = verbs[verbIdx % verbs.length]; verbIdx++;
+        var i = 0; verbSpan.textContent = '';
+        headline.classList.add('glitching');
+        setTimeout(function() { headline.classList.remove('glitching'); }, 300);
+        function typeChar() {
+            if (i < word.length) { verbSpan.textContent += word.charAt(i); i++; setTimeout(typeChar, 70); }
+            else { setTimeout(eraseVerb, 2500); }
+        }
+        function eraseVerb() {
+            var txt = verbSpan.textContent;
+            if (txt.length > 0) { verbSpan.textContent = txt.slice(0, -1); setTimeout(eraseVerb, 35); }
+            else { setTimeout(typeVerb, 300); }
+        }
+        typeChar();
+    }
+    setTimeout(typeVerb, 800);
+
+    // ── GLITCH (local, follows cursor) ──
+    function drawGlitch(cx, cy) {
+        glitchCtx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height);
+        glitchCtx.drawImage(bgImg, 0, 0, glitchCanvas.width, glitchCanvas.height);
+        var radius = 180;
+        var x0 = Math.max(0, (cx - radius) | 0), y0 = Math.max(0, (cy - radius) | 0);
+        var x1 = Math.min(glitchCanvas.width, (cx + radius) | 0), y1 = Math.min(glitchCanvas.height, (cy + radius) | 0);
+        var w = x1 - x0, h = y1 - y0;
+        if (w > 0 && h > 0) {
+            var id = glitchCtx.getImageData(x0, y0, w, h), d = id.data;
+            var off = ((Math.random() * 14 - 7) | 0) * 4;
+            for (var i = 0; i < d.length; i += 4) { var j = i + off; if (j >= 0 && j < d.length) d[i] = d[j]; }
+            for (var i = 0; i < d.length; i += 4) { d[i + 1] = Math.min(255, d[i + 1] + 12); d[i + 2] = Math.min(255, d[i + 2] + 18); }
+            glitchCtx.putImageData(id, x0, y0);
+            for (var s = 0; s < 4; s++) {
+                if (Math.random() > 0.3) {
+                    var sy = cy + ((Math.random() * 100 - 50) | 0), sh = (Math.random() * 10 + 3) | 0, sx = (Math.random() * 16 - 8) | 0;
+                    if (sy > 0 && sy + sh < glitchCanvas.height) { var sl = glitchCtx.getImageData(0, sy, glitchCanvas.width, sh); glitchCtx.putImageData(sl, sx, sy); }
+                }
+            }
+        }
+        glitchCtx.globalCompositeOperation = 'destination-in';
+        var g = glitchCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+        g.addColorStop(0, 'rgba(0,0,0,0.6)'); g.addColorStop(0.5, 'rgba(0,0,0,0.25)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+        glitchCtx.fillStyle = g; glitchCtx.fillRect(0, 0, glitchCanvas.width, glitchCanvas.height);
+        glitchCtx.globalCompositeOperation = 'source-over';
+    }
+    function glitchLoop() {
+        if (!glitchActive) { glitchCtx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height); return; }
+        drawGlitch(mouseX, mouseY);
+        setTimeout(function() { glitchFrame = requestAnimationFrame(glitchLoop); }, 100);
+    }
+
+    // ── SPOTLIGHT ──
+    function drawSpotlight(x, y) {
+        spotCtx.clearRect(0, 0, spotlight.width, spotlight.height);
+        var g = spotCtx.createRadialGradient(x, y, 0, x, y, 300);
+        g.addColorStop(0, 'rgba(255,255,255,0.055)'); g.addColorStop(0.5, 'rgba(255,255,255,0.015)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+        spotCtx.fillStyle = g; spotCtx.fillRect(0, 0, spotlight.width, spotlight.height);
+    }
+
+    // ── BUBBLE MAGNETISM ──
+    function updateBubbles(cx, cy) {
+        bubbles.forEach(function(b) {
+            var r = b.getBoundingClientRect(), dx = cx - (r.left + r.width / 2), dy = cy - (r.top + r.height / 2), dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 260) { var f = (1 - dist / 260) * 12; b.classList.add('active'); b.style.transform = 'translate(' + (dx / dist * f) + 'px,' + (dy / dist * f) + 'px)'; }
+            else { b.classList.remove('active'); b.style.transform = ''; }
+        });
+    }
+
+    // ── MOUSE EVENTS ──
+    hero.addEventListener('mouseenter', function() {
+        glitchActive = true; glitchCanvas.classList.add('active'); glitchLoop();
+        spotlight.classList.add('active');
+        if (!scanlinesShown) { scanlinesShown = true; setTimeout(function() { scanlines.classList.add('visible'); }, 500); }
+    });
+    hero.addEventListener('mouseleave', function() {
+        glitchActive = false; glitchCanvas.classList.remove('active');
+        cancelAnimationFrame(glitchFrame);
+        glitchCtx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height);
+        spotlight.classList.remove('active'); heroBg.style.transform = '';
+        bubbles.forEach(function(b) { b.classList.remove('active'); b.style.transform = ''; });
+    });
+    hero.addEventListener('mousemove', function(e) {
+        var r = hero.getBoundingClientRect();
+        mouseX = e.clientX - r.left; mouseY = e.clientY - r.top;
+        drawSpotlight(mouseX, mouseY);
+        updateBubbles(e.clientX, e.clientY);
+        heroBg.style.transform = 'translate(' + ((mouseX / r.width - 0.5) * -5) + 'px,' + ((mouseY / r.height - 0.5) * -3) + 'px) scale(1.02)';
+    });
+
+    // ── TYPEWRITER UTIL ──
+    function twType(el, text, speed, cb) {
+        var i = 0; el.textContent = ''; el.classList.add('typing');
+        function t() {
+            if (i < text.length) { el.textContent += text.charAt(i); i++;
+                if (el.parentElement) el.parentElement.scrollTop = el.parentElement.scrollHeight;
+                setTimeout(t, speed);
+            } else { el.classList.remove('typing'); if (cb) cb(); }
+        } t();
+    }
+
+    // ── CHAT INPUT ──
+    function handleAsk() {
+        var q = heroAskInput.value.trim(); if (!q) return;
+        heroAskInput.value = '';
+        openMiniChat(q, null);
+    }
+    document.getElementById('heroAskSend').addEventListener('click', handleAsk);
+    heroAskInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleAsk(); });
+
+    // ── BUBBLE CLICK ──
+    bubbles.forEach(function(bubble) {
+        bubble.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var tmp = document.createElement('div'); tmp.innerHTML = bubble.dataset.question;
+            openMiniChat(tmp.textContent, bubble);
+        });
+    });
+
+    // ── MINI-CHAT ──
+    function openMiniChat(question, anchor) {
+        var answer = findHeroAnswer(question);
+        var hRect = hero.getBoundingClientRect();
+        var cl, ct;
+        if (anchor) {
+            var bR = anchor.getBoundingClientRect();
+            cl = bR.left - hRect.left + bR.width + 16; ct = bR.top - hRect.top;
+            if (cl + 400 > hRect.width) cl = bR.left - hRect.left - 400;
+            if (ct + 320 > hRect.height - 80) ct = hRect.height - 400;
+            if (ct < 20) ct = 20;
+        } else {
+            var aR = document.getElementById('heroAsk').getBoundingClientRect();
+            cl = aR.left - hRect.left; ct = aR.top - hRect.top + aR.height + 12;
+            if (cl + 400 > hRect.width) cl = hRect.width - 420;
+        }
+        heroChat.style.left = cl + 'px'; heroChat.style.top = ct + 'px';
+        heroChatMessages.innerHTML = '';
+        var um = document.createElement('div');
+        um.className = 'hero-chat__msg hero-chat__msg--user';
+        um.textContent = question;
+        heroChatMessages.appendChild(um);
+        heroChat.style.display = 'flex'; heroChat.offsetHeight;
+        heroChat.classList.add('active');
+        var tp = document.createElement('div');
+        tp.className = 'hero-chat__typing';
+        tp.innerHTML = '<span></span><span></span><span></span>';
+        heroChatMessages.appendChild(tp);
+        setTimeout(function() {
+            tp.remove();
+            var bm = document.createElement('div');
+            bm.className = 'hero-chat__msg hero-chat__msg--bot';
+            heroChatMessages.appendChild(bm);
+            twType(bm, answer, 10);
+        }, 400);
+    }
+
+    function findHeroAnswer(q) {
+        q = q.toLowerCase();
+        if (q.includes('2016') || q.includes('seit wann') || q.includes('wer ist') || q.includes('chris')) return 'Chris Beyeler ist KI-Experte, Keynote Speaker, Gründer & CEO der BEYONDER AG und Präsident von swissAI. Digital Shaper 2026. Seit 2016 aktiv, 2000+ Menschen ausgebildet, 70+ Keynotes.';
+        if (q.includes('swissai') || q.includes('verband')) return 'swissAI ist der Schweizer Verband für Künstliche Intelligenz mit ~300 Mitgliedern. Chris Beyeler ist Präsident. Gegründet 2023. Mission: Wissen, Dialog und verantwortungsvolle Innovation.';
+        if (q.includes('beyonder') || q.includes('firma')) return 'BEYONDER AG ist das Schweizer KI-Kompetenzzentrum in Gebenstorf. Schulungen, Beratung, Keynotes. Kunden: SUVA, Rotes Kreuz, BKW, Mobiliar. 4.9/5 Google (108 Reviews).';
+        if (q.includes('teilnehmer') || q.includes('review') || q.includes('sagen')) return '4.9/5 Sternen (108 Reviews). "Hat meine Erwartungen übertroffen" – Daniel Keller. "Bringt Inspiration auf die Bühne" – Romi Hofer.';
+        if (q.includes('keynote') || q.includes('vortrag') || q.includes('themen')) return '4 Keynotes: "The State of AI", "AI in Marketing", "5 Erfolgsfaktoren KI in KMU", "Wie KI die Arbeit beeinflusst". 30-90 Min, individuell anpassbar.';
+        return 'Ich kann dir Infos geben zu Chris Beyeler, Keynotes, BEYONDER, swissAI oder KI-Workshops. Was möchtest du wissen?';
+    }
+
+    // ── CLOSE MINI-CHAT ──
+    document.getElementById('heroChatClose').addEventListener('click', function(e) {
+        e.stopPropagation(); heroChat.classList.remove('active');
+        setTimeout(function() { heroChat.style.display = 'none'; }, 300);
+    });
+    document.getElementById('heroChatExpand').addEventListener('click', function(e) {
+        e.preventDefault(); heroChat.classList.remove('active');
+        setTimeout(function() { heroChat.style.display = 'none'; }, 300);
+        var t = document.getElementById('chatbotTrigger'); if (t) t.click();
+    });
+    document.addEventListener('click', function(e) {
+        if (heroChat.classList.contains('active') && !e.target.closest('.hero-chat') && !e.target.closest('.hero-bubble') && !e.target.closest('.hero-ask')) {
+            heroChat.classList.remove('active');
+            setTimeout(function() { heroChat.style.display = 'none'; }, 300);
+        }
+    });
+
+    // ── INVITE BLINK ──
+    setTimeout(function() {
+        var b = document.getElementById('bubble1');
+        if (b && !b.classList.contains('active')) {
+            b.classList.add('hero-bubble--invite');
+            setTimeout(function() { b.classList.remove('hero-bubble--invite'); }, 6000);
+        }
+    }, 3000);
+})();

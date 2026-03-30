@@ -267,20 +267,56 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-        <div class="hero__bg">
+        <div class="hero__bg" id="heroBg">
             <img src="img/hero-bg.jpg" alt="" aria-hidden="true">
         </div>
+        <canvas class="hero-glitch" id="heroGlitch"></canvas>
+        <div class="hero-scanlines" id="heroScanlines"></div>
         <div id="particles-js" class="hero__particles"></div>
         <div class="hero__overlay"></div>
+        <canvas class="hero-spotlight" id="heroSpotlight"></canvas>
+
+        <!-- Chat Bubbles -->
+        <div class="hero-bubble hero-bubble--f1" id="bubble0" style="top:16%;left:5%;" data-question="Seit wann besch&auml;ftigt sich Chris Beyeler mit KI?">
+            <div class="hero-bubble__dot"></div><div class="hero-bubble__content"><span class="hero-bubble__value">Seit 2016</span><span class="hero-bubble__label">Early Adopter KI</span></div>
+        </div>
+        <div class="hero-bubble hero-bubble--f2" id="bubble1" style="top:22%;right:5%;" data-question="Was ist swissAI?">
+            <div class="hero-bubble__dot"></div><div class="hero-bubble__content"><span class="hero-bubble__value">swissAI</span><span class="hero-bubble__label">Pr&auml;sident</span></div>
+        </div>
+        <div class="hero-bubble hero-bubble--f3" id="bubble2" style="top:44%;left:3%;" data-question="Was macht die BEYONDER AG?">
+            <div class="hero-bubble__dot"></div><div class="hero-bubble__content"><span class="hero-bubble__value">BEYONDER</span><span class="hero-bubble__label">Gr&uuml;nder &amp; CEO</span></div>
+        </div>
+        <div class="hero-bubble hero-bubble--f4" id="bubble3" style="top:40%;right:4%;" data-question="Was sagen Teilnehmer &uuml;ber Chris Beyeler?">
+            <div class="hero-bubble__dot"></div><div class="hero-bubble__content"><span class="hero-bubble__value">4.9 &#9733;</span><span class="hero-bubble__label">108 Reviews</span></div>
+        </div>
+
+        <!-- Embedded Mini-Chat -->
+        <div class="hero-chat" id="heroChat">
+            <div class="hero-chat__header"><div class="hero-chat__avatar">CB</div><span class="hero-chat__name">Chris Beyeler AI</span><button class="hero-chat__close" id="heroChatClose">&times;</button></div>
+            <div class="hero-chat__messages" id="heroChatMessages"></div>
+            <div class="hero-chat__cta"><a href="#" id="heroChatExpand">Weiter im Chat &rarr;</a></div>
+        </div>
+
         <div class="hero__content container">
             <div class="hero__stage">
                 <div class="hero__stage-label">Digital Shaper 2026</div>
-                <h1 class="hero__stage-headline">Künstliche Intelligenz<br><em>verstehen, nutzen, gestalten.</em></h1>
+                <h1 class="hero__stage-headline" id="heroHeadline">Künstliche Intelligenz<br><em><span class="hero-verb" id="heroVerb"></span><span class="hero-verb__cursor"></span></em></h1>
                 <p class="hero__stage-sub">Keynote Speaker &nbsp;&middot;&nbsp; KI-Stratege &nbsp;&middot;&nbsp; Pr&auml;sident swissAI</p>
-            </div>
-            <div class="hero__ctas">
-                <a href="#contact" class="btn btn--primary">Keynote anfragen</a>
-                <a href="#keynotes" class="btn btn--secondary">Keynotes entdecken</a>
+
+                <!-- Chat Input -->
+                <div class="hero-ask" id="heroAsk">
+                    <div class="hero-ask__wrapper">
+                        <input type="text" class="hero-ask__input" id="heroAskInput" placeholder="Frag die digitale Version von Chris etwas..." autocomplete="off">
+                    </div>
+                    <button class="hero-ask__send" id="heroAskSend" aria-label="Senden">
+                        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </div>
+
+                <div class="hero__ctas hero__ctas--small">
+                    <a href="#contact" class="btn btn--primary">Keynote anfragen</a>
+                    <a href="#keynotes" class="btn btn--secondary">Keynotes entdecken</a>
+                </div>
             </div>
         </div>
         <div class="hero__bottom">
