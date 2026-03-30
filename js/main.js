@@ -339,6 +339,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     var glitchCtx = glitchCanvas.getContext('2d');
     var spotCtx = spotlight.getContext('2d');
     var bgImg = heroBg.querySelector('img');
+    var bgReady = false;
+    function markBgReady() { bgReady = bgImg.complete && bgImg.naturalWidth > 0; }
+    markBgReady();
+    if (!bgReady) { bgImg.addEventListener('load', function() { markBgReady(); resize(); }); }
     var mouseX = 0, mouseY = 0, glitchActive = false, scanlinesShown = false, glitchFrame;
 
     function resize() {
@@ -371,31 +375,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     setTimeout(typeVerb, 800);
 
     // ── GLITCH (local, follows cursor) ──
+    // Replicate CSS object-fit:cover + object-position:center 30% for canvas
+    function coverDraw(ctx, img, cw, ch) {
+        var iw = img.naturalWidth, ih = img.naturalHeight;
+        var scale = Math.max(cw / iw, ch / ih);
+        var sw = cw / scale, sh = ch / scale;
+        var sx = (iw - sw) / 2;
+        var sy = (ih - sh) * 0.3; // object-position: center 30%
+        ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
+    }
     function drawGlitch(cx, cy) {
-        glitchCtx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height);
-        glitchCtx.drawImage(bgImg, 0, 0, glitchCanvas.width, glitchCanvas.height);
-        var radius = 180;
-        var x0 = Math.max(0, (cx - radius) | 0), y0 = Math.max(0, (cy - radius) | 0);
-        var x1 = Math.min(glitchCanvas.width, (cx + radius) | 0), y1 = Math.min(glitchCanvas.height, (cy + radius) | 0);
-        var w = x1 - x0, h = y1 - y0;
-        if (w > 0 && h > 0) {
-            var id = glitchCtx.getImageData(x0, y0, w, h), d = id.data;
-            var off = ((Math.random() * 14 - 7) | 0) * 4;
-            for (var i = 0; i < d.length; i += 4) { var j = i + off; if (j >= 0 && j < d.length) d[i] = d[j]; }
-            for (var i = 0; i < d.length; i += 4) { d[i + 1] = Math.min(255, d[i + 1] + 12); d[i + 2] = Math.min(255, d[i + 2] + 18); }
-            glitchCtx.putImageData(id, x0, y0);
-            for (var s = 0; s < 4; s++) {
-                if (Math.random() > 0.3) {
-                    var sy = cy + ((Math.random() * 100 - 50) | 0), sh = (Math.random() * 10 + 3) | 0, sx = (Math.random() * 16 - 8) | 0;
-                    if (sy > 0 && sy + sh < glitchCanvas.height) { var sl = glitchCtx.getImageData(0, sy, glitchCanvas.width, sh); glitchCtx.putImageData(sl, sx, sy); }
+        if (!bgReady) return;
+        var cw = glitchCanvas.width, ch = glitchCanvas.height;
+        glitchCtx.clearRect(0, 0, cw, ch);
+        try {
+            coverDraw(glitchCtx, bgImg, cw, ch);
+            var radius = 180;
+            var x0 = Math.max(0, (cx - radius) | 0), y0 = Math.max(0, (cy - radius) | 0);
+            var x1 = Math.min(cw, (cx + radius) | 0), y1 = Math.min(ch, (cy + radius) | 0);
+            var w = x1 - x0, h = y1 - y0;
+            if (w > 0 && h > 0) {
+                var id = glitchCtx.getImageData(x0, y0, w, h), d = id.data;
+                var off = ((Math.random() * 14 - 7) | 0) * 4;
+                for (var i = 0; i < d.length; i += 4) { var j = i + off; if (j >= 0 && j < d.length) d[i] = d[j]; }
+                for (var i = 0; i < d.length; i += 4) { d[i + 1] = Math.min(255, d[i + 1] + 12); d[i + 2] = Math.min(255, d[i + 2] + 18); }
+                glitchCtx.putImageData(id, x0, y0);
+                for (var s = 0; s < 4; s++) {
+                    if (Math.random() > 0.3) {
+                        var sy = cy + ((Math.random() * 100 - 50) | 0), sh = (Math.random() * 10 + 3) | 0, sx = (Math.random() * 16 - 8) | 0;
+                        if (sy > 0 && sy + sh < ch) { var sl = glitchCtx.getImageData(0, sy, cw, sh); glitchCtx.putImageData(sl, sx, sy); }
+                    }
                 }
             }
+            glitchCtx.globalCompositeOperation = 'destination-in';
+            var g = glitchCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+            g.addColorStop(0, 'rgba(0,0,0,0.6)'); g.addColorStop(0.5, 'rgba(0,0,0,0.25)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+            glitchCtx.fillStyle = g; glitchCtx.fillRect(0, 0, cw, ch);
+            glitchCtx.globalCompositeOperation = 'source-over';
+        } catch(e) {
+            // Canvas tainted (file:// protocol) — skip pixel manipulation, just show overlay
+            glitchCtx.clearRect(0, 0, cw, ch);
         }
-        glitchCtx.globalCompositeOperation = 'destination-in';
-        var g = glitchCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-        g.addColorStop(0, 'rgba(0,0,0,0.6)'); g.addColorStop(0.5, 'rgba(0,0,0,0.25)'); g.addColorStop(1, 'rgba(0,0,0,0)');
-        glitchCtx.fillStyle = g; glitchCtx.fillRect(0, 0, glitchCanvas.width, glitchCanvas.height);
-        glitchCtx.globalCompositeOperation = 'source-over';
     }
     function glitchLoop() {
         if (!glitchActive) { glitchCtx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height); return; }
