@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pressefotos — Chris Beyeler</title>
+    <meta name="description" content="Pressefotos von Chris Beyeler zum Download. Keynote Speaker & KI-Stratege.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="../../../img/favicon.png">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <style>
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            margin: 0;
+        }
+        .press-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+        .press-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+            transition: color 0.2s var(--ease-out);
+        }
+        .press-back:hover {
+            color: var(--orange);
+        }
+        .press-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 700;
+            margin: 0 0 8px;
+        }
+        .press-subtitle {
+            font-family: var(--font-body);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin: 0 0 48px;
+        }
+        .press-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .press-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+        }
+        .press-card:hover {
+            border-color: var(--glass-border-hover);
+            transform: translateY(-4px);
+        }
+        .press-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            display: block;
+        }
+        .press-card-info {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .press-card-name {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .press-card-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--orange);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: var(--orange-dim);
+            transition: background 0.2s var(--ease-out);
+        }
+        .press-card-download:hover {
+            background: rgba(255, 146, 32, 0.25);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.92);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10000;
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="press-container">
+        <a href="../../../#pressekit" class="press-back">&larr; Zurück zur Website</a>
+        <h1 class="press-title">Pressefotos</h1>
+        <p class="press-subtitle">4 Motive in Hoch- und Querformat. Klicken zum Vergrössern, Download-Button für die hochauflösende Originaldatei.</p>
+
+        <div class="press-grid">
+            <div class="press-card">
+                <img src="chris-beyeler-hero.jpg" alt="Chris Beyeler — KI-Stratege & Keynote Speaker" loading="lazy" onclick="openLightbox(this.src)">
+                <div class="press-card-info">
+                    <span class="press-card-name">KI-Stratege (893 × 1600)</span>
+                    <a href="chris-beyeler-hero.jpg" download class="press-card-download">Download</a>
+                </div>
+            </div>
+            <div class="press-card">
+                <img src="chris-beyeler-about.jpg" alt="Chris Beyeler — Portrait" loading="lazy" onclick="openLightbox(this.src)">
+                <div class="press-card-info">
+                    <span class="press-card-name">Portrait (662 × 1200)</span>
+                    <a href="chris-beyeler-about.jpg" download class="press-card-download">Download</a>
+                </div>
+            </div>
+            <div class="press-card">
+                <img src="chris-beyeler-keynote.jpg" alt="Chris Beyeler — Keynote auf der Bühne" loading="lazy" onclick="openLightbox(this.src)">
+                <div class="press-card-info">
+                    <span class="press-card-name">Keynote (5693 × 3795)</span>
+                    <a href="chris-beyeler-keynote.jpg" download class="press-card-download">Download</a>
+                </div>
+            </div>
+            <div class="press-card">
+                <img src="chris-beyeler-omt.jpg" alt="Chris Beyeler — OMT Vortrag" loading="lazy" onclick="openLightbox(this.src)">
+                <div class="press-card-info">
+                    <span class="press-card-name">OMT Vortrag (6524 × 4349)</span>
+                    <a href="chris-beyeler-omt.jpg" download class="press-card-download">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="Vollbild">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
