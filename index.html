@@ -32,9 +32,6 @@
     <!-- Fonts (lokal, DSGVO-konform) -->
     <link rel="icon" type="image/png" href="img/favicon.png">
 
-    <!-- Swiper CSS (lokal) -->
-    <link rel="stylesheet" href="vendor/swiper.min.css">
-
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -350,7 +347,7 @@
             <p class="section__subtitle">70 Speeches auf Bühnen in der Schweiz und international. Von CEOs bis Startups, von Konzernen bis KMU.</p>
 
             <div class="keynotes__grid">
-                <div class="keynote-card" data-tilt>
+                <div class="keynote-card">
                     <div class="keynote-card__image">
                         <img src="img/chris-stage-keynote.jpg" alt="Chris Beyeler Keynote: The State of AI, KI Experte Schweiz" loading="lazy">
                     </div>
@@ -370,7 +367,7 @@
                     </div>
                 </div>
 
-                <div class="keynote-card" data-tilt>
+                <div class="keynote-card">
                     <div class="keynote-card__image">
                         <img src="img/chris-stage-omt.jpg" alt="Chris Beyeler Keynote: AI in Marketing, Keynote Speaker KI Schweiz" loading="lazy">
                     </div>
@@ -390,7 +387,7 @@
                     </div>
                 </div>
 
-                <div class="keynote-card" data-tilt>
+                <div class="keynote-card">
                     <div class="keynote-card__image">
                         <img src="img/chris-stage-byoai.jpg" alt="Chris Beyeler: 5 Erfolgsfaktoren für KI in KMU, KI Berater Schweiz" loading="lazy">
                     </div>
@@ -410,7 +407,7 @@
                     </div>
                 </div>
 
-                <div class="keynote-card" data-tilt>
+                <div class="keynote-card">
                     <div class="keynote-card__image">
                         <img src="img/chris-stage-new-1.jpg" alt="Chris Beyeler Keynote: Wie KI die Arbeitswelt beeinflusst, AI Stratege Schweiz" loading="lazy">
                     </div>
@@ -435,22 +432,22 @@
                 <h3 class="keynotes__formats-title">Formate</h3>
                 <div class="keynotes__formats-grid">
                     <div class="format-item">
-                        <div class="format-item__icon">&#9733;</div>
+                        <div class="format-item__icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
                         <span>Keynote</span>
-                        <small>30-60 Min</small>
+                        <small>30 &ndash; 60 Min</small>
                     </div>
                     <div class="format-item">
-                        <div class="format-item__icon">&#9881;</div>
+                        <div class="format-item__icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg></div>
                         <span>Workshop</span>
                         <small>Halbtag / Ganztag</small>
                     </div>
                     <div class="format-item">
-                        <div class="format-item__icon">&#9782;</div>
+                        <div class="format-item__icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                         <span>Moderation</span>
-                        <small>Events & Panels</small>
+                        <small>Events &amp; Panels</small>
                     </div>
                     <div class="format-item">
-                        <div class="format-item__icon">&#9783;</div>
+                        <div class="format-item__icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                         <span>Podium</span>
                         <small>Diskussionsrunden</small>
                     </div>
@@ -458,6 +455,7 @@
             </div>
 
             <!-- Stage Photos Gallery -->
+            <p class="keynotes__stages-label">Impressionen von der Bühne</p>
             <div class="keynotes__gallery">
                 <div class="keynotes__gallery-item">
                     <img src="img/gallery-1.jpg" alt="Chris Beyeler Keynote Speaker am OMT Summit Düsseldorf" loading="lazy">
@@ -534,6 +532,7 @@
 
                     <!-- Timeline -->
                     <div class="about__timeline">
+                        <div class="timeline-progress"></div>
                         <div class="timeline__item">
                             <div class="timeline__dot"></div>
                             <div class="timeline__content">
@@ -770,65 +769,26 @@
                 </div>
             </div>
 
-            <!-- Quotes Carousel -->
-            <div class="media__quotes swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;KI ist nicht die Lösung aller Probleme, sondern das Analysieren der entsprechenden Prozesse und dann die Optimierung einzelner Schritte.&raquo;</p>
-                            <cite class="quote__source">topsoft</cite>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;Das Thema KI ist 2024 in der Schweiz explodiert.&raquo;</p>
-                            <cite class="quote__source">SRF News</cite>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;KI bleibt ein Werkzeug, kein fühlendes Wesen und kein eigenständiger Akteur.&raquo;</p>
-                            <cite class="quote__source">persoenlich.com</cite>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;Mein Ziel ist, dass mehr Menschen und Unternehmen in der Schweiz KI kompetent, kritisch und verantwortungsvoll nutzen.&raquo;</p>
-                            <cite class="quote__source">Digital Shapers 2026</cite>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;Man sollte sich einfach mal hinsetzen, probieren und loslegen.&raquo;</p>
-                            <cite class="quote__source">SRF News</cite>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;KI kann nur so gut sein wie die Briefings und das Fachwissen, das wir mitbringen.&raquo;</p>
-                            <cite class="quote__source">Digital Marketing Upgrade Podcast</cite>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;Nicht KI ersetzt euch, sondern die Menschen, die sie nutzen.&raquo;</p>
-                            <cite class="quote__source">Plattform J / htr.ch</cite>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;Nur wer KI praxisnah integriert, nutzt sie wirksam.&raquo;</p>
-                            <cite class="quote__source">topsoft</cite>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="quote">
-                            <p class="quote__text">&laquo;Mehr Zeit f&uuml;r pers&ouml;nliche Kontakte und damit Menschlichkeit.&raquo;</p>
-                            <cite class="quote__source">Bilanz Digital Shapers 2026</cite>
-                        </blockquote>
-                    </div>
+            <!-- Quotes Crossfade (ST-5) -->
+            <div class="media__quotes" id="quotesContainer">
+                <div class="quotes__stack">
+                    <blockquote class="quote quote--stacked">
+                        <p class="quote__text">&laquo;KI ist nicht die L&ouml;sung aller Probleme, sondern das Analysieren der entsprechenden Prozesse und dann die Optimierung einzelner Schritte.&raquo;</p>
+                        <cite class="quote__source">topsoft</cite>
+                    </blockquote>
+                    <blockquote class="quote quote--stacked">
+                        <p class="quote__text">&laquo;Das Thema KI ist 2024 in der Schweiz explodiert.&raquo;</p>
+                        <cite class="quote__source">SRF News</cite>
+                    </blockquote>
+                    <blockquote class="quote quote--stacked">
+                        <p class="quote__text">&laquo;Mein Ziel ist, dass mehr Menschen und Unternehmen in der Schweiz KI kompetent, kritisch und verantwortungsvoll nutzen.&raquo;</p>
+                        <cite class="quote__source">Digital Shapers 2026</cite>
+                    </blockquote>
+                    <blockquote class="quote quote--stacked">
+                        <p class="quote__text">&laquo;Nicht KI ersetzt euch, sondern die Menschen, die sie nutzen.&raquo;</p>
+                        <cite class="quote__source">Plattform J / htr.ch</cite>
+                    </blockquote>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
 
             <!-- Artikel-Liste mit Bildern -->
@@ -895,7 +855,7 @@
                             <span class="article-card__date">Jan 2026</span>
                         </div>
                     </a>
-                    <a href="https://topsoft.ch/themen/chris-beyeler-nur-wer-ki-praxisnah-integriert-nutzt-sie-wirksam/" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://topsoft.ch/themen/chris-beyeler-nur-wer-ki-praxisnah-integriert-nutzt-sie-wirksam/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/topsoft-ki-praxisnah.jpg" alt="KI praxisnah integrieren" class="article-card__thumb" loading="lazy">
                         </div>
@@ -905,7 +865,7 @@
                             <span class="article-card__date">Nov 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.badenertagblatt.ch/aargau/baden/gebenstorf-erstes-ki-kompetenzzentrum-im-aargau-eroeffnet-denn-die-ueberforderung-ist-vielerorts-gross-ld.2793857" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.badenertagblatt.ch/aargau/baden/gebenstorf-erstes-ki-kompetenzzentrum-im-aargau-eroeffnet-denn-die-ueberforderung-ist-vielerorts-gross-ld.2793857" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/badenertagblatt-ki-zentrum.jpg" alt="KI-Kompetenzzentrum Aargau" class="article-card__thumb" loading="lazy">
                         </div>
@@ -915,7 +875,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://ihre-region-online.ch/2025/07/09/neues-kompetenzzentrum-fuer-ki/" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://ihre-region-online.ch/2025/07/09/neues-kompetenzzentrum-fuer-ki/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/ihre-region-ki-zentrum.jpg" alt="KI-Kompetenzzentrum" class="article-card__thumb" loading="lazy">
                         </div>
@@ -925,7 +885,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.plattformj.ch/artikel/234052/" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.plattformj.ch/artikel/234052/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/plattformj-digital-day.jpg" alt="Digital Day Bern" class="article-card__thumb" loading="lazy">
                         </div>
@@ -935,7 +895,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.htr.ch/story/people-events/berner-tourismus-ruestet-sich-fuer-die-ki-zukunft-43265" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.htr.ch/story/people-events/berner-tourismus-ruestet-sich-fuer-die-ki-zukunft-43265" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/htr-tourismus-ki.jpg" alt="Berner Tourismus KI" class="article-card__thumb" loading="lazy">
                         </div>
@@ -945,7 +905,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.netzwoche.ch/news/2025-07-02/kanton-aargau-erhaelt-ein-ki-kompetenzzentrum" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.netzwoche.ch/news/2025-07-02/kanton-aargau-erhaelt-ein-ki-kompetenzzentrum" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/netzwoche-ki-zentrum.jpg" alt="KI-Kompetenzzentrum Aargau" class="article-card__thumb" loading="lazy">
                         </div>
@@ -955,7 +915,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.horizont.net/schweiz/nachrichten/fokus-auf-ki-beyonder-baut-geschaeftsleitung-aus-und-zieht-sich-aus-dem-digitalmarketing-zurueck-228607" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.horizont.net/schweiz/nachrichten/fokus-auf-ki-beyonder-baut-geschaeftsleitung-aus-und-zieht-sich-aus-dem-digitalmarketing-zurueck-228607" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/horizont-beyonder-gl.jpg" alt="BEYONDER Geschäftsleitung" class="article-card__thumb" loading="lazy">
                         </div>
@@ -965,7 +925,7 @@
                             <span class="article-card__date">Jun 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.markt-kom.com/de/markom/business/beyonder-wird-zur-ag-und-fokussiert-voll-auf-ki/" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.markt-kom.com/de/markom/business/beyonder-wird-zur-ag-und-fokussiert-voll-auf-ki/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/marktkom-beyonder-ag.jpg" alt="BEYONDER wird AG" class="article-card__thumb" loading="lazy">
                         </div>
@@ -975,7 +935,7 @@
                             <span class="article-card__date">Jun 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.persoenlich.com/prcorporate-communication/mit-neuer-rechtsform-und-anderem-geschaftsfeld" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.persoenlich.com/prcorporate-communication/mit-neuer-rechtsform-und-anderem-geschaftsfeld" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/persoenlich-beyonder-ag.jpg" alt="BEYONDER AG" class="article-card__thumb" loading="lazy">
                         </div>
@@ -985,7 +945,7 @@
                             <span class="article-card__date">2025</span>
                         </div>
                     </a>
-                    <a href="https://www.tagblatt.ch/ostschweiz/stgallen/kuenstliche-intelligenz-wenn-der-ki-gott-in-stgallen-auf-unkreative-menschen-stoesst-ld.2763514" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.tagblatt.ch/ostschweiz/stgallen/kuenstliche-intelligenz-wenn-der-ki-gott-in-stgallen-auf-unkreative-menschen-stoesst-ld.2763514" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/tagblatt-ki-event.jpg" alt="KI-Event St.Gallen" class="article-card__thumb" loading="lazy">
                         </div>
@@ -995,7 +955,7 @@
                             <span class="article-card__date">Apr 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.swissinfo.ch/ger/swiss-abroad/ki-kurse-boomen-in-der-schweiz/88796035" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.swissinfo.ch/ger/swiss-abroad/ki-kurse-boomen-in-der-schweiz/88796035" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/swissinfo-ki-kurse.jpg" alt="KI-Kurse boomen" class="article-card__thumb" loading="lazy">
                         </div>
@@ -1005,7 +965,7 @@
                             <span class="article-card__date">Feb 2025</span>
                         </div>
                     </a>
-                    <a href="https://topsoft.ch/themen/chris-beyeler-ki-ist-nicht-die-loesung-aller-probleme/" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://topsoft.ch/themen/chris-beyeler-ki-ist-nicht-die-loesung-aller-probleme/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/topsoft-ki-probleme.jpg" alt="KI ist nicht die L&ouml;sung" class="article-card__thumb" loading="lazy">
                         </div>
@@ -1015,7 +975,7 @@
                             <span class="article-card__date">Jan 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.srf.ch/kids/srf-kids-reporter-in-tierschutz-und-ki-wie-passt-das-zusammen" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.srf.ch/kids/srf-kids-reporter-in-tierschutz-und-ki-wie-passt-das-zusammen" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/srf-kids-tierschutz.jpg" alt="SRF Kids Tierschutz und KI" class="article-card__thumb" loading="lazy">
                         </div>
@@ -1025,7 +985,7 @@
                             <span class="article-card__date">Nov 2024</span>
                         </div>
                     </a>
-                    <a href="https://www.srf.ch/news/schweiz/chatgpt-und-co-ki-kurse-in-der-schweiz-boomen" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.srf.ch/news/schweiz/chatgpt-und-co-ki-kurse-in-der-schweiz-boomen" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/srf-ki-kurse.jpg" alt="KI-Kurse in der Schweiz" class="article-card__thumb" loading="lazy">
                         </div>
@@ -1035,7 +995,7 @@
                             <span class="article-card__date">2024</span>
                         </div>
                     </a>
-                    <a href="https://www.itbusiness.ch/news/people-corporate/beyeler-geh%C3%B6rt-zu-den-digital-shapers-2026" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.itbusiness.ch/news/people-corporate/beyeler-geh%C3%B6rt-zu-den-digital-shapers-2026" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/itbusiness-digital-shapers.jpg" alt="Digital Shapers 2026" class="article-card__thumb" loading="lazy">
                         </div>
@@ -1045,7 +1005,7 @@
                             <span class="article-card__date">2026</span>
                         </div>
                     </a>
-                    <a href="https://www.netzwoche.ch/news/2024-06-02/vom-schriftsetzer-zum-ux-designer-zum-ai-prompter" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.netzwoche.ch/news/2024-06-02/vom-schriftsetzer-zum-ux-designer-zum-ai-prompter" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/netzwoche-schriftsetzer.jpg" alt="Vom Schriftsetzer zum AI Prompter" class="article-card__thumb" loading="lazy">
                         </div>
@@ -1055,7 +1015,7 @@
                             <span class="article-card__date">Jun 2024</span>
                         </div>
                     </a>
-                    <a href="https://www.nau.ch/news/wirtschaft/marketing-podcast-zwischen-fabio-zahnd-und-chris-beyeler-66562655" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.nau.ch/news/wirtschaft/marketing-podcast-zwischen-fabio-zahnd-und-chris-beyeler-66562655" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
                         <div class="article-card__img">
                             <img src="img/articles/nau-marketing-podcast.jpg" alt="Marketing-Podcast" class="article-card__thumb" loading="lazy">
                         </div>
@@ -1065,6 +1025,9 @@
                             <span class="article-card__date">Jul 2023</span>
                         </div>
                     </a>
+                </div>
+                <div class="articles__show-more-wrap">
+                    <button class="btn btn--secondary articles__show-more" id="articlesShowMore">Mehr Artikel anzeigen</button>
                 </div>
             </div>
 
@@ -1453,15 +1416,13 @@
     </div>
 
     <!-- ===== SCRIPTS (alle lokal, DSGVO-konform) ===== -->
-    <script src="vendor/gsap.min.js"></script>
-    <script src="vendor/ScrollTrigger.min.js"></script>
-    <script src="vendor/lenis.min.js"></script>
-    <script src="vendor/particles.min.js"></script>
-    <script src="vendor/vanilla-tilt.min.js"></script>
-    <script src="vendor/swiper.min.js"></script>
+    <script src="vendor/gsap.min.js" defer></script>
+    <script src="vendor/ScrollTrigger.min.js" defer></script>
+    <script src="vendor/lenis.min.js" defer></script>
+    <script src="vendor/particles.min.js" defer></script>
     <!-- Main JS -->
-    <script src="js/main.js"></script>
-    <script src="js/chatbot.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/chatbot.js" defer></script>
     <script>
     // E-Mail Obfuskation (Anti-Spam)
     document.querySelectorAll('.js-mail').forEach(el => {
