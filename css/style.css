@@ -637,13 +637,13 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
 .hero-chat__cta a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
-    /* Hero layout */
-    .hero__content { padding-bottom: 4rem; min-height: 55vh; }
+    /* Hero layout — Top-Clearance für fixierte Nav */
+    .hero__content { padding-top: 80px; padding-bottom: 2rem; min-height: 70vh; }
     .hero__stage { margin-bottom: 1.5rem; }
 
-    /* Headline: kleiner, Verb darf nicht umbrechen */
+    /* Headline: kleiner, Verb darf umbrechen */
     .hero__stage-headline { font-size: clamp(1.6rem, 5.5vw, 2.2rem); }
-    .hero__stage-headline em { white-space: nowrap; }
+    .hero__stage-headline em { white-space: normal; word-break: break-word; }
     .hero__stage-sub { font-size: 0.82rem; letter-spacing: 0.04em; }
 
     /* Bubbles und Desktop-Effekte ausblenden */
@@ -692,17 +692,19 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
 
     /* Trust-Bar */
     .hero__trust { flex-wrap: wrap; justify-content: center; gap: 1.25rem 0.75rem; }
-    .hero__trust-item { flex: 0 0 45%; }
-    .hero__trust-label { font-size: 0.82rem; }
+    .hero__trust-item { flex: 0 0 45%; min-height: auto; }
+    .hero__trust-label { font-size: 0.72rem; line-height: 1.3; }
     .hero__bottom { padding: 1.25rem 0; margin-top: 1.5rem; }
 }
 
 /* Zusätzliche Breakpoints für sehr kleine Screens */
 @media (max-width: 380px) {
+    .hero__content { padding-top: 72px; min-height: auto; }
+    .hero__stage { margin-bottom: 1rem; }
+    .hero-ask { margin-top: 1.5rem; padding: 4px 4px 4px 14px; }
     .hero__stage-headline { font-size: clamp(1.4rem, 5vw, 1.8rem); }
     .hero__ctas { flex-direction: column; }
     .hero__ctas .btn { flex: none; width: 100%; }
-    .hero-ask { padding: 4px 4px 4px 14px; }
     .hero-ask__input { font-size: 0.88rem; }
     .hero__trust-item { flex: 0 0 48%; }
 }
