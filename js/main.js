@@ -330,6 +330,44 @@ if (!prefersReducedMotion) {
     gsap.set('.timeline-progress', { scaleY: 1 });
 }
 
+// ===== ABOUT SCROLL STORYTELLING =====
+if (!prefersReducedMotion) {
+    var aboutSection = document.querySelector('.about');
+    var timelineItems = document.querySelectorAll('.timeline__item');
+    if (aboutSection && timelineItems.length) {
+        var yearColors = [
+            { start: 'rgba(16, 30, 53, 0.4)', end: 'rgba(16, 30, 53, 0.2)', glow: 'rgba(70, 130, 200, 0.4)' },  // 2016 deep blue
+            { start: 'rgba(16, 30, 53, 0.3)', end: 'rgba(30, 50, 80, 0.2)', glow: 'rgba(70, 150, 220, 0.4)' },  // 2017
+            { start: 'rgba(30, 50, 80, 0.3)', end: 'rgba(50, 80, 120, 0.2)', glow: 'rgba(70, 191, 237, 0.4)' },  // 2019 sky
+            { start: 'rgba(50, 80, 120, 0.2)', end: 'rgba(80, 100, 140, 0.15)', glow: 'rgba(51, 208, 153, 0.4)' }, // 2023 aqua
+            { start: 'rgba(80, 100, 140, 0.15)', end: 'rgba(120, 100, 60, 0.15)', glow: 'rgba(252, 192, 1, 0.4)' }, // 2025 gold
+            { start: 'rgba(120, 100, 60, 0.15)', end: 'rgba(255, 146, 32, 0.1)', glow: 'rgba(255, 146, 32, 0.5)' }  // 2026 orange
+        ];
+
+        timelineItems.forEach(function(item, i) {
+            var color = yearColors[i] || yearColors[yearColors.length - 1];
+            ScrollTrigger.create({
+                trigger: item,
+                start: 'top 70%',
+                end: 'bottom 40%',
+                onEnter: function() {
+                    aboutSection.style.setProperty('--about-grad-start', color.start);
+                    aboutSection.style.setProperty('--about-grad-end', color.end);
+                    aboutSection.style.setProperty('--about-grad-opacity', '1');
+                    item.classList.add('timeline-glow');
+                    item.style.setProperty('--timeline-glow-color', color.glow);
+                },
+                onLeaveBack: function() {
+                    item.classList.remove('timeline-glow');
+                    if (i === 0) {
+                        aboutSection.style.setProperty('--about-grad-opacity', '0');
+                    }
+                }
+            });
+        });
+    }
+}
+
 // Counter cards — enhanced entrance animation
 if (!prefersReducedMotion) {
     gsap.fromTo('.counter',
@@ -511,6 +549,73 @@ scrollReveal('.contact__card',
     });
 })();
 
+// ===== YOUTUBE LITE EMBED (Shorts) =====
+(function() {
+    document.querySelectorAll('.short-card[data-video-id]').forEach(function(card) {
+        card.addEventListener('click', function() {
+            var id = card.dataset.videoId;
+            var thumb = card.querySelector('.short-card__thumb');
+            if (!thumb || thumb.querySelector('iframe')) return;
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+            iframe.allow = 'autoplay; encrypted-media';
+            iframe.allowFullscreen = true;
+            thumb.innerHTML = '';
+            thumb.appendChild(iframe);
+        });
+    });
+})();
+
+// ===== KEYNOTE KONFIGURATOR =====
+(function() {
+    var brancheEl = document.getElementById('konfigBranche');
+    var interesseEl = document.getElementById('konfigInteresse');
+    var resultEl = document.getElementById('konfigResult');
+    if (!brancheEl || !interesseEl) return;
+
+    var branche = null, interesse = null;
+    var cards = document.querySelectorAll('.keynote-card');
+
+    // Mapping: [branche][interesse] => keynote index (0-3)
+    // 0=State of AI, 1=AI in Marketing, 2=5 Erfolgsfaktoren KMU, 3=Wie KI Arbeit beeinflusst
+    var mapping = {
+        marketing:  { ueberblick: 0, praxis: 1, strategie: 1, future: 3 },
+        kmu:        { ueberblick: 0, praxis: 2, strategie: 2, future: 3 },
+        hr:         { ueberblick: 0, praxis: 3, strategie: 3, future: 3 },
+        tech:       { ueberblick: 0, praxis: 0, strategie: 2, future: 3 },
+        allgemein:  { ueberblick: 0, praxis: 2, strategie: 0, future: 3 }
+    };
+
+    function updateSelection() {
+        cards.forEach(function(c) { c.classList.remove('keynote-card--highlighted'); });
+        if (branche && interesse && mapping[branche]) {
+            var idx = mapping[branche][interesse];
+            if (idx !== undefined && cards[idx]) {
+                cards[idx].classList.add('keynote-card--highlighted');
+                var title = cards[idx].querySelector('.keynote-card__title');
+                resultEl.textContent = 'Empfehlung: ' + (title ? title.textContent : '');
+                cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        } else {
+            resultEl.textContent = '';
+        }
+    }
+
+    function setupPills(container, setter) {
+        container.querySelectorAll('.konfig-pill').forEach(function(pill) {
+            pill.addEventListener('click', function() {
+                container.querySelectorAll('.konfig-pill').forEach(function(p) { p.classList.remove('active'); });
+                pill.classList.add('active');
+                setter(pill.dataset.value);
+                updateSelection();
+            });
+        });
+    }
+
+    setupPills(brancheEl, function(v) { branche = v; });
+    setupPills(interesseEl, function(v) { interesse = v; });
+})();
+
 // ===== SCROLLTRIGGER REFRESH =====
 // Refresh after DOM + images are fully loaded
 window.addEventListener('load', () => {
@@ -669,7 +774,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         glitchActive = false; glitchCanvas.classList.remove('active');
         cancelAnimationFrame(glitchFrame);
         glitchCtx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height);
-        spotlight.classList.remove('active'); heroBg.style.transform = '';
+        spotlight.classList.remove('active');
+        heroBg.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        heroBg.style.transform = '';
+        setTimeout(function() { heroBg.style.transition = ''; }, 600);
         bubbles.forEach(function(b) { b.classList.remove('active'); b.style.transform = ''; });
     });
     hero.addEventListener('mousemove', function(e) {

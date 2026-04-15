@@ -255,6 +255,7 @@
                 <li><a href="#testimonials">Stimmen</a></li>
                 <li><a href="#podcast">Podcast</a></li>
                 <li><a href="#essay">Essay</a></li>
+                <li><a href="#chat">KI-Chat</a></li>
                 <li><a href="#contact" class="nav__cta">Kontakt</a></li>
             </ul>
         </div>
@@ -322,18 +323,22 @@
                     <div class="hero__trust-item">
                         <span class="hero__trust-num-wrap"><span class="hero__trust-number" data-count="2000">0</span><span class="hero__trust-plus">+</span></span>
                         <span class="hero__trust-label">Menschen ausgebildet</span>
+                        <div class="trust-detail">HWZ &middot; MAZ &middot; SIB &middot; zB. Zentrum Bildung<br>Masterclasses &middot; Workshops &middot; Vorlesungen</div>
                     </div>
                     <div class="hero__trust-item">
                         <span class="hero__trust-num-wrap"><span class="hero__trust-number" data-count="70">0</span></span>
                         <span class="hero__trust-label">Keynotes</span>
+                        <div class="trust-detail">OMT Summit &middot; Power Pur &middot; Digital Day Bern<br>CAMPIXX &middot; KI.LIVE &middot; Automotive Summit</div>
                     </div>
                     <div class="hero__trust-item">
                         <span class="hero__trust-num-wrap"><span class="hero__trust-number" data-count="148">0</span><span class="hero__trust-plus">+</span></span>
                         <span class="hero__trust-label">Podcast-Episoden</span>
+                        <div class="trust-detail"><strong>AI Cast</strong> &mdash; Der Schweizer KI-Podcast<br>Spotify &middot; Apple &middot; YouTube</div>
                     </div>
                     <div class="hero__trust-item">
                         <span class="hero__trust-num-wrap"><span class="hero__trust-number" data-count="100">0</span><span class="hero__trust-plus">+</span></span>
                         <span class="hero__trust-label">5-Sterne Reviews</span>
+                        <div class="trust-detail">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9/5 Google<br>108 verifizierte Bewertungen</div>
                     </div>
                 </div>
             </div>
@@ -426,6 +431,33 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Keynote Konfigurator -->
+            <div class="keynote-konfig" id="keynoteKonfig">
+                <h3 class="keynote-konfig__title">Welche Keynote passt zu Ihrem Anlass?</h3>
+                <div class="keynote-konfig__row">
+                    <div class="keynote-konfig__group">
+                        <span class="keynote-konfig__label">Branche</span>
+                        <div class="keynote-konfig__pills" id="konfigBranche">
+                            <button class="konfig-pill" data-value="marketing">Marketing</button>
+                            <button class="konfig-pill" data-value="kmu">KMU</button>
+                            <button class="konfig-pill" data-value="hr">HR / Leadership</button>
+                            <button class="konfig-pill" data-value="tech">Tech</button>
+                            <button class="konfig-pill" data-value="allgemein">Allgemein</button>
+                        </div>
+                    </div>
+                    <div class="keynote-konfig__group">
+                        <span class="keynote-konfig__label">Interesse</span>
+                        <div class="keynote-konfig__pills" id="konfigInteresse">
+                            <button class="konfig-pill" data-value="ueberblick">&Uuml;berblick</button>
+                            <button class="konfig-pill" data-value="praxis">Praxis</button>
+                            <button class="konfig-pill" data-value="strategie">Strategie</button>
+                            <button class="konfig-pill" data-value="future">Future of Work</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="keynote-konfig__result" id="konfigResult"></p>
             </div>
 
             <div class="keynotes__formats">
@@ -795,7 +827,7 @@
             <div class="media__articles">
                 <h3 class="media__articles-title">Ausgewählte Artikel & Beitr&auml;ge</h3>
                 <div class="articles__grid">
-                    <a href="https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
                         <div class="article-card__img">
                             <img src="img/articles/bilanz-digital-shapers.jpg" alt="Digital Shapers 2026" class="article-card__thumb" loading="lazy">
                         </div>
@@ -805,7 +837,7 @@
                             <span class="article-card__date">M&auml;r 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.aargauerzeitung.ch/aargau/kanton-aargau/ki-bilder-tipps-von-aargauer-experten-und-quiz-ld.4089477" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.aargauerzeitung.ch/aargau/kanton-aargau/ki-bilder-tipps-von-aargauer-experten-und-quiz-ld.4089477" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
                         <div class="article-card__img">
                             <img src="img/articles/aargauer-zeitung-ki-bilder.jpg" alt="KI-Bilder Tipps" class="article-card__thumb" loading="lazy">
                         </div>
@@ -815,7 +847,7 @@
                             <span class="article-card__date">M&auml;r 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.nzz.ch/wirtschaft/nett-aber-nicht-praxistauglich-warum-das-eth-projekt-apertus-nicht-zum-fliegen-kommt-ld.1927876" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.nzz.ch/wirtschaft/nett-aber-nicht-praxistauglich-warum-das-eth-projekt-apertus-nicht-zum-fliegen-kommt-ld.1927876" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
                         <div class="article-card__img">
                             <img src="img/articles/nzz-apertus.jpg" alt="ETH-Projekt Apertus" class="article-card__thumb" loading="lazy">
                         </div>
@@ -825,7 +857,7 @@
                             <span class="article-card__date">2026</span>
                         </div>
                     </a>
-                    <a href="https://www.persoenlich.com/blog/die-lust-am-ki-mythos-und-warum-sie-gefahrlich-ist" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.persoenlich.com/blog/die-lust-am-ki-mythos-und-warum-sie-gefahrlich-ist" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
                         <div class="article-card__img">
                             <img src="img/articles/persoenlich-ki-mythos.jpg" alt="Die Lust am KI-Mythos" class="article-card__thumb" loading="lazy">
                         </div>
@@ -1290,6 +1322,41 @@
                 </div>
             </div>
 
+            <!-- Best-of Kurzclips -->
+            <div class="podcast__shorts">
+                <h3 class="media__articles-title">Meistgesehene Shorts</h3>
+                <div class="shorts__grid">
+                    <div class="short-card" data-video-id="5_Hr5SPRB4A">
+                        <div class="short-card__thumb">
+                            <img src="https://img.youtube.com/vi/5_Hr5SPRB4A/hqdefault.jpg" alt="KI Angst: So nimmst du deine Mitarbeiter mit!" loading="lazy">
+                            <div class="short-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg></div>
+                        </div>
+                        <span class="short-card__title">KI Angst: So nimmst du deine Mitarbeiter mit!</span>
+                    </div>
+                    <div class="short-card" data-video-id="0pnG2vRuxrg">
+                        <div class="short-card__thumb">
+                            <img src="https://img.youtube.com/vi/0pnG2vRuxrg/hqdefault.jpg" alt="KI &amp; Software Jobs: Goldene &Auml;ra oder Burnout Gefahr" loading="lazy">
+                            <div class="short-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg></div>
+                        </div>
+                        <span class="short-card__title">KI &amp; Software Jobs: Goldene &Auml;ra oder Burnout?</span>
+                    </div>
+                    <div class="short-card" data-video-id="aSAd83yHzig">
+                        <div class="short-card__thumb">
+                            <img src="https://img.youtube.com/vi/aSAd83yHzig/hqdefault.jpg" alt="Prompt Framework par excellence" loading="lazy">
+                            <div class="short-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg></div>
+                        </div>
+                        <span class="short-card__title">Prompt Framework par excellence</span>
+                    </div>
+                    <div class="short-card" data-video-id="UGQXWZ0oYcY">
+                        <div class="short-card__thumb">
+                            <img src="https://img.youtube.com/vi/UGQXWZ0oYcY/hqdefault.jpg" alt="KI gegen Admin-Kram" loading="lazy">
+                            <div class="short-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg></div>
+                        </div>
+                        <span class="short-card__title">KI gegen Admin-Kram</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Spotify Embed -->
             <div class="podcast__embed">
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/3M3pGoFAwT6TGwdMBio6f6?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -1327,6 +1394,41 @@
                 </div>
                 <div class="essay__visual">
                     <img src="img/chris-masterclass-2.jpg" alt="Chris Beyeler bei einem KI Workshop, AI Berater und Stratege Schweiz" class="essay__image" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHAT SEKTION ===== -->
+    <section class="section chat-section" id="chat">
+        <div class="container">
+            <h2 class="section__title">Frag die <span class="accent">KI-Version</span> von Chris</h2>
+            <p class="section__subtitle">Keynotes, BEYONDER, swissAI, KI allgemein: Frag einfach drauf los.</p>
+
+            <div class="chat-full" id="chatFull">
+                <div class="chat-full__header">
+                    <div class="chat-full__avatar">CB</div>
+                    <div>
+                        <div class="chat-full__name">Chris Beyeler AI</div>
+                        <div class="chat-full__status">Online</div>
+                    </div>
+                </div>
+                <div class="chat-full__messages" id="chatFullMessages">
+                    <div class="chat-full__message chat-full__message--bot">
+                        <p>Hoi! Ich bin der digitale Assistent von Chris Beyeler. Frag mich zu Keynotes, BEYONDER, swissAI oder KI allgemein.</p>
+                    </div>
+                </div>
+                <div class="chat-full__quickreplies" id="chatFullQuickReplies">
+                    <button class="chatbot__quickreply" data-question="Was kostet eine Keynote?">Keynote-Preise</button>
+                    <button class="chatbot__quickreply" data-question="Welche Keynote-Themen gibt es?">Themen</button>
+                    <button class="chatbot__quickreply" data-question="Wer ist Chris Beyeler?">Über Chris</button>
+                    <button class="chatbot__quickreply" data-question="Was ist swissAI?">swissAI</button>
+                </div>
+                <div class="chat-full__input">
+                    <input type="text" id="chatFullInput" placeholder="Frag mich etwas..." autocomplete="off">
+                    <button id="chatFullSend" aria-label="Senden">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
