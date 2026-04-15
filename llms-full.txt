@@ -135,6 +135,7 @@ SRF, Ringier, Bilanz, Handelszeitung, Aargauer Zeitung, persoenlich.com, St. Gal
 - KI-Bilder: Tipps von Experten und Quiz (Aargauer Zeitung, März 2026)
 - KI-Kurse in der Schweiz boomen (SRF News, 2024)
 - Beyeler gehört zu den Digital Shapers 2026 (IT Business, 2026)
+- Ein neues Mitglied im Marketingteam (DirectPoint, 2026)
 - KI ist nicht die Lösung aller Probleme (topsoft, Jan 2025)
 - BEYONDER: Neue Rechtsform, neues Geschäftsfeld (persoenlich.com, 2025)
 
@@ -156,7 +157,7 @@ Künstliche Intelligenz ist kein Zukunftsthema mehr, sie ist Gegenwart. ChatGPT,
 
 Die grösste Gefahr ist nicht die KI selbst. Es ist die Passivität. Wer wartet, bis die Konkurrenz KI nutzt, hat bereits verloren. Wer blind jedem Hype folgt, verbrennt Ressourcen. Der Mittelweg: bewusstes Experimentieren, kontinuierliches Lernen und eine klare Strategie.
 
-Ganzer Essay: https://essay.chrisbeyeler.ch
+Ganzer Essay: https://chrisbeyeler.ch/essay/2025/
 
 ---
 

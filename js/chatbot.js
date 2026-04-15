@@ -65,7 +65,7 @@ const FAQ_DATABASE = {
     },
     'essay': {
         keywords: ['essay', 'manifest', 'text', 'artikel', 'zukunft', 'meinung'],
-        answer: 'Ich hab ein Essay geschrieben: "Gestalte deine Zukunft mit Kuenstlicher Intelligenz." Nicht mit Angst und blindem Vertrauen, sondern mit kritischem Denken und aktivem Handeln. Das ist meine Haltung in Textform. Lies es auf essay.chrisbeyeler.ch'
+        answer: 'Ich hab ein Essay geschrieben: "Gestalte deine Zukunft mit Kuenstlicher Intelligenz." Nicht mit Angst und blindem Vertrauen, sondern mit kritischem Denken und aktivem Handeln. Das ist meine Haltung in Textform. Lies es auf chrisbeyeler.ch/essay/2025/'
     },
     'medien': {
         keywords: ['medien', 'presse', 'interview', 'srf', 'zeitung', 'pressekit', 'foto'],
@@ -237,5 +237,38 @@ if (chatbotInput) {
 document.addEventListener('click', (e) => {
     if (chatbotWindow && !e.target.closest('.chatbot') && chatbotWindow.classList.contains('active')) {
         chatbotWindow.classList.remove('active');
+    }
+});
+
+// Focus Trap when chat window is open
+document.addEventListener('keydown', (e) => {
+    if (!chatbotWindow || !chatbotWindow.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+        chatbotWindow.classList.remove('active');
+        chatbotTrigger.focus();
+        return;
+    }
+
+    if (e.key !== 'Tab') return;
+
+    const focusable = chatbotWindow.querySelectorAll(
+        'button, input, [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+        if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        }
+    } else {
+        if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
     }
 });

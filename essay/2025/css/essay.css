@@ -1,0 +1,1094 @@
+/* ============================================================
+   Essay 2025 — chrisbeyeler.ch
+   Dark theme design system stylesheet
+   ============================================================ */
+
+/* --- Font Faces --- */
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../../fonts/inter-v20-latin-regular.woff2') format('woff2'),
+         url('../../fonts/inter-v20-latin-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../../fonts/inter-v20-latin-500.woff2') format('woff2'),
+         url('../../fonts/inter-v20-latin-500.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../../fonts/inter-v20-latin-600.woff2') format('woff2'),
+         url('../../fonts/inter-v20-latin-600.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../../fonts/inter-v20-latin-700.woff2') format('woff2'),
+         url('../../fonts/inter-v20-latin-700.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../../fonts/montserrat-v31-latin-500.woff2') format('woff2'),
+         url('../../fonts/montserrat-v31-latin-500.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../../fonts/montserrat-v31-latin-600.woff2') format('woff2'),
+         url('../../fonts/montserrat-v31-latin-600.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../../fonts/montserrat-v31-latin-700.woff2') format('woff2'),
+         url('../../fonts/montserrat-v31-latin-700.woff') format('woff');
+}
+
+/* --- Design Tokens --- */
+
+:root {
+    --orange: #FF9220;
+    --orange-dim: rgba(255, 146, 32, 0.12);
+    --gold: #FCC001;
+    --midnight: #101E35;
+    --sky: #46BFED;
+    --aqua: #33D099;
+    --pink: #E33A74;
+    --bg-primary: #080C16;
+    --bg-secondary: #0C1220;
+    --bg-elevated: #121A2E;
+    --bg-card: #162040;
+    --grad-warm: linear-gradient(135deg, #FF9220 0%, #E33A74 100%);
+    --grad-hero: linear-gradient(160deg, #080C16 0%, #0E1628 50%, #101E35 100%);
+    --text-primary: #FFFFFF;
+    --text-secondary: #C0C0C0;
+    --text-tertiary: #808898;
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-bg-hover: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(255, 146, 32, 0.3);
+    --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --- 1. Reset & Base --- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-primary);
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 1.125rem;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: var(--bg-elevated);
+    color: var(--orange);
+}
+
+a {
+    color: var(--orange);
+    text-decoration: none;
+    transition: color 0.3s var(--ease-out);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- 2. Essay Navigation --- */
+
+.essay-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8, 12, 22, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.essay-nav__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.essay-nav__back {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: color 0.3s var(--ease-out);
+}
+
+.essay-nav__back:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.essay-nav__title {
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* --- 3. Kapitel-Dots (Desktop Navigation) --- */
+
+.essay-dots {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s, visibility 0.4s;
+}
+
+.essay-dots.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Verbindungslinie */
+.essay-dots__track {
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 1px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.essay-dots__track-fill {
+    width: 100%;
+    height: 0%;
+    background: var(--orange);
+    border-radius: 1px;
+}
+
+/* Ghost Dot */
+.essay-dots__ghost {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0;
+    pointer-events: none;
+    transition: top 1.5s var(--ease-out), opacity 0.6s;
+    filter: blur(1px);
+    z-index: 0;
+}
+
+.essay-dots__ghost.is-visible {
+    opacity: 0.35;
+}
+
+/* Ambient Glow */
+.essay-dots__glow {
+    position: absolute;
+    right: -30px;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 146, 32, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: top 0.5s var(--ease-out), opacity 0.5s;
+    opacity: 0;
+    z-index: 0;
+}
+
+.essay-dots__glow.is-visible {
+    opacity: 1;
+}
+
+/* Dot Item — grössere Klickfläche via Padding */
+.essay-dots__item {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    /* Unsichtbare Klickfläche vergrössern */
+}
+
+.essay-dots__item::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+}
+
+/* Progress Ring */
+.essay-dots__item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    background: conic-gradient(
+        rgba(255, 146, 32, 0.5) calc(var(--dot-progress, 0) * 1turn),
+        transparent 0
+    );
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-out);
+    pointer-events: none;
+}
+
+.essay-dots__item.has-progress::before {
+    opacity: 1;
+}
+
+.essay-dots__item.is-active::before,
+.essay-dots__item.is-read::before {
+    opacity: 0;
+}
+
+.essay-dots__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--text-tertiary);
+    background: transparent;
+    transition: all 0.3s var(--ease-out);
+    position: relative;
+    z-index: 1;
+}
+
+/* Gelesen */
+.essay-dots__item.is-read .essay-dots__dot {
+    background: var(--orange);
+    border-color: var(--orange);
+    width: 8px;
+    height: 8px;
+}
+
+/* Aktiv */
+.essay-dots__item.is-active .essay-dots__dot {
+    background: var(--orange);
+    border-color: var(--orange);
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 12px rgba(255, 146, 32, 0.4);
+}
+
+/* Ripple via eigenes Element, damit Active-Glow erhalten bleibt */
+@keyframes dot-ripple {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+.essay-dots__ripple {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--orange);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+}
+
+.essay-dots__ripple.is-animating {
+    animation: dot-ripple 0.6s var(--ease-out) forwards;
+}
+
+/* Quote Pulse */
+@keyframes dot-pulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(255, 146, 32, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(255, 146, 32, 0.8), 0 0 40px rgba(255, 146, 32, 0.3); }
+}
+
+.essay-dots__item.is-pulsing .essay-dots__dot {
+    animation: dot-pulse 0.6s ease-in-out;
+}
+
+/* Hover */
+.essay-dots__item:hover .essay-dots__dot {
+    border-color: var(--orange);
+}
+
+/* Tooltip */
+.essay-dots__label {
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-elevated);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    padding: 0.5rem 0.85rem;
+    border-radius: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s var(--ease-out);
+    transform: translateY(-50%) translateX(4px);
+    width: max-content;
+    max-width: 280px;
+}
+
+.essay-dots__item:hover .essay-dots__label {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+.essay-dots__label-title {
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.essay-dots__label-time {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    font-weight: 400;
+}
+
+.essay-dots__label-preview {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin-top: 0.25rem;
+    max-width: 240px;
+    display: none;
+}
+
+.essay-dots__item:hover .essay-dots__label-preview {
+    display: block;
+}
+
+/* Mobile: Dots ausblenden */
+@media (max-width: 1023px) {
+    .essay-dots { display: none; }
+}
+
+/* --- 5. Hero --- */
+
+.essay-hero {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--grad-hero);
+    position: relative;
+    overflow: hidden;
+}
+
+.essay-hero__bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255, 146, 32, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(70, 191, 237, 0.04) 0%, transparent 50%);
+}
+
+.essay-hero__content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.essay-hero__label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 146, 32, 0.3);
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+}
+
+.essay-hero__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+    background: var(--grad-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.essay-hero__subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0 0 2rem;
+}
+
+.essay-hero__meta {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+}
+
+.essay-hero__scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-tertiary);
+    font-size: 0.8rem;
+    animation: essay-bounce 2s infinite;
+}
+
+@keyframes essay-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* --- 6. Content Layout --- */
+
+.essay-content {
+    padding: 0;
+}
+
+.essay-article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- 7. Section --- */
+
+.essay-section {
+    padding: clamp(80px, 12vh, 140px) 0;
+}
+
+.essay-section__header {
+    margin-bottom: 3rem;
+}
+
+.essay-section__number {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.essay-section__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+}
+
+.essay-section__lead {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- 8. Paragraphs --- */
+
+.essay-p {
+    margin-bottom: 1.75rem;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* --- 9. Quotes --- */
+
+.essay-quote {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 600;
+    font-family: var(--font-heading);
+    line-height: 1.5;
+    color: var(--text-secondary);
+    padding: 2rem 0 2rem 1.5rem;
+    border-left: 3px solid var(--orange);
+    margin: 2.5rem 0;
+}
+
+.essay-quote[data-accent="true"] {
+    color: var(--text-secondary);
+}
+
+/* --- 10. Glass Card --- */
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    transition: all 0.3s var(--ease-out);
+}
+
+.glass-card:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+}
+
+/* --- 11. Callout --- */
+
+.essay-callout {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    transition: all 0.3s var(--ease-out);
+}
+
+.essay-callout--warning {
+    border-left: 3px solid var(--pink);
+}
+
+/* --- 12. Counter --- */
+
+.essay-counter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2.5rem 0;
+}
+
+.essay-counter__item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.essay-counter__value {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--orange);
+    display: block;
+}
+
+.essay-counter__label {
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* --- 13. Skills Grid --- */
+
+.essay-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.essay-skills-card h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+}
+
+.essay-skills-card--up h4 {
+    color: var(--aqua);
+}
+
+.essay-skills-card--down h4 {
+    color: var(--pink);
+}
+
+.essay-skills-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.essay-skills-card li {
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.essay-skills-card li::before {
+    content: "\2192\00a0";
+    color: inherit;
+    margin-right: 0.5rem;
+}
+
+/* --- 14. Brain Activity --- */
+
+.essay-brain-activity {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.essay-brain-activity__item h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.essay-brain-activity__item p {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    margin: 0;
+}
+
+.essay-brain-activity__visual {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.essay-brain-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.essay-brain-svg__core {
+    fill: var(--orange);
+    opacity: 0.8;
+}
+
+.essay-brain-svg__pulse {
+    fill: none;
+    stroke: var(--orange);
+    stroke-width: 1.5;
+    opacity: 0;
+}
+
+[data-level="high"] .essay-brain-svg__core { fill: var(--aqua); }
+[data-level="high"] .essay-brain-svg__pulse { stroke: var(--aqua); }
+
+[data-level="medium"] .essay-brain-svg__core { fill: var(--sky); }
+[data-level="medium"] .essay-brain-svg__pulse { stroke: var(--sky); }
+
+[data-level="low"] .essay-brain-svg__core { fill: var(--orange); }
+[data-level="low"] .essay-brain-svg__pulse { stroke: var(--orange); }
+
+/* --- 15. Charts --- */
+
+.essay-chart-container {
+    margin: 3rem 0;
+}
+
+.essay-chart__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.essay-chart {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.essay-chart canvas {
+    max-height: 300px;
+}
+
+/* --- 16. Parallax Dividers --- */
+
+.essay-divider {
+    height: 50vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.essay-divider__bg {
+    position: absolute;
+    inset: 0;
+    background:
+        var(--bg-secondary)
+        radial-gradient(circle at 30% 50%, var(--orange-dim) 0%, transparent 60%),
+        radial-gradient(circle at 70% 40%, rgba(70, 191, 237, 0.05) 0%, transparent 60%);
+}
+
+.essay-divider__content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.essay-divider__number {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.03);
+    display: block;
+    line-height: 1;
+}
+
+.essay-divider__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--text-tertiary);
+    font-weight: 500;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* --- 17. Outro --- */
+
+.essay-outro {
+    padding: clamp(80px, 12vh, 140px) 0;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-inline: 2rem;
+}
+
+.essay-outro__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 1.5rem;
+}
+
+.essay-outro__text {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin: 0 0 2rem;
+}
+
+.essay-outro__tip {
+    text-align: left;
+}
+
+.essay-outro__tip ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.essay-outro__tip li {
+    padding: 0.3rem 0;
+    color: var(--text-secondary);
+}
+
+.essay-outro__tip li::before {
+    content: "\2192\00a0";
+    color: var(--orange);
+}
+
+.essay-outro__motto {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 2.5rem 0;
+}
+
+.essay-outro__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.essay-outro__author {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+}
+
+/* --- 18. Back to Top --- */
+
+.essay-back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 5rem;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s var(--ease-out);
+}
+
+.essay-back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.essay-back-to-top:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+/* --- 19. Buttons --- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 42px;
+    border-radius: 14px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out);
+    border: none;
+    text-decoration: none;
+}
+
+.btn--primary {
+    background: var(--orange);
+    color: var(--midnight);
+    box-shadow: 0 6px 28px rgba(255, 146, 32, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.btn--primary:hover {
+    background: #ffa040;
+    box-shadow: 0 10px 48px rgba(255, 146, 32, 0.55);
+    transform: translateY(-2px);
+}
+
+.btn--secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.btn--secondary:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+    background: rgba(255, 146, 32, 0.06);
+}
+
+/* --- 20. Responsive — Tablet --- */
+
+@media (max-width: 1023px) {
+    .essay-back-to-top {
+        right: 2rem;
+    }
+}
+
+/* --- Responsive — Mobile --- */
+
+@media (max-width: 768px) {
+    .essay-article {
+        padding: 0 1.25rem;
+    }
+
+    .essay-section {
+        padding: clamp(50px, 8vh, 80px) 0;
+    }
+
+    .essay-brain-activity {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 2rem auto;
+    }
+
+    .essay-skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .essay-counter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .essay-counter__item {
+        min-width: unset;
+        width: 100%;
+    }
+}
+
+/* --- Responsive — Small Mobile --- */
+
+@media (max-width: 480px) {
+    .essay-hero__meta {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .essay-hero__content {
+        padding: 1rem;
+    }
+
+    .essay-outro {
+        padding-inline: 1rem;
+    }
+
+    .essay-article {
+        padding: 0 1rem;
+    }
+
+    .btn {
+        padding: 14px 28px;
+        font-size: 0.9rem;
+    }
+}
+
+/* --- 21. Reduced Motion --- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .essay-hero__scroll-indicator {
+        animation: none;
+    }
+
+    .essay-dots {
+        transition: none;
+    }
+}
+
+/* --- 22. Print --- */
+
+@media print {
+    .essay-nav,
+    .essay-dots,
+    .essay-back-to-top,
+    .essay-divider {
+        display: none;
+    }
+
+    .essay-hero {
+        height: auto;
+        min-height: 0;
+        padding: 2rem 0;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .essay-p,
+    .essay-quote {
+        color: black;
+    }
+}

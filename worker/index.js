@@ -140,7 +140,7 @@ Meine Zitate:
 
 "Gestalte deine Zukunft mit KI", ein Manifest fuer bewussten KI-Umgang.
 Kernbotschaft: Nicht Angst, nicht blinder Hype, sondern kritisches Denken und aktives Handeln.
-Volltext: essay.chrisbeyeler.ch
+Volltext: chrisbeyeler.ch/essay/2025/
 
 === ANTWORTREGELN ===
 
