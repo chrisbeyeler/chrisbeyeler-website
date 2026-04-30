@@ -496,14 +496,17 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 30%;
+    object-position: 35% 50%;
+}
+@media (max-width: 1023px) {
+    .hero__bg img { object-position: 45% 50%; }
 }
 
 .hero__particles {
     position: absolute;
     inset: 0;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.15;
 }
 
 .hero__overlay {
@@ -511,12 +514,13 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     inset: 0;
     z-index: 2;
     background:
-        linear-gradient(0deg,
-            var(--bg-primary) 0%,
-            rgba(8, 12, 22, 0.92) 20%,
-            rgba(8, 12, 22, 0.55) 45%,
-            rgba(8, 12, 22, 0.3) 65%,
-            rgba(8, 12, 22, 0.5) 100%);
+        radial-gradient(ellipse at 85% 50%, rgba(8, 12, 22, 0.5) 0%, transparent 60%),
+        linear-gradient(180deg,
+            rgba(8, 12, 22, 0.30) 0%,
+            rgba(8, 12, 22, 0) 35%,
+            rgba(8, 12, 22, 0) 55%,
+            rgba(8, 12, 22, 0.85) 90%,
+            var(--bg-primary) 100%);
 }
 
 .hero__content {
@@ -558,7 +562,10 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
 }
 .hero__stage-headline em {
     font-style: normal;
-    color: var(--orange);
+    background: linear-gradient(90deg, var(--orange) 0%, var(--pink) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 .hero__stage-sub {
     font-family: var(--font-heading);
@@ -809,7 +816,7 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     .hero-bubble { display: none; }
     .hero-glitch, .hero-spotlight { display: none; }
     .hero-scanlines { display: none; }
-    .hero__bg img { object-position: center 40%; }
+    .hero__bg img { object-position: 75% 50%; }
 
     /* Chat-Input: volle Breite, grössere Touch-Targets */
     .hero-ask {
