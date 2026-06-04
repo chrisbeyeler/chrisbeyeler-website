@@ -1,0 +1,242 @@
+{
+  "$schema": "./press.schema.json",
+  "description": "Pressespiegel chrisbeyeler.ch — Single Source of Truth für die Sektion 'Medien & Presse' in index.html. Wird vom Marketing Manager (Paperclip Agent 234e43f2) monatlich aus dem Press-Monitor-State (~/knowledge-agent/press-state.json) auf beygent kuratiert. Auto-Publish: nein (PR zur Review). Quelle: BEY-1956.",
+  "updated_at": "2026-06-02",
+  "items": [
+    {
+      "id": "bilanz-digital-shapers-2026",
+      "year": 2026,
+      "month": 3,
+      "source": "Bilanz",
+      "title": "Digital Shapers 2026: AI Acrobats",
+      "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd",
+      "image": "img/articles/bilanz-digital-shapers.jpg",
+      "topic": "auszeichnung"
+    },
+    {
+      "id": "aargauer-zeitung-ki-bilder",
+      "year": 2026,
+      "month": 3,
+      "source": "Aargauer Zeitung",
+      "title": "KI-Bilder: Tipps von Experten und Quiz",
+      "url": "https://www.aargauerzeitung.ch/aargau/kanton-aargau/ki-bilder-tipps-von-aargauer-experten-und-quiz-ld.4089477",
+      "image": "img/articles/aargauer-zeitung-ki-bilder.jpg",
+      "topic": "ki-praxis"
+    },
+    {
+      "id": "nzz-apertus",
+      "year": 2026,
+      "source": "NZZ",
+      "title": "Warum das ETH-Projekt Apertus nicht zum Fliegen kommt",
+      "url": "https://www.nzz.ch/wirtschaft/nett-aber-nicht-praxistauglich-warum-das-eth-projekt-apertus-nicht-zum-fliegen-kommt-ld.1927876",
+      "image": "img/articles/nzz-apertus.jpg",
+      "topic": "ki-politik"
+    },
+    {
+      "id": "persoenlich-ki-mythos",
+      "year": 2026,
+      "month": 2,
+      "source": "persoenlich.com",
+      "title": "Die Lust am KI-Mythos und warum sie gefährlich ist",
+      "url": "https://www.persoenlich.com/blog/die-lust-am-ki-mythos-und-warum-sie-gefahrlich-ist",
+      "image": "img/articles/persoenlich-ki-mythos.jpg",
+      "topic": "ki-kritik"
+    },
+    {
+      "id": "basicthinking-ki-agenten",
+      "year": 2026,
+      "month": 2,
+      "source": "BASIC thinking",
+      "title": "KI-Agenten ausser Kontrolle",
+      "url": "https://www.basicthinking.de/blog/2026/02/10/ki-agenten-ausser-kontrolle-menschen-und-medien-im-elfenbeinturm/",
+      "image": "img/articles/basicthinking-ki-agenten.jpg",
+      "topic": "ki-kritik"
+    },
+    {
+      "id": "netzwoche-ai-marketing-2026",
+      "year": 2026,
+      "month": 1,
+      "source": "Netzwoche",
+      "title": "AI im Marketing: Prognose für 2026",
+      "url": "https://www.netzwoche.ch/news/2026-01-26/ai-im-marketing-prognose-fuer-2026",
+      "image": "img/articles/netzwoche-ai-marketing.jpg",
+      "topic": "ki-marketing"
+    },
+    {
+      "id": "directpoint-ki-marketing",
+      "year": 2026,
+      "source": "DirectPoint",
+      "title": "Ein neues Mitglied im Marketingteam",
+      "url": "https://www.directpoint.ch/de/dialogmarketing/erfolgsfaktoren/stand-ki-im-marketing",
+      "image": "img/articles/directpoint-ki-marketing.jpg",
+      "topic": "ki-marketing"
+    },
+    {
+      "id": "itbusiness-digital-shapers",
+      "year": 2026,
+      "source": "IT Business",
+      "title": "Beyeler gehört zu den Digital Shapers 2026",
+      "url": "https://www.itbusiness.ch/news/people-corporate/beyeler-geh%C3%B6rt-zu-den-digital-shapers-2026",
+      "image": "img/articles/itbusiness-digital-shapers.jpg",
+      "topic": "auszeichnung"
+    },
+    {
+      "id": "topsoft-ki-praxisnah",
+      "year": 2025,
+      "month": 11,
+      "source": "topsoft",
+      "title": "Nur wer KI praxisnah integriert, nutzt sie wirksam",
+      "url": "https://topsoft.ch/themen/chris-beyeler-nur-wer-ki-praxisnah-integriert-nutzt-sie-wirksam/",
+      "image": "img/articles/topsoft-ki-praxisnah.jpg",
+      "topic": "ki-praxis"
+    },
+    {
+      "id": "badenertagblatt-ki-zentrum",
+      "year": 2025,
+      "month": 7,
+      "source": "Badener Tagblatt",
+      "title": "Erstes KI-Kompetenzzentrum im Aargau eröffnet",
+      "url": "https://www.badenertagblatt.ch/aargau/baden/gebenstorf-erstes-ki-kompetenzzentrum-im-aargau-eroeffnet-denn-die-ueberforderung-ist-vielerorts-gross-ld.2793857",
+      "image": "img/articles/badenertagblatt-ki-zentrum.jpg",
+      "topic": "ki-zentrum"
+    },
+    {
+      "id": "ihre-region-ki-zentrum",
+      "year": 2025,
+      "month": 7,
+      "source": "Ihre Region Online",
+      "title": "Neues Kompetenzzentrum für KI",
+      "url": "https://ihre-region-online.ch/2025/07/09/neues-kompetenzzentrum-fuer-ki/",
+      "image": "img/articles/ihre-region-ki-zentrum.jpg",
+      "topic": "ki-zentrum"
+    },
+    {
+      "id": "plattformj-digital-day",
+      "year": 2025,
+      "month": 7,
+      "source": "Plattform J",
+      "title": "Nicht KI ersetzt euch, sondern die Menschen, die sie nutzen",
+      "url": "https://www.plattformj.ch/artikel/234052/",
+      "image": "img/articles/plattformj-digital-day.jpg",
+      "topic": "keynote"
+    },
+    {
+      "id": "htr-tourismus-ki",
+      "year": 2025,
+      "month": 7,
+      "source": "htr.ch",
+      "title": "Berner Tourismus rüstet sich für die KI-Zukunft",
+      "url": "https://www.htr.ch/story/people-events/berner-tourismus-ruestet-sich-fuer-die-ki-zukunft-43265",
+      "image": "img/articles/htr-tourismus-ki.jpg",
+      "topic": "keynote"
+    },
+    {
+      "id": "netzwoche-ki-zentrum",
+      "year": 2025,
+      "month": 7,
+      "source": "Netzwoche",
+      "title": "Kanton Aargau erhält ein KI-Kompetenzzentrum",
+      "url": "https://www.netzwoche.ch/news/2025-07-02/kanton-aargau-erhaelt-ein-ki-kompetenzzentrum",
+      "image": "img/articles/netzwoche-ki-zentrum.jpg",
+      "topic": "ki-zentrum"
+    },
+    {
+      "id": "horizont-beyonder-gl",
+      "year": 2025,
+      "month": 6,
+      "source": "horizont.net",
+      "title": "BEYONDER baut Geschäftsleitung aus, fokussiert auf KI",
+      "url": "https://www.horizont.net/schweiz/nachrichten/fokus-auf-ki-beyonder-baut-geschaeftsleitung-aus-und-zieht-sich-aus-dem-digitalmarketing-zurueck-228607",
+      "image": "img/articles/horizont-beyonder-gl.jpg",
+      "topic": "unternehmen"
+    },
+    {
+      "id": "marktkom-beyonder-ag",
+      "year": 2025,
+      "month": 6,
+      "source": "m&k",
+      "title": "BEYONDER wird zur AG und fokussiert voll auf KI",
+      "url": "https://www.markt-kom.com/de/markom/business/beyonder-wird-zur-ag-und-fokussiert-voll-auf-ki/",
+      "image": "img/articles/marktkom-beyonder-ag.jpg",
+      "topic": "unternehmen"
+    },
+    {
+      "id": "persoenlich-beyonder-ag",
+      "year": 2025,
+      "source": "persoenlich.com",
+      "title": "BEYONDER: Neue Rechtsform, neues Geschäftsfeld",
+      "url": "https://www.persoenlich.com/prcorporate-communication/mit-neuer-rechtsform-und-anderem-geschaftsfeld",
+      "image": "img/articles/persoenlich-beyonder-ag.jpg",
+      "topic": "unternehmen"
+    },
+    {
+      "id": "tagblatt-ki-event",
+      "year": 2025,
+      "month": 4,
+      "source": "St. Galler Tagblatt",
+      "title": "Wenn der KI-Gott in St.Gallen auf unkreative Menschen stösst",
+      "url": "https://www.tagblatt.ch/ostschweiz/stgallen/kuenstliche-intelligenz-wenn-der-ki-gott-in-stgallen-auf-unkreative-menschen-stoesst-ld.2763514",
+      "image": "img/articles/tagblatt-ki-event.jpg",
+      "topic": "keynote"
+    },
+    {
+      "id": "swissinfo-ki-kurse",
+      "year": 2025,
+      "month": 2,
+      "source": "swissinfo",
+      "title": "KI-Kurse boomen in der Schweiz",
+      "url": "https://www.swissinfo.ch/ger/swiss-abroad/ki-kurse-boomen-in-der-schweiz/88796035",
+      "image": "img/articles/swissinfo-ki-kurse.jpg",
+      "topic": "ki-bildung"
+    },
+    {
+      "id": "topsoft-ki-probleme",
+      "year": 2025,
+      "month": 1,
+      "source": "topsoft",
+      "title": "KI ist nicht die Lösung aller Probleme",
+      "url": "https://topsoft.ch/themen/chris-beyeler-ki-ist-nicht-die-loesung-aller-probleme/",
+      "image": "img/articles/topsoft-ki-probleme.jpg",
+      "topic": "ki-kritik"
+    },
+    {
+      "id": "srf-kids-tierschutz",
+      "year": 2024,
+      "month": 11,
+      "source": "SRF Kids",
+      "title": "Tierschutz und KI: Wie passt das zusammen?",
+      "url": "https://www.srf.ch/kids/srf-kids-reporter-in-tierschutz-und-ki-wie-passt-das-zusammen",
+      "image": "img/articles/srf-kids-tierschutz.jpg",
+      "topic": "ki-bildung"
+    },
+    {
+      "id": "srf-ki-kurse",
+      "year": 2024,
+      "source": "SRF News",
+      "title": "KI-Kurse in der Schweiz boomen",
+      "url": "https://www.srf.ch/news/schweiz/chatgpt-und-co-ki-kurse-in-der-schweiz-boomen",
+      "image": "img/articles/srf-ki-kurse.jpg",
+      "topic": "ki-bildung"
+    },
+    {
+      "id": "netzwoche-schriftsetzer",
+      "year": 2024,
+      "month": 6,
+      "source": "Netzwoche",
+      "title": "Vom Schriftsetzer zum UX Designer zum AI Prompter",
+      "url": "https://www.netzwoche.ch/news/2024-06-02/vom-schriftsetzer-zum-ux-designer-zum-ai-prompter",
+      "image": "img/articles/netzwoche-schriftsetzer.jpg",
+      "topic": "portrait"
+    },
+    {
+      "id": "nau-marketing-podcast",
+      "year": 2023,
+      "month": 7,
+      "source": "nau.ch",
+      "title": "Marketing-Podcast: Fabio Zahnd und Chris Beyeler",
+      "url": "https://www.nau.ch/news/wirtschaft/marketing-podcast-zwischen-fabio-zahnd-und-chris-beyeler-66562655",
+      "image": "img/articles/nau-marketing-podcast.jpg",
+      "topic": "portrait"
+    }
+  ]
+}

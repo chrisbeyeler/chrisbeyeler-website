@@ -1605,6 +1605,16 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
 .media__articles, .media__guest-podcasts { margin-bottom: 4rem; }
 .articles__grid .articles__hidden { display: none; }
 .articles__grid.articles--expanded .articles__hidden { display: flex; }
+.articles__grid.articles--expanded h4.articles__hidden { display: block; }
+.articles__year {
+    margin: 1.5rem 0 0.25rem;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+.articles__year:first-child { margin-top: 0; }
 .articles__show-more-wrap { text-align: center; margin-top: 2rem; }
 .articles__show-more-wrap.hidden { display: none; }
 .media__articles-title {
