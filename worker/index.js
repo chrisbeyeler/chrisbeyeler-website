@@ -227,16 +227,22 @@ export default {
       }));
 
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${env.GOOGLE_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent`,
         {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'X-goog-api-key': env.GOOGLE_API_KEY,
+          },
           body: JSON.stringify({
             systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
             contents: geminiMessages,
             generationConfig: {
               maxOutputTokens: 500,
               temperature: 0.7,
+              // gemini-flash-latest ist ein Thinking-Modell: ohne Budget 0 frisst
+              // das Nachdenken das Token-Budget auf und die Antwort bricht ab.
+              thinkingConfig: { thinkingBudget: 0 },
             },
           }),
         }
