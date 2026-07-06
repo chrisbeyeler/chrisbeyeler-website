@@ -611,6 +611,17 @@
                 </div>
             </div>
 
+            <!-- Trailer -->
+            <div class="about__trailer">
+                <button type="button" class="trailer__btn" data-yt="Tv8b_cQTOJU" aria-label="Trailer abspielen">
+                    <img src="img/trailer-poster.jpg" alt="Chris Beyeler Trailer" class="trailer__poster" loading="lazy" width="1280" height="720">
+                    <span class="trailer__play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                    <span class="trailer__label">Trailer ansehen</span>
+                </button>
+            </div>
+
             <!-- Counter Section -->
             <div class="about__counters">
                 <div class="counter">
@@ -1552,6 +1563,20 @@
         if (el.textContent === 'E-Mail' || el.textContent === 'E-Mail schreiben') {
             el.textContent = el.textContent;
         }
+    });
+
+    // Trailer: YouTube erst bei Klick laden (DSGVO, Performance)
+    document.querySelectorAll('.trailer__btn[data-yt]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.yt;
+            const iframe = document.createElement('iframe');
+            iframe.className = 'trailer__iframe';
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+            iframe.title = 'Chris Beyeler Trailer';
+            iframe.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+            iframe.allowFullscreen = true;
+            btn.replaceWith(iframe);
+        });
     });
     </script>
 </body>
