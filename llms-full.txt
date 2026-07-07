@@ -8,11 +8,11 @@
 
 Chris Beyeler lebt und atmet Künstliche Intelligenz. Quellcode im Blut, Neugier im Kopf, Vermitteln im Herz. Als Präsident von swissAI und Gründer von BEYONDER baut er Brücken zwischen Mensch und Maschine: wirksam, bodenständig, inspirierend.
 
-2016 kam er als einer der Ersten in der Schweiz mit generativer KI in Berührung und wurde zum Early Adopter. Mit über 148 Folgen des AI Cast prägt er seit Jahren den Diskurs rund um KI in der Schweiz und zeigt, wie Technologie Kreativität, Effizienz und Verantwortung verbindet.
+2016 kam er als einer der Ersten in der Schweiz mit generativer KI in Berührung und wurde zum Early Adopter. Mit über 150 Folgen des AI Cast prägt er seit Jahren den Diskurs rund um KI in der Schweiz und zeigt, wie Technologie Kreativität, Effizienz und Verantwortung verbindet.
 
 Sein Weg führte ihn vom Software-Entwickler über RecruitingHUB und siroop (Swisscom/Coop) zu BEYONDER, das er 2019 gründete und 2025 zur AG formte. Heute bildet er mit seinem Team Unternehmen in der ganzen Schweiz im Umgang mit KI aus, darunter Organisationen wie SUVA, Rotes Kreuz, BKW, Mobiliar und viele mehr.
 
-Als Dozent an der HWZ, am MAZ und am SIB hat er über 2000 Menschen zum Thema KI ausgebildet. Als ehemaliger Studiengangsleiter am zB. Zentrum Bildung kennt er die Bildungslandschaft von innen.
+Als Dozent an der HWZ, am MAZ und am SIB hat er über 2500 Menschen zum Thema KI ausgebildet. Als ehemaliger Studiengangsleiter am zB. Zentrum Bildung kennt er die Bildungslandschaft von innen.
 
 2023 gründete er swissAI (vormals KImpact), den Schweizer Verband für Künstliche Intelligenz mit rund 300 Mitgliedern, der als Plattform für den Austausch zwischen Wirtschaft, Politik und Gesellschaft dient.
 
@@ -39,12 +39,12 @@ Schweizer Dachverband für Künstliche Intelligenz mit ~300 Mitgliedern. Plattfo
 
 ### AI Cast Podcast (Host & Produzent)
 Website: https://aicast.ch
-Der Schweizer Podcast über Künstliche Intelligenz. 148+ Episoden. Verfügbar auf Spotify, Apple Podcasts und YouTube.
+Der Schweizer Podcast über Künstliche Intelligenz. 150+ Episoden. Verfügbar auf Spotify, Apple Podcasts und YouTube.
 Ursprünglich als «Marketing BOOSTER» gestartet, verschob sich der Fokus konsequent auf Technologie und KI. Die DNA blieb: Neugier, Tiefe und Praxisbezug.
 
 ### Dozent & Ausbilder
 Lehrtätigkeit an: HWZ Hochschule für Wirtschaft Zürich, MAZ (Die Schweizer Journalistenschule), SIB Schweizerisches Institut für Betriebsökonomie, zB. Zentrum Bildung (ehem. Studiengangsleiter).
-2000+ Menschen zum Thema KI ausgebildet.
+2500+ Menschen zum Thema KI ausgebildet.
 
 ---
 
@@ -85,7 +85,7 @@ OMT Summit (Düsseldorf), AI in Marketing Konferenz (The Circle Zürich), Busine
 
 ## Testimonials & Reviews
 
-Google Reviews: 4.9/5 Sterne (108 Reviews)
+Google Reviews: 4.9/5 Sterne (133 Reviews)
 ProvenExpert: 4.47/5
 
 ### Ausgewählte Stimmen

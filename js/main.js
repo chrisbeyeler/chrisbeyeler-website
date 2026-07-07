@@ -113,83 +113,12 @@ if (prefersReducedMotion) {
         }, '-=0.2');
 }
 
-// ===== ST-1: Hero → Keynotes Transition (Pin) =====
-if (!prefersReducedMotion && window.innerWidth >= 768) {
-    const heroBottom = document.querySelector('.hero__bottom');
-
-    // Offset einmalig berechnen: wie weit muss Trust-Bar nach oben, um im Viewport-Zentrum zu landen
-    let trustMoveY = 0;
-    function calcTrustMove() {
-        // Reset transforms für korrekte Messung
-        gsap.set(heroBottom, { y: 0, scale: 1 });
-        const barRect = heroBottom.getBoundingClientRect();
-        const barCenter = barRect.top + barRect.height / 2;
-        trustMoveY = (window.innerHeight / 2) - barCenter;
-    }
-    calcTrustMove();
-    // Bei Resize neu berechnen
-    window.addEventListener('resize', calcTrustMove);
-
-    ScrollTrigger.create({
-        trigger: '.hero',
-        start: 'bottom bottom',
-        end: '+=80%',
-        pin: true,
-        scrub: 1,
-        onUpdate: (self) => {
-            const p = self.progress;
-
-            // Phase 1 (0–30%): Hero-Content fade-out, Trust-Bar bleibt
-            // Phase 2 (30–70%): Trust-Bar wandert ins Viewport-Zentrum, wird grösser + Orange
-            // Phase 3 (70–100%): Trust-Bar fade-out nach oben
-
-            // Hero content verschwindet schnell
-            const contentFade = Math.max(0, 1 - p * 3.3);
-            gsap.set('.hero__content', { opacity: contentFade, y: -p * 80 });
-
-            if (p < 0.3) {
-                // Phase 1: Trust-Bar am Originalplatz
-                gsap.set(heroBottom, { opacity: 1, scale: 1, y: 0 });
-                gsap.set('.hero__trust-number', { color: 'var(--text-primary)' });
-                gsap.set('.hero__trust-label', { color: 'var(--text-tertiary)' });
-            } else if (p < 0.7) {
-                // Phase 2: Trust-Bar gleitet ins Zentrum
-                const phase = (p - 0.3) / 0.4; // 0→1
-                const moveY = trustMoveY * phase;
-                const scaleBoost = 1 + phase * 0.18; // bis 1.18
-
-                gsap.set(heroBottom, {
-                    opacity: 1,
-                    y: moveY,
-                    scale: scaleBoost,
-                    transformOrigin: 'center center',
-                });
-                // Zahlen werden Orange
-                const orangeR = 255, orangeG = Math.round(255 - phase * 109), orangeB = Math.round(255 - phase * 223);
-                gsap.set('.hero__trust-number', { color: `rgb(${orangeR}, ${orangeG}, ${orangeB})` });
-                // Labels werden heller
-                const labelV = Math.round(128 + phase * 64);
-                gsap.set('.hero__trust-label', { color: `rgb(${labelV}, ${labelV}, ${labelV})` });
-            } else {
-                // Phase 3: Trust-Bar fade-out nach oben
-                const fadePhase = (p - 0.7) / 0.3; // 0→1
-                gsap.set(heroBottom, {
-                    opacity: 1 - fadePhase,
-                    y: trustMoveY - fadePhase * 50,
-                    scale: 1.18 - fadePhase * 0.08,
-                    transformOrigin: 'center center',
-                });
-                gsap.set('.hero__trust-number', { color: 'var(--orange)' });
-            }
-        },
-        onLeaveBack: () => {
-            gsap.set('.hero__content', { opacity: 1, y: 0 });
-            gsap.set(heroBottom, { opacity: 1, scale: 1, y: 0 });
-            gsap.set('.hero__trust-number', { color: 'var(--text-primary)' });
-            gsap.set('.hero__trust-label', { color: 'var(--text-tertiary)' });
-        }
-    });
-}
+// ===== Hero → Keynotes =====
+// Kein Pin mehr: Der Hero scrollt normal weg, die Keynotes-Section folgt direkt.
+// Das vermeidet den leeren Header beim Zurückscrollen und das Springen beim
+// Section-Wechsel, das die frühere gepinnte Trust-Bar-Animation verursacht hat.
+// Die Trust-Zahlen zählen über die Counter-Animation (ST-4) hoch, die Bubbles
+// bleiben in ihrem CSS-Zustand (opacity 0.55, Hover intakt).
 
 // ===== COUNTER ANIMATION (ST-4: scrub-bound) =====
 function animateCounters() {
@@ -256,33 +185,13 @@ gsap.utils.toArray('.section__subtitle').forEach(el => {
     scrollReveal(el, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.1, ease: 'power3.out' }, el);
 });
 
-// Keynote cards — reveal + ST-3: Horizontal Scroll on desktop
-if (!prefersReducedMotion && window.innerWidth >= 1024) {
-    // Desktop: kein scrollReveal, Cards starten sichtbar, horizontaler Scroll IST die Animation
-    gsap.set('.keynote-card', { opacity: 1, y: 0, scale: 1 });
-    const keynoteGrid = document.querySelector('.keynotes__grid');
-    if (keynoteGrid) {
-        const getScrollAmount = () => keynoteGrid.scrollWidth - keynoteGrid.parentElement.clientWidth;
-        gsap.to(keynoteGrid, {
-            x: () => -getScrollAmount(),
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '.keynotes',
-                start: 'top 20%',
-                end: () => '+=' + getScrollAmount(),
-                pin: true,
-                scrub: 0.8,
-                invalidateOnRefresh: true,
-            }
-        });
-    }
-} else {
-    // Mobile: sanftere Entrance (y: 25 statt 50, kein scale)
-    scrollReveal('.keynote-card',
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
-        '.keynotes__grid');
-}
+// Keynote cards — sanftes Reveal beim Reinscrollen.
+// Kein Pin/Horizontal-Scroll mehr: der Mini-Pin (nur ~72px) fror die Section
+// kurz ein und verursachte den Ruck. Die 4 Cards stehen jetzt als Grid nebeneinander.
+scrollReveal('.keynote-card',
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' },
+    '.keynotes__grid');
 
 // About bio
 scrollReveal('.about__bio p',
@@ -329,6 +238,26 @@ if (!prefersReducedMotion) {
     gsap.set('.timeline__item', { opacity: 1, x: 0 });
     gsap.set('.timeline-progress', { scaleY: 1 });
 }
+
+// ===== TRAILER — cinematischer Scroll-in-View =====
+(function () {
+    const trailer = document.querySelector('.about__trailer');
+    if (!trailer) return;
+    if (prefersReducedMotion) { gsap.set(trailer, { opacity: 1 }); return; }
+
+    // Der Trailer kommt beim Hereinscrollen aus der Tiefe herauf, wird grösser
+    // und stellt aus der Unschärfe scharf, an den Scroll gekoppelt (scrub).
+    // Nur der Container wird angefasst (kein eigenes CSS-transform / kein Hover
+    // darauf), die Kinder (Poster, Play-Button, Label) reveal-en automatisch mit,
+    // ohne deren eigene Hover-Transforms zu überschreiben.
+    gsap.fromTo(trailer,
+        { opacity: 0, scale: 0.82, y: 100, filter: 'blur(14px)' },
+        {
+            opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', ease: 'none',
+            scrollTrigger: { trigger: trailer, start: 'top 90%', end: 'top 45%', scrub: 1 }
+        }
+    );
+})();
 
 // ===== ABOUT SCROLL STORYTELLING =====
 if (!prefersReducedMotion) {
