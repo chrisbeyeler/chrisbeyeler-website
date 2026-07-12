@@ -239,24 +239,297 @@ if (!prefersReducedMotion) {
     gsap.set('.timeline-progress', { scaleY: 1 });
 }
 
-// ===== TRAILER — cinematischer Scroll-in-View =====
+// ===== CINEMATIC TRAILER CONTROLLER =====
 (function () {
-    const trailer = document.querySelector('.about__trailer');
-    if (!trailer) return;
-    if (prefersReducedMotion) { gsap.set(trailer, { opacity: 1 }); return; }
+    const stages = Array.from(document.querySelectorAll('.trailer-stage'));
+    if (!stages.length) return;
+    const instances = [];
+    const saveData = navigator.connection && navigator.connection.saveData;
+    const manualOnly = prefersReducedMotion || saveData || matchMedia('(max-width: 600px)').matches;
 
-    // Der Trailer kommt beim Hereinscrollen aus der Tiefe herauf, wird grösser
-    // und stellt aus der Unschärfe scharf, an den Scroll gekoppelt (scrub).
-    // Nur der Container wird angefasst (kein eigenes CSS-transform / kein Hover
-    // darauf), die Kinder (Poster, Play-Button, Label) reveal-en automatisch mit,
-    // ohne deren eigene Hover-Transforms zu überschreiben.
-    gsap.fromTo(trailer,
-        { opacity: 0, scale: 0.82, y: 100, filter: 'blur(14px)' },
-        {
-            opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', ease: 'none',
-            scrollTrigger: { trigger: trailer, start: 'top 90%', end: 'top 45%', scrub: 1 }
+    function syncBodyState() {
+        document.body.classList.toggle('trailer-active', document.querySelector('.trailer-stage.is-active') !== null);
+    }
+
+    function closeOtherStages(activeStage) {
+        instances.forEach(function (instance) {
+            if (instance.stage !== activeStage) instance.close(true);
+        });
+    }
+
+    function initStage(stage) {
+        const media = stage.querySelector('.trailer-stage__media');
+        const startButton = stage.querySelector('.trailer-stage__start');
+        const soundButton = stage.querySelector('[data-trailer-action="sound"]');
+        const playButton = stage.querySelector('[data-trailer-action="play"]');
+        const endCard = stage.querySelector('.trailer-stage__end');
+        const triggers = Array.from(document.querySelectorAll('[data-trailer-target="' + stage.id + '"]'));
+        const config = {
+            provider: (stage.dataset.provider || 'file').toLowerCase(),
+            source: stage.dataset.source || '',
+            mobileSource: stage.dataset.mobileSource || '',
+            poster: stage.dataset.poster || '',
+            duration: Number(stage.dataset.duration) || 0
+        };
+        let state = 'idle';
+        let player = null;
+        let started = false;
+        let muted = true;
+        let progressTimer = null;
+        let fallbackStartedAt = 0;
+        let fallbackElapsed = 0;
+        let lastFocus = null;
+        const milestones = new Set();
+
+        function emit(name, detail) {
+            const payload = Object.assign({ provider: config.provider, state: state, stageId: stage.id }, detail || {});
+            stage.dispatchEvent(new CustomEvent('trailer_' + name, { bubbles: true, detail: payload }));
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(Object.assign({ event: 'trailer_' + name }, payload));
         }
-    );
+
+        function setState(next) {
+            state = next;
+            stage.dataset.state = next;
+            const active = ['playing-muted', 'playing-sound', 'paused'].includes(next);
+            stage.classList.toggle('is-active', active);
+            stage.classList.toggle('is-ended', next === 'ended');
+            stage.classList.toggle('is-closed', next === 'idle' && started);
+            stage.classList.toggle('is-entering', next === 'entering');
+            syncBodyState();
+            endCard.setAttribute('aria-hidden', next === 'ended' ? 'false' : 'true');
+            startButton.disabled = active || next === 'ended';
+            stage.querySelectorAll('.trailer-stage__controls button').forEach(function (button) { button.disabled = !active; });
+            playButton.textContent = next === 'paused' ? 'Play' : 'Pause';
+            playButton.setAttribute('aria-label', next === 'paused' ? 'Trailer fortsetzen' : 'Trailer pausieren');
+            soundButton.textContent = muted ? 'Ton einschalten' : 'Ton ausschalten';
+            soundButton.setAttribute('aria-label', muted ? 'Ton einschalten' : 'Ton ausschalten');
+        }
+
+        function post(command, value) {
+            if (!player || !player.contentWindow) return;
+            if (config.provider === 'youtube') {
+                player.contentWindow.postMessage(JSON.stringify({ event: 'command', func: command, args: value === undefined ? [] : [value] }), '*');
+            } else if (config.provider === 'vimeo') {
+                player.contentWindow.postMessage({ method: command, value: value }, '*');
+            }
+        }
+
+        function resolveSource() {
+            return window.innerWidth <= 600 && config.mobileSource ? config.mobileSource : config.source;
+        }
+
+        function createPlayer(withSound) {
+            if (player) return;
+            const source = resolveSource();
+            if (!source) return;
+            if (config.provider === 'youtube' || config.provider === 'vimeo') {
+                const iframe = document.createElement('iframe');
+                const origin = encodeURIComponent(location.origin);
+                iframe.src = config.provider === 'youtube'
+                    ? 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(source) + '?autoplay=1&playsinline=1&rel=0&controls=0&enablejsapi=1&origin=' + origin + (withSound ? '' : '&mute=1')
+                    : 'https://player.vimeo.com/video/' + encodeURIComponent(source) + '?autoplay=1&playsinline=1&controls=0&dnt=1&muted=' + (withSound ? '0' : '1');
+                iframe.title = stage.getAttribute('aria-label') || 'Trailer';
+                iframe.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+                iframe.allowFullscreen = true;
+                media.appendChild(iframe);
+                player = iframe;
+                iframe.addEventListener('load', function () {
+                    if (config.provider === 'youtube') iframe.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: stage.id + '-player' }), '*');
+                    if (config.provider === 'vimeo') post('addEventListener', 'ended');
+                });
+            } else {
+                const video = document.createElement('video');
+                video.preload = 'metadata';
+                video.playsInline = true;
+                video.poster = config.poster;
+                video.muted = !withSound;
+                const sources = source.split(',').map(function (item) { return item.trim(); }).filter(Boolean);
+                sources.forEach(function (src) {
+                    const el = document.createElement('source');
+                    el.src = src;
+                    if (/\.webm(?:$|\?)/i.test(src)) el.type = 'video/webm';
+                    if (/\.mp4(?:$|\?)/i.test(src)) el.type = 'video/mp4';
+                    video.appendChild(el);
+                });
+                video.addEventListener('timeupdate', function () { trackProgress(video.currentTime, video.duration); });
+                video.addEventListener('ended', finish);
+                media.appendChild(video);
+                player = video;
+                video.play().catch(function () { pause(); });
+            }
+        }
+
+        function restartPlayerPosition() {
+            if (!player) return;
+            if (player.tagName === 'VIDEO') {
+                player.currentTime = 0;
+            } else if (config.provider === 'youtube') {
+                post('seekTo', 0);
+            } else if (config.provider === 'vimeo') {
+                post('setCurrentTime', 0);
+            }
+        }
+
+        function start(withSound) {
+            lastFocus = document.activeElement;
+            closeOtherStages(stage);
+            muted = !withSound;
+            if (!player) createPlayer(withSound);
+            else if (player.tagName === 'VIDEO') {
+                if (state === 'ended') {
+                    restartPlayerPosition();
+                    fallbackElapsed = 0;
+                    milestones.clear();
+                }
+                player.muted = muted;
+                player.play();
+            } else {
+                if (state === 'ended') restartPlayerPosition();
+                post(config.provider === 'youtube' ? (muted ? 'mute' : 'unMute') : 'setMuted', muted);
+                post(config.provider === 'youtube' ? 'playVideo' : 'play');
+            }
+            if (!started) {
+                started = true;
+                emit('start', { muted: muted });
+            }
+            setState(muted ? 'playing-muted' : 'playing-sound');
+            fallbackStartedAt = performance.now();
+            clearInterval(progressTimer);
+            progressTimer = setInterval(function () {
+                if (config.duration && state.indexOf('playing') === 0) {
+                    trackProgress(fallbackElapsed + (performance.now() - fallbackStartedAt) / 1000, config.duration);
+                }
+            }, 1000);
+        }
+
+        function pause() {
+            if (!player || state.indexOf('playing') !== 0) return;
+            if (player.tagName === 'VIDEO') player.pause();
+            else post(config.provider === 'youtube' ? 'pauseVideo' : 'pause');
+            fallbackElapsed += (performance.now() - fallbackStartedAt) / 1000;
+            clearInterval(progressTimer);
+            setState('paused');
+        }
+
+        function toggleSound() {
+            muted = !muted;
+            if (player && player.tagName === 'VIDEO') player.muted = muted;
+            else if (player) post(config.provider === 'youtube' ? (muted ? 'mute' : 'unMute') : 'setMuted', muted);
+            setState(muted ? 'playing-muted' : 'playing-sound');
+            if (!muted) emit('sound_on');
+        }
+
+        function trackProgress(current, duration) {
+            if (!duration || !isFinite(duration)) return;
+            const percent = Math.min(100, current / duration * 100);
+            [25, 50, 75, 100].forEach(function (mark) {
+                if (percent >= mark && !milestones.has(mark)) {
+                    milestones.add(mark);
+                    emit(String(mark), { percent: mark });
+                }
+            });
+            if (percent >= 99.5) finish();
+        }
+
+        function finish() {
+            if (state === 'ended') return;
+            clearInterval(progressTimer);
+            if (!milestones.has(100)) {
+                milestones.add(100);
+                emit('100', { percent: 100 });
+            }
+            setState('ended');
+            const replayButton = stage.querySelector('[data-trailer-action="replay"]');
+            if (replayButton) replayButton.focus();
+        }
+
+        function close(silent) {
+            pause();
+            setState('idle');
+            if (!silent && lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+
+        startButton.addEventListener('click', function () { start(true); });
+        triggers.forEach(function (trigger) {
+            trigger.addEventListener('click', function (event) {
+                event.preventDefault();
+                start(true);
+                stage.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+            });
+        });
+        stage.addEventListener('click', function (event) {
+            const action = event.target.closest('[data-trailer-action]');
+            if (!action) return;
+            if (action.dataset.trailerAction === 'sound') toggleSound();
+            if (action.dataset.trailerAction === 'play') state === 'paused' ? start(!muted) : pause();
+            if (action.dataset.trailerAction === 'close') close();
+            if (action.dataset.trailerAction === 'replay') {
+                milestones.clear();
+                fallbackElapsed = 0;
+                restartPlayerPosition();
+                start(!muted);
+            }
+            if (action.dataset.trailerAction === 'fullscreen') {
+                const target = player || stage.querySelector('.trailer-stage__frame');
+                const request = target.requestFullscreen || target.webkitRequestFullscreen;
+                if (request) {
+                    request.call(target);
+                    emit('fullscreen');
+                }
+            }
+        });
+        stage.querySelectorAll('[data-trailer-end-link]').forEach(function (link) {
+            link.addEventListener('click', function () {
+                emit('end_click', { target: link.dataset.trailerEndLink });
+                close();
+            });
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && state !== 'idle') close();
+        });
+        window.addEventListener('message', function (event) {
+            if (player && event.source && event.source !== player.contentWindow) return;
+            let data = event.data;
+            try {
+                if (typeof data === 'string') data = JSON.parse(data);
+            } catch (ignore) {
+                return;
+            }
+            if (!data) return;
+            if (data.event === 'infoDelivery' && data.info) trackProgress(data.info.currentTime, data.info.duration || config.duration);
+            if (data.event === 'onStateChange' && data.info === 0) finish();
+            if (data.event === 'ended') finish();
+            if (data.event === 'timeupdate' && data.data) trackProgress(data.data.seconds, data.data.duration);
+        });
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(function (entries) {
+                const entry = entries[0];
+                if (entry.intersectionRatio >= .25 && !stage.dataset.impressed) {
+                    stage.dataset.impressed = 'true';
+                    stage.classList.add('is-entering');
+                    setState('entering');
+                    emit('impression');
+                }
+                if (entry.intersectionRatio >= .6 && !started && !manualOnly) {
+                    start(false);
+                    observer.disconnect();
+                }
+            }, { threshold: [0, .25, .6, 1] });
+            observer.observe(stage);
+        }
+
+        setState('idle');
+        return {
+            stage: stage,
+            close: close
+        };
+    }
+
+    stages.forEach(function (stage) {
+        instances.push(initStage(stage));
+    });
 })();
 
 // ===== ABOUT SCROLL STORYTELLING =====

@@ -348,6 +348,38 @@
         </div>
     </section>
 
+    <!-- ===== CINEMATIC TRAILER ===== -->
+    <section class="trailer-stage" id="trailer" aria-label="Chris Beyeler Trailer"
+        data-provider="file" data-source="assets/video/chris-trailer-desktop.mp4"
+        data-mobile-source="assets/video/chris-trailer-mobile.mp4"
+        data-poster="assets/video/chris-trailer-poster.jpg" data-duration="54.718">
+        <div class="trailer-stage__frame">
+            <div class="trailer-stage__light" aria-hidden="true"></div>
+            <div class="trailer-stage__media" id="trailerMedia">
+                <img class="trailer-stage__poster" src="assets/video/chris-trailer-poster.jpg" width="1280" height="720" alt="Chris Beyeler auf der Bühne" loading="lazy">
+                <button class="trailer-stage__start" type="button" aria-label="Trailer mit Ton abspielen">
+                    <span class="trailer-stage__play" aria-hidden="true">▶</span>
+                    <span>Trailer abspielen</span>
+                </button>
+            </div>
+            <div class="trailer-stage__controls" aria-label="Trailer-Steuerung">
+                <button type="button" data-trailer-action="sound" aria-label="Ton einschalten">Ton einschalten</button>
+                <button type="button" data-trailer-action="play" aria-label="Trailer pausieren">Pause</button>
+                <button type="button" data-trailer-action="fullscreen" aria-label="Vollbild öffnen">Vollbild</button>
+                <button type="button" data-trailer-action="close" aria-label="Trailer schließen">Schließen</button>
+            </div>
+            <div class="trailer-stage__end" aria-live="polite" aria-hidden="true">
+                <p class="trailer-stage__eyebrow">Chris Beyeler</p>
+                <h2>Künstliche Intelligenz<br><span>verständlich. Relevant. Wirksam.</span></h2>
+                <div class="trailer-stage__end-links">
+                    <a href="#keynotes" data-trailer-end-link="keynotes">Keynotes entdecken</a>
+                    <a href="#about" data-trailer-end-link="about">Mehr über Chris</a>
+                </div>
+                <button type="button" class="trailer-stage__replay" data-trailer-action="replay">Noch einmal ansehen</button>
+            </div>
+            <p class="trailer-stage__hint">Film · 00:55</p>
+        </div>
+    </section>
     <!-- ===== KEYNOTES ===== -->
     <section class="section keynotes" id="keynotes">
         <div class="container">
@@ -614,17 +646,6 @@
                 </div>
             </div>
 
-            <!-- Trailer -->
-            <div class="about__trailer">
-                <button type="button" class="trailer__btn" data-yt="Tv8b_cQTOJU" aria-label="Trailer abspielen">
-                    <img src="img/trailer-poster.jpg" alt="Chris Beyeler Trailer" class="trailer__poster" loading="lazy" width="1280" height="720">
-                    <span class="trailer__play" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                    </span>
-                    <span class="trailer__label">Trailer ansehen</span>
-                </button>
-            </div>
-
             <!-- Counter Section -->
             <div class="about__counters">
                 <div class="counter">
@@ -651,6 +672,7 @@
                     <img src="img/logo-beyonder.png" alt="BEYONDER" class="role-card__logo role-card__logo--rounded" loading="lazy">
                     <h4>BEYONDER AG</h4>
                     <p>Gründer & CEO</p>
+                    <a class="role-card__cta" href="#beyonder-trailer" data-trailer-target="beyonder-trailer">Trailer ansehen</a>
                 </div>
                 <div class="role-card glass-card">
                     <img src="img/logo-swissai.png" alt="swissAI" class="role-card__logo" loading="lazy">
@@ -668,6 +690,39 @@
                     <small>2500+ Menschen ausgebildet</small>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== BEYONDER TRAILER ===== -->
+    <section class="trailer-stage trailer-stage--beyonder" id="beyonder-trailer" aria-label="BEYONDER Trailer"
+        data-provider="file" data-source="assets/video/beyonder-trailer-desktop.mp4"
+        data-mobile-source="assets/video/beyonder-trailer-mobile.mp4"
+        data-poster="assets/video/beyonder-trailer-poster.jpg" data-duration="85.353">
+        <div class="trailer-stage__frame">
+            <div class="trailer-stage__light" aria-hidden="true"></div>
+            <div class="trailer-stage__media">
+                <img class="trailer-stage__poster" src="assets/video/beyonder-trailer-poster.jpg" width="1280" height="720" alt="BEYONDER Trailer" loading="lazy">
+                <button class="trailer-stage__start" type="button" aria-label="BEYONDER Trailer mit Ton abspielen">
+                    <span class="trailer-stage__play" aria-hidden="true">▶</span>
+                    <span>Trailer abspielen</span>
+                </button>
+            </div>
+            <div class="trailer-stage__controls" aria-label="Trailer-Steuerung">
+                <button type="button" data-trailer-action="sound" aria-label="Ton einschalten">Ton einschalten</button>
+                <button type="button" data-trailer-action="play" aria-label="Trailer pausieren">Pause</button>
+                <button type="button" data-trailer-action="fullscreen" aria-label="Vollbild öffnen">Vollbild</button>
+                <button type="button" data-trailer-action="close" aria-label="Trailer schließen">Schließen</button>
+            </div>
+            <div class="trailer-stage__end" aria-live="polite" aria-hidden="true">
+                <p class="trailer-stage__eyebrow">BEYONDER AG</p>
+                <h2>Künstliche Intelligenz<br><span>verständlich. Relevant. Wirksam.</span></h2>
+                <div class="trailer-stage__end-links">
+                    <a href="#about" data-trailer-end-link="about">Mehr über Chris</a>
+                    <a href="#contact" data-trailer-end-link="contact">Kontakt</a>
+                </div>
+                <button type="button" class="trailer-stage__replay" data-trailer-action="replay">Noch einmal ansehen</button>
+            </div>
+            <p class="trailer-stage__hint">Film · 01:25</p>
         </div>
     </section>
 
@@ -1611,48 +1666,6 @@
         }
     });
 
-    // Trailer: YouTube erst bei Bedarf laden (DSGVO, Performance)
-    (function () {
-        const btn = document.querySelector('.trailer__btn[data-yt]');
-        if (!btn) return;
-        const wrap = btn.closest('.about__trailer');
-        let loaded = false;
-
-        function loadTrailer(muted) {
-            if (loaded) return;
-            loaded = true;
-            const id = btn.dataset.yt;
-            const iframe = document.createElement('iframe');
-            iframe.className = 'trailer__iframe';
-            // mute=1 nur beim automatischen Start – Browser erlauben Autoplay sonst nicht.
-            const params = 'autoplay=1&rel=0&modestbranding=1&playsinline=1' + (muted ? '&mute=1' : '');
-            iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;
-            iframe.title = 'Chris Beyeler Trailer';
-            iframe.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
-            iframe.allowFullscreen = true;
-            btn.replaceWith(iframe);
-        }
-
-        // Klick: mit Ton (User-Geste erlaubt Autoplay mit Sound)
-        btn.addEventListener('click', () => loadTrailer(false));
-
-        // Auto-Start (stumm) sobald das Video (nahezu) vollständig im Viewport sitzt
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (wrap && !reduceMotion && 'IntersectionObserver' in window) {
-            // Schwelle 0.85: Das full-bleed-Video füllt fast den ganzen Viewport,
-            // 100% exakt wäre nur ein winziges Scroll-Fenster – 85% heisst „im
-            // Wesentlichen bildschirmfüllend" und startet dadurch zuverlässig.
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach((e) => {
-                    if (e.isIntersecting && e.intersectionRatio >= 0.85) {
-                        loadTrailer(true);
-                        io.disconnect();
-                    }
-                });
-            }, { threshold: [0, 0.5, 0.85, 1] });
-            io.observe(wrap);
-        }
-    })();
     </script>
 </body>
 </html>
