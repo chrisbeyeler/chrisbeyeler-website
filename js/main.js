@@ -19,8 +19,9 @@ lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
 
-// ===== PARTICLES.JS — subtle, premium =====
-if (document.getElementById('particles-js')) {
+// ===== PARTICLES.JS — non-critical decoration, loaded after first render =====
+function initHeroParticles() {
+    if (!document.getElementById('particles-js') || typeof particlesJS !== 'function') return;
     const isMobile = window.innerWidth < 768;
     particlesJS('particles-js', {
         particles: {
@@ -68,6 +69,23 @@ if (document.getElementById('particles-js')) {
     });
 }
 
+function loadHeroParticles() {
+    if (prefersReducedMotion || window.innerWidth < 768 || !document.getElementById('particles-js')) return;
+    const script = document.createElement('script');
+    script.src = 'vendor/particles.min.js';
+    script.async = true;
+    script.onload = initHeroParticles;
+    document.head.appendChild(script);
+}
+
+window.addEventListener('load', () => {
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadHeroParticles, { timeout: 2500 });
+    } else {
+        window.setTimeout(loadHeroParticles, 1200);
+    }
+}, { once: true });
+
 // ===== NAVIGATION =====
 const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');
@@ -84,34 +102,21 @@ window.addEventListener('scroll', () => {
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', String(navLinks.classList.contains('active')));
     });
 }
 
 navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
     });
 });
 
-// ===== HERO ANIMATIONS (Stage Layout) =====
-if (prefersReducedMotion) {
-    gsap.set(['.hero__stage-label', '.hero__stage-headline', '.hero__stage-sub', '.hero__ctas'], { opacity: 1, y: 0 });
-} else {
-    const heroTl = gsap.timeline({ delay: 0.5 });
-    heroTl
-        .fromTo('.hero__stage-label',
-            { opacity: 0 },
-            { opacity: 1, duration: 0.6, ease: 'power2.out' })
-        .fromTo('.hero__stage-headline',
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.2')
-        .fromTo('.hero__stage-sub',
-            { opacity: 0 },
-            { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.4')
-        .to('.hero__ctas', {
-            opacity: 1, duration: 0.5, ease: 'power2.out'
-        }, '-=0.2');
-}
+// ===== HERO FIRST PAINT =====
+// Above-the-fold copy stays visible immediately. Delaying it behind a GSAP
+// intro makes the perceived load slower and can postpone the LCP candidate.
+gsap.set(['.hero__stage-label', '.hero__stage-headline', '.hero__stage-sub', '.hero__ctas'], { opacity: 1, y: 0 });
 
 // ===== Hero → Keynotes =====
 // Kein Pin mehr: Der Hero scrollt normal weg, die Keynotes-Section folgt direkt.

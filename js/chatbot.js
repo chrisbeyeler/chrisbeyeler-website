@@ -9,7 +9,7 @@ const CHATBOT_API = 'https://chrisbeyeler-chatbot.chrisbeyeler.workers.dev/chat'
 const FAQ_DATABASE = {
     'alter': {
         keywords: ['alt', 'alter', 'geburtstag', 'geboren', 'jahrgang', 'wie alt'],
-        answer: 'Alter ist nur eine Zahl. Was zählt: Seit 2016 im KI-Game, über 2000 Menschen ausgebildet und immer noch neugierig wie am ersten Tag. Das ist doch relevanter, oder?'
+        answer: 'Alter ist nur eine Zahl. Was zählt: Seit 2016 im KI-Game, über 2500 Menschen ausgebildet und immer noch neugierig wie am ersten Tag. Das ist doch relevanter, oder?'
     },
     'keynote': {
         keywords: ['keynote', 'vortrag', 'speech', 'buehne', 'buchen', 'anfragen', 'referent', 'speaker', 'rede'],
@@ -25,7 +25,7 @@ const FAQ_DATABASE = {
     },
     'chris': {
         keywords: ['chris', 'beyeler', 'wer', 'person', 'bio', 'ueber'],
-        answer: 'Ich bin die digitale Version von Chris Beyeler. KI-Experte, Keynote Speaker, Gründer & CEO der BEYONDER AG und Präsident von swissAI. Seit 2016 im KI-Game, über 2000 Menschen ausgebildet, 70+ Keynotes, 148+ Podcast-Episoden. Digital Shaper 2026. Quellcode im Blut, Neugier im Kopf.'
+        answer: 'Ich bin die digitale Version von Chris Beyeler. KI-Experte, Keynote Speaker, Gründer & CEO der BEYONDER AG und Präsident von swissAI. Seit 2016 im KI-Game, über 2500 Menschen ausgebildet, 70+ Keynotes, 150+ Podcast-Episoden. Digital Shaper 2026. Quellcode im Blut, Neugier im Kopf.'
     },
     'karriere': {
         keywords: ['karriere', 'lebenslauf', 'cv', 'werdegang', 'erfahrung', 'recruiting', 'siroop', 'mysign'],
@@ -37,7 +37,7 @@ const FAQ_DATABASE = {
     },
     'beyonder': {
         keywords: ['beyonder', 'firma', 'unternehmen', 'ag', 'kompetenzzentrum', 'team'],
-        answer: 'BEYONDER ist mein Baby. Schweizer KI-Kompetenzzentrum in Gebenstorf. 2019 gegründet, seit Juli 2025 eine AG mit Vollfokus auf KI. Mein Team: David Henzmann, Michi Kyburz, Raphael Pflugi und Luca Conconi. Wir machen Schulungen, Beratung, Implementierung und Keynotes. Kunden wie SUVA, Rotes Kreuz, BKW und Mobiliar vertrauen uns. 4.9/5 auf Google mit 108 Reviews. Mehr auf beyonder.ch'
+        answer: 'BEYONDER ist mein Baby. Schweizer KI-Kompetenzzentrum in Gebenstorf. 2019 gegründet, seit Juli 2025 eine AG mit Vollfokus auf KI. Mein Team: David Henzmann, Michi Kyburz, Raphael Pflugi und Luca Conconi. Wir machen Schulungen, Beratung, Implementierung und Keynotes. Kunden wie SUVA, Rotes Kreuz, BKW und Mobiliar vertrauen uns. 4.9/5 auf Google mit 133 Reviews. Mehr auf beyonder.ch'
     },
     'schulung': {
         keywords: ['workshop', 'schulung', 'training', 'kurs', 'lernen', 'masterclass', 'weiterbildung'],
@@ -45,7 +45,7 @@ const FAQ_DATABASE = {
     },
     'podcast': {
         keywords: ['podcast', 'ai cast', 'episode', 'spotify', 'apple', 'youtube', 'marketing booster'],
-        answer: 'Mein Podcast heisst AI Cast (früher Marketing BOOSTER). 148+ Episoden seit 2019, 1000 Abonnenten, 8000 Reichweite pro Folge. Ich rede über KI in der Praxis, Mensch & Maschine, Zukunft & Verantwortung. Auf Spotify, Apple Podcasts und YouTube. Reinhören: aicast.ch'
+        answer: 'Mein Podcast heisst AI Cast (früher Marketing BOOSTER). 150+ Episoden seit 2019, 1000 Abonnenten, 8000 Reichweite pro Folge. Ich rede über KI in der Praxis, Mensch & Maschine, Zukunft & Verantwortung. Auf Spotify, Apple Podcasts und YouTube. Reinhören: aicast.ch'
     },
     'kontakt': {
         keywords: ['kontakt', 'email', 'mail', 'erreichen', 'schreiben', 'telefon', 'adresse'],
@@ -57,11 +57,11 @@ const FAQ_DATABASE = {
     },
     'dozent': {
         keywords: ['dozent', 'hwz', 'maz', 'sib', 'hochschule', 'universitaet', 'lehre', 'studiengang'],
-        answer: 'Ich unterrichte an der HWZ, am MAZ und am SIB. War auch Studiengangsleiter am zB. Zentrum Bildung. Über 2000 Menschen hab ich zum Thema KI ausgebildet. Vermitteln liegt mir, das steckt in meiner DNA.'
+        answer: 'Ich unterrichte an der HWZ, am MAZ und am SIB. War auch Studiengangsleiter am zB. Zentrum Bildung. Über 2500 Menschen hab ich zum Thema KI ausgebildet. Vermitteln liegt mir, das steckt in meiner DNA.'
     },
     'review': {
         keywords: ['review', 'bewertung', 'rezension', 'google', 'proven', 'sterne', 'erfahrung', 'feedback'],
-        answer: '4.9 von 5 Sternen auf Google mit 108 Reviews, 4.47 auf ProvenExpert. Meine Teilnehmer schätzen die Praxisnähe und die verständlichen Erklärungen. «Hat meine Erwartungen übertroffen» (Daniel Keller), «Bringt Inspiration auf die Bühne» (Romi Hofer). Das freut mich jedes Mal.'
+        answer: '4.9 von 5 Sternen auf Google mit 133 Reviews, 4.47 auf ProvenExpert. Meine Teilnehmer schätzen die Praxisnähe und die verständlichen Erklärungen. «Hat meine Erwartungen übertroffen» (Daniel Keller), «Bringt Inspiration auf die Bühne» (Romi Hofer). Das freut mich jedes Mal.'
     },
     'essay': {
         keywords: ['essay', 'manifest', 'text', 'artikel', 'zukunft', 'meinung'],

@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Beyeler — Keynote Speaker & KI-Stratege</title>
-    <meta name="description" content="Chris Beyeler: KI Experte Schweiz, Keynote Speaker für Künstliche Intelligenz, AI Berater & Stratege. Präsident swissAI, Digital Shaper 2026. 2500+ Menschen ausgebildet, 70+ Keynotes. Buchen Sie Ihren KI-Vortrag.">
+    <title>Chris Beyeler | KI-Keynote Speaker & Stratege Schweiz</title>
+    <meta name="description" content="Chris Beyeler ist KI-Keynote Speaker und Stratege in der Schweiz, Gründer der BEYONDER AG, Präsident von swissAI und Digital Shaper 2026.">
     <meta name="author" content="Chris Beyeler">
     <link rel="canonical" href="https://chrisbeyeler.ch/">
     <link rel="alternate" hreflang="de-CH" href="https://chrisbeyeler.ch/">
     <link rel="alternate" hreflang="x-default" href="https://chrisbeyeler.ch/">
-    <link rel="alternate" type="application/rss+xml" title="AI Cast Podcast" href="https://chrisbeyeler.ch/assets/ai-cast-rss.xml">
     <meta name="geo.region" content="CH-AG">
     <meta name="geo.placename" content="Gebenstorf, Aargau, Schweiz">
-    <link rel="preconnect" href="https://open.spotify.com">
+    <link rel="preload" as="image" href="img/hero-bg.webp" imagesrcset="img/hero-bg-960.webp 960w, img/hero-bg.webp 1920w" imagesizes="100vw" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="fonts/montserrat-v31-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Chris Beyeler — KI Experte, Keynote Speaker & AI Stratege Schweiz">
-    <meta property="og:description" content="KI Experte Schweiz, Keynote Speaker für Künstliche Intelligenz, AI Berater. Digital Shaper 2026, Präsident swissAI. Keynotes, Workshops & Beratung.">
+    <meta property="og:title" content="Chris Beyeler | KI-Keynote Speaker & Stratege Schweiz">
+    <meta property="og:description" content="KI-Keynotes und Strategie mit Chris Beyeler: Gründer der BEYONDER AG, Präsident von swissAI und Digital Shaper 2026.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chrisbeyeler.ch">
+    <meta property="og:url" content="https://chrisbeyeler.ch/">
     <meta property="og:image" content="https://chrisbeyeler.ch/img/chris-hero.jpg">
+    <meta property="og:image:width" content="893">
+    <meta property="og:image:height" content="1600">
+    <meta property="og:image:alt" content="Chris Beyeler, KI-Keynote Speaker und Stratege">
     <meta property="og:locale" content="de_CH">
     <meta property="og:site_name" content="Chris Beyeler">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chris Beyeler — KI Experte, Keynote Speaker & AI Stratege Schweiz">
-    <meta name="twitter:description" content="KI Experte Schweiz, Keynote Speaker für Künstliche Intelligenz, AI Berater. Digital Shaper 2026, Präsident swissAI.">
+    <meta name="twitter:title" content="Chris Beyeler | KI-Keynote Speaker & Stratege Schweiz">
+    <meta name="twitter:description" content="KI-Keynotes und Strategie mit Chris Beyeler, Gründer der BEYONDER AG und Präsident von swissAI.">
     <meta name="twitter:image" content="https://chrisbeyeler.ch/img/chris-hero.jpg">
+    <meta name="twitter:image:alt" content="Chris Beyeler, KI-Keynote Speaker und Stratege">
 
     <!-- Fonts (lokal, DSGVO-konform) -->
     <link rel="icon" type="image/png" href="img/favicon.png">
@@ -40,6 +44,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://chrisbeyeler.ch/#chris-beyeler",
         "name": "Chris Beyeler",
         "url": "https://chrisbeyeler.ch",
         "image": "https://chrisbeyeler.ch/img/chris-hero.jpg",
@@ -47,16 +52,19 @@
         "description": "Chris Beyeler ist KI Experte und AI Experte in der Schweiz. Keynote Speaker für Künstliche Intelligenz, KI Berater, KI Stratege, Präsident swissAI, Digital Shaper 2026. Über 2500 Menschen zum Thema KI ausgebildet.",
         "worksFor": {
             "@type": "Organization",
+            "@id": "https://chrisbeyeler.ch/#beyonder",
             "name": "BEYONDER AG",
             "url": "https://beyonder.ch"
         },
         "founder": {
             "@type": "Organization",
+            "@id": "https://chrisbeyeler.ch/#beyonder",
             "name": "BEYONDER AG",
             "url": "https://beyonder.ch"
         },
         "memberOf": {
             "@type": "Organization",
+            "@id": "https://chrisbeyeler.ch/#swissai",
             "name": "swissAI",
             "url": "https://swissai.ch",
             "description": "Schweizer Dachverband für Künstliche Intelligenz"
@@ -128,20 +136,48 @@
     }
     </script>
 
+    <!-- Schema.org: Organizations and entity relationships -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://chrisbeyeler.ch/#beyonder",
+                "name": "BEYONDER AG",
+                "url": "https://beyonder.ch",
+                "founder": {"@id": "https://chrisbeyeler.ch/#chris-beyeler"},
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Wambisterstrasse 1a",
+                    "postalCode": "5412",
+                    "addressLocality": "Gebenstorf",
+                    "addressCountry": "CH"
+                }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://chrisbeyeler.ch/#swissai",
+                "name": "swissAI",
+                "url": "https://swissai.ch",
+                "description": "Schweizer Dachverband für Künstliche Intelligenz",
+                "member": {"@id": "https://chrisbeyeler.ch/#chris-beyeler"}
+            }
+        ]
+    }
+    </script>
+
     <!-- Schema.org: WebSite -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://chrisbeyeler.ch/#website",
         "name": "Chris Beyeler – KI Experte, Keynote Speaker & AI Stratege Schweiz",
-        "url": "https://chrisbeyeler.ch",
+        "url": "https://chrisbeyeler.ch/",
         "description": "Offizielle Website von Chris Beyeler: KI Experte Schweiz, Keynote Speaker für Künstliche Intelligenz, AI Berater, KI Stratege, Präsident swissAI, Digital Shaper 2026.",
         "inLanguage": "de-CH",
-        "author": {
-            "@type": "Person",
-            "name": "Chris Beyeler",
-            "url": "https://chrisbeyeler.ch"
-        }
+        "author": {"@id": "https://chrisbeyeler.ch/#chris-beyeler"}
     }
     </script>
 
@@ -153,18 +189,42 @@
         "name": "AI Cast",
         "description": "Der Schweizer Podcast über Künstliche Intelligenz. Hosted von Chris Beyeler, KI Experte und AI Stratege.",
         "url": "https://www.aicast.ch",
-        "author": {
-            "@type": "Person",
-            "name": "Chris Beyeler",
-            "url": "https://chrisbeyeler.ch"
-        },
+        "author": {"@id": "https://chrisbeyeler.ch/#chris-beyeler"},
         "inLanguage": "de",
         "genre": "Technology",
-        "webFeed": "https://chrisbeyeler.ch/assets/ai-cast-rss.xml",
         "sameAs": [
             "https://open.spotify.com/show/3M3pGoFAwT6TGwdMBio6f6",
             "https://podcasts.apple.com/us/podcast/marketing-booster-beyonder/id1476341514",
             "https://youtube.com/beyondernow"
+        ]
+    }
+    </script>
+
+    <!-- Schema.org: on-demand trailers (video files load only after interaction) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "VideoObject",
+                "@id": "https://chrisbeyeler.ch/#speaker-trailer",
+                "name": "Chris Beyeler – KI-Keynote Speaker Trailer",
+                "description": "Chris Beyeler als KI-Keynote Speaker auf der Bühne.",
+                "thumbnailUrl": "https://chrisbeyeler.ch/assets/video/chris-trailer-poster.jpg",
+                "contentUrl": "https://chrisbeyeler.ch/assets/video/chris-trailer-desktop.mp4",
+                "duration": "PT54.718S",
+                "inLanguage": "de-CH"
+            },
+            {
+                "@type": "VideoObject",
+                "@id": "https://chrisbeyeler.ch/#beyonder-trailer",
+                "name": "BEYONDER AG Trailer",
+                "description": "Einblick in die KI-Beratung, Schulung und Strategie der BEYONDER AG.",
+                "thumbnailUrl": "https://chrisbeyeler.ch/assets/video/beyonder-trailer-poster.jpg",
+                "contentUrl": "https://chrisbeyeler.ch/assets/video/beyonder-trailer-desktop.mp4",
+                "duration": "PT85.353S",
+                "inLanguage": "de-CH"
+            }
         ]
     }
     </script>
@@ -248,7 +308,7 @@
     <nav class="nav" id="nav">
         <div class="nav__inner">
             <a href="#hero" class="nav__logo">Chris Beyeler</a>
-            <button class="nav__toggle" id="navToggle" aria-label="Menu">
+            <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-controls="navLinks" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav__links" id="navLinks">
@@ -269,7 +329,10 @@
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
         <div class="hero__bg" id="heroBg">
-            <img src="img/hero-bg.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+            <picture>
+                <source type="image/webp" srcset="img/hero-bg-960.webp 960w, img/hero-bg.webp 1920w" sizes="100vw">
+                <img src="img/hero-bg.jpg" width="1920" height="1280" alt="" aria-hidden="true" fetchpriority="high">
+            </picture>
         </div>
         <canvas class="hero-glitch" id="heroGlitch"></canvas>
         <div class="hero-scanlines" id="heroScanlines"></div>
@@ -356,7 +419,7 @@
         <div class="trailer-stage__frame">
             <div class="trailer-stage__light" aria-hidden="true"></div>
             <div class="trailer-stage__media" id="trailerMedia">
-                <img class="trailer-stage__poster" src="assets/video/chris-trailer-poster.jpg" width="1280" height="720" alt="Chris Beyeler auf der Bühne" loading="lazy">
+                <img class="trailer-stage__poster" src="assets/video/chris-trailer-poster.jpg" width="1600" height="900" alt="Chris Beyeler auf der Bühne" loading="lazy" decoding="async">
                 <button class="trailer-stage__start" type="button" aria-label="Trailer mit Ton abspielen">
                     <span class="trailer-stage__play" aria-hidden="true">▶</span>
                     <span>Trailer abspielen</span>
@@ -593,7 +656,7 @@
                     <h2 class="section__title section__title--left">Über mich</h2>
                     <div class="about__bio">
                         <p class="about__bio-lead">Chris Beyeler lebt und atmet Künstliche Intelligenz. Quellcode im Blut, Neugier im Kopf, Vermitteln im Herz.</p>
-                        <p>Chris Beyeler präsidiert swissAI, den Schweizer Dachverband für Künstliche Intelligenz, und gründete 2019 die BEYONDER AG. Er baut Brücken zwischen Mensch und Maschine: wirksam, bodenständig, inspirierend. Mit über 150 Folgen des Podcasts AI Cast prägt Chris Beyeler den KI-Diskurs in der Schweiz.</p>
+                        <p>Chris Beyeler präsidiert <a href="https://swissai.ch" target="_blank" rel="noopener">swissAI</a>, den Schweizer Dachverband für Künstliche Intelligenz, und gründete 2019 die <a href="https://beyonder.ch" target="_blank" rel="noopener">BEYONDER AG</a>. Er baut Brücken zwischen Mensch und Maschine: wirksam, bodenständig, inspirierend. Mit über 150 Folgen des <a href="#podcast">Podcasts AI Cast</a> prägt Chris Beyeler den KI-Diskurs in der Schweiz.</p>
                         <p>Sein Weg: 2016 kam er als einer der Ersten in der Schweiz mit generativer KI in Berührung und wurde zum Early Adopter. Vom Software-Entwickler über RecruitingHUB und siroop (Swisscom/Coop) zu BEYONDER, das er 2019 gründete und 2025 zur AG formte. Heute bildet er mit seinem Team Unternehmen in der ganzen Schweiz im Umgang mit KI aus.</p>
                     </div>
 
@@ -673,16 +736,19 @@
                     <h4>BEYONDER AG</h4>
                     <p>Gründer & CEO</p>
                     <a class="role-card__cta" href="#beyonder-trailer" data-trailer-target="beyonder-trailer">Trailer ansehen</a>
+                    <a class="role-card__cta" href="https://beyonder.ch" target="_blank" rel="noopener">Website</a>
                 </div>
                 <div class="role-card glass-card">
                     <img src="img/logo-swissai.png" alt="swissAI" class="role-card__logo" loading="lazy">
                     <h4>swissAI</h4>
                     <p>Präsident</p>
+                    <a class="role-card__cta" href="https://swissai.ch" target="_blank" rel="noopener">Verband kennenlernen</a>
                 </div>
                 <div class="role-card glass-card">
                     <h4>AI Cast</h4>
                     <p>Host & Produzent</p>
                     <small>150+ Episoden</small>
+                    <a class="role-card__cta" href="#podcast">Zum Podcast</a>
                 </div>
                 <div class="role-card role-card--highlight glass-card">
                     <h4>HWZ &middot; MAZ &middot; SIB &middot; zB.</h4>
@@ -701,7 +767,7 @@
         <div class="trailer-stage__frame">
             <div class="trailer-stage__light" aria-hidden="true"></div>
             <div class="trailer-stage__media">
-                <img class="trailer-stage__poster" src="assets/video/beyonder-trailer-poster.jpg" width="1280" height="720" alt="BEYONDER Trailer" loading="lazy">
+                <img class="trailer-stage__poster" src="assets/video/beyonder-trailer-poster.jpg" width="1600" height="900" alt="BEYONDER Trailer" loading="lazy" decoding="async">
                 <button class="trailer-stage__start" type="button" aria-label="BEYONDER Trailer mit Ton abspielen">
                     <span class="trailer-stage__play" aria-hidden="true">▶</span>
                     <span>Trailer abspielen</span>
@@ -1382,14 +1448,14 @@
 
             <div class="podcast__hero">
                 <div class="podcast__visual">
-                    <img src="img/podcasts/ai-cast.jpg" alt="AI Cast Podcast Cover" class="podcast__cover" loading="lazy">
+                    <img src="img/podcasts/ai-cast.jpg" width="600" height="600" alt="AI Cast Podcast Cover" class="podcast__cover" loading="lazy" decoding="async">
                 </div>
                 <div class="podcast__info">
                     <p class="podcast__host-tagline">Host: Chris Beyeler &mdash; Content-Nerd, Tech-Visionär und Brückenbauer.</p>
 
                     <div class="podcast__stats-grid">
                         <div class="podcast__stat">
-                            <span class="podcast__stat-number" data-count="140">0</span><span class="counter__plus">+</span>
+                            <span class="podcast__stat-number" data-count="150">0</span><span class="counter__plus">+</span>
                             <span class="podcast__stat-label">Episoden</span>
                         </div>
                         <div class="podcast__stat">
@@ -1478,7 +1544,7 @@
 
             <!-- Spotify Embed -->
             <div class="podcast__embed">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/3M3pGoFAwT6TGwdMBio6f6?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe title="AI Cast auf Spotify" style="border-radius:12px" src="https://open.spotify.com/embed/show/3M3pGoFAwT6TGwdMBio6f6?utm_source=generator&theme=0" width="100%" height="232" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
 
             <!-- Warum zuhören -->
@@ -1549,6 +1615,32 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                     </button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ: visible source for users, search engines and assistants ===== -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <h2 class="section__title">Kurz beantwortet</h2>
+            <p class="section__subtitle">Klare Fakten zu Chris Beyeler, Keynotes und swissAI</p>
+            <div class="faq__grid">
+                <details class="faq__item glass-card">
+                    <summary>Wer ist Chris Beyeler?</summary>
+                    <p>Chris Beyeler ist KI-Keynote Speaker und Stratege in der Schweiz, Gründer und CEO der BEYONDER AG, Präsident von swissAI und Digital Shaper 2026. Er hat über 2500 Menschen zu KI ausgebildet und mehr als 70 Keynotes gehalten.</p>
+                </details>
+                <details class="faq__item glass-card">
+                    <summary>Welche Keynote-Themen bietet Chris Beyeler an?</summary>
+                    <p>Die vier Kernthemen sind «The State of AI», «The State of AI in Marketing», «5 Erfolgsfaktoren für KI in KMU» und «Wie KI die Arbeit beeinflusst». Möglich sind Keynotes, Workshops, Moderationen und Podiumsdiskussionen.</p>
+                </details>
+                <details class="faq__item glass-card">
+                    <summary>Welche Formate sind möglich?</summary>
+                    <p>Keynotes dauern in der Regel 30 bis 60 Minuten. Workshops sind als Halb- oder Ganztag möglich; hinzu kommen Event- und Panel-Moderationen sowie Podiumsdiskussionen.</p>
+                </details>
+                <details class="faq__item glass-card">
+                    <summary>Was ist swissAI?</summary>
+                    <p>swissAI ist der Schweizer Dachverband für Künstliche Intelligenz mit rund 300 Mitgliedern. Chris Beyeler initiierte den Verband 2023 unter dem damaligen Namen KImpact und ist dessen Präsident.</p>
+                </details>
             </div>
         </div>
     </section>
@@ -1650,7 +1742,6 @@
     <script src="vendor/gsap.min.js" defer></script>
     <script src="vendor/ScrollTrigger.min.js" defer></script>
     <script src="vendor/lenis.min.js" defer></script>
-    <script src="vendor/particles.min.js" defer></script>
     <!-- Main JS -->
     <script src="js/main.js" defer></script>
     <script src="js/chatbot.js" defer></script>

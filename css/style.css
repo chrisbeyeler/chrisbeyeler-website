@@ -495,6 +495,11 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     inset: 0;
     z-index: 0;
 }
+.hero__bg picture {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
 .hero__bg img {
     width: 100%;
     height: 100%;
@@ -549,7 +554,7 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     letter-spacing: 0.22em;
     color: var(--orange);
     margin-bottom: 0.65rem;
-    opacity: 0;
+    opacity: 1;
 }
 .hero__stage-headline {
     font-family: var(--font-heading);
@@ -559,7 +564,7 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     line-height: 1.2;
     letter-spacing: -0.025em;
     margin-bottom: 0.7rem;
-    opacity: 0;
+    opacity: 1;
     text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
 }
 .hero__stage-headline em {
@@ -575,7 +580,7 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     font-weight: 500;
     color: var(--text-tertiary);
     letter-spacing: 0.06em;
-    opacity: 0;
+    opacity: 1;
     margin-bottom: 0.95rem;
 }
 
@@ -583,7 +588,7 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    opacity: 0;
+    opacity: 1;
 }
 
 .hero__bottom {
@@ -2058,6 +2063,17 @@ body.trailer-active .nav { opacity: .18; pointer-events: none; }
 }
 
 .podcast__embed { max-width: 700px; margin: 0 auto 3rem; border-radius: 14px; overflow: hidden; }
+.podcast__embed iframe { display: block; }
+
+/* ===== FAQ ===== */
+.faq__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; max-width: 980px; margin: 0 auto; }
+.faq__item { padding: 0; overflow: hidden; }
+.faq__item summary { padding: 1.25rem 3rem 1.25rem 1.35rem; color: var(--text-primary); font: 600 1rem var(--font-heading); cursor: pointer; position: relative; list-style: none; }
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after { content: '+'; position: absolute; right: 1.35rem; top: 50%; transform: translateY(-50%); color: var(--orange); font-size: 1.4rem; }
+.faq__item[open] summary::after { content: '−'; }
+.faq__item p { margin: 0; padding: 0 1.35rem 1.35rem; color: var(--text-secondary); line-height: 1.7; }
+@media (max-width: 720px) { .faq__grid { grid-template-columns: 1fr; } }
 .podcast__platforms { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .podcast__platform {
     color: var(--text-tertiary);

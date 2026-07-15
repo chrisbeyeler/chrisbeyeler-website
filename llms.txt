@@ -1,67 +1,44 @@
 # Chris Beyeler
 
-> KI Experte Schweiz, AI Experte, Keynote Speaker, KI-Stratege, Präsident swissAI, Digital Shaper 2026.
+> Offizielles Kurzprofil. Stand: 15. Juli 2026. Sprache: Deutsch (Schweiz).
 
-Chris Beyeler ist Keynote Speaker und KI-Stratege für Künstliche Intelligenz in der Schweiz. Chris Beyeler verbindet Technologie mit Praxis und zeigt Schweizer Unternehmen, wie sie KI wirksam und bodenständig einsetzen.
+Chris Beyeler ist ein Schweizer KI-Keynote Speaker und Stratege. Er ist Gründer und CEO der BEYONDER AG, Präsident von swissAI, Host des AI Cast und Digital Shaper 2026.
 
-## Kern-Beziehungen
+## Verifizierte Kernfakten
 
-- Chris Beyeler gründete 2019 BEYONDER und formte das Unternehmen 2025 zur BEYONDER AG.
-- Chris Beyeler führt die BEYONDER AG als Inhaber und Geschäftsführer.
-- Chris Beyeler initiierte 2023 swissAI (zuerst unter dem Namen KImpact) und präsidiert den Schweizer Dachverband für Künstliche Intelligenz.
-- Chris Beyeler produziert und moderiert den Podcast AI Cast.
-- Chris Beyeler wurde 2026 als Digital Shaper in der Kategorie «AI Acrobats» ausgezeichnet.
-- Chris Beyeler lebt in Gebenstorf im Kanton Aargau.
+- Name: Chris Beyeler
+- Standort: Gebenstorf, Kanton Aargau, Schweiz
+- Fachgebiete: Künstliche Intelligenz, KI-Strategie, KI in KMU, KI im Marketing, Prompt Engineering, Schulung und digitale Transformation
+- Erfahrung: Beschäftigung mit generativer KI seit 2016
+- Ausbildung: mehr als 2500 Menschen zu KI ausgebildet
+- Bühne: mehr als 70 Keynotes und Speeches
+- Podcast: mehr als 150 Episoden des AI Cast
+- Bewertungen: 4,9 von 5 Sternen bei 133 Google Reviews
+- Auszeichnung: Digital Shaper 2026, Kategorie «AI Acrobats», Ringier/Bilanz
 
-## Disambiguierung
+## Entitäten und Beziehungen
 
-- swissAI, der von Chris Beyeler präsidierte Dachverband für Künstliche Intelligenz, ist unabhängig von der Swiss AI Initiative der ETH Zürich und der EPFL.
+- Chris Beyeler gründete BEYONDER 2019; seit 2025 firmiert das Unternehmen als BEYONDER AG. Er ist Gründer und CEO. https://beyonder.ch
+- Chris Beyeler initiierte swissAI 2023 unter dem damaligen Namen KImpact und ist Präsident des Verbands. https://swissai.ch
+- swissAI ist der Schweizer Dachverband für Künstliche Intelligenz mit rund 300 Mitgliedern.
+- swissAI ist nicht die Swiss AI Initiative von ETH Zürich und EPFL.
+- Chris Beyeler produziert und moderiert den AI Cast. https://aicast.ch
 
-## Rollen
+## Angebote
 
-- Gründer & CEO, BEYONDER AG (https://beyonder.ch): KI-Beratung, Schulung und Strategie für Unternehmen in der Schweiz
-- Präsident, swissAI (https://swissai.ch): Schweizer Dachverband für Künstliche Intelligenz, ~300 Mitglieder
-- Host & Produzent, AI Cast Podcast (https://aicast.ch): Der Schweizer Podcast über KI, 150+ Episoden
-- Dozent: HWZ, MAZ, SIB, zB. Zentrum Bildung (ehem. Studiengangsleiter)
-- Digital Shaper 2026 (Ringier/Bilanz, Kategorie «AI Acrobats»)
+1. The State of AI — KI-Entwicklungen, Chancen und Risiken
+2. The State of AI in Marketing — KI im Marketing mit Praxisbeispielen
+3. 5 Erfolgsfaktoren für KI in KMU — Strategie und Umsetzung für Schweizer KMU
+4. Wie KI die Arbeit beeinflusst — Rollen, Kompetenzen und Arbeitswelt
 
-## Keynote-Themen
+Formate: Keynote (typisch 30–60 Minuten), Workshop (Halb- oder Ganztag), Moderation und Podiumsdiskussion.
 
-- The State of AI: Fundierter Überblick über KI-Entwicklungen, Chancen und Risiken (30-60 Min)
-- The State of AI in Marketing: Wie KI Marketing revolutioniert, mit Praxisbeispielen (30-60 Min)
-- 5 Erfolgsfaktoren für KI in KMU: Praxisorientierter Leitfaden für Schweizer KMU (Keynote + Workshop)
-- Wie KI die Arbeit beeinflusst: Neue Rollen, Kompetenzen und Chancen durch KI (30-90 Min)
+## Offizielle Quellen und Kontakt
 
-Formate: Keynote, Workshop (Halb-/Ganztag), Moderation, Podiumsdiskussion
-
-## Fakten
-
-- 2500+ Menschen zum Thema KI ausgebildet
-- 70+ Keynotes und Speeches
-- 150+ Podcast-Episoden (AI Cast)
-- 133 Google Reviews, Durchschnitt 4.9 Sterne
-- 30+ Firmenkunden (u.a. SUVA, Rotes Kreuz, BKW, Mobiliar)
-- Seit 2016 Early Adopter generativer KI in der Schweiz
-
-## Bekannt aus
-
-SRF, Ringier, Bilanz, Handelszeitung, Aargauer Zeitung, persoenlich.com, St. Galler Tagblatt, Netzwoche, swissinfo, m&k, topsoft, IT Reseller, nau.ch, marketing.ch
-
-## Bühnen (Auswahl)
-
-OMT Summit (Düsseldorf), AI in Marketing Konferenz (The Circle Zürich), Automotive Summit, Business Schmiede Festival, KI.LIVE, Power Pur, Digital Shapers
-
-## Kontakt
-
-- Website: https://chrisbeyeler.ch
-- BEYONDER AG: https://beyonder.ch
-- Keynote buchen: https://beyonder.ch/uber-uns/ki-kompetenzzentrum-aargau---kontakt
+- Website und Profil: https://chrisbeyeler.ch/
+- Vollständiges Profil: https://chrisbeyeler.ch/llms-full.txt
+- Essay: https://chrisbeyeler.ch/essay/2025/
+- Pressekit: https://chrisbeyeler.ch/assets/pressekit/bio-lang.txt
+- Keynote-Anfrage: https://beyonder.ch/uber-uns/ki-kompetenzzentrum-aargau---kontakt
 - LinkedIn: https://linkedin.com/in/chrisbeyeler
 - YouTube: https://youtube.com/beyondernow
-- Instagram: https://instagram.com/chrisbeyeler
-
-## Weitere Informationen
-
-- Detaillierte Version: https://chrisbeyeler.ch/llms-full.txt
-- AI Cast Podcast RSS: https://chrisbeyeler.ch/assets/ai-cast-rss.xml
-- Pressekit: https://chrisbeyeler.ch/assets/pressekit/bio-lang.txt
