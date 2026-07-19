@@ -760,14 +760,23 @@ scrollReveal('.contact__card',
 (function() {
     document.querySelectorAll('.short-card[data-video-id]').forEach(function(card) {
         card.addEventListener('click', function() {
+            if (window.CookieConsent && !window.CookieConsent.has('external-media')) {
+                window.CookieConsent.openSettings();
+                return;
+            }
             var id = card.dataset.videoId;
             var thumb = card.querySelector('.short-card__thumb');
             if (!thumb || thumb.querySelector('iframe')) return;
             var iframe = document.createElement('iframe');
-            iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+            iframe.title = card.querySelector('.short-card__title').textContent;
             iframe.allow = 'autoplay; encrypted-media';
             iframe.allowFullscreen = true;
-            thumb.innerHTML = '';
+            iframe.dataset.consentFrame = 'external-media';
+            thumb.querySelectorAll('img, .short-card__play').forEach(function(element) {
+                element.hidden = true;
+                element.dataset.consentHidden = '';
+            });
             thumb.appendChild(iframe);
         });
     });

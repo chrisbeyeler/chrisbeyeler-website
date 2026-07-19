@@ -1513,28 +1513,28 @@
                 <div class="shorts__grid">
                     <div class="short-card" data-video-id="5_Hr5SPRB4A">
                         <div class="short-card__thumb">
-                            <img src="https://img.youtube.com/vi/5_Hr5SPRB4A/hqdefault.jpg" alt="KI Angst: So nimmst du deine Mitarbeiter mit!" loading="lazy">
+                            <img data-consent-src="https://img.youtube.com/vi/5_Hr5SPRB4A/hqdefault.jpg" alt="KI Angst: So nimmst du deine Mitarbeiter mit!" loading="lazy">
                             <div class="short-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg></div>
                         </div>
                         <span class="short-card__title">KI Angst: So nimmst du deine Mitarbeiter mit!</span>
                     </div>
                     <div class="short-card" data-video-id="0pnG2vRuxrg">
                         <div class="short-card__thumb">
-                            <img src="https://img.youtube.com/vi/0pnG2vRuxrg/hqdefault.jpg" alt="KI &amp; Software Jobs: Goldene &Auml;ra oder Burnout Gefahr" loading="lazy">
+                            <img data-consent-src="https://img.youtube.com/vi/0pnG2vRuxrg/hqdefault.jpg" alt="KI &amp; Software Jobs: Goldene &Auml;ra oder Burnout Gefahr" loading="lazy">
                             <div class="short-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg></div>
                         </div>
                         <span class="short-card__title">KI &amp; Software Jobs: Goldene &Auml;ra oder Burnout?</span>
                     </div>
                     <div class="short-card" data-video-id="aSAd83yHzig">
                         <div class="short-card__thumb">
-                            <img src="https://img.youtube.com/vi/aSAd83yHzig/hqdefault.jpg" alt="Prompt Framework par excellence" loading="lazy">
+                            <img data-consent-src="https://img.youtube.com/vi/aSAd83yHzig/hqdefault.jpg" alt="Prompt Framework par excellence" loading="lazy">
                             <div class="short-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg></div>
                         </div>
                         <span class="short-card__title">Prompt Framework par excellence</span>
                     </div>
                     <div class="short-card" data-video-id="UGQXWZ0oYcY">
                         <div class="short-card__thumb">
-                            <img src="https://img.youtube.com/vi/UGQXWZ0oYcY/hqdefault.jpg" alt="KI gegen Admin-Kram" loading="lazy">
+                            <img data-consent-src="https://img.youtube.com/vi/UGQXWZ0oYcY/hqdefault.jpg" alt="KI gegen Admin-Kram" loading="lazy">
                             <div class="short-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg></div>
                         </div>
                         <span class="short-card__title">KI gegen Admin-Kram</span>
@@ -1543,8 +1543,15 @@
             </div>
 
             <!-- Spotify Embed -->
-            <div class="podcast__embed">
-                <iframe title="AI Cast auf Spotify" style="border-radius:12px" src="https://open.spotify.com/embed/show/3M3pGoFAwT6TGwdMBio6f6?utm_source=generator&theme=0" width="100%" height="232" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <div class="podcast__embed" data-consent-embed="external-media">
+                <div class="consent-embed-placeholder">
+                    <strong>Spotify-Inhalt ist deaktiviert</strong>
+                    <p>Mit dem Laden stimmst du der Daten&uuml;bertragung an Spotify zu.</p>
+                    <button type="button" class="btn btn--small" data-consent-settings>Externe Medien erlauben</button>
+                </div>
+                <template data-consent-template="external-media">
+                    <iframe data-consent-frame="external-media" title="AI Cast auf Spotify" style="border-radius:12px" src="https://open.spotify.com/embed/show/3M3pGoFAwT6TGwdMBio6f6?utm_source=generator&amp;theme=0" width="100%" height="232" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </template>
             </div>
 
             <!-- Warum zuhören -->
@@ -1691,8 +1698,9 @@
                     <a href="https://youtube.com/beyondernow" target="_blank" rel="noopener">YouTube</a>
                 </div>
                 <div class="footer__legal">
-                    <a href="https://beyonder.ch/uber-uns/impressum" target="_blank" rel="noopener">Impressum</a>
-                    <a href="https://beyonder.ch/uber-uns/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <button type="button" class="footer__privacy-button" data-consent-settings>Cookie-Einstellungen</button>
                 </div>
             </div>
             <div class="footer__bottom">
@@ -1738,10 +1746,54 @@
         </div>
     </div>
 
+    <!-- ===== COOKIE CONSENT ===== -->
+    <section class="consent-banner" id="consentBanner" role="dialog" aria-labelledby="consentTitle" aria-describedby="consentDescription" hidden>
+        <div class="consent-banner__panel">
+            <button type="button" class="consent-banner__close" data-consent-close aria-label="Cookie-Einstellungen schliessen" hidden>&times;</button>
+
+            <div class="consent-banner__overview" data-consent-view="overview">
+                <p class="consent-banner__kicker">Deine Privatsph&auml;re</p>
+                <h2 id="consentTitle">Cookie-Einstellungen</h2>
+                <p id="consentDescription">Diese Website speichert nur deine Auswahl technisch notwendig im Browser. Externe Medien von YouTube und Spotify werden erst nach deiner Einwilligung geladen. Dabei k&ouml;nnen personenbezogene Daten wie deine IP-Adresse an die Anbieter &uuml;bermittelt werden.</p>
+                <div class="consent-banner__actions">
+                    <button type="button" class="btn btn--primary" data-consent-accept>Alle akzeptieren</button>
+                    <button type="button" class="btn consent-banner__reject" data-consent-reject>Nur notwendige</button>
+                    <button type="button" class="consent-banner__details" data-consent-customize>Auswahl anpassen</button>
+                </div>
+            </div>
+
+            <div class="consent-banner__settings" data-consent-view="settings" hidden>
+                <p class="consent-banner__kicker">Individuelle Auswahl</p>
+                <h2>Datenschutz-Einstellungen</h2>
+                <div class="consent-option">
+                    <div>
+                        <strong>Technisch notwendig</strong>
+                        <p>Speichert ausschliesslich deine Einwilligungsentscheidung f&uuml;r 180 Tage.</p>
+                    </div>
+                    <input type="checkbox" checked disabled aria-label="Technisch notwendige Speicherung ist immer aktiv">
+                </div>
+                <label class="consent-option">
+                    <div>
+                        <strong>Externe Medien</strong>
+                        <p>L&auml;dt Inhalte und Vorschaubilder von YouTube und Spotify. Dabei gelten die Datenschutzbestimmungen dieser Anbieter.</p>
+                    </div>
+                    <input type="checkbox" id="consentExternalMedia" aria-label="Externe Medien erlauben">
+                </label>
+                <div class="consent-banner__actions">
+                    <button type="button" class="btn btn--primary" data-consent-save>Auswahl speichern</button>
+                    <button type="button" class="btn consent-banner__reject" data-consent-reject>Nur notwendige</button>
+                </div>
+            </div>
+
+            <p class="consent-banner__legal">Du kannst deine Auswahl jederzeit &uuml;ber „Cookie-Einstellungen“ im Footer &auml;ndern. Mehr im <a href="datenschutz.html">Datenschutz</a>.</p>
+        </div>
+    </section>
+
     <!-- ===== SCRIPTS (alle lokal, DSGVO-konform) ===== -->
     <script src="vendor/gsap.min.js" defer></script>
     <script src="vendor/ScrollTrigger.min.js" defer></script>
     <script src="vendor/lenis.min.js" defer></script>
+    <script src="js/consent.js" defer></script>
     <!-- Main JS -->
     <script src="js/main.js" defer></script>
     <script src="js/chatbot.js" defer></script>
