@@ -1656,16 +1656,117 @@
     <section class="section contact" id="contact">
         <div class="container">
             <h2 class="section__title">Kontakt</h2>
-            <p class="section__subtitle">Keynote buchen, Medienanfrage oder einfach Hallo sagen</p>
+            <p class="section__subtitle">Keynote buchen, Medienanfrage oder einfach Hallo sagen.</p>
 
-            <div class="contact__grid">
-                <a href="https://beyonder.ch/uber-uns/ki-kompetenzzentrum-aargau---kontakt" target="_blank" rel="noopener" class="contact__card glass-card">
-                    <div class="contact__card-icon">&#9733;</div>
-                    <h3>Keynote anfragen</h3>
-                    <p>Kontaktformular f&uuml;r Keynotes, Workshops und Veranstaltungen.</p>
-                    <span class="contact__card-link">Zum Kontaktformular &rarr;</span>
-                </a>
-                <a href="#" class="contact__card glass-card js-mail" data-n="hoi" data-d="beyonder.ch">
+            <form class="contact__form glass-card" action="https://formsubmit.co/chris@beyonder.ch" method="POST">
+                <input type="hidden" name="_subject" value="Neue Anfrage via chrisbeyeler.ch">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://chrisbeyeler.ch/danke.html">
+                <input type="hidden" name="_url" value="https://chrisbeyeler.ch/#contact">
+                <input type="text" name="_honey" class="contact__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <div class="contact__form-intro">
+                    <span class="contact__form-kicker">Unverbindliche Anfrage</span>
+                    <h3>Erz&auml;hl mir von deinem Anlass</h3>
+                    <p>Je mehr ich bereits weiss, desto konkreter kann ich dir antworten. Die Veranstaltungsdetails sind optional.</p>
+                </div>
+
+                <div class="contact__form-row">
+                    <div class="form-group">
+                        <label for="contact-name">Name *</label>
+                        <input id="contact-name" name="Name" type="text" autocomplete="name" maxlength="120" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">E-Mail *</label>
+                        <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                    </div>
+                </div>
+
+                <div class="contact__form-row">
+                    <div class="form-group">
+                        <label for="contact-company">Organisation</label>
+                        <input id="contact-company" name="Organisation" type="text" autocomplete="organization" maxlength="160">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Telefon</label>
+                        <input id="contact-phone" name="Telefon" type="tel" autocomplete="tel" maxlength="40">
+                    </div>
+                </div>
+
+                <fieldset class="contact__event-details">
+                    <legend>Details zum Anlass <span>optional</span></legend>
+                    <div class="contact__form-row contact__form-row--three">
+                        <div class="form-group">
+                            <label for="contact-date">Datum</label>
+                            <input id="contact-date" name="Datum" type="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-time-from">Uhrzeit von</label>
+                            <input id="contact-time-from" name="Uhrzeit von" type="time">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-time-to">Uhrzeit bis</label>
+                            <input id="contact-time-to" name="Uhrzeit bis" type="time">
+                        </div>
+                    </div>
+
+                    <div class="contact__form-row">
+                        <div class="form-group">
+                            <label for="contact-location">Ort</label>
+                            <input id="contact-location" name="Ort" type="text" autocomplete="address-level2" maxlength="160" placeholder="Ort / Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-audience">Anzahl Publikum</label>
+                            <input id="contact-audience" name="Anzahl Publikum" type="number" min="1" inputmode="numeric" placeholder="z. B. 150">
+                        </div>
+                    </div>
+
+                    <div class="contact__form-row">
+                        <div class="form-group">
+                            <label for="contact-budget">Budgetrahmen</label>
+                            <select id="contact-budget" name="Budgetrahmen">
+                                <option value="">Bitte ausw&auml;hlen</option>
+                                <option>Noch offen</option>
+                                <option>Bis CHF 3'000</option>
+                                <option>CHF 3'000&ndash;5'000</option>
+                                <option>CHF 5'000&ndash;8'000</option>
+                                <option>CHF 8'000&ndash;12'000</option>
+                                <option>Ab CHF 12'000</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-topic">Themenwunsch</label>
+                            <select id="contact-topic" name="Themenwunsch">
+                                <option value="">Bitte ausw&auml;hlen</option>
+                                <option>The State of AI</option>
+                                <option>The State of AI in Marketing</option>
+                                <option>5 Erfolgsfaktoren f&uuml;r KI in KMU</option>
+                                <option>Wie KI die Arbeit beeinflusst</option>
+                                <option>Individuelles Thema</option>
+                                <option>Noch offen</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="contact-message">Nachricht *</label>
+                    <textarea id="contact-message" name="Nachricht" rows="5" maxlength="5000" required placeholder="Worum geht es bei deiner Anfrage?"></textarea>
+                </div>
+
+                <label class="contact__consent">
+                    <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required>
+                    <span>Ich stimme zu, dass meine Angaben zur Bearbeitung der Anfrage verwendet und daf&uuml;r &uuml;ber FormSubmit &uuml;bermittelt werden. Bitte keine vertraulichen Informationen senden. Weitere Informationen im <a href="https://beyonder.ch/uber-uns/datenschutz" target="_blank" rel="noopener">Datenschutz</a>. *</span>
+                </label>
+
+                <div class="contact__submit">
+                    <button type="submit" class="btn btn--primary btn--lg">Anfrage senden</button>
+                    <p>Deine Anfrage wird per E-Mail an chris@beyonder.ch gesendet.</p>
+                </div>
+            </form>
+
+            <div class="contact__grid contact__grid--secondary">
+                <a href="#" class="contact__card glass-card js-mail" data-n="chris" data-d="beyonder.ch">
                     <div class="contact__card-icon">&#9993;</div>
                     <h3>E-Mail</h3>
                     <p>Direkt schreiben f&uuml;r Medienanfragen, Kooperationen oder Fragen.</p>
