@@ -2793,6 +2793,12 @@ a.contact__card.glass-card:hover {
     .contact__submit { align-items: stretch; flex-direction: column; }
     .contact__submit .btn { width: 100%; }
 
+    .consent-banner { padding: 0.5rem; }
+    .consent-banner__panel { border-radius: 18px; }
+    .consent-banner__actions { align-items: stretch; flex-direction: column; }
+    .consent-banner__actions .btn,
+    .consent-banner__details { width: 100%; }
+
     .chatbot__window { width: calc(100vw - 44px); right: -12px; }
 
     .footer__grid { flex-direction: column; text-align: center; }
