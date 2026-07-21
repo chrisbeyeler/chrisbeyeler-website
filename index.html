@@ -1695,7 +1695,7 @@
 
                 <fieldset class="contact__event-details">
                     <legend>Details zum Anlass <span>optional</span></legend>
-                    <div class="contact__form-row contact__form-row--three">
+                    <div class="contact__form-row contact__form-row--three" id="contact-date-fields">
                         <div class="form-group">
                             <label for="contact-date">Datum</label>
                             <input id="contact-date" name="Datum" type="date">
@@ -1709,6 +1709,11 @@
                             <input id="contact-time-to" name="Uhrzeit bis" type="time">
                         </div>
                     </div>
+
+                    <label class="contact__date-unknown" for="contact-date-unknown">
+                        <input id="contact-date-unknown" name="Terminstatus" type="checkbox" value="Datum und Uhrzeit noch unklar" aria-controls="contact-date-fields">
+                        <span>Datum und Uhrzeit noch unklar</span>
+                    </label>
 
                     <div class="contact__form-row">
                         <div class="form-group">

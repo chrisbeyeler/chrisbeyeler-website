@@ -87,9 +87,8 @@
         if (!banner) return;
         lastFocus = document.activeElement;
         showView(view || 'overview');
-        closeButton.hidden = !storedChoice;
+        closeButton.hidden = false;
         banner.hidden = false;
-        document.body.classList.add('consent-open');
         window.setTimeout(function () {
             var target = banner.querySelector(view === 'settings' ? 'h2' : '[data-consent-accept]');
             if (target) {
@@ -102,13 +101,11 @@
     function hideBanner() {
         if (!banner) return;
         banner.hidden = true;
-        document.body.classList.remove('consent-open');
         if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
     }
 
     function closeOrReturn() {
-        if (storedChoice) hideBanner();
-        else showView('overview');
+        hideBanner();
     }
 
     window.CookieConsent = {
@@ -138,5 +135,4 @@
     }
 
     applyChoice();
-    if (!storedChoice) showBanner('overview');
 })();

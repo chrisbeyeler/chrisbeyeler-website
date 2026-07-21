@@ -696,6 +696,34 @@ scrollReveal('.contact__card',
     { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out' },
     '.contact__grid');
 
+// Optional event date: allow enquiries before the schedule is known.
+(function() {
+    var unknownDate = document.getElementById('contact-date-unknown');
+    var dateFields = document.getElementById('contact-date-fields');
+    if (!unknownDate || !dateFields) return;
+
+    var inputs = dateFields.querySelectorAll('input');
+
+    function syncDateFields() {
+        inputs.forEach(function(input) {
+            if (unknownDate.checked) {
+                input.dataset.previousValue = input.value;
+                input.value = '';
+                input.disabled = true;
+            } else {
+                input.disabled = false;
+                input.value = input.dataset.previousValue || '';
+                delete input.dataset.previousValue;
+            }
+        });
+
+        dateFields.classList.toggle('is-undecided', unknownDate.checked);
+    }
+
+    unknownDate.addEventListener('change', syncDateFields);
+    if (unknownDate.checked) syncDateFields();
+})();
+
 // ===== ARTICLES PROGRESSIVE DISCLOSURE =====
 (function() {
     const showMoreBtn = document.getElementById('articlesShowMore');
