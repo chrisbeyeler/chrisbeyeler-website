@@ -1,8 +1,19 @@
 {
   "$schema": "./press.schema.json",
   "description": "Pressespiegel chrisbeyeler.ch — Single Source of Truth für die Sektion 'Medien & Presse' in index.html. Wird vom Marketing Manager (Paperclip Agent 234e43f2) monatlich aus dem Press-Monitor-State (~/knowledge-agent/press-state.json) auf beygent kuratiert. Auto-Publish: nein (PR zur Review). Quelle: BEY-1956.",
-  "updated_at": "2026-06-02",
+  "updated_at": "2026-07-22",
   "items": [
+    {
+      "id": "nzz-ki-aus-china",
+      "year": 2026,
+      "month": 7,
+      "source": "NZZ",
+      "title": "Günstige und immer bessere KI aus China klingt verlockend, doch Schweizer Firmen sind skeptisch",
+      "url": "https://www.nzz.ch/wirtschaft/guenstige-und-immer-bessere-ki-aus-china-klingt-verlockend-doch-schweizer-firmen-sind-skeptisch-ld.10016209",
+      "image": "img/articles/nzz-ki-aus-china.jpg",
+      "alt": "Farbenfrohe Datenkabel als Symbol für KI aus China",
+      "topic": "ki-wirtschaft"
+    },
     {
       "id": "bilanz-digital-shapers-2026",
       "year": 2026,
