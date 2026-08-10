@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "beyonder": {
+      "source": {
+        "source": "github",
+        "repo": "BEYONDERnow/claude-marketplace"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "beyonder-skills@beyonder": true
+  }
+}
