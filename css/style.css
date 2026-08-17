@@ -1146,11 +1146,11 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
 }
 .role-card__logo { height: 28px; width: auto; margin: 0 auto 1rem; opacity: 0.8; }
 .role-card__logo--rounded { border-radius: 6px; }
-.role-card h4 { color: var(--text-primary); margin-bottom: 0.4rem; font-size: 1rem; }
+.role-card h3 { color: var(--text-primary); margin-bottom: 0.4rem; font-size: 1rem; }
 .role-card p { color: var(--text-secondary); font-size: 0.95rem; }
 .role-card small { color: var(--text-tertiary); font-size: 0.88rem; margin-top: 0.4rem; display: block; }
 .role-card--highlight { border-color: rgba(255, 146, 32, 0.15); }
-.role-card--highlight h4 { color: var(--orange); }
+.role-card--highlight h3 { color: var(--orange); }
 .role-card--highlight small { color: var(--orange); opacity: 0.7; }
 
 /* ===== TESTIMONIALS ===== */
