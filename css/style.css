@@ -1335,7 +1335,7 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     display: block;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    object-position: center 15%;
+    object-position: center top;
 }
 .about__bio-lead {
     font-size: 1.3rem;
