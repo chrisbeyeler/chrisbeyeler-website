@@ -954,20 +954,62 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     gap: 1.5rem;
     margin-bottom: 4rem;
 }
+.keynotes__carousel { position: relative; }
 @media (min-width: 1024px) {
-    /* 6 Cards in einer Reihe, horizontaler Scroll via GSAP-Pin (js/main.js).
-       Mit 6 Cards ist die Scroll-Distanz gross genug, der Mini-Pin-Ruck
-       der früheren 4-Card-Variante tritt nicht mehr auf. */
+    /* 6 Cards in einer Reihe als natives horizontales Karussell.
+       Kein GSAP-Pin: die Section bleibt normal im Seitenfluss, gescrollt
+       wird im Grid selbst (Trackpad/Touch/Wheel) oder per Pfeil-Buttons. */
     .keynotes__grid {
         display: flex;
         flex-wrap: nowrap;
         gap: 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        padding-bottom: 0.75rem;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 146, 32, 0.4) transparent;
+    }
+    .keynotes__grid::-webkit-scrollbar { height: 6px; }
+    .keynotes__grid::-webkit-scrollbar-track { background: transparent; }
+    .keynotes__grid::-webkit-scrollbar-thumb {
+        background: rgba(255, 146, 32, 0.35);
+        border-radius: 100px;
     }
     .keynotes__grid .keynote-card {
         min-width: 260px;
         max-width: 300px;
         flex-shrink: 0;
+        scroll-snap-align: start;
     }
+    .keynotes__nav {
+        position: absolute;
+        top: 40%;
+        z-index: 5;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+        background: rgba(10, 10, 18, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: var(--text-primary);
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s var(--ease-out);
+    }
+    .keynotes__nav:hover {
+        border-color: var(--orange);
+        color: var(--orange);
+    }
+    .keynotes__nav[disabled] {
+        opacity: 0.25;
+        cursor: default;
+        pointer-events: none;
+    }
+    .keynotes__nav--prev { left: -22px; }
+    .keynotes__nav--next { right: -22px; }
 }
 
 .keynote-card {

@@ -190,34 +190,77 @@ gsap.utils.toArray('.section__subtitle').forEach(el => {
     scrollReveal(el, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.1, ease: 'power3.out' }, el);
 });
 
-// Keynote cards — horizontaler Scroll auf Desktop, Reveal auf Mobile.
-// Mit 6 Cards ist die Pin-Distanz gross genug (kein Mini-Pin-Ruck wie
-// bei der früheren 4-Card-Variante).
-if (!prefersReducedMotion && window.innerWidth >= 1024) {
-    // Desktop: kein scrollReveal, Cards starten sichtbar, horizontaler Scroll IST die Animation
-    gsap.set('.keynote-card', { opacity: 1, y: 0, scale: 1 });
-    const keynoteGrid = document.querySelector('.keynotes__grid');
-    if (keynoteGrid) {
-        const getScrollAmount = () => keynoteGrid.scrollWidth - keynoteGrid.parentElement.clientWidth;
-        gsap.to(keynoteGrid, {
-            x: () => -getScrollAmount(),
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '.keynotes',
-                start: 'top 20%',
-                end: () => '+=' + getScrollAmount(),
-                pin: true,
-                scrub: 0.8,
-                invalidateOnRefresh: true,
-            }
-        });
+// Keynote cards — sanftes Reveal beim Reinscrollen (alle Geräte).
+// Kein Pin/Scroll-Hijacking: auf Desktop ist das Grid ein natives
+// horizontales Karussell (CSS overflow-x), gesteuert per Wheel/Touch
+// oder über die Pfeil-Buttons unten.
+scrollReveal('.keynote-card',
+    { opacity: 0, y: 25 },
+    { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
+    '.keynotes__grid');
+
+// Keynote-Karussell: Pfeil-Buttons mit eigener rAF-Animation.
+// Bewusst direkte scrollLeft-Zuweisung statt scrollBy({behavior:'smooth'}):
+// natives Smooth-Scrolling ist auf Seiten mit overflow-Clipping unzuverlässig.
+(function() {
+    const grid = document.querySelector('.keynotes__grid');
+    const prev = document.getElementById('keynotesNavPrev');
+    const next = document.getElementById('keynotesNavNext');
+    if (!grid || !prev || !next) return;
+
+    function isCarousel() {
+        return window.innerWidth >= 1024 && grid.scrollWidth > grid.clientWidth + 10;
     }
-} else {
-    scrollReveal('.keynote-card',
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
-        '.keynotes__grid');
-}
+
+    function stepWidth() {
+        const card = grid.querySelector('.keynote-card');
+        return card ? card.getBoundingClientRect().width + 24 : 320;
+    }
+
+    let animId = null;
+    function animateTo(target) {
+        if (animId) cancelAnimationFrame(animId);
+        const max = grid.scrollWidth - grid.clientWidth;
+        target = Math.max(0, Math.min(max, target));
+        const start = grid.scrollLeft;
+        const dist = target - start;
+        if (Math.abs(dist) < 1) return;
+        const dur = 400;
+        let t0 = null;
+        function frame(ts) {
+            if (t0 === null) t0 = ts;
+            const p = Math.min(1, (ts - t0) / dur);
+            const eased = 1 - Math.pow(1 - p, 3);
+            grid.scrollLeft = start + dist * eased;
+            if (p < 1) { animId = requestAnimationFrame(frame); } else { animId = null; }
+        }
+        animId = requestAnimationFrame(frame);
+    }
+
+    function updateButtons() {
+        const active = isCarousel();
+        prev.hidden = !active;
+        next.hidden = !active;
+        if (!active) return;
+        const max = grid.scrollWidth - grid.clientWidth;
+        prev.disabled = grid.scrollLeft <= 2;
+        next.disabled = grid.scrollLeft >= max - 2;
+    }
+
+    prev.addEventListener('click', function() { animateTo(grid.scrollLeft - stepWidth() * 2); });
+    next.addEventListener('click', function() { animateTo(grid.scrollLeft + stepWidth() * 2); });
+    grid.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    window.addEventListener('load', updateButtons);
+    updateButtons();
+
+    // Für den Konfigurator: Karte horizontal ins Bild holen
+    window.keynoteScrollToCard = function(card) {
+        if (!isCarousel()) return;
+        const target = card.offsetLeft - (grid.clientWidth - card.getBoundingClientRect().width) / 2;
+        animateTo(target);
+    };
+})();
 
 // About bio
 scrollReveal('.about__bio p',
@@ -834,7 +877,11 @@ scrollReveal('.contact__card',
                 cards[idx].classList.add('keynote-card--highlighted');
                 var title = cards[idx].querySelector('.keynote-card__title');
                 resultEl.textContent = 'Empfehlung: ' + (title ? title.textContent : '');
-                cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                if (window.keynoteScrollToCard) {
+                    window.keynoteScrollToCard(cards[idx]);
+                } else {
+                    cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
             }
         } else {
             resultEl.textContent = '';
