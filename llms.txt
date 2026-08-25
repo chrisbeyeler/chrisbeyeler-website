@@ -27,9 +27,13 @@ Chris Beyeler ist ein Schweizer KI-Keynote Speaker und Stratege. Er ist Gründer
 ## Angebote
 
 1. The State of AI — KI-Entwicklungen, Chancen und Risiken
-2. The State of AI in Marketing — KI im Marketing mit Praxisbeispielen
-3. 5 Erfolgsfaktoren für KI in KMU — Strategie und Umsetzung für Schweizer KMU
-4. Wie KI die Arbeit beeinflusst — Rollen, Kompetenzen und Arbeitswelt
+2. KI und die Schweiz — Arbeitsmarkt, Bildung, Regulierung und Standort Schweiz
+3. Agentic AI — autonome KI-Agenten übernehmen Arbeitsabläufe, mit Live-Demos
+4. Führen im KI-Zeitalter — Leadership, wenn Teams aus Menschen und KI-Agenten bestehen
+5. The State of AI in Marketing — KI im Marketing mit Praxisbeispielen
+6. 5 Erfolgsfaktoren für KI in KMU — Strategie und Umsetzung für Schweizer KMU
+
+Weitere Themen: KI-Grundlagen für Nicht-Techniker, ethische KI-Nutzung, KI in der Softwareentwicklung.
 
 Formate: Keynote (typisch 30–60 Minuten), Workshop (Halb- oder Ganztag), Moderation und Podiumsdiskussion.
 

@@ -13,15 +13,15 @@ const FAQ_DATABASE = {
     },
     'keynote': {
         keywords: ['keynote', 'vortrag', 'speech', 'buehne', 'buchen', 'anfragen', 'referent', 'speaker', 'rede'],
-        answer: 'Ich hab vier Keynote-Themen im Repertoire: «The State of AI» (der grosse Überblick mit Live-Demos), «AI in Marketing» (Praxis pur), «5 Erfolgsfaktoren für KI in KMU» (bodenständig und sofort umsetzbar) und «Wie KI die Arbeit beeinflusst». Dauer: 30–90 Minuten, alles individuell anpassbar. 70+ Keynotes auf Bühnen wie OMT Summit, Power Pur und Digital Day Bern. Schreib mir: chris@beyonder.ch'
+        answer: 'Ich hab sechs Keynote-Themen im Repertoire: «The State of AI» (der grosse Überblick mit Live-Demos), «KI und die Schweiz» (was auf uns zukommt), «Agentic AI» (autonome KI-Agenten, live gezeigt), «Führen im KI-Zeitalter» (Leadership mit Mensch und Maschine), «AI in Marketing» (Praxis pur) und «5 Erfolgsfaktoren für KI in KMU» (bodenständig und sofort umsetzbar). Dauer: 30–90 Minuten, alles individuell anpassbar. 70+ Keynotes auf Bühnen wie OMT Summit, Power Pur und Digital Day Bern. Schreib mir: chris@beyonder.ch'
     },
     'preis': {
         keywords: ['preis', 'kosten', 'budget', 'was kostet', 'preisliste', 'tarif', 'offerte', 'angebot'],
         answer: 'Preise nenne ich hier nicht, jedes Projekt ist anders. Schreib mir direkt an chris@beyonder.ch für ein individuelles Angebot. Dann schauen wir gemeinsam, was passt.'
     },
     'themen': {
-        keywords: ['themen', 'topic', 'inhalt', 'worueber', 'wovon', 'state of ai', 'marketing', 'kmu', 'arbeit'],
-        answer: 'Meine vier Kernthemen: 1) The State of AI, der grosse Überblick mit Trends und Live-Demos. 2) AI in Marketing, Content, Personalisierung, Automation, alles Praxis. 3) 5 Erfolgsfaktoren für KI in KMU, bodenständig mit klarem ROI-Fokus. 4) Wie KI die Arbeit beeinflusst, neue Rollen, Leadership, Chancen. Alles individuell anpassbar. Ich spreche auch über Prompting, KI-Ethik und digitale Transformation.'
+        keywords: ['themen', 'topic', 'inhalt', 'worueber', 'wovon', 'state of ai', 'marketing', 'kmu', 'arbeit', 'agent', 'leadership', 'fuehrung', 'führung', 'ethik', 'grundlagen', 'entwicklung'],
+        answer: 'Meine sechs Kernthemen: 1) The State of AI, der grosse Überblick mit Trends und Live-Demos. 2) KI und die Schweiz, was auf Arbeitsmarkt, Bildung und Standort zukommt. 3) Agentic AI, autonome KI-Agenten mit Live-Demos aus dem eigenen Betrieb. 4) Führen im KI-Zeitalter, Leadership mit Mensch und Maschine. 5) AI in Marketing, Content, Personalisierung, Automation, alles Praxis. 6) 5 Erfolgsfaktoren für KI in KMU, bodenständig mit klarem ROI-Fokus. Dazu: KI-Grundlagen, ethische KI-Nutzung und KI in der Softwareentwicklung.'
     },
     'chris': {
         keywords: ['chris', 'beyeler', 'wer', 'person', 'bio', 'ueber'],

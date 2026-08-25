@@ -794,14 +794,15 @@ scrollReveal('.contact__card',
     var branche = null, interesse = null;
     var cards = document.querySelectorAll('.keynote-card');
 
-    // Mapping: [branche][interesse] => keynote index (0-3)
-    // 0=State of AI, 1=AI in Marketing, 2=5 Erfolgsfaktoren KMU, 3=Wie KI Arbeit beeinflusst
+    // Mapping: [branche][interesse] => keynote index (0-5)
+    // 0=State of AI, 1=KI und die Schweiz, 2=Agentic AI, 3=Führen im KI-Zeitalter,
+    // 4=AI in Marketing, 5=5 Erfolgsfaktoren KMU
     var mapping = {
-        marketing:  { ueberblick: 0, praxis: 1, strategie: 1, future: 3 },
-        kmu:        { ueberblick: 0, praxis: 2, strategie: 2, future: 3 },
+        marketing:  { ueberblick: 0, praxis: 4, strategie: 4, future: 3 },
+        kmu:        { ueberblick: 0, praxis: 5, strategie: 5, future: 3 },
         hr:         { ueberblick: 0, praxis: 3, strategie: 3, future: 3 },
-        tech:       { ueberblick: 0, praxis: 0, strategie: 2, future: 3 },
-        allgemein:  { ueberblick: 0, praxis: 2, strategie: 0, future: 3 }
+        tech:       { ueberblick: 0, praxis: 2, strategie: 2, future: 3 },
+        allgemein:  { ueberblick: 0, praxis: 5, strategie: 1, future: 3 }
     };
 
     function updateSelection() {
@@ -1100,7 +1101,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (q.includes('swissai') || q.includes('verband')) return 'swissAI ist der Schweizer KI-Verband, den ich 2023 gegründet habe. Rund 300 Mitglieder, gemeinnützig. Mission: Wissen, Dialog und verantwortungsvolle Innovation. Mehr auf swissai.ch';
         if (q.includes('beyonder') || q.includes('firma')) return 'BEYONDER ist mein KI-Kompetenzzentrum in Gebenstorf. Schulungen, Beratung, Keynotes. Kunden wie SUVA, Rotes Kreuz, BKW, Mobiliar. 4.9/5 auf Google mit 108 Reviews.';
         if (q.includes('teilnehmer') || q.includes('review') || q.includes('sagen')) return '4.9/5 Sterne, 108 Google Reviews. "Hat meine Erwartungen übertroffen" (Daniel Keller). "Bringt Inspiration auf die Bühne" (Romi Hofer). Das freut mich jedes Mal.';
-        if (q.includes('keynote') || q.includes('vortrag') || q.includes('themen')) return 'Ich hab vier Keynotes: "The State of AI", "AI in Marketing", "5 Erfolgsfaktoren KI in KMU" und "Wie KI die Arbeit beeinflusst". 30-90 Min, alles anpassbar. Schreib mir: chris@beyonder.ch';
+        if (q.includes('keynote') || q.includes('vortrag') || q.includes('themen')) return 'Ich hab sechs Keynotes: "The State of AI", "KI und die Schweiz", "Agentic AI", "Führen im KI-Zeitalter", "AI in Marketing" und "5 Erfolgsfaktoren KI in KMU". 30-90 Min, alles anpassbar. Schreib mir: chris@beyonder.ch';
         if (q.includes('preis') || q.includes('kosten') || q.includes('budget')) return 'Preise nenne ich hier nicht. Schreib mir direkt an chris@beyonder.ch für ein individuelles Angebot.';
         return 'Ich bin die digitale Version von Chris Beyeler und kann dir Infos geben zu Keynotes, BEYONDER, swissAI oder KI-Workshops. Was interessiert dich?';
     }

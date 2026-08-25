@@ -66,6 +66,18 @@ Chris Beyeler lehrt oder lehrte an der HWZ Hochschule für Wirtschaft Zürich, a
 
 Ein Überblick über aktuelle KI-Entwicklungen, Chancen und Risiken. Typisches Format: Keynote, 30 bis 60 Minuten.
 
+### KI und die Schweiz: Was kommt auf uns zu?
+
+Was KI für Arbeitsmarkt, Bildung, Regulierung und den Standort Schweiz bedeutet und wie sich Unternehmen positionieren. Einordnung aus erster Hand als Präsident von swissAI. Formate: Keynote oder Podium, 30 bis 60 Minuten.
+
+### Agentic AI: Wenn KI selbstständig arbeitet
+
+Autonome KI-Agenten übernehmen ganze Arbeitsabläufe. Mit Live-Demos aus dem eigenen Betrieb und einem realistischen Blick darauf, was heute funktioniert und was nicht. Typisches Format: Keynote, 30 bis 60 Minuten.
+
+### Führen im KI-Zeitalter
+
+Wie Führung sich verändert, wenn Teams aus Menschen und KI-Agenten bestehen: Entscheidungsfindung, Verantwortung und die Kompetenzen, die jetzt zählen. Formate: Keynote oder Podium, 30 bis 90 Minuten.
+
 ### The State of AI in Marketing
 
 Anwendungen von KI für Content, Personalisierung und Automation mit Praxisbeispielen. Typisches Format: Keynote, 30 bis 60 Minuten.
@@ -74,9 +86,11 @@ Anwendungen von KI für Content, Personalisierung und Automation mit Praxisbeisp
 
 Ein praxisorientierter Leitfaden zu Strategie, Schulung und Implementierung für Schweizer KMU. Formate: Keynote und Workshop.
 
-### Wie KI die Arbeit beeinflusst
+### Weitere Themen
 
-Auswirkungen von KI auf Rollen, Kompetenzen, Führung und Arbeitswelt. Formate: Keynote oder Podium, 30 bis 90 Minuten.
+- KI-Grundlagen: Verstehen, was dahintersteckt. Entmystifizierung für Nicht-Techniker. Formate: Impuls oder Workshop.
+- Die Gratwanderung: KI ethisch nutzen. Transparenz, Bias, Datenschutz und wo die rote Linie liegt. Formate: Keynote oder Podium.
+- KI in der Softwareentwicklung: Agenten, Coding-Assistenten und neue Produktivität. Formate: Keynote oder Workshop.
 
 Weitere Formate: Halb- und Ganztagesworkshops, Event- und Panel-Moderation sowie Podiumsdiskussionen.
 
