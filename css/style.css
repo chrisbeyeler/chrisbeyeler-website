@@ -955,10 +955,18 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     margin-bottom: 4rem;
 }
 @media (min-width: 1024px) {
-    /* 4 Cards nebeneinander als Grid – kein horizontaler Scroll/Pin mehr,
-       dadurch kein Ruck beim Durchscrollen der Section. */
+    /* 6 Cards in einer Reihe, horizontaler Scroll via GSAP-Pin (js/main.js).
+       Mit 6 Cards ist die Scroll-Distanz gross genug, der Mini-Pin-Ruck
+       der früheren 4-Card-Variante tritt nicht mehr auf. */
     .keynotes__grid {
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+    }
+    .keynotes__grid .keynote-card {
+        min-width: 260px;
+        max-width: 300px;
+        flex-shrink: 0;
     }
 }
 

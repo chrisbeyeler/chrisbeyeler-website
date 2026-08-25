@@ -190,13 +190,34 @@ gsap.utils.toArray('.section__subtitle').forEach(el => {
     scrollReveal(el, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.1, ease: 'power3.out' }, el);
 });
 
-// Keynote cards — sanftes Reveal beim Reinscrollen.
-// Kein Pin/Horizontal-Scroll mehr: der Mini-Pin (nur ~72px) fror die Section
-// kurz ein und verursachte den Ruck. Die 4 Cards stehen jetzt als Grid nebeneinander.
-scrollReveal('.keynote-card',
-    { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' },
-    '.keynotes__grid');
+// Keynote cards — horizontaler Scroll auf Desktop, Reveal auf Mobile.
+// Mit 6 Cards ist die Pin-Distanz gross genug (kein Mini-Pin-Ruck wie
+// bei der früheren 4-Card-Variante).
+if (!prefersReducedMotion && window.innerWidth >= 1024) {
+    // Desktop: kein scrollReveal, Cards starten sichtbar, horizontaler Scroll IST die Animation
+    gsap.set('.keynote-card', { opacity: 1, y: 0, scale: 1 });
+    const keynoteGrid = document.querySelector('.keynotes__grid');
+    if (keynoteGrid) {
+        const getScrollAmount = () => keynoteGrid.scrollWidth - keynoteGrid.parentElement.clientWidth;
+        gsap.to(keynoteGrid, {
+            x: () => -getScrollAmount(),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.keynotes',
+                start: 'top 20%',
+                end: () => '+=' + getScrollAmount(),
+                pin: true,
+                scrub: 0.8,
+                invalidateOnRefresh: true,
+            }
+        });
+    }
+} else {
+    scrollReveal('.keynote-card',
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
+        '.keynotes__grid');
+}
 
 // About bio
 scrollReveal('.about__bio p',
