@@ -445,7 +445,11 @@
     </section>
     <!-- ===== KEYNOTES ===== -->
     <section class="section keynotes" id="keynotes">
-        <div class="container">
+        <!-- Pin-Wrapper: nur Titel + Karussell werden auf Desktop gepinnt (100svh),
+             der Rest der Sektion bleibt im normalen Seitenfluss darunter -->
+        <div class="keynotes__pin">
+            <div class="ghost-title-wrap" aria-hidden="true"><span class="ghost-title">KEYNOTES</span></div>
+            <div class="container keynotes__pin-inner">
             <h2 class="section__title">Keynotes <span class="accent">&</span> Vortr&auml;ge</h2>
             <p class="section__subtitle">70 Speeches auf Bühnen in der Schweiz und international. Von CEOs bis Startups, von Konzernen bis KMU.</p>
 
@@ -576,6 +580,11 @@
             </div>
             </div>
 
+            <div class="keynotes__progress" aria-hidden="true"><span class="keynotes__progress-fill"></span></div>
+            </div>
+        </div>
+
+        <div class="container">
             <div class="keynotes__more">
                 <h3 class="keynotes__more-title">Weitere Themen</h3>
                 <div class="keynotes__more-grid">
@@ -711,6 +720,7 @@
 
     <!-- ===== UEBER MICH ===== -->
     <section class="section about" id="about">
+        <div class="ghost-title-wrap" aria-hidden="true"><span class="ghost-title">ÜBER MICH</span></div>
         <div class="container">
             <div class="about__grid">
                 <div class="about__image">
@@ -860,6 +870,7 @@
 
     <!-- ===== TESTIMONIALS ===== -->
     <section class="section testimonials-section" id="testimonials">
+        <div class="ghost-title-wrap" aria-hidden="true"><span class="ghost-title">STIMMEN</span></div>
         <div class="container">
             <h2 class="section__title">Was andere <span class="accent">sagen</span></h2>
             <p class="section__subtitle">Feedback von Teilnehmern, Veranstaltern und Medien</p>
@@ -982,6 +993,7 @@
 
     <!-- ===== MEDIEN & PRESSE ===== -->
     <section class="section media" id="media">
+        <div class="ghost-title-wrap" aria-hidden="true"><span class="ghost-title">MEDIEN</span></div>
         <div class="container">
             <h2 class="section__title">Medien <span class="accent">&</span> Presse</h2>
             <p class="section__subtitle">Bekannt aus</p>
@@ -1518,6 +1530,7 @@
 
     <!-- ===== PODCAST ===== -->
     <section class="section podcast" id="podcast">
+        <div class="ghost-title-wrap" aria-hidden="true"><span class="ghost-title">AI CAST</span></div>
         <div class="container">
             <h2 class="section__title">AI Cast</h2>
             <p class="section__subtitle">Der Schweizer Podcast über Künstliche Intelligenz. Hören, Sehen, Lesen.</p>
@@ -1638,6 +1651,7 @@
 
     <!-- ===== ESSAY ===== -->
     <section class="section essay" id="essay">
+        <div class="ghost-title-wrap" aria-hidden="true"><span class="ghost-title">ESSAY</span></div>
         <div class="container">
             <h2 class="section__title">KI Essay</h2>
             <p class="section__subtitle">Ein Manifest für den bewussten Umgang mit Künstlicher Intelligenz</p>
@@ -1728,6 +1742,7 @@
 
     <!-- ===== KONTAKT ===== -->
     <section class="section contact" id="contact">
+        <div class="ghost-title-wrap" aria-hidden="true"><span class="ghost-title">KONTAKT</span></div>
         <div class="container">
             <h2 class="section__title">Kontakt</h2>
             <p class="section__subtitle">Keynote buchen, Medienanfrage oder einfach Hallo sagen.</p>

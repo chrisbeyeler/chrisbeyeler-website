@@ -165,6 +165,8 @@ function scrollReveal(targets, from, to, triggerEl, options = {}) {
     const cfg = { ...defaults, ...options };
     gsap.fromTo(targets, from, {
         ...to,
+        // Inline-Transforms nach dem Reveal entfernen, damit CSS-Hover (scale) wieder greift
+        clearProps: 'opacity,transform',
         scrollTrigger: { trigger: triggerEl || targets, start: cfg.start, once: cfg.once }
     });
 }
@@ -190,76 +192,111 @@ gsap.utils.toArray('.section__subtitle').forEach(el => {
     scrollReveal(el, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.1, ease: 'power3.out' }, el);
 });
 
-// Keynote cards — sanftes Reveal beim Reinscrollen (alle Geräte).
-// Kein Pin/Scroll-Hijacking: auf Desktop ist das Grid ein natives
-// horizontales Karussell (CSS overflow-x), gesteuert per Wheel/Touch
-// oder über die Pfeil-Buttons unten.
-scrollReveal('.keynote-card',
-    { opacity: 0, y: 25 },
-    { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
-    '.keynotes__grid');
-
-// Keynote-Karussell: Pfeil-Buttons mit eigener rAF-Animation.
-// Bewusst direkte scrollLeft-Zuweisung statt scrollBy({behavior:'smooth'}):
-// natives Smooth-Scrolling ist auf Seiten mit overflow-Clipping unzuverlässig.
+// ===== KEYNOTES: gepinnte 100svh-Bühne mit horizontalem Scrub (Desktop) =====
+// Der frühere Pin (a78d403) pinnte die ganze Section mit start 'top 20%' und
+// verursachte Leerraum/Springen. Jetzt wird nur der eigene 100svh-Wrapper
+// .keynotes__pin mit start 'top top' gepinnt; der Rest der Section fliesst normal.
+// gsap.matchMedia() räumt bei Resize/Breakpoint-Wechsel selbst auf.
 (function() {
+    const pinEl = document.querySelector('.keynotes__pin');
+    const viewportEl = document.querySelector('.keynotes__carousel');
     const grid = document.querySelector('.keynotes__grid');
     const prev = document.getElementById('keynotesNavPrev');
     const next = document.getElementById('keynotesNavNext');
-    if (!grid || !prev || !next) return;
+    const progressFill = document.querySelector('.keynotes__progress-fill');
+    if (!pinEl || !grid || !viewportEl) return;
 
-    function isCarousel() {
-        return window.innerWidth >= 1024 && grid.scrollWidth > grid.clientWidth + 10;
-    }
+    const getScrollAmount = () => Math.max(0, grid.scrollWidth - viewportEl.clientWidth);
+    const mm = gsap.matchMedia();
+    const keynotesSection = document.querySelector('.keynotes');
 
-    function stepWidth() {
-        const card = grid.querySelector('.keynote-card');
-        return card ? card.getBoundingClientRect().width + 24 : 320;
-    }
+    // Ohne Reduced Motion: Pin + horizontaler Scrub auf ALLEN Breiten
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+        keynotesSection.classList.add('kn-pin');
+        if (prev) prev.hidden = true;
+        if (next) next.hidden = true;
+        gsap.set('.keynote-card', { opacity: 1, y: 0 });
 
-    let animId = null;
-    function animateTo(target) {
-        if (animId) cancelAnimationFrame(animId);
-        const max = grid.scrollWidth - grid.clientWidth;
-        target = Math.max(0, Math.min(max, target));
-        const start = grid.scrollLeft;
-        const dist = target - start;
-        if (Math.abs(dist) < 1) return;
-        const dur = 400;
-        let t0 = null;
-        function frame(ts) {
-            if (t0 === null) t0 = ts;
-            const p = Math.min(1, (ts - t0) / dur);
-            const eased = 1 - Math.pow(1 - p, 3);
-            grid.scrollLeft = start + dist * eased;
-            if (p < 1) { animId = requestAnimationFrame(frame); } else { animId = null; }
+        const tween = gsap.to(grid, {
+            x: () => -getScrollAmount(),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: pinEl,
+                start: 'top top',
+                end: () => '+=' + getScrollAmount(),
+                pin: true,
+                pinSpacing: true,
+                scrub: 0.8,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                    if (progressFill) progressFill.style.transform = 'scaleX(' + self.progress + ')';
+                },
+            }
+        });
+        const st = tween.scrollTrigger;
+
+        // Konfigurator: Karte anfahren, indem der Seiten-Scroll auf den
+        // passenden Pin-Progress gefahren wird
+        window.keynoteScrollToCard = function(card) {
+            const amount = getScrollAmount();
+            if (!amount) return;
+            const targetX = Math.max(0, Math.min(amount,
+                card.offsetLeft - (viewportEl.clientWidth - card.offsetWidth) / 2));
+            const y = st.start + (targetX / amount) * (st.end - st.start);
+            lenis.scrollTo(y, { duration: 1 });
+        };
+
+        return () => {
+            keynotesSection.classList.remove('kn-pin');
+            window.keynoteScrollToCard = undefined;
+        };
+    });
+
+    // Desktop mit Reduced Motion: natives Karussell (CSS-Fallback-Query aktiv)
+    mm.add('(min-width: 1024px) and (prefers-reduced-motion: reduce)', () => {
+        if (!prev || !next) return;
+
+        function stepWidth() {
+            const card = grid.querySelector('.keynote-card');
+            return card ? card.getBoundingClientRect().width + 24 : 320;
         }
-        animId = requestAnimationFrame(frame);
-    }
+        function updateButtons() {
+            const max = grid.scrollWidth - grid.clientWidth;
+            prev.hidden = next.hidden = max <= 10;
+            prev.disabled = grid.scrollLeft <= 2;
+            next.disabled = grid.scrollLeft >= max - 2;
+        }
+        function scrollStep(dir) {
+            grid.scrollLeft = Math.max(0, Math.min(grid.scrollWidth - grid.clientWidth,
+                grid.scrollLeft + dir * stepWidth() * 2));
+        }
+        const onPrev = () => scrollStep(-1);
+        const onNext = () => scrollStep(1);
+        prev.addEventListener('click', onPrev);
+        next.addEventListener('click', onNext);
+        grid.addEventListener('scroll', updateButtons, { passive: true });
+        updateButtons();
 
-    function updateButtons() {
-        const active = isCarousel();
-        prev.hidden = !active;
-        next.hidden = !active;
-        if (!active) return;
-        const max = grid.scrollWidth - grid.clientWidth;
-        prev.disabled = grid.scrollLeft <= 2;
-        next.disabled = grid.scrollLeft >= max - 2;
-    }
+        window.keynoteScrollToCard = function(card) {
+            grid.scrollLeft = card.offsetLeft - (grid.clientWidth - card.getBoundingClientRect().width) / 2;
+        };
 
-    prev.addEventListener('click', function() { animateTo(grid.scrollLeft - stepWidth() * 2); });
-    next.addEventListener('click', function() { animateTo(grid.scrollLeft + stepWidth() * 2); });
-    grid.addEventListener('scroll', updateButtons, { passive: true });
-    window.addEventListener('resize', updateButtons);
-    window.addEventListener('load', updateButtons);
-    updateButtons();
+        return () => {
+            prev.removeEventListener('click', onPrev);
+            next.removeEventListener('click', onNext);
+            grid.removeEventListener('scroll', updateButtons);
+            prev.hidden = next.hidden = true;
+            window.keynoteScrollToCard = undefined;
+        };
+    });
 
-    // Für den Konfigurator: Karte horizontal ins Bild holen
-    window.keynoteScrollToCard = function(card) {
-        if (!isCarousel()) return;
-        const target = card.offsetLeft - (grid.clientWidth - card.getBoundingClientRect().width) / 2;
-        animateTo(target);
-    };
+    // Mobile/Tablet mit Reduced Motion: gestapelte Karten, sofort sichtbar
+    mm.add('(max-width: 1023px) and (prefers-reduced-motion: reduce)', () => {
+        if (prev) prev.hidden = true;
+        if (next) next.hidden = true;
+        gsap.set('.keynote-card', { opacity: 1, y: 0 });
+    });
 })();
 
 // About bio
@@ -606,6 +643,18 @@ if (!prefersReducedMotion) {
     var aboutSection = document.querySelector('.about');
     var timelineItems = document.querySelectorAll('.timeline__item');
     if (aboutSection && timelineItems.length) {
+        // Riesige Jahreszahl im Hintergrund, crossfadet mit dem aktiven Timeline-Jahr
+        var yearGhost = document.createElement('span');
+        yearGhost.className = 'about__year-ghost';
+        yearGhost.setAttribute('aria-hidden', 'true');
+        (document.querySelector('.about__timeline') || aboutSection).appendChild(yearGhost);
+        var setYearGhost = function(item) {
+            var yearEl = item && item.querySelector('.timeline__year');
+            if (!yearEl) { yearGhost.classList.remove('visible'); return; }
+            yearGhost.textContent = yearEl.textContent;
+            yearGhost.classList.add('visible');
+        };
+
         var yearColors = [
             { start: 'rgba(16, 30, 53, 0.4)', end: 'rgba(16, 30, 53, 0.2)', glow: 'rgba(70, 130, 200, 0.4)' },  // 2016 deep blue
             { start: 'rgba(16, 30, 53, 0.3)', end: 'rgba(30, 50, 80, 0.2)', glow: 'rgba(70, 150, 220, 0.4)' },  // 2017
@@ -627,11 +676,15 @@ if (!prefersReducedMotion) {
                     aboutSection.style.setProperty('--about-grad-opacity', '1');
                     item.classList.add('timeline-glow');
                     item.style.setProperty('--timeline-glow-color', color.glow);
+                    setYearGhost(item);
                 },
                 onLeaveBack: function() {
                     item.classList.remove('timeline-glow');
                     if (i === 0) {
                         aboutSection.style.setProperty('--about-grad-opacity', '0');
+                        setYearGhost(null);
+                    } else {
+                        setYearGhost(timelineItems[i - 1]);
                     }
                 }
             });
@@ -648,6 +701,7 @@ if (!prefersReducedMotion) {
             duration: 0.8,
             stagger: 0.12,
             ease: 'power3.out',
+            clearProps: 'opacity,transform',
             scrollTrigger: {
                 trigger: '.about__counters',
                 start: 'top 85%',
@@ -659,23 +713,124 @@ if (!prefersReducedMotion) {
     gsap.set('.counter', { opacity: 1, y: 0, scale: 1 });
 }
 
+// Format items (Keynote / Workshop / Moderation / Podium)
+scrollReveal('.format-item',
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out' },
+    '.keynotes__formats-grid');
+
+// Testimonial ratings (Google / ProvenExpert)
+scrollReveal('.testimonials__rating',
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out' },
+    '.testimonials__ratings');
+
+// Podcast stats
+scrollReveal('.podcast__stat',
+    { opacity: 0, y: 18 },
+    { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out' },
+    '.podcast__stats-grid');
+
+// Logo marquees (Events + Medien): sanftes Einblenden beim Erreichen
+gsap.utils.toArray('.logos-row').forEach(row => {
+    scrollReveal(row, { opacity: 0 }, { opacity: 1, duration: 0.9, ease: 'power2.out' }, row);
+});
+
 // Role cards
 scrollReveal('.role-card',
     { opacity: 0, y: 15 },
     { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: 'power3.out' },
     '.about__roles');
 
-// Gallery items
-scrollReveal('.keynotes__gallery-item',
-    { opacity: 0, y: 25 },
-    { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' },
-    '.keynotes__gallery');
+// Gallery items — Clip-Wipe-Reveal (Vorhang-Effekt) statt einfachem Fade
+if (!prefersReducedMotion) {
+    gsap.fromTo('.keynotes__gallery-item',
+        { clipPath: 'inset(0 100% 0 0)' },
+        {
+            clipPath: 'inset(0 0% 0 0)',
+            duration: 0.9, stagger: 0.1, ease: 'power3.inOut',
+            clearProps: 'clipPath',
+            scrollTrigger: { trigger: '.keynotes__gallery', start: 'top 85%', once: true }
+        }
+    );
+    gsap.fromTo('.keynotes__gallery-item img',
+        { scale: 1.12 },
+        {
+            scale: 1, duration: 1.1, stagger: 0.1, ease: 'power2.out',
+            clearProps: 'transform',
+            scrollTrigger: { trigger: '.keynotes__gallery', start: 'top 85%', once: true }
+        }
+    );
+}
 
-// Testimonials
-scrollReveal('.testimonial',
-    { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' },
-    '.testimonials__grid');
+// ===== TESTIMONIAL-MARQUEE: zwei gegenläufige Endlos-Reihen =====
+// Baut das statische Grid per JS in zwei Marquee-Reihen um (Klone für den
+// Loop, aria-hidden). Reduced Motion behält das Grid unverändert.
+(function() {
+    const gridEl = document.querySelector('.testimonials__grid');
+    if (!gridEl || prefersReducedMotion) {
+        // Statisches Grid: bisheriger Karten-Reveal
+        scrollReveal('.testimonial',
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' },
+            '.testimonials__grid');
+        return;
+    }
+
+    const cards = Array.from(gridEl.querySelectorAll('.testimonial'));
+    if (cards.length < 4) return;
+
+    gridEl.classList.add('testimonials--marquee');
+    const half = Math.ceil(cards.length / 2);
+    const rows = [cards.slice(0, half), cards.slice(half)];
+    const tracks = rows.map(rowCards => {
+        const row = document.createElement('div');
+        row.className = 'testimonials__row';
+        const track = document.createElement('div');
+        track.className = 'testimonials__row-track';
+        // Zwei identische Sets: -50% xPercent loopt dann exakt nahtlos
+        const set = document.createElement('div');
+        set.className = 'testimonials__set';
+        rowCards.forEach(c => set.appendChild(c));
+        const cloneSet = set.cloneNode(true);
+        cloneSet.setAttribute('aria-hidden', 'true');
+        track.appendChild(set);
+        track.appendChild(cloneSet);
+        row.appendChild(track);
+        gridEl.appendChild(row);
+        return track;
+    });
+
+    const tweens = tracks.map((track, i) => gsap.fromTo(track,
+        { xPercent: i === 0 ? 0 : -50 },
+        { xPercent: i === 0 ? -50 : 0, duration: 45, ease: 'none', repeat: -1 }
+    ));
+
+    // Sanftes Anhalten bei Hover und Touch (timeScale statt hartem Pause)
+    tracks.forEach((track, i) => {
+        const row = track.parentElement;
+        const stop = () => gsap.to(tweens[i], { timeScale: 0, duration: 0.4, overwrite: true });
+        const go = () => gsap.to(tweens[i], { timeScale: 1, duration: 0.6, overwrite: true });
+        row.addEventListener('pointerenter', stop);
+        row.addEventListener('pointerleave', go);
+        row.addEventListener('pointerdown', stop);
+        row.addEventListener('pointerup', go);
+        row.addEventListener('pointercancel', go);
+    });
+
+    // Offscreen pausieren
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+            entries.forEach(en => tweens.forEach(t => en.isIntersecting ? t.play() : t.pause()));
+        }, { rootMargin: '150px 0px' }).observe(gridEl);
+    }
+
+    // Reveal der Reihen als Ganzes
+    scrollReveal('.testimonials__row',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' },
+        gridEl);
+})();
 
 // Article cards
 scrollReveal('.article-card',
@@ -869,12 +1024,17 @@ scrollReveal('.contact__card',
         allgemein:  { ueberblick: 0, praxis: 5, strategie: 1, future: 3 }
     };
 
+    var lastRecommendedIdx = null;
     function updateSelection() {
         cards.forEach(function(c) { c.classList.remove('keynote-card--highlighted'); });
         if (branche && interesse && mapping[branche]) {
             var idx = mapping[branche][interesse];
             if (idx !== undefined && cards[idx]) {
                 cards[idx].classList.add('keynote-card--highlighted');
+                if (idx !== lastRecommendedIdx && window.__confettiBurst) {
+                    window.__confettiBurst(resultEl, 45);
+                }
+                lastRecommendedIdx = idx;
                 var title = cards[idx].querySelector('.keynote-card__title');
                 resultEl.textContent = 'Empfehlung: ' + (title ? title.textContent : '');
                 if (window.keynoteScrollToCard) {
@@ -903,6 +1063,475 @@ scrollReveal('.contact__card',
     setupPills(interesseEl, function(v) { interesse = v; });
 })();
 
+// ===== GHOST-TITEL: Parallax der Hintergrund-Wörter =====
+gsap.set('.ghost-title', { xPercent: -50 }); // Zentrierung (resize-fest, statt CSS-translateX)
+if (!prefersReducedMotion) {
+    gsap.utils.toArray('.ghost-title').forEach(el => {
+        const section = el.closest('section');
+        gsap.fromTo(el,
+            { y: 90 },
+            {
+                y: -90, ease: 'none',
+                scrollTrigger: {
+                    trigger: section || el,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1,
+                }
+            }
+        );
+    });
+}
+
+// ===== BILD-PARALLAX: grosse Bilder bewegen sich gegen den Scroll =====
+if (!prefersReducedMotion && window.innerWidth >= 768) {
+    // Galerie-Bilder ausgenommen: deren scale gehört dem Clip-Wipe-Reveal
+    const parallaxImgs = document.querySelectorAll(
+        '.essay__image, .about__image-frame img, .podcast__cover'
+    );
+    parallaxImgs.forEach(img => {
+        gsap.fromTo(img,
+            { yPercent: -7, scale: 1.14 },
+            {
+                yPercent: 7, scale: 1.14, ease: 'none',
+                scrollTrigger: {
+                    trigger: img.closest('.keynotes__gallery-item, .about__image-frame, .essay__visual, .podcast__visual') || img,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
+            }
+        );
+    });
+}
+
+// ===== HERO-HEADLINE: Buchstaben-Reveal =====
+(function() {
+    const headline = document.getElementById('heroHeadline');
+    if (!headline || prefersReducedMotion) return;
+    const firstNode = headline.childNodes[0];
+    if (!firstNode || firstNode.nodeType !== Node.TEXT_NODE) return;
+
+    const text = firstNode.textContent;
+    headline.setAttribute('aria-label', headline.textContent.trim());
+    const frag = document.createDocumentFragment();
+    const chars = [];
+    // Wort-Wrapper (nowrap) verhindern Umbrüche mitten im Wort
+    text.trim().split(/\s+/).forEach((word, wi) => {
+        if (wi > 0) frag.appendChild(document.createTextNode(' '));
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'hero-word';
+        wordSpan.setAttribute('aria-hidden', 'true');
+        for (const ch of word) {
+            const span = document.createElement('span');
+            span.className = 'hero-char';
+            span.textContent = ch;
+            wordSpan.appendChild(span);
+            chars.push(span);
+        }
+        frag.appendChild(wordSpan);
+    });
+    headline.replaceChild(frag, firstNode);
+
+    gsap.fromTo(chars,
+        { y: 42, opacity: 0, filter: 'blur(8px)' },
+        {
+            y: 0, opacity: 1, filter: 'blur(0px)',
+            duration: 0.7, stagger: 0.032, ease: 'power3.out', delay: 0.25,
+            clearProps: 'all',
+        }
+    );
+})();
+
+// ===== CUSTOM CURSOR (Desktop-Pointer) =====
+(function() {
+    if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
+
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    ring.innerHTML = '<span class="cursor-ring__label"></span>';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+    const label = ring.querySelector('.cursor-ring__label');
+
+    let mx = -100, my = -100, rx = -100, ry = -100, visible = false;
+    document.addEventListener('mousemove', (e) => {
+        mx = e.clientX; my = e.clientY;
+        if (!visible) {
+            visible = true;
+            dot.classList.add('visible');
+            ring.classList.add('visible');
+            rx = mx; ry = my;
+        }
+    }, { passive: true });
+    document.addEventListener('mouseleave', () => {
+        visible = false;
+        dot.classList.remove('visible');
+        ring.classList.remove('visible');
+    });
+
+    // Ring folgt weich im bestehenden GSAP-Ticker (dort läuft auch Lenis)
+    gsap.ticker.add(() => {
+        if (!visible) return;
+        rx += (mx - rx) * 0.16;
+        ry += (my - ry) * 0.16;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+    });
+
+    // Hover-Zustände per Delegation
+    document.addEventListener('mouseover', (e) => {
+        const trailer = e.target.closest('.trailer-stage');
+        const card = e.target.closest('.keynote-card, .article-card');
+        const interactive = e.target.closest('a, button, .btn, [role="button"], input, textarea, select, .glass-card');
+        if (trailer && !e.target.closest('button, a')) {
+            ring.classList.add('cursor-ring--label');
+            label.textContent = 'Play';
+        } else if (card && !e.target.closest('button')) {
+            ring.classList.add('cursor-ring--label');
+            label.textContent = 'Ansehen';
+        } else {
+            ring.classList.remove('cursor-ring--label');
+            label.textContent = '';
+        }
+        ring.classList.toggle('cursor-ring--active', !!(interactive || trailer || card));
+    }, { passive: true });
+})();
+
+// ===== COUNTER-POP: Puls beim Fertigzählen =====
+if (!prefersReducedMotion) {
+    ['.hero__bottom', '.about__counters', '.podcast__stats-grid'].forEach(sel => {
+        const group = document.querySelector(sel);
+        if (!group) return;
+        const numbers = group.querySelectorAll('[data-count]');
+        if (!numbers.length) return;
+        ScrollTrigger.create({
+            trigger: group,
+            // Erst wenn die Zähler oberhalb 50% (= Zählende, ST-4) sind
+            start: 'top 42%',
+            once: true,
+            onEnter: () => {
+                gsap.fromTo(numbers,
+                    { scale: 1 },
+                    {
+                        scale: 1.16, duration: 0.22, stagger: 0.08, ease: 'power2.out',
+                        yoyo: true, repeat: 1,
+                        onStart: () => numbers.forEach(n => n.classList.add('counter-flash')),
+                        onComplete: () => {
+                            gsap.set(numbers, { clearProps: 'transform' });
+                            setTimeout(() => numbers.forEach(n => n.classList.remove('counter-flash')), 350);
+                        },
+                    }
+                );
+            }
+        });
+    });
+}
+
+// ===== KONFETTI-PAYOFF (Canvas, Markenfarben) =====
+window.__confettiBurst = function(anchorEl, count) {
+    if (prefersReducedMotion || !anchorEl) return;
+    const colors = ['#FF9220', '#FCC001', '#46BFED', '#33D099'];
+    const r = anchorEl.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const canvas = document.createElement('canvas');
+    canvas.className = 'confetti-canvas';
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    const parts = [];
+    const n = count || 70;
+    for (let i = 0; i < n; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 3 + Math.random() * 7;
+        parts.push({
+            x: cx, y: cy,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 3,
+            size: 4 + Math.random() * 5,
+            rot: Math.random() * Math.PI,
+            vr: (Math.random() - 0.5) * 0.3,
+            color: colors[i % colors.length],
+            life: 1,
+        });
+    }
+    let raf;
+    function frame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let alive = 0;
+        parts.forEach(p => {
+            p.vy += 0.22;          // Schwerkraft
+            p.vx *= 0.985;
+            p.x += p.vx; p.y += p.vy;
+            p.rot += p.vr;
+            p.life -= 0.012;
+            if (p.life <= 0) return;
+            alive++;
+            ctx.save();
+            ctx.globalAlpha = Math.max(0, p.life);
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+            ctx.restore();
+        });
+        if (alive > 0) { raf = requestAnimationFrame(frame); }
+        else { cancelAnimationFrame(raf); canvas.remove(); }
+    }
+    frame();
+};
+
+// Konfetti beim Absenden des Kontaktformulars
+(function() {
+    const form = document.querySelector('.contact__form');
+    if (!form) return;
+    form.addEventListener('submit', () => {
+        const btn = form.querySelector('button[type="submit"], .btn');
+        window.__confettiBurst(btn || form, 60);
+    });
+})();
+
+// ===== NAV SCROLL-SPY: aktive Sektion mit Underline-Draw =====
+(function() {
+    const links = Array.from(document.querySelectorAll('.nav__links a[href^="#"]'));
+    if (!links.length) return;
+    const byId = {};
+    links.forEach(l => { byId[l.getAttribute('href').slice(1)] = l; });
+
+    Object.keys(byId).forEach(id => {
+        const section = document.getElementById(id);
+        if (!section) return;
+        ScrollTrigger.create({
+            trigger: section,
+            start: 'top 55%',
+            end: 'bottom 55%',
+            onToggle: (self) => {
+                if (self.isActive) {
+                    links.forEach(l => l.classList.remove('active'));
+                    byId[id].classList.add('active');
+                } else {
+                    byId[id].classList.remove('active');
+                }
+            }
+        });
+    });
+})();
+
+// ===== VIEWPORT-SPOTLIGHT (Touch): Karte in der Mitte hebt sich hervor =====
+if (!prefersReducedMotion && window.matchMedia('(pointer: coarse)').matches) {
+    // Vertikal gescrollte Karten: Fokus über ScrollTrigger-Zone um die Mitte
+    const verticalTargets = document.querySelectorAll(
+        '.role-card, .podcast__topic, .faq__item, .contact__card, .format-item, .more-topic'
+    );
+    verticalTargets.forEach(el => {
+        ScrollTrigger.create({
+            trigger: el,
+            start: 'top 62%',
+            end: 'bottom 38%',
+            toggleClass: { targets: el, className: 'is-focus' },
+        });
+    });
+
+    // Horizontale Swipe-Reihen: Karte am nächsten zur Containermitte fokussieren
+    document.querySelectorAll('.articles__grid, .keynotes__gallery, .guest-podcasts__grid, .shorts__grid')
+        .forEach(row => {
+            let rafId = 0;
+            function focusCenter() {
+                rafId = 0;
+                const mid = row.getBoundingClientRect().left + row.clientWidth / 2;
+                let best = null, bestDist = Infinity;
+                Array.from(row.children).forEach(card => {
+                    const r = card.getBoundingClientRect();
+                    const d = Math.abs(r.left + r.width / 2 - mid);
+                    if (d < bestDist) { bestDist = d; best = card; }
+                });
+                Array.from(row.children).forEach(card =>
+                    card.classList.toggle('is-focus', card === best));
+            }
+            row.addEventListener('scroll', () => {
+                if (!rafId) rafId = requestAnimationFrame(focusCenter);
+            }, { passive: true });
+            focusCenter();
+        });
+}
+
+// ===== HERO MOBILE: Gyro-Parallax (Android) bzw. Scroll-Parallax (iOS) =====
+(function() {
+    if (prefersReducedMotion || !window.matchMedia('(pointer: coarse)').matches) return;
+    const heroBg = document.getElementById('heroBg');
+    if (!heroBg) return;
+
+    const canGyro = 'DeviceOrientationEvent' in window &&
+        typeof DeviceOrientationEvent.requestPermission !== 'function';
+
+    if (canGyro) {
+        // Android: Neigung bewegt den Hintergrund (ohne Permission-Dialog)
+        let gRaf = 0, gx = 0, gy = 0;
+        window.addEventListener('deviceorientation', (e) => {
+            if (e.gamma === null) return;
+            gx = Math.max(-1, Math.min(1, e.gamma / 30));
+            gy = Math.max(-1, Math.min(1, (e.beta - 45) / 30));
+            if (!gRaf) gRaf = requestAnimationFrame(() => {
+                gRaf = 0;
+                heroBg.style.transform =
+                    'translate(' + (gx * -8) + 'px,' + (gy * -6) + 'px) scale(1.04)';
+            });
+        }, { passive: true });
+    } else {
+        // iOS (Permission-Dialog wäre nötig): dezenter Scroll-Parallax stattdessen
+        gsap.fromTo(heroBg,
+            { y: 0, scale: 1.06 },
+            {
+                y: 60, scale: 1.06, ease: 'none',
+                scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+            }
+        );
+    }
+})();
+
+// ===== SCRUB-DRIFT: Grids gleiten kontinuierlich mit dem Scroll =====
+if (!prefersReducedMotion) {
+    ['.keynotes__formats-grid', '.about__roles', '.podcast__topics', '.faq__grid']
+        .forEach(sel => {
+            const el = document.querySelector(sel);
+            if (!el) return;
+            gsap.fromTo(el,
+                { y: 45 },
+                {
+                    y: -45, ease: 'none',
+                    scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1 }
+                }
+            );
+        });
+}
+
+// ===== MAGNETIC BUTTONS (Desktop-Pointer) =====
+if (!prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.classList.add('btn--magnetic');
+        gsap.set(btn, { transformPerspective: 500 });
+
+        // Setter nach jedem Rückstell-Tween neu erzeugen: overwrite killt die
+        // quickTo-Tweens, gekillte quickTo-Setter reagieren danach nicht mehr.
+        let setX, setY, setRotX, setRotY, setScale;
+        function makeSetters() {
+            const opt = { duration: 0.4, ease: 'power2.out' };
+            setX = gsap.quickTo(btn, 'x', opt);
+            setY = gsap.quickTo(btn, 'y', opt);
+            setRotX = gsap.quickTo(btn, 'rotationX', opt);
+            setRotY = gsap.quickTo(btn, 'rotationY', opt);
+            setScale = gsap.quickTo(btn, 'scale', { duration: 0.3, ease: 'power2.out' });
+        }
+        makeSetters();
+
+        let rect = null;
+        btn.addEventListener('mouseenter', () => {
+            // Laufenden Rückstell-Tween stoppen und Setter erneuern,
+            // sonst reagieren gekillte quickTo-Setter nicht mehr
+            gsap.killTweensOf(btn);
+            makeSetters();
+            rect = btn.getBoundingClientRect();
+        });
+        btn.addEventListener('mousemove', (e) => {
+            if (!rect) rect = btn.getBoundingClientRect();
+            const cx = e.clientX - rect.left - rect.width / 2;
+            const cy = e.clientY - rect.top - rect.height / 2;
+            setX(cx * 0.35);
+            setY(cy * 0.35);
+            setRotX(-cy * 0.12);
+            setRotY(cx * 0.12);
+            setScale(1.06);
+        });
+        btn.addEventListener('mouseleave', () => {
+            rect = null;
+            gsap.to(btn, {
+                x: 0, y: 0, rotationX: 0, rotationY: 0, scale: 1,
+                duration: 1, ease: 'elastic.out(1, 0.4)', overwrite: 'auto',
+            });
+        });
+    });
+}
+
+// ===== MARQUEES: ausserhalb des Viewports pausieren =====
+(function() {
+    if (prefersReducedMotion) return; // CSS setzt animation: none, nichts zu pausieren
+    const tracks = document.querySelectorAll('.logos-row__track');
+    if (!tracks.length || !('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+        });
+    }, { rootMargin: '100px 0px' });
+    tracks.forEach(t => observer.observe(t));
+})();
+
+// ===== FOOTER CURTAIN REVEAL (Desktop) =====
+(function() {
+    const footer = document.querySelector('.footer');
+    const mainEl = document.querySelector('main');
+    if (!footer || !mainEl) return;
+
+    const footerContainer = footer.querySelector('.container');
+    const mq = window.matchMedia('(min-width: 900px)');
+    let curtainTrigger = null;
+
+    // Platz für den fixierten Footer unterhalb von <main> schaffen
+    function setFooterHeight() {
+        document.documentElement.style.setProperty('--footer-h', footer.offsetHeight + 'px');
+    }
+
+    function enableCurtain() {
+        document.documentElement.classList.add('curtain');
+        setFooterHeight();
+        if (!prefersReducedMotion && !curtainTrigger) {
+            const tween = gsap.fromTo(footerContainer,
+                { y: 90, opacity: 0 },
+                {
+                    y: 0, opacity: 1, ease: 'none',
+                    scrollTrigger: {
+                        trigger: mainEl,
+                        start: 'bottom bottom',
+                        // Endet exakt am Seitenende (Scrollweg = Footer-Höhe)
+                        end: () => '+=' + footer.offsetHeight,
+                        scrub: 1,
+                        invalidateOnRefresh: true,
+                    }
+                }
+            );
+            curtainTrigger = tween.scrollTrigger;
+        }
+        ScrollTrigger.refresh();
+    }
+
+    function disableCurtain() {
+        document.documentElement.classList.remove('curtain');
+        if (curtainTrigger) {
+            curtainTrigger.kill();
+            curtainTrigger = null;
+            gsap.set(footerContainer, { clearProps: 'opacity,transform' });
+        }
+        ScrollTrigger.refresh();
+    }
+
+    function applyMode() {
+        if (mq.matches) { enableCurtain(); } else { disableCurtain(); }
+    }
+    applyMode();
+    mq.addEventListener('change', applyMode);
+
+    // Footer-Höhe bleibt aktuell: nach Font-/Bild-Load und bei jeder Grössenänderung
+    window.addEventListener('load', setFooterHeight);
+    window.addEventListener('resize', setFooterHeight);
+    if ('ResizeObserver' in window) {
+        new ResizeObserver(setFooterHeight).observe(footer);
+    }
+})();
+
 // ===== SCROLLTRIGGER REFRESH =====
 // Refresh after DOM + images are fully loaded
 window.addEventListener('load', () => {
@@ -926,7 +1555,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             // Kill active ScrollTrigger pins to get accurate position
             ScrollTrigger.refresh();
-            lenis.scrollTo(target, { offset: -80, duration: prefersReducedMotion ? 0 : 1.2 });
+            // Ziele mit gepinntem Wrapper: exakt auf den Pin-Start scrollen,
+            // sonst greift der Pin nicht sauber (offset -80 läge davor)
+            const pinChild = target.querySelector('.keynotes__pin');
+            const pinSt = pinChild && ScrollTrigger.getAll().find(st => st.trigger === pinChild && st.pin);
+            if (pinSt) {
+                lenis.scrollTo(pinSt.start, { duration: prefersReducedMotion ? 0 : 1.2 });
+            } else {
+                lenis.scrollTo(target, { offset: -80, duration: prefersReducedMotion ? 0 : 1.2 });
+            }
         }
     });
 });
@@ -1060,6 +1697,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     hero.addEventListener('mouseleave', function() {
         glitchActive = false; glitchCanvas.classList.remove('active');
         cancelAnimationFrame(glitchFrame);
+        // Pending Move-Frame verwerfen, sonst setzt er den Zoom nach dem Cleanup wieder
+        if (moveRafId) { cancelAnimationFrame(moveRafId); moveRafId = 0; }
         glitchCtx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height);
         spotlight.classList.remove('active');
         heroBg.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -1067,12 +1706,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         setTimeout(function() { heroBg.style.transition = ''; }, 600);
         bubbles.forEach(function(b) { b.classList.remove('active'); b.style.transform = ''; });
     });
+    // Mousemove auf rAF gedrosselt: Layout-Reads (getBoundingClientRect) max. 1x pro Frame
+    var moveRafId = 0, moveClientX = 0, moveClientY = 0;
     hero.addEventListener('mousemove', function(e) {
-        var r = hero.getBoundingClientRect();
-        mouseX = e.clientX - r.left; mouseY = e.clientY - r.top;
-        drawSpotlight(mouseX, mouseY);
-        updateBubbles(e.clientX, e.clientY);
-        heroBg.style.transform = 'translate(' + ((mouseX / r.width - 0.5) * -5) + 'px,' + ((mouseY / r.height - 0.5) * -3) + 'px) scale(1.02)';
+        moveClientX = e.clientX; moveClientY = e.clientY;
+        if (moveRafId) return;
+        moveRafId = requestAnimationFrame(function() {
+            moveRafId = 0;
+            var r = hero.getBoundingClientRect();
+            mouseX = moveClientX - r.left; mouseY = moveClientY - r.top;
+            drawSpotlight(mouseX, mouseY);
+            updateBubbles(moveClientX, moveClientY);
+            heroBg.style.transform = 'translate(' + ((mouseX / r.width - 0.5) * -5) + 'px,' + ((mouseY / r.height - 0.5) * -3) + 'px) scale(1.02)';
+        });
     });
 
     // ── TYPEWRITER UTIL ──
