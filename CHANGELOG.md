@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-25 — Pin-Sprung-Fix und Hero-Bubbles-Choreografie
+
+- Keynotes-Pin springt nicht mehr: `anticipatePin` entfernt (kontraproduktiv mit Lenis), `scrub: true` statt 0.8 (kein Doppel-Smoothing), `ignoreMobileResize` plus Breiten-Gate im Resize-Handler (mobile URL-Bar refresht nicht mehr mitten im Pin), Pin-Inhalt kompaktiert, damit er in 100svh passt
+- Hero-Info-Bubbles neu choreografiert, komplett in GSAP (die alten CSS-Float-Keyframes überschrieben den Magnetismus): elastischer Einflug von den Bildrändern, organisches Orbit-Schweben mit Tiefenstaffelung, zyklischer Glow-Puls, weicher quickTo-Magnetismus; pausiert ausserhalb des Viewports
+
 ## 2026-08-25 — Animations- und Interaktionspaket
 
 Analyse von ki-workplace.ch als Vorlage, drei Iterationen (v2 Grundlagen, v3 Signature-Effekte, v4 Mobile + Verstärkung).

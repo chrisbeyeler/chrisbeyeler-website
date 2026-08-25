@@ -777,19 +777,14 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
 .hero-bubble__content { display: flex; flex-direction: column; gap: 2px; }
 .hero-bubble__value { font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; color: #fff; }
 .hero-bubble__label { font-family: var(--font-heading); font-size: 0.85rem; font-weight: 500; color: var(--text-tertiary); }
-.hero-bubble--f1 { animation: hero-bf1 7s ease-in-out infinite; }
-.hero-bubble--f2 { animation: hero-bf2 8s ease-in-out infinite; }
-.hero-bubble--f3 { animation: hero-bf3 6.5s ease-in-out infinite; }
-.hero-bubble--f4 { animation: hero-bf4 7.5s ease-in-out infinite; }
-@keyframes hero-bf1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(5px,-7px); } }
-@keyframes hero-bf2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-7px,4px); } }
-@keyframes hero-bf3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(4px,6px); } }
-@keyframes hero-bf4 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-5px,-5px); } }
-@keyframes hero-invite-blink {
-    0%,100% { border-color: rgba(255,146,32,0.15); opacity: 0.55; }
-    50% { border-color: rgba(255,146,32,0.45); opacity: 0.85; box-shadow: 0 0 24px rgba(255,146,32,0.15); }
+/* Float-Loops laufen jetzt komplett in GSAP (xPercent/yPercent).
+   CSS-Keyframes auf transform würden die GSAP-/Magnet-Transforms überschreiben. */
+/* Puls & Glow: GSAP setzt zyklisch .hero-bubble--pulse (ersetzt den alten Invite-Blink) */
+.hero-bubble--pulse {
+    border-color: rgba(255, 146, 32, 0.55) !important;
+    box-shadow: 0 0 30px rgba(255, 146, 32, 0.28), 0 0 0 1px rgba(255, 146, 32, 0.25);
+    opacity: 1 !important;
 }
-.hero-bubble--invite { animation: hero-invite-blink 1.8s ease-in-out 3 forwards, hero-bf2 8s ease-in-out infinite; }
 
 /* ===== HERO ASK INPUT ===== */
 .hero-ask {
@@ -3322,6 +3317,25 @@ a.contact__card.glass-card:hover {
         min-width: 78vw;
         max-width: 78vw;
     }
+}
+/* Pin-Inhalt kompakt: der Wrapper muss in 100svh passen, sonst wirkt der
+   Ein-/Austritt des Pins abgeschnitten und sprunghaft */
+.keynotes.kn-pin .keynotes__pin-inner .section__subtitle { margin-bottom: 1.75rem; }
+.keynotes.kn-pin .keynote-card__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+@media (max-width: 767px) {
+    .keynotes.kn-pin .keynotes__pin { padding-top: 72px; }
+    .keynotes.kn-pin .keynote-card__image { aspect-ratio: 2 / 1; }
+    .keynotes.kn-pin .keynote-card__desc { -webkit-line-clamp: 3; }
+}
+@media (max-height: 820px) and (min-width: 768px) {
+    .keynotes.kn-pin .keynote-card__image { aspect-ratio: 2 / 1; }
+    .keynotes.kn-pin .keynote-card__desc { -webkit-line-clamp: 3; }
+    .keynotes.kn-pin .keynotes__pin-inner .section__subtitle { display: none; }
 }
 .keynotes.kn-pin .keynotes__progress {
     display: block;

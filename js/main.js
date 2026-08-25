@@ -15,6 +15,8 @@ const lenis = new Lenis({
 
 // Sync Lenis with GSAP ScrollTrigger (single RAF loop via GSAP ticker)
 gsap.registerPlugin(ScrollTrigger);
+// Mobile URL-Bar-Resizes (nur Höhe) dürfen keinen Refresh mitten im Pin auslösen
+ScrollTrigger.config({ ignoreMobileResize: true });
 lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
@@ -226,8 +228,12 @@ gsap.utils.toArray('.section__subtitle').forEach(el => {
                 end: () => '+=' + getScrollAmount(),
                 pin: true,
                 pinSpacing: true,
-                scrub: 0.8,
-                anticipatePin: 1,
+                // scrub true: Lenis ist das einzige Smoothing. Ein Lag-Wert (0.8)
+                // liess den Track beim Pin-Austritt sichtbar nachtweenen (Sprung).
+                // anticipatePin ist mit Lenis kontraproduktiv (synthetischer Scroll
+                // ohne den Lag, den es kompensieren soll) und verursachte den
+                // Versatz beim Einrasten.
+                scrub: true,
                 invalidateOnRefresh: true,
                 onUpdate: (self) => {
                     if (progressFill) progressFill.style.transform = 'scaleX(' + self.progress + ')';
@@ -1540,9 +1546,14 @@ window.addEventListener('load', () => {
 });
 gsap.delayedCall(2, () => ScrollTrigger.refresh());
 
-// Debounced refresh on resize (handles pin recalculations)
+// Debounced refresh on resize (handles pin recalculations).
+// Nur bei BREITEN-Änderung: Höhen-only-Resizes (mobile URL-Bar) würden
+// mitten im Pin refreshen und einen sichtbaren Sprung verursachen.
 let resizeTimer;
+let lastViewportWidth = window.innerWidth;
 window.addEventListener('resize', () => {
+    if (window.innerWidth === lastViewportWidth) return;
+    lastViewportWidth = window.innerWidth;
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 250);
 });
@@ -1679,12 +1690,110 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         spotCtx.fillStyle = g; spotCtx.fillRect(0, 0, spotlight.width, spotlight.height);
     }
 
-    // ── BUBBLE MAGNETISM ──
-    function updateBubbles(cx, cy) {
+    // ── BUBBLE CHOREOGRAFIE: Einflug, Orbit-Float, Puls, Magnetismus ──
+    // Alles in GSAP: CSS-Keyframes auf transform würden die Inline-/GSAP-
+    // Transforms überschreiben (dokumentierte Fehlerklasse).
+    var bubbleIntroDone = false;
+    var bubbleMagnets = [];
+    (function initBubbles() {
+        if (!bubbles.length) return;
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Magnet-Setter pro Bubble (Kanäle x/y; Float läuft auf xPercent/yPercent)
         bubbles.forEach(function(b) {
-            var r = b.getBoundingClientRect(), dx = cx - (r.left + r.width / 2), dy = cy - (r.top + r.height / 2), dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 260) { var f = (1 - dist / 260) * 12; b.classList.add('active'); b.style.transform = 'translate(' + (dx / dist * f) + 'px,' + (dy / dist * f) + 'px)'; }
-            else { b.classList.remove('active'); b.style.transform = ''; }
+            bubbleMagnets.push({
+                el: b,
+                setX: gsap.quickTo(b, 'x', { duration: 0.5, ease: 'power2.out' }),
+                setY: gsap.quickTo(b, 'y', { duration: 0.5, ease: 'power2.out' }),
+            });
+        });
+
+        if (reduced) { bubbleIntroDone = true; return; }
+
+        // Tiefenstaffelung: hintere Bubbles kleiner und minimal unscharf
+        var depth = [1, 0.94, 1.04, 0.92];
+        bubbles.forEach(function(b, i) {
+            gsap.set(b, { scale: depth[i] || 1 });
+            if ((depth[i] || 1) < 1) b.style.filter = 'blur(0.4px)';
+        });
+
+        // Einflug: gestaffelt vom jeweils nächsten Bildrand, elastisch
+        var fromDir = [{ x: -90, y: 0 }, { x: 0, y: -70 }, { x: -90, y: 20 }, { x: 90, y: 0 }];
+        var introTl = gsap.timeline({
+            delay: 1.1,
+            onComplete: function() { bubbleIntroDone = true; gsap.set(bubbles, { clearProps: 'opacity' }); }
+        });
+        bubbles.forEach(function(b, i) {
+            var d = fromDir[i] || { x: 60, y: 0 };
+            introTl.fromTo(b,
+                { x: d.x, y: d.y, opacity: 0, scale: 0.4 },
+                { x: 0, y: 0, opacity: 0.55, scale: depth[i] || 1, duration: 1.1, ease: 'elastic.out(1, 0.5)' },
+                i * 0.15);
+        });
+
+        // Orbit-Float: pro Bubble zwei überlagerte Sinus-Bewegungen mit
+        // zufälliger Dauer/Amplitude — keine zwei bewegen sich gleich
+        var floatTweens = [];
+        bubbles.forEach(function(b) {
+            floatTweens.push(gsap.to(b, {
+                xPercent: gsap.utils.random(-7, 7),
+                duration: gsap.utils.random(5, 9),
+                ease: 'sine.inOut', yoyo: true, repeat: -1, delay: gsap.utils.random(0, 2),
+            }));
+            floatTweens.push(gsap.to(b, {
+                yPercent: gsap.utils.random(-9, 9),
+                duration: gsap.utils.random(6, 10),
+                ease: 'sine.inOut', yoyo: true, repeat: -1, delay: gsap.utils.random(0, 2),
+            }));
+        });
+
+        // Puls & Glow: reihum bekommt eine Bubble alle ~3.5s einen Glow-Puls
+        var pulseIdx = 0, pulseTimer = null;
+        function pulseNext() {
+            var b = bubbles[pulseIdx % bubbles.length];
+            pulseIdx++;
+            if (!b.classList.contains('active')) {
+                b.classList.add('hero-bubble--pulse');
+                gsap.fromTo(b, { scale: depth[(pulseIdx - 1) % bubbles.length] || 1 },
+                    {
+                        scale: (depth[(pulseIdx - 1) % bubbles.length] || 1) * 1.07,
+                        duration: 0.45, ease: 'back.out(2.5)', yoyo: true, repeat: 1,
+                        onComplete: function() { b.classList.remove('hero-bubble--pulse'); },
+                    });
+            }
+        }
+        function startPulse() { if (!pulseTimer) pulseTimer = setInterval(pulseNext, 3500); }
+        function stopPulse() { clearInterval(pulseTimer); pulseTimer = null; }
+
+        // Ausserhalb des Viewports: Float und Puls pausieren
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function(entries) {
+                var on = entries[0].isIntersecting;
+                floatTweens.forEach(function(t) { on ? t.play() : t.pause(); });
+                on ? startPulse() : stopPulse();
+            }, { rootMargin: '50px 0px' }).observe(hero);
+        } else {
+            startPulse();
+        }
+    })();
+
+    // ── BUBBLE MAGNETISM (quickTo, koexistiert mit dem Float) ──
+    function updateBubbles(cx, cy) {
+        if (!bubbleIntroDone) return;
+        bubbleMagnets.forEach(function(m) {
+            var r = m.el.getBoundingClientRect();
+            var dx = cx - (r.left + r.width / 2), dy = cy - (r.top + r.height / 2);
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 300 && dist > 0.001) {
+                var f = (1 - dist / 300) * 16;
+                m.el.classList.add('active');
+                m.setX(dx / dist * f);
+                m.setY(dy / dist * f);
+            } else {
+                m.el.classList.remove('active');
+                m.setX(0);
+                m.setY(0);
+            }
         });
     }
 
@@ -1704,7 +1813,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         heroBg.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         heroBg.style.transform = '';
         setTimeout(function() { heroBg.style.transition = ''; }, 600);
-        bubbles.forEach(function(b) { b.classList.remove('active'); b.style.transform = ''; });
+        // Nur den Magnet-Anteil (x/y) zurückfahren; style.transform leeren
+        // würde auch Float (xPercent/yPercent) und Scale löschen
+        bubbleMagnets.forEach(function(m) {
+            m.el.classList.remove('active');
+            m.setX(0);
+            m.setY(0);
+        });
     });
     // Mousemove auf rAF gedrosselt: Layout-Reads (getBoundingClientRect) max. 1x pro Frame
     var moveRafId = 0, moveClientX = 0, moveClientY = 0;
@@ -1843,12 +1958,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 
-    // ── INVITE BLINK ──
-    setTimeout(function() {
-        var b = document.getElementById('bubble1');
-        if (b && !b.classList.contains('active')) {
-            b.classList.add('hero-bubble--invite');
-            setTimeout(function() { b.classList.remove('hero-bubble--invite'); }, 6000);
-        }
-    }, 3000);
+    // Invite-Blink entfällt: der zyklische Puls (initBubbles) übernimmt die Einladung
 })();
