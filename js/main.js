@@ -21,72 +21,10 @@ lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
 
-// ===== PARTICLES.JS — non-critical decoration, loaded after first render =====
-function initHeroParticles() {
-    if (!document.getElementById('particles-js') || typeof particlesJS !== 'function') return;
-    const isMobile = window.innerWidth < 768;
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: isMobile ? 15 : 35, density: { enable: true, value_area: 1000 } },
-            color: { value: '#46BFED' },
-            shape: { type: 'circle' },
-            opacity: {
-                value: 0.12,
-                random: true,
-                anim: { enable: true, speed: 0.2, opacity_min: 0.04 }
-            },
-            size: {
-                value: 1.5,
-                random: true,
-                anim: { enable: false }
-            },
-            line_linked: {
-                enable: true,
-                distance: 160,
-                color: '#46BFED',
-                opacity: 0.05,
-                width: 0.8
-            },
-            move: {
-                enable: true,
-                speed: 0.3,
-                direction: 'none',
-                random: true,
-                out_mode: 'out',
-                attract: { enable: false }
-            }
-        },
-        interactivity: {
-            detect_on: 'canvas',
-            events: {
-                onhover: { enable: !isMobile, mode: 'grab' },
-                onclick: { enable: false },
-                resize: true
-            },
-            modes: {
-                grab: { distance: 120, line_linked: { opacity: 0.12 } }
-            }
-        },
-        retina_detect: true
-    });
-}
-
-function loadHeroParticles() {
-    if (prefersReducedMotion || window.innerWidth < 768 || !document.getElementById('particles-js')) return;
-    const script = document.createElement('script');
-    script.src = 'vendor/particles.min.js';
-    script.async = true;
-    script.onload = initHeroParticles;
-    document.head.appendChild(script);
-}
-
-window.addEventListener('load', () => {
-    if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(loadHeroParticles, { timeout: 2500 });
-    } else {
-        window.setTimeout(loadHeroParticles, 1200);
-    }
-}, { once: true });
+// ===== PARTICLES.JS — entfernt =====
+// Ambient-Budget: der Katalog erlaubt genau einen Ambient-Effekt. Behalten
+// wurden die Ghost-Titel, weil sie ueber die ganze Seite tragen. line_linked
+// war zudem der teuerste Modus der Bibliothek (Nachbarschaft pro Frame).
 
 // ===== NAVIGATION =====
 const nav = document.getElementById('nav');
@@ -974,38 +912,51 @@ scrollReveal('.contact__card',
 // ===== VANILLA TILT (3D Cards) =====
 // Deaktiviert — zu intensiv bei kleinen Cards, Bilder werden abgeschnitten
 
-// ===== ST-5: QUOTES CROSSFADE (replaces Swiper) =====
+// ===== ST-5: QUOTES CROSSFADE (ungepinnt) =====
+// Frueher ein zweiter Pin. Der Katalog erlaubt genau ein gepinntes Kapitel,
+// und das sind die Keynotes (dort faellt die Buchungsentscheidung). Der
+// Crossfade laeuft jetzt ungepinnt ueber die eigene Sektionshoehe.
+// gsap.matchMedia() statt innerWidth-Gate: raeumt beim Breakpoint-Wechsel auf.
 (function() {
     const quotes = gsap.utils.toArray('.quote--stacked');
     if (quotes.length < 2) return;
-
-    if (prefersReducedMotion || window.innerWidth < 768) {
-        // Mobile/reduced-motion: show all stacked vertically (CSS handles positioning)
-        quotes.forEach(q => gsap.set(q, { opacity: 1 }));
-        return;
-    }
-
     const container = document.getElementById('quotesContainer');
     if (!container) return;
 
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: container,
-            start: 'top center',
-            end: () => '+=' + (quotes.length * 300),
-            pin: true,
-            scrub: 0.5,
-        }
+    const mm = gsap.matchMedia();
+
+    mm.add('(min-width: 769px) and (prefers-reduced-motion: no-preference)', () => {
+        gsap.set(quotes, { opacity: (i) => (i === 0 ? 1 : 0) });
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                // An die Durchquerung des Containers gebunden, nicht an einen
+                // Blindwert: sonst wechseln die letzten Zitate, wenn der Block
+                // bereits aus dem Bild gescrollt ist.
+                start: 'top 75%',
+                end: 'bottom 25%',
+                scrub: 0.5,
+                invalidateOnRefresh: true,
+            }
+        });
+
+        quotes.forEach((quote, i) => {
+            if (i > 0) {
+                tl.to(quotes[i - 1], { opacity: 0, duration: 0.5, ease: 'none' })
+                  .fromTo(quote, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'none' }, '<');
+            }
+            if (i < quotes.length - 1) {
+                tl.to({}, { duration: 0.5 });
+            }
+        });
+
+        return () => gsap.set(quotes, { opacity: 1, clearProps: 'opacity' });
     });
 
-    quotes.forEach((quote, i) => {
-        if (i > 0) {
-            tl.to(quotes[i - 1], { opacity: 0, duration: 0.5 })
-              .fromTo(quote, { opacity: 0 }, { opacity: 1, duration: 0.5 }, '<');
-        }
-        if (i < quotes.length - 1) {
-            tl.to({}, { duration: 0.5 }); // pause between quotes
-        }
+    // Mobile und Reduced Motion: alle Zitate statisch untereinander
+    mm.add('(max-width: 768px), (prefers-reduced-motion: reduce)', () => {
+        gsap.set(quotes, { opacity: 1 });
     });
 })();
 
@@ -1139,72 +1090,28 @@ if (!prefersReducedMotion && window.innerWidth >= 768) {
     });
     headline.replaceChild(frag, firstNode);
 
-    gsap.fromTo(chars,
-        { y: 42, opacity: 0, filter: 'blur(8px)' },
+    // Der Split laeuft erst nach fonts.ready: sonst aendern sich beim Font-Swap
+    // die Zeichenbreiten mitten in der Animation und die Zeile springt.
+    const run = () => gsap.fromTo(chars,
+        // opacity bleibt 1: die H1 ist der LCP-Kandidat und darf nicht hinter
+        // der eigenen Animation warten. Nur y und ein kurzer Blur tragen sie ein.
+        { y: 42, filter: 'blur(3px)' },
         {
-            y: 0, opacity: 1, filter: 'blur(0px)',
-            duration: 0.7, stagger: 0.032, ease: 'power3.out', delay: 0.25,
+            y: 0, filter: 'blur(0px)',
+            duration: 0.7, stagger: 0.032, ease: 'power3.out',
             clearProps: 'all',
         }
     );
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(run);
+    } else {
+        run();
+    }
 })();
 
-// ===== CUSTOM CURSOR (Desktop-Pointer) =====
-(function() {
-    if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
-
-    const dot = document.createElement('div');
-    dot.className = 'cursor-dot';
-    const ring = document.createElement('div');
-    ring.className = 'cursor-ring';
-    ring.innerHTML = '<span class="cursor-ring__label"></span>';
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
-    const label = ring.querySelector('.cursor-ring__label');
-
-    let mx = -100, my = -100, rx = -100, ry = -100, visible = false;
-    document.addEventListener('mousemove', (e) => {
-        mx = e.clientX; my = e.clientY;
-        if (!visible) {
-            visible = true;
-            dot.classList.add('visible');
-            ring.classList.add('visible');
-            rx = mx; ry = my;
-        }
-    }, { passive: true });
-    document.addEventListener('mouseleave', () => {
-        visible = false;
-        dot.classList.remove('visible');
-        ring.classList.remove('visible');
-    });
-
-    // Ring folgt weich im bestehenden GSAP-Ticker (dort läuft auch Lenis)
-    gsap.ticker.add(() => {
-        if (!visible) return;
-        rx += (mx - rx) * 0.16;
-        ry += (my - ry) * 0.16;
-        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
-    });
-
-    // Hover-Zustände per Delegation
-    document.addEventListener('mouseover', (e) => {
-        const trailer = e.target.closest('.trailer-stage');
-        const card = e.target.closest('.keynote-card, .article-card');
-        const interactive = e.target.closest('a, button, .btn, [role="button"], input, textarea, select, .glass-card');
-        if (trailer && !e.target.closest('button, a')) {
-            ring.classList.add('cursor-ring--label');
-            label.textContent = 'Play';
-        } else if (card && !e.target.closest('button')) {
-            ring.classList.add('cursor-ring--label');
-            label.textContent = 'Ansehen';
-        } else {
-            ring.classList.remove('cursor-ring--label');
-            label.textContent = '';
-        }
-        ring.classList.toggle('cursor-ring--active', !!(interactive || trailer || card));
-    }, { passive: true });
-})();
+// ===== CUSTOM CURSOR — entfernt =====
+// Ein zweiter, nachlaufender Zeiger konkurriert mit dem Keynotes-Pin um
+// Aufmerksamkeit und lief in jedem GSAP-Tick mit.
 
 // ===== COUNTER-POP: Puls beim Fertigzählen =====
 if (!prefersReducedMotion) {
@@ -1400,21 +1307,9 @@ if (!prefersReducedMotion && window.matchMedia('(pointer: coarse)').matches) {
     }
 })();
 
-// ===== SCRUB-DRIFT: Grids gleiten kontinuierlich mit dem Scroll =====
-if (!prefersReducedMotion) {
-    ['.keynotes__formats-grid', '.about__roles', '.podcast__topics', '.faq__grid']
-        .forEach(sel => {
-            const el = document.querySelector(sel);
-            if (!el) return;
-            gsap.fromTo(el,
-                { y: 45 },
-                {
-                    y: -45, ease: 'none',
-                    scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1 }
-                }
-            );
-        });
-}
+// ===== SCRUB-DRIFT — entfernt =====
+// Vier Dauer-Scrubs ueber die ruhigen Proof-Strecken: hoechste Trigger-Kosten
+// bei geringster Aussage. Der Katalog will diese Strecken bewusst ruhig.
 
 // ===== MAGNETIC BUTTONS (Desktop-Pointer) =====
 if (!prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
@@ -1591,7 +1486,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     var heroChat = document.getElementById('heroChat');
     var heroChatMessages = document.getElementById('heroChatMessages');
     var heroAskInput = document.getElementById('heroAskInput');
-    var scanlines = document.getElementById('heroScanlines');
 
     if (!hero || !glitchCanvas || !spotlight) return;
 
@@ -1602,7 +1496,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     function markBgReady() { bgReady = bgImg.complete && bgImg.naturalWidth > 0; }
     markBgReady();
     if (!bgReady) { bgImg.addEventListener('load', function() { markBgReady(); resize(); }); }
-    var mouseX = 0, mouseY = 0, glitchActive = false, scanlinesShown = false, glitchFrame;
+    var mouseX = 0, mouseY = 0, glitchActive = false, glitchFrame;
 
     function resize() {
         var r = hero.getBoundingClientRect();
@@ -1801,7 +1695,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     hero.addEventListener('mouseenter', function() {
         glitchActive = true; glitchCanvas.classList.add('active'); glitchLoop();
         spotlight.classList.add('active');
-        if (!scanlinesShown) { scanlinesShown = true; setTimeout(function() { scanlines.classList.add('visible'); }, 500); }
     });
     hero.addEventListener('mouseleave', function() {
         glitchActive = false; glitchCanvas.classList.remove('active');

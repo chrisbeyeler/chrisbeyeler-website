@@ -192,12 +192,6 @@
 [data-theme="light"] .nav__links {
     background: rgba(245, 245, 247, 0.97);
 }
-[data-theme="light"] .hero__particles {
-    opacity: 0.15;
-}
-[data-theme="light"] .hero-scanlines {
-    opacity: 0 !important;
-}
 [data-theme="light"] .chatbot__message--bot {
     background: rgba(0, 0, 0, 0.04);
     border-color: rgba(0, 0, 0, 0.08);
@@ -229,7 +223,10 @@ body {
     font-size: 1.125rem;
     overflow-x: hidden;
 }
-img { max-width: 100%; display: block; }
+/* height:auto ist Pflicht, seit die img-Tags echte width/height-Attribute
+   tragen (CLS-Reservierung): ohne sie wuerden skalierte Bilder verzerren.
+   Spezifischere Regeln mit object-fit/fester Hoehe ueberschreiben das. */
+img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; transition: color 0.3s var(--ease-out); }
 a:hover { color: var(--orange); }
 ::selection { background: rgba(255, 146, 32, 0.3); color: var(--text-primary); }
@@ -564,12 +561,6 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     .hero__bg img { object-position: 45% 50%; }
 }
 
-.hero__particles {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    opacity: 0.15;
-}
 
 .hero__overlay {
     position: absolute;
@@ -737,10 +728,6 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
 /* ===== HERO GLITCH + SPOTLIGHT ===== */
 .hero-glitch { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 0.3s; }
 .hero-glitch.active { opacity: 0.8; }
-.hero-scanlines { position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background: repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(0,200,140,0.01) 3px, rgba(0,200,140,0.01) 4px);
-    opacity: 0; transition: opacity 1.5s; }
-.hero-scanlines.visible { opacity: 0.5; }
 .hero-spotlight { position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity 0.5s; }
 .hero-spotlight.active { opacity: 1; }
 
@@ -881,7 +868,6 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
     /* Bubbles und Desktop-Effekte ausblenden */
     .hero-bubble { display: none; }
     .hero-glitch, .hero-spotlight { display: none; }
-    .hero-scanlines { display: none; }
     .hero__bg img { object-position: 75% 50%; }
 
     /* Chat-Input: volle Breite, grössere Touch-Targets */
@@ -3160,65 +3146,6 @@ a.contact__card.glass-card:hover {
 .hero-word { display: inline-block; white-space: nowrap; }
 .hero-char { display: inline-block; }
 
-/* Custom Cursor */
-.cursor-dot,
-.cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 10001;
-    opacity: 0;
-    transition: opacity 0.3s var(--ease-out);
-}
-.cursor-dot.visible,
-.cursor-ring.visible { opacity: 1; }
-.cursor-dot::after {
-    content: '';
-    display: block;
-    width: 7px;
-    height: 7px;
-    margin: -3.5px 0 0 -3.5px;
-    border-radius: 50%;
-    background: var(--orange);
-}
-.cursor-ring::before {
-    content: '';
-    display: block;
-    width: 36px;
-    height: 36px;
-    margin: -18px 0 0 -18px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255, 146, 32, 0.55);
-    transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
-}
-.cursor-ring--active::before {
-    transform: scale(1.55);
-    border-color: rgba(255, 146, 32, 0.9);
-    background: rgba(255, 146, 32, 0.08);
-}
-.cursor-ring__label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--orange);
-    opacity: 0;
-    transition: opacity 0.25s var(--ease-out);
-    white-space: nowrap;
-}
-.cursor-ring--label::before {
-    transform: scale(2);
-    background: rgba(8, 12, 22, 0.72);
-    border-color: rgba(255, 146, 32, 0.9);
-}
-.cursor-ring--label .cursor-ring__label { opacity: 1; }
-
 /* Counter-Pop Flash */
 [data-count].counter-flash,
 .counter-flash {
@@ -3283,7 +3210,7 @@ a.contact__card.glass-card:hover {
 
 /* Reduced Motion: neue Effekt-Elemente deaktivieren */
 @media (prefers-reduced-motion: reduce) {
-    .cursor-dot, .cursor-ring, .confetti-canvas, .about__year-ghost { display: none !important; }
+    .confetti-canvas, .about__year-ghost { display: none !important; }
 }
 
 /* ===================================================================
@@ -3407,14 +3334,6 @@ a.contact__card.glass-card:hover {
     transition-duration: 0.1s;
 }
 .btn:active { transform: scale(0.94); transition-duration: 0.1s; }
-
-/* --- Hero mobile: Scanlines dezent aktivieren, BG-Drift --- */
-@media (max-width: 768px) {
-    .hero-scanlines {
-        display: block;
-        opacity: 0.35 !important;
-    }
-}
 
 /* --- Ghost-Titel lauter (Desktop und Mobile) --- */
 .ghost-title { -webkit-text-stroke-width: 1.5px; -webkit-text-stroke-color: rgba(255, 255, 255, 0.085); }
