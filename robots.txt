@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /k/
 Sitemap: https://chrisbeyeler.ch/sitemap.xml

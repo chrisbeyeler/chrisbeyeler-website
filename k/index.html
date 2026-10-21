@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+    <title>Weiterleitung | Chris Beyeler</title>
+    <!-- Weiterleitung für die Antwort-Knöpfe der Planungsmails (Repo BEYONDERnow/planungssystem).
+         Gmail zeigt bei Links direkt auf script.google.com einen Weiterleitungshinweis; über die
+         eigene Domain entfällt er. Ändert sich die Web-App-Bereitstellung, nur ZIEL anpassen. -->
+    <script>
+        var ZIEL = 'https://script.google.com/macros/s/AKfycbwnXcsZ7ifJ929UU3Ll2md4KqSvan2-TnNz8vbKomXsqML3PJzgXrlTcPg0vNVl42Zl/exec';
+        location.replace(ZIEL + location.search);
+    </script>
+    <style>
+        body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; color: #111827; background: #ffffff; margin: 0; padding: 32px 20px; }
+        p { max-width: 480px; margin: 0 auto; font-size: 17px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <p>Wird weitergeleitet &hellip;</p>
+    <noscript><p>Bitte JavaScript aktivieren, damit der Knopf wirkt.</p></noscript>
+</body>
+</html>
