@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-21 — Weiterleitung für Planungsmail-Knöpfe
+
+- Neue Seite `/k/` (noindex, in robots.txt gesperrt): leitet die Antwort-Knöpfe der Planungsmails samt Parametern an die Apps-Script-Web-App «Planungssystem Mail-Buttons» weiter. Grund: Gmail zeigt bei Links direkt auf script.google.com einen Weiterleitungshinweis, der einen zweiten Klick verlangt. Ändert sich die Web-App-Bereitstellung, nur `ZIEL` in `k/index.html` anpassen.
+
 ## 2026-08-30 — Motion-Dramaturgie und CLS
 
 Audit gegen den website-motion-Katalog (21 Patterns, GSAP + ScrollTrigger + Lenis). Befund: nicht zu wenig Motion, sondern zu viel gleichzeitig. Acht parallele Ambient-Effekte und zwei gepinnte Kapitel auf 24.8 Bildschirmhöhen.
