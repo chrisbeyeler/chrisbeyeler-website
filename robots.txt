@@ -2,6 +2,8 @@
 User-agent: *
 Allow: /
 Disallow: /k/
+Disallow: /docs/
+Disallow: /tools/
 
 # KI-Crawler und KI-Suche (explizit erlaubt, gleiche Regeln wie oben)
 User-agent: GPTBot
@@ -17,5 +19,7 @@ User-agent: Applebot-Extended
 User-agent: CCBot
 Allow: /
 Disallow: /k/
+Disallow: /docs/
+Disallow: /tools/
 
 Sitemap: https://chrisbeyeler.ch/sitemap.xml

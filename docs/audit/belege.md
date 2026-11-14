@@ -23,7 +23,8 @@ Legende: **selbst geprüft** = Quelle am 14.11.2026 abgerufen und Textstelle gel
 | Digital Day Bern 2025 | [htr.ch](https://www.htr.ch/story/people-events/berner-tourismus-ruestet-sich-fuer-die-ki-zukunft-43265) | Recherche |
 | AS-TAG 2024, BrainFood Vol. 03, CAMPIXX | YouTube-Videos der Veranstalter | Recherche |
 | Neun Bewertungen im Wortlaut | Google-Profil BEYONDER | Wortlaut aus der bisherigen Seite übernommen, nicht einzeln nachgeprüft |
-| 70+ Keynotes, 2500+ Menschen ausgebildet | – | Eigene Angabe, auf der Seite als «Eigene Zählung» gekennzeichnet |
+| 70+ Keynotes und Speeches | Eigene Liste der Termine | Eigene Zählung. Sie enthält auch Webinare und Kurzreferate; so steht es jetzt auf der Seite. |
+| 2500+ Menschen ausgebildet | Eigene Liste der Unterrichtstage | Eigene Schätzung aus Unterrichtstagen und durchschnittlicher Kursgrösse; so steht es jetzt auf der Seite. |
 
 ## 2. Auf der Seite korrigiert
 
@@ -48,13 +49,13 @@ Ohne diese Angaben bleibt die Seite an den genannten Stellen schwächer als mög
 
 | Nr. | Was fehlt | Wofür |
 |---|---|---|
-| 1 | **Kommende öffentliche Auftritte** mit Datum, Ort, Veranstalter und Link | Event-Schema für künftige Termine (nur diese zeigt Google an), Abschnitt «Nächste Auftritte» |
-| 2 | **Zitate von Veranstaltern** mit Name, Funktion, Organisation und Freigabe | Heute stammen alle Stimmen aus Google-Bewertungen. Ein Zitat einer Eventleiterin wiegt für Planer mehr. |
-| 3 | **Kundenlogos mit Freigabe** (genannt werden SUVA, Rotes Kreuz, BKW, Mobiliar) | Logoleiste. Die Namen stehen bewusst noch nicht auf der Seite. |
+| 1 | **Kommende Auftritte:** Liste liegt vor. Offen ist, welche Anlässe öffentlich angekündigt werden dürfen. | Event-Schema für künftige Termine (nur diese zeigt Google an), Abschnitt «Nächste Auftritte» |
+| 2 | **Zitate von Veranstaltern:** Schriftliche Rückmeldungen zu zwei Keynotes vom November 2026 liegen vor. Es fehlt die Freigabe der Absender für Name und Wortlaut. | Heute stammen alle Stimmen aus Google-Bewertungen. Ein Zitat einer Eventleiterin wiegt für Planer mehr. |
+| 3 | ~~Kundenlogos~~ | **Entschieden am 14.11.2026: keine Kundenlogos.** |
 | 4 | **Echte Logos der Bühnen** (OMT, Power Pur, Automotive Summit, AI in Marketing, CAMPIXX) mit Freigabe | Ersetzt die nachgebauten Schriftzüge unter `img/events/` |
 | 5 | **Beleg für den OMT Summit** (Programm, Speaker-Seite oder Video) | Steht heute nur über die eigenen Fotos auf der Seite |
 | 6 | **Beleg oder Streichung «Business Schmiede»** | Wurde entfernt |
-| 7 | **Bestätigung der eigenen Zählungen** 70+ Keynotes und 2500+ Ausgebildete, ideal mit Liste | Macht aus «Eigene Zählung» eine belegte Zahl |
+| 7 | **Entscheid zu den zwei Kennzahlen:** Die Zählweise ist geklärt (siehe Abschnitt 1). Sollen die Zahlen so stehen bleiben, oder soll eine engere Zahl nur für Keynotes auf Bühnen stehen? | Kennzahlen-Band, FAQ, llms.txt |
 | 8 | **Bestätigung «165 Google-Bewertungen»** und ob das Firmenprofil auf der Speaker-Seite stehen soll | Zahl stammt aus der Recherche |
 | 9 | **ProvenExpert:** aktuelle Note mit öffentlichem Link, oder es bleibt weg | – |
 | 10 | **Podcast-Zahlen** 1000 Abonnements, 900 Publikum pro Folge, 8000 Reichweite: Quelle und Stand | Stehen unbelegt in der Podcast-Sektion |
