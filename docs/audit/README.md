@@ -13,14 +13,14 @@ Mobil, Lighthouse 12 (simuliertes langsames 4G, 4-fache CPU-Drosselung), Median 
 | Messgrösse | Budget | Vorher live | Vorher lokal | Nachher lokal | Status |
 |---|---|---|---|---|---|
 | LCP | ≤ 2,5 s | 2,1 s (Läufe 2,0–2,9 s) | 3,7 s (3,4–4,0 s) | **2,0 s** (2,03 s in allen Läufen) | gemessen (Labor) |
-| TBT (Laborersatz für INP) | – | 352 ms | 342 ms | **25 ms** | gemessen (Labor) |
+| TBT (Laborersatz für INP) | – | 352 ms | 342 ms | **32 ms** | gemessen (Labor) |
 | Längste Interaktion (Tippen, 4-fache CPU-Drosselung) | INP ≤ 200 ms | – | 256 ms | **72 ms** | gemessen (Labor, kein Feld-INP) |
 | CLS | ≤ 0,1 | 0 | 0,001 | **0** | gemessen (Labor) |
-| FCP | – | 0,96 s | 1,81 s | 1,05 s | gemessen |
+| FCP | – | 0,96 s | 1,81 s |  0,91 s | gemessen |
 | Lighthouse Performance | – | 91 | 82 | **99** | gemessen |
 | Lighthouse Barrierefreiheit | – | 91 | 91 | **100** | gemessen |
 | Lighthouse SEO / Best Practices | – | 100 / 100 | 100 / 100 | 100 / 100 | gemessen |
-| Seitengewicht beim Laden | – | 1474 KB | 1470 KB | **198 KB** | gemessen |
+| Seitengewicht beim Laden | – | 1474 KB | 1470 KB | **200 KB** | gemessen |
 | Anfragen beim Laden | – | 23 | 23 | **11** | gemessen |
 | davon Bilder | – | 1185 KB | 1184 KB | 39 KB | gemessen |
 | davon Schriften | – | 132 KB, 6 Dateien | 132 KB, 6 Dateien | 96 KB, 1 Datei | gemessen |
