@@ -1,8 +1,18 @@
 {
   "$schema": "./press.schema.json",
   "description": "Pressespiegel chrisbeyeler.ch — Single Source of Truth für die Sektion 'Medien & Presse' in index.html. Wird vom Marketing Manager (Paperclip Agent 234e43f2) monatlich aus dem Press-Monitor-State (~/knowledge-agent/press-state.json) auf beygent kuratiert. Auto-Publish: nein (PR zur Review). Quelle: BEY-1956.",
-  "updated_at": "2026-07-22",
+  "updated_at": "2026-11-14",
   "items": [
+    {
+      "id": "personal-schweiz-ki-jagd",
+      "year": 2026,
+      "source": "Personal Schweiz",
+      "title": "Vergesst die KI-Jagd: Was Teams wirklich brauchen",
+      "url": "https://www.personal-schweiz.ch/aktuelles/article/vergesst-die-ki-jagd-was-teams-wirklich-brauchen/",
+      "image": "img/articles/personal-schweiz-ki-jagd.jpg",
+      "alt": "Chris Beyeler",
+      "topic": "kolumne"
+    },
     {
       "id": "nzz-ki-aus-china",
       "year": 2026,
