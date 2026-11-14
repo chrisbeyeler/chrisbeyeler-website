@@ -5,6 +5,10 @@
 Messwerte, Referenzanalyse und offene Punkte: `docs/audit/`.
 
 ### Design
+- Eigenes Logo: Wortmarke «CHRIS BEYELER.» und Monogramm «CB.» mit orangem Punkt (`img/logo/`), auch als Favicon
+- Mona Sans als einzige Schrift; Titel in Versalien, fett und schmal gesetzt
+- Eigene Palette: warmes Schwarz, heller Papierton für Stimmen und Essay, Orange als Akzent
+- Drehendes Siegel im Hero, oranger Punkt als wiederkehrendes Zeichen
 - Design-Tokens für Farbe, Typografie, Abstände, Form und Motion; `css/style.css` neu geschrieben
 - Eine Schriftfamilie (Inter variabel) plus Geist Mono für Labels, statt Inter, Montserrat und Lexend
 - Hero mit statischer H1, grossem Claim und wechselndem Akzentwort; Kennzahlen als eigenes Band
@@ -21,6 +25,9 @@ Messwerte, Referenzanalyse und offene Punkte: `docs/audit/`.
 - 109 WebP-Varianten mit `srcset` (`tools/optimize_images.py`)
 
 ### Inhalt und Belege
+- «90+ Speeches», anonyme Rückmeldungen von Veranstaltern, Bühnen nach Jahr, nächste Auftritte
+- Sieben weitere Podcast-Folgen, Profile bei HWZ und OMT, Essay wieder in der Navigation
+- Fehler behoben: Trailer schliesst beim Verlassen, die Navigation bleibt bedienbar
 - Zahlen stehen als echte Werte im HTML, mit Quelle oder dem Hinweis «Eigene Zählung»
 - Korrigiert: 165 statt 133 Google-Bewertungen (Profil BEYONDER), 150 Episoden, swissAI über 400 Mitglieder, Vergabe der Digital Shapers
 - Entfernt: ProvenExpert-Note, Bühne «Business Schmiede», zwei Wertungen ohne Beleg

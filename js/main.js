@@ -362,6 +362,14 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
             observer.observe(stage);
         }
 
+        // Ausser Sicht: Trailer schliessen. Sonst läuft er unsichtbar weiter und
+        // die Navigation bleibt abgedunkelt und nicht klickbar.
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                if (!entries[0].isIntersecting && stage.classList.contains('is-active') && !document.fullscreenElement) close(true);
+            }).observe(stage);
+        }
+
         setState('idle');
         return {
             stage: stage,
@@ -505,7 +513,16 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
             outer.setAttribute('aria-hidden', 'true');
             const inner = document.createElement('span');
             inner.style.setProperty('--w', i);
-            inner.textContent = word;
+            // Schlusspunkt als Signatur in der Akzentfarbe
+            if (i === words.length - 1 && word.endsWith('.')) {
+                inner.textContent = word.slice(0, -1);
+                const dot = document.createElement('i');
+                dot.className = 'dot';
+                dot.textContent = '.';
+                inner.append(dot);
+            } else {
+                inner.textContent = word;
+            }
             outer.append(inner);
             title.append(outer, ' ');
         });
