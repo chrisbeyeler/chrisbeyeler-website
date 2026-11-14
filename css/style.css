@@ -376,7 +376,7 @@ body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
     /* Höhe mitberücksichtigen, damit drei Zeilen und die Aktionen auf einen Bildschirm passen */
     font-family: var(--font-display); font-weight: var(--fw-display); font-stretch: var(--stretch-display);
     text-transform: uppercase;
-    font-size: clamp(3rem, min(0.75rem + 9.3vw, 16.5svh), 10.5rem);
+    font-size: clamp(2.6rem, min(0.75rem + 9.3vw, 16.5svh), 10.5rem);
     line-height: var(--lh-display); letter-spacing: var(--ls-display);
     color: var(--c-text);
 }
@@ -441,7 +441,7 @@ body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
 .number:nth-last-child(-n+2) { border-bottom: 0; }
 .number__value {
     order: -1; color: var(--c-text);
-    font-family: var(--font-display); font-stretch: 85%; font-size: clamp(3.25rem, 1rem + 10.5vw, 7rem); line-height: 0.86; letter-spacing: -0.015em; font-weight: 850;
+    font-family: var(--font-display); font-stretch: 85%; font-size: clamp(2.5rem, 0.6rem + 10vw, 7rem); line-height: 0.86; letter-spacing: -0.015em; font-weight: 850;
     font-variant-numeric: tabular-nums;
 }
 .number__value b { color: var(--c-accent); font-weight: inherit; }
@@ -453,7 +453,7 @@ body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
     .numbers__grid { grid-template-columns: repeat(4, 1fr); }
     .number, .number:nth-child(even) { padding: var(--sp-8) var(--sp-5) var(--sp-7); border-bottom: 0; border-left: 1px solid var(--c-line); }
     .number:first-child { padding-left: 0; border-left: 0; }
-    .number__value { font-size: clamp(4.75rem, 8.6vw, 10.5rem); }
+    .number__value { font-size: clamp(4rem, 6.4vw, 6rem); }
 }
 
 /* ===== 4. TYPO-BAND: bewegt sich nur beim Scrollen ===== */
@@ -597,7 +597,7 @@ body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
 .stage-year[open] .talk__icon { transform: rotate(45deg); background-color: var(--c-accent); border-color: var(--c-accent); background-image: linear-gradient(var(--c-on-accent), var(--c-on-accent)), linear-gradient(var(--c-on-accent), var(--c-on-accent)); }
 .stage-year .stage-list { border-top: 1px solid var(--c-line); margin-bottom: var(--sp-6); }
 .stage-year .stage:last-child { border-bottom: 0; }
-.stage { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-1) var(--sp-4); align-items: baseline; padding-block: var(--sp-4); border-bottom: 1px solid var(--c-line); }
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-1) var(--sp-4); align-items: baseline; padding-block: var(--sp-4); border-bottom: 1px solid var(--c-line); }
 .stage__name { color: var(--c-text); font-size: 1.125rem; font-weight: var(--fw-strong); letter-spacing: -0.015em; }
 .stage__title { grid-column: 1; color: var(--c-text-2); }
 .stage__when { grid-column: 1; }
@@ -1312,7 +1312,7 @@ body.trailer-active .nav { opacity: .18; pointer-events: none; }
 .footer__mark { display: block; padding: clamp(2rem, 5vw, 4.5rem) var(--gutter) clamp(1.5rem, 4vw, 3.5rem); text-decoration: none; border-bottom: 1px solid var(--c-line); margin-bottom: var(--sp-8); }
 .footer__mark span {
     display: inline-block; white-space: nowrap;
-    font-family: var(--font-display); font-stretch: 85%; font-style: italic; text-transform: uppercase; font-size: clamp(2.5rem, 11.6vw, 14.5rem); line-height: 0.88; letter-spacing: -0.015em; font-weight: 850;
+    font-family: var(--font-display); font-stretch: 85%; font-style: italic; text-transform: uppercase; font-size: clamp(1.75rem, 10.6vw, 13.25rem); line-height: 0.88; letter-spacing: -0.015em; font-weight: 850;
     color: var(--c-text);
     transition: color var(--dur-2) var(--ease-out), -webkit-text-stroke-color var(--dur-2) var(--ease-out), transform var(--dur-3) var(--ease-inout);
 }
@@ -1396,3 +1396,10 @@ body::before {
     .js .gallery.is-in .gallery__item:nth-child(2) .detect::after { transition-delay: 0.62s; }
     .js .gallery.is-in .gallery__item:nth-child(3) .detect::after { transition-delay: 0.74s; }
 }
+
+/* Kein Überlauf: Rasterkinder dürfen schrumpfen, lange Wörter brechen */
+.stage__name, .stage__title { overflow-wrap: anywhere; }
+.contact__layout > *, .contact__form > *, .contact__form-row > *, .contact__event-details > * { min-width: 0; }
+.form-group input, .form-group select, .form-group textarea { min-width: 0; }
+@media (min-width: 40rem) { .contact__form-row--three { grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); } }
+@media (max-width: 22.5rem) { .logo { font-size: 0.9375rem; } .nav__cta.btn { padding-inline: 0.6rem; } .nav__inner { gap: var(--sp-2); } }
