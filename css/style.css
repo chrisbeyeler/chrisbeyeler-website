@@ -87,11 +87,11 @@
     --gutter:    clamp(1.25rem, 0.583rem + 2.963vw, 3.25rem);    /* 20 bis 52 */
     --container: 82.5rem;                                        /* 1320 */
     --measure:   62ch;
-    --nav-h:     4.25rem;
+    --nav-h:     4.75rem;
 
     /* Form */
-    --r-s: 4px;
-    --r-m: 10px;
+    --r-s: 0px;
+    --r-m: 2px;
 
     /* Motion: kurz, eine Kurve, einmal beim Eintritt */
     --dur-1: 0.24s;
@@ -279,7 +279,7 @@ h3.subhead { display: block; }
 
 .tag {
     display: inline-block; padding: 0.3em 0.7em;
-    border: 1px solid var(--c-line); border-radius: 99px;
+    border: 1px solid var(--c-line); border-radius: 0;
     font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--c-text-3); line-height: 1.4;
 }
@@ -305,20 +305,22 @@ h3.subhead { display: block; }
     height: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter);
     display: flex; align-items: center; gap: var(--sp-4);
 }
-.nav__logo { margin-right: auto; margin-top: 0.75rem; text-decoration: none; }
+.nav__logo { margin-right: auto; text-decoration: none; }
 /* Logo «Erkennung»: Rahmen, Label und Trefferquote wie bei der Bilderkennung */
-.logo { position: relative; display: inline-block; padding: 0.3em 0.42em 0.2em; border: 2px solid var(--c-accent); font-family: var(--font-display); font-weight: 850; font-stretch: 85%; text-transform: uppercase; font-size: 1.25rem; line-height: 1; color: var(--c-text); white-space: nowrap; }
-.logo::before { content: 'KI-Speaker 0.99'; position: absolute; left: -2px; bottom: 100%; padding: 0.2em 0.5em 0.12em; background: var(--c-accent); color: var(--c-on-accent); font-family: var(--font-sans); font-stretch: 100%; font-weight: 700; font-size: 0.5625rem; letter-spacing: 0.05em; line-height: 1.2; }
+.logo { position: relative; display: inline-block; padding: 0.42em 0.5em 0.24em; border: 2px solid var(--c-accent); font-family: var(--font-display); font-weight: 850; font-stretch: 85%; text-transform: uppercase; font-size: 1.375rem; line-height: 1; color: var(--c-text); white-space: nowrap; }
+.logo::before { content: 'KI-Speaker 0.99'; position: absolute; left: 0.5em; top: 0; transform: translateY(-58%); padding: 0.18em 0.5em 0.1em; background: var(--c-accent); color: var(--c-on-accent); font-family: var(--font-sans); font-stretch: 100%; font-weight: 700; font-size: 0.5625rem; letter-spacing: 0.06em; line-height: 1.2; }
 .logo::after { content: ''; position: absolute; inset: -5px; pointer-events: none; background: linear-gradient(var(--c-text), var(--c-text)) 0 0 / 7px 7px no-repeat, linear-gradient(var(--c-text), var(--c-text)) 100% 0 / 7px 7px no-repeat, linear-gradient(var(--c-text), var(--c-text)) 0 100% / 7px 7px no-repeat, linear-gradient(var(--c-text), var(--c-text)) 100% 100% / 7px 7px no-repeat; }
 .nav__links { display: none; }
 .nav__links a {
-    display: block; padding: var(--sp-2) 0; color: var(--c-text-2); text-decoration: none;
-    font-size: var(--fs-small); font-weight: var(--fw-medium);
+    position: relative; display: block; padding: var(--sp-2) 0; color: var(--c-text-2); text-decoration: none;
+    font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
     transition: color var(--dur-1) var(--ease-out);
 }
 .nav__links a:hover, .nav__links a.is-active { color: var(--c-text); }
-.nav__links a.is-active { text-decoration: underline; text-decoration-color: var(--c-accent); text-underline-offset: 0.5em; }
-.nav__cta.btn { min-height: 2.75rem; padding: 0.5rem 1rem; font-size: var(--fs-small); }
+/* aktive Sektion: dasselbe Quadrat wie an den Ecken des Logos */
+.nav__links a::before { content: ''; position: absolute; left: -0.8rem; top: 50%; width: 6px; height: 6px; margin-top: -4px; background: var(--c-accent); opacity: 0; transform: scale(0); transition: opacity var(--dur-1) var(--ease-out), transform var(--dur-2) var(--ease-out); }
+.nav__links a.is-active::before { opacity: 1; transform: none; }
+.nav__cta.btn { min-height: 2.75rem; padding: 0.5rem 1.1rem; font-size: 0.8125rem; letter-spacing: 0.07em; text-transform: uppercase; }
 .nav__toggle {
     width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid var(--c-line-strong); border-radius: var(--r-s);
     background: transparent; display: grid; place-content: center; gap: 5px;
@@ -327,17 +329,18 @@ h3.subhead { display: block; }
 .nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-@media (max-width: 61.99rem) {
+@media (max-width: 71.99rem) {
     .nav__links.active {
         display: flex; flex-direction: column; gap: var(--sp-1);
         position: fixed; inset: var(--nav-h) 0 0 0; padding: var(--sp-6) var(--gutter);
         background: var(--c-bg); overflow-y: auto;
     }
-    .nav__links.active a { font-size: 1.75rem; font-weight: var(--fw-strong); letter-spacing: -0.03em; color: var(--c-text); padding: var(--sp-3) 0; border-bottom: 1px solid var(--c-line); }
+    .nav__links.active a { font-family: var(--font-display); font-stretch: 85%; font-size: 2.25rem; font-weight: 850; letter-spacing: -0.01em; color: var(--c-text); padding: var(--sp-3) 0; border-bottom: 1px solid var(--c-line); }
+    .nav__links.active a::before { display: none; }
 }
-@media (min-width: 62rem) {
+@media (min-width: 72rem) {
     .nav__toggle { display: none; }
-    .nav__links { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); order: 2; }
+    .nav__links { display: flex; align-items: center; gap: clamp(1.5rem, 2.4vw, 2.5rem); order: 2; }
     .nav__cta.btn { order: 3; margin-left: var(--sp-4); }
 }
 body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
@@ -532,7 +535,7 @@ body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
 .konfig__pills { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
 .konfig-pill {
     min-height: 2.75rem; padding: 0.5rem 1rem;
-    border: 1px solid var(--c-line-strong); border-radius: 99px; background: transparent; color: var(--c-text);
+    border: 1px solid var(--c-line-strong); border-radius: 0; background: transparent; color: var(--c-text);
     font-size: var(--fs-small); font-weight: var(--fw-medium);
     transition: background-color var(--dur-1) var(--ease-out), border-color var(--dur-1) var(--ease-out), color var(--dur-1);
 }
@@ -816,7 +819,7 @@ body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
 /* ===== 4. FOOTER ===== */
 .footer { border-top: 1px solid var(--c-line); padding-block: var(--sp-8) var(--sp-6); }
 .footer__grid { display: grid; gap: var(--sp-6); }
-.footer__name { display: inline-block; font-size: 1.5rem; margin-top: 1rem; }
+.footer__name { display: inline-block; font-size: 1.375rem; margin-top: 0.5rem; }
 .footer__tagline { margin-top: var(--sp-2); color: var(--c-text-3); }
 .footer__links, .footer__legal { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5); }
 .footer__links a, .footer__legal a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--c-text-2); text-decoration: none; font-size: var(--fs-small); }
@@ -1331,7 +1334,7 @@ body.trailer-active .nav { opacity: .18; pointer-events: none; }
 }
 .section--paper .btn--primary:hover { background: var(--c-accent-fill); }
 .section--paper .quotes-featured { scrollbar-color: var(--c-accent) transparent; }
-@media (max-width: 30rem) { .logo { font-size: 1rem; } .nav__cta.btn { padding-inline: 0.75rem; } }
+@media (max-width: 30rem) { .logo { font-size: 1.0625rem; } .nav__cta.btn { padding-inline: 0.8rem; letter-spacing: 0.05em; } .nav__cta-long { display: none; } .nav__inner { gap: var(--sp-3); } }
 
 /* Breite der Titelschrift: ab Tablet normal bis leicht breit */
 
@@ -1375,10 +1378,21 @@ body::before {
 .detect img { border-radius: 0; }
 @media (prefers-reduced-motion: no-preference) {
     .logo { animation: detect-snap 0.7s var(--ease-out) 0.3s both; }
-    .logo::before { animation: rise 0.4s var(--ease-out) 0.9s both; }
+    .logo::before { animation: label-in 0.4s var(--ease-out) 0.9s both; }
     .js .detect::after { opacity: 0; transform: scale(1.12); transition: opacity var(--dur-2) var(--ease-out), transform var(--dur-3) var(--ease-out); }
     .js .detect::before { opacity: 0; transition: opacity var(--dur-1) var(--ease-out) 0.6s; }
     .js .detect.is-in::after { opacity: 1; transform: none; }
     .js .detect.is-in::before { opacity: 1; }
 }
+@keyframes label-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes detect-snap { from { border-color: transparent; transform: scale(1.14); } to { transform: none; } }
+
+/* Erkennungsrahmen auf den Bühnenfotos: Label innen oben, weil die Reihe seitlich scrollt */
+.gallery__img { display: block; }
+.gallery .detect::before { bottom: auto; top: 0; }
+@media (prefers-reduced-motion: no-preference) {
+    .js .gallery.is-in .detect::after { opacity: 1; transform: none; transition-delay: 0.5s; }
+    .js .gallery.is-in .detect::before { opacity: 1; transition-delay: 1.1s; }
+    .js .gallery.is-in .gallery__item:nth-child(2) .detect::after { transition-delay: 0.62s; }
+    .js .gallery.is-in .gallery__item:nth-child(3) .detect::after { transition-delay: 0.74s; }
+}

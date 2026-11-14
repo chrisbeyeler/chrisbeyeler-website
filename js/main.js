@@ -34,7 +34,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && links.classList.contains('active')) { setOpen(false); toggle.focus(); }
         });
-        window.matchMedia('(min-width: 62rem)').addEventListener('change', function (e) { if (e.matches) setOpen(false); });
+        window.matchMedia('(min-width: 72rem)').addEventListener('change', function (e) { if (e.matches) setOpen(false); });
     }
 
     // Scroll-Spy: aktive Sektion in der Navigation markieren
