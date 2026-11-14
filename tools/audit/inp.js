@@ -1,0 +1,10 @@
+const {chromium,devices}=require('playwright');
+(async()=>{const url=process.argv[2];const b=await chromium.launch();const ctx=await b.newContext({...devices['Pixel 7']});const p=await ctx.newPage();
+const c=await ctx.newCDPSession(p);await c.send('Emulation.setCPUThrottlingRate',{rate:4});
+await p.addInitScript(()=>{window.__ev=[];new PerformanceObserver(l=>{for(const e of l.getEntries())if(e.interactionId)window.__ev.push({n:e.name,d:e.duration})}).observe({type:'event',durationThreshold:16,buffered:true})});
+await p.goto(url,{waitUntil:'load'});await p.waitForTimeout(1500);
+const tap=async s=>{try{const el=p.locator(s).first();await el.scrollIntoViewIfNeeded();await p.waitForTimeout(300);await el.tap();await p.waitForTimeout(500)}catch(e){console.log('skip',s,e.message.split('\n')[0])}};
+await tap('#navToggle');await tap('#navToggle');
+for(const s of process.argv.slice(3))await tap(s);
+const ev=await p.evaluate(()=>window.__ev);const max=Math.max(0,...ev.map(e=>e.d));
+console.log(url,'Interaktionen:',ev.length,'längste:',max,'ms', JSON.stringify(ev.sort((a,b)=>b.d-a.d).slice(0,3)));await b.close()})();

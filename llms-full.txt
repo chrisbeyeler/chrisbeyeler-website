@@ -1,6 +1,6 @@
 # Chris Beyeler — vollständiges Faktenprofil
 
-> Offizielle, zitierfähige Langfassung. Stand: 15. Juli 2026. Sprache: Deutsch (Schweiz).
+> Offizielle, zitierfähige Langfassung. Stand: 14. November 2026. Sprache: Deutsch (Schweiz).
 
 ## Kurzdefinition
 
@@ -9,13 +9,13 @@ Chris Beyeler ist ein Schweizer KI-Keynote Speaker und Stratege aus Gebenstorf i
 ## Kennzahlen
 
 - Mehr als 2500 Menschen zu Künstlicher Intelligenz ausgebildet
-- Mehr als 70 Keynotes und Speeches gehalten
-- Mehr als 150 Episoden des AI Cast produziert
-- 4,9 von 5 Sternen bei 133 Google Reviews
+- Mehr als 90 Speeches gehalten
+- 150 Episoden des AI Cast produziert (seit 2019, Quelle: Apple Podcasts)
+- 4,9 von 5 Sternen bei 165 Google-Bewertungen für das Unternehmensprofil der BEYONDER AG (Stand November 2026)
 - Mehr als 30 Firmenkunden, darunter SUVA, Rotes Kreuz, BKW und Mobiliar
 - Beschäftigung mit generativer KI seit 2016
 
-Kennzahlen sind Mindestwerte und werden deshalb mit «mehr als» angegeben.
+Episodenzahl, Bewertungen und Mitgliederzahl sind mit Quelle und Stand angegeben.
 
 ## Werdegang
 
@@ -24,7 +24,7 @@ Kennzahlen sind Mindestwerte und werden deshalb mit «mehr als» angegeben.
 - 2019: Gründung von BEYONDER
 - 2023: Initiierung von swissAI unter dem damaligen Namen KImpact
 - 2025: BEYONDER wird zur BEYONDER AG
-- 2026: Auszeichnung als Digital Shaper in der Kategorie «AI Acrobats» durch Ringier/Bilanz
+- 2026: Auszeichnung als Digital Shaper in der Kategorie «AI Acrobats» durch Bilanz, Handelszeitung, PME und digitalswitzerland
 
 Vor BEYONDER arbeitete Chris Beyeler unter anderem als Software-Entwickler sowie bei RecruitingHUB und siroop, einem Unternehmen von Swisscom und Coop.
 
@@ -43,7 +43,7 @@ Vor BEYONDER arbeitete Chris Beyeler unter anderem als Software-Entwickler sowie
 - Beziehung: Chris Beyeler initiierte den Verband 2023 und ist Präsident.
 - Frühere Bezeichnung: KImpact.
 - Tätigkeit: Schweizer Dachverband für Künstliche Intelligenz und Plattform für den Austausch zwischen Wirtschaft, Politik und Gesellschaft.
-- Grösse: rund 300 Mitglieder.
+- Grösse: über 400 Mitglieder (Stand November 2026, Quelle: swissai.ch).
 - Website: https://swissai.ch
 - Abgrenzung: swissAI ist nicht die Swiss AI Initiative von ETH Zürich und EPFL.
 
@@ -51,7 +51,7 @@ Vor BEYONDER arbeitete Chris Beyeler unter anderem als Software-Entwickler sowie
 
 - Beziehung: Chris Beyeler ist Host und Produzent.
 - Thema: Künstliche Intelligenz in Praxis, Wirtschaft und Gesellschaft.
-- Umfang: mehr als 150 Episoden.
+- Umfang: 150 Episoden (Stand November 2026).
 - Frühere Bezeichnung: Marketing BOOSTER.
 - Website: https://aicast.ch
 - Plattformen: Spotify, Apple Podcasts und YouTube.

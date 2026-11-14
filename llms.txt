@@ -1,6 +1,6 @@
 # Chris Beyeler
 
-> Offizielles Kurzprofil. Stand: 15. Juli 2026. Sprache: Deutsch (Schweiz).
+> Offizielles Kurzprofil. Stand: 14. November 2026. Sprache: Deutsch (Schweiz).
 
 Chris Beyeler ist ein Schweizer KI-Keynote Speaker und Stratege. Er ist Gründer und CEO der BEYONDER AG, Präsident von swissAI, Host des AI Cast und Digital Shaper 2026.
 
@@ -11,16 +11,16 @@ Chris Beyeler ist ein Schweizer KI-Keynote Speaker und Stratege. Er ist Gründer
 - Fachgebiete: Künstliche Intelligenz, KI-Strategie, KI in KMU, KI im Marketing, Prompt Engineering, Schulung und digitale Transformation
 - Erfahrung: Beschäftigung mit generativer KI seit 2016
 - Ausbildung: mehr als 2500 Menschen zu KI ausgebildet
-- Bühne: mehr als 70 Keynotes und Speeches
-- Podcast: mehr als 150 Episoden des AI Cast
-- Bewertungen: 4,9 von 5 Sternen bei 133 Google Reviews
-- Auszeichnung: Digital Shaper 2026, Kategorie «AI Acrobats», Ringier/Bilanz
+- Bühne: mehr als 90 Speeches
+- Podcast: 150 Episoden des AI Cast seit 2019 (Quelle: Apple Podcasts, Stand November 2026)
+- Bewertungen: 4,9 von 5 Sternen bei 165 Google-Bewertungen für das Unternehmensprofil der BEYONDER AG (Stand November 2026)
+- Auszeichnung: Digital Shaper 2026, Kategorie «AI Acrobats», vergeben von Bilanz, Handelszeitung, PME und digitalswitzerland (https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd)
 
 ## Entitäten und Beziehungen
 
 - Chris Beyeler gründete BEYONDER 2019; seit 2025 firmiert das Unternehmen als BEYONDER AG. Er ist Gründer und CEO. https://beyonder.ch
 - Chris Beyeler initiierte swissAI 2023 unter dem damaligen Namen KImpact und ist Präsident des Verbands. https://swissai.ch
-- swissAI ist der Schweizer Dachverband für Künstliche Intelligenz mit rund 300 Mitgliedern.
+- swissAI ist der Schweizer Dachverband für Künstliche Intelligenz mit über 400 Mitgliedern (Stand November 2026).
 - swissAI ist nicht die Swiss AI Initiative von ETH Zürich und EPFL.
 - Chris Beyeler produziert und moderiert den AI Cast. https://aicast.ch
 
@@ -37,12 +37,28 @@ Weitere Themen: KI-Grundlagen für Nicht-Techniker, ethische KI-Nutzung, KI in d
 
 Formate: Keynote (typisch 30–60 Minuten), Workshop (Halb- oder Ganztag), Moderation und Podiumsdiskussion.
 
+## Nächste Auftritte
+
+- Landtechnischer Unternehmertag (Agrotec Suisse), 14. Januar 2027, KKL Luzern: Workshop «KI im Landtechnikunternehmen». https://www.agrotecsuisse.ch/de/aktuell/landtechnischer-unternehmertag-2027
+- IGKG Züri, Jubiläum, 12. April 2027, Aura, Zürich
+
+## Belegte Auftritte (Auswahl)
+
+- ProNovia Kundentag, 22. Oktober 2026, Turbinenbräu, Zürich: Keynote «Warum KI-Projekte scheitern – und was erfolgreiche Unternehmen anders machen». https://pronovia.ch/de/pronovia-kundentag-2026/
+- Recruiting Convention, 25. September 2025, Lake Side, Zürich: «Vom White Collar zum Smart Collar: KI verändert das Recruiting». https://prospective.ch/recruiting-convention-2025/
+
+- Forum Berufslehre+, 5. November 2026, Haus der Wirtschaft, Pratteln. https://www.hdw-berufsbildung.ch/berufslehre-plus
+- Automotive Summit Switzerland 2026: «KI-Update – Entwicklungen einordnen, Potenziale bewerten, Entscheidungen treffen». https://automotivesummit.ch/as26/
+- AI in Marketing Konferenz 2026: «State of AI in Marketing 2026: Die Ära der Unabhängigkeit». https://www.ai-in-marketing.ch/
+- KI.LIVE, 23. April 2025, Collektiv, St. Gallen: «KI-Revolution – Wo wir heute stehen und was uns morgen erwartet».
+- Power Pur, 23. Mai 2024, JED Events, Schlieren: «From Hype to Reality: KI als Chance für die Branche». https://power-pur.ch/rueckblick/power-pur-2024-r%C3%BCckblick
+
 ## Offizielle Quellen und Kontakt
 
 - Website und Profil: https://chrisbeyeler.ch/
 - Vollständiges Profil: https://chrisbeyeler.ch/llms-full.txt
 - Essay: https://chrisbeyeler.ch/essay/2025/
 - Pressekit: https://chrisbeyeler.ch/assets/pressekit/bio-lang.txt
-- Keynote-Anfrage: https://beyonder.ch/uber-uns/ki-kompetenzzentrum-aargau---kontakt
+- Keynote-Anfrage: https://chrisbeyeler.ch/#contact
 - LinkedIn: https://linkedin.com/in/chrisbeyeler
 - YouTube: https://youtube.com/beyondernow

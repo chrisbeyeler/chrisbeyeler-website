@@ -1,5 +1,49 @@
 # Changelog
 
+## 2026-11-14 — Überarbeitung für Buchungsanfragen: Design, Tempo, Belege, Auffindbarkeit
+
+Messwerte, Referenzanalyse und offene Punkte: `docs/audit/`.
+
+### Design
+- Eigenes Logo «Erkennung»: Name im Rahmen mit Label «KI-Speaker 0.99», Monogramm «CB» (`img/logo/`), auch als Favicon
+- Mona Sans als einzige Schrift; Titel in Versalien, fett und schmal gesetzt
+- Farbwelt «Polarlicht»: Grünschwarz, gebrochenes Weiss, ein Verlauf von Türkis zu Limette als einziger Akzent
+- Drehendes Siegel im Hero, Erkennungsrahmen als wiederkehrendes Zeichen
+- Design-Tokens für Farbe, Typografie, Abstände, Form und Motion; `css/style.css` neu geschrieben
+- Eine Schriftfamilie (Inter variabel) plus Geist Mono für Labels, statt Inter, Montserrat und Lexend
+- Hero mit statischer H1, grossem Claim und wechselndem Akzentwort; Kennzahlen als eigenes Band
+- Keynotes als grosse Titel zum Aufklappen statt gepinntem Karussell; «Anfragen» übernimmt das Thema ins Formular
+- Stimmen als Wisch-Karten, Bühnen als Liste mit Datum und Quelle, Typo-Band, Wortmarke im Footer
+
+### Motion
+- GSAP, ScrollTrigger und Lenis von der Startseite entfernt (der Essay nutzt sie weiter)
+- Effekte über CSS und IntersectionObserver: Zeilen- und Wort-Reveal, Hochzählen, Spotlight und Bühnenfoto am Zeiger, scrollgekoppeltes Typo-Band
+- Vollständige `prefers-reduced-motion`-Fallbacks; ohne JavaScript ist alles sichtbar
+
+### Performance (mobil, Labor, lokal gemessen)
+- LCP 3,7 s → 2,0 s, TBT 342 ms → 39 ms, Seitengewicht 1470 KB → 177 KB, Anfragen 23 → 12
+- 109 WebP-Varianten mit `srcset` (`tools/optimize_images.py`)
+
+### Inhalt und Belege
+- «90+ Speeches», anonyme Rückmeldungen von Veranstaltern, Bühnen nach Jahr, nächste Auftritte
+- Sieben weitere Podcast-Folgen, Profile bei HWZ und OMT, Essay wieder in der Navigation
+- Fehler behoben: Trailer schliesst beim Verlassen, die Navigation bleibt bedienbar
+- Zahlen stehen als echte Werte im HTML, mit Quelle oder dem Hinweis «Eigene Zählung»
+- Korrigiert: 165 statt 133 Google-Bewertungen (Profil BEYONDER), 150 Episoden, swissAI über 400 Mitglieder, Vergabe der Digital Shapers
+- Entfernt: ProvenExpert-Note, Bühne «Business Schmiede», zwei Wertungen ohne Beleg
+- FAQ auf sieben Fragen erweitert; Text identisch mit dem Schema
+
+### Auffindbarkeit
+- Ein Schema-Graph: WebSite, ProfilePage, Person, Organisationen, Keynotes, Podcast, Videos mit `uploadDate`, drei Events, FAQ
+- `robots.txt` nennt KI-Crawler ausdrücklich; `llms.txt` und `llms-full.txt` aktualisiert
+
+### Barrierefreiheit
+- axe (WCAG 2.2 AA): 4 Regeln mit 11 Elementen → 0
+- Skip-Link, sichtbarer Fokus, Kontraste, Zielgrössen, Menü mit Escape
+
+### Aufgeräumt
+- Ungenutzte Bibliotheken entfernt: particles, swiper, vanilla-tilt
+
 ## 2026-10-21 — Weiterleitung für Planungsmail-Knöpfe
 
 - Neue Seite `/k/` (noindex, in robots.txt gesperrt): leitet die Antwort-Knöpfe der Planungsmails samt Parametern an die Apps-Script-Web-App «Planungssystem Mail-Buttons» weiter. Grund: Gmail zeigt bei Links direkt auf script.google.com einen Weiterleitungshinweis, der einen zweiten Klick verlangt. Ändert sich die Web-App-Bereitstellung, nur `ZIEL` in `k/index.html` anpassen.

@@ -3,3 +3,7 @@ assets/ai-cast-rss.xml
 assets/chatbot-context.txt
 .DS_Store
 .claude-flow/
+node_modules/
+tools/audit/lh/
+tools/audit/ref/
+tools/audit/axe-*.json

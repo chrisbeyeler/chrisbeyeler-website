@@ -1,0 +1,10 @@
+{
+  "name": "chrisbeyeler-audit",
+  "private": true,
+  "description": "Messwerkzeuge für docs/audit (Lighthouse, axe, Funktions- und Interaktionstest)",
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "lighthouse": "^12.0.0",
+    "playwright": "^1.48.0"
+  }
+}
