@@ -5,10 +5,10 @@
 Messwerte, Referenzanalyse und offene Punkte: `docs/audit/`.
 
 ### Design
-- Eigenes Logo: Wortmarke «CHRIS BEYELER.» und Monogramm «CB.» mit orangem Punkt (`img/logo/`), auch als Favicon
+- Eigenes Logo «Erkennung»: Name im Rahmen mit Label «KI-Speaker 0.99», Monogramm «CB» (`img/logo/`), auch als Favicon
 - Mona Sans als einzige Schrift; Titel in Versalien, fett und schmal gesetzt
-- Eigene Palette: warmes Schwarz, heller Papierton für Stimmen und Essay, Orange als Akzent
-- Drehendes Siegel im Hero, oranger Punkt als wiederkehrendes Zeichen
+- Farbwelt «Polarlicht»: Grünschwarz, gebrochenes Weiss, ein Verlauf von Türkis zu Limette als einziger Akzent
+- Drehendes Siegel im Hero, Erkennungsrahmen als wiederkehrendes Zeichen
 - Design-Tokens für Farbe, Typografie, Abstände, Form und Motion; `css/style.css` neu geschrieben
 - Eine Schriftfamilie (Inter variabel) plus Geist Mono für Labels, statt Inter, Montserrat und Lexend
 - Hero mit statischer H1, grossem Claim und wechselndem Akzentwort; Kennzahlen als eigenes Band

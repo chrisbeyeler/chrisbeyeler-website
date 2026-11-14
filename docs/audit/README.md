@@ -96,8 +96,8 @@ Nach der Rückmeldung «zu viel Text, zu wenig Typografie und Spiel» wurde die 
 
 | Bereich | Änderung |
 |---|---|
-| Design-Tokens | Farbe, Typografie, Abstände, Form und Motion als Variablen am Anfang von `css/style.css`. Eigene Palette: warmes Schwarz, heller Papierton für zwei Sektionen, das bestehende Orange als einziger Akzent. |
-| Logo | Wortmarke «CHRIS BEYELER.» und Monogramm «CB.», schräg gesetzt, mit orangem Punkt. Dateien unter `img/logo/`, auch als Favicon. Der Punkt kehrt in den Titeln wieder. |
+| Design-Tokens | Farbe, Typografie, Abstände, Form und Motion als Variablen am Anfang von `css/style.css`. Farbwelt «Polarlicht»: Grünschwarz als Grund, gebrochenes Weiss als Papier, Salbei als stille Zweitfarbe, ein Verlauf von Türkis zu Limette als einziger Akzent. Die Farbe kommt als Leuchten (feste Lichtfelder hinter der Seite), nicht als Fläche. |
+| Logo | «Erkennung»: Name im Rahmen mit Label «KI-Speaker 0.99», wie bei der Bilderkennung. Wortmarke und Monogramm «CB» als SVG unter `img/logo/`, auch als Favicon. Derselbe Rahmen liegt auf dem Porträt. Vom Auftraggeber aus zwölf Entwürfen gewählt. |
 | Typografie | Eine variable Familie: Mona Sans (Gewicht und Breite). Titel in Versalien, Gewicht 850, schmal gesetzt (85 %), Zeilenhöhe 0,88. Claim 48 bis 168 px, Sektionstitel 40 bis 124 px. Fliesstext 17 px. Vorher drei Familien in sechs Dateien. |
 | Hero | Statische H1 mit Name, Rolle und Claim. Keine Absätze, eine Faktenzeile, zwei Aktionen. Drehendes Siegel «Digital Shaper 2026». |
 | Kennzahlen | Eigenes Band mit grossen Ziffern. Echte Zahlen im HTML. Episoden und Bewertungen mit Quellenlink; «90+ Speeches» und «2500+» sind eigene Angaben. |
@@ -149,6 +149,7 @@ Bewusst entfernt und warum:
 | axe 4.10, Tags WCAG 2.0/2.1/2.2 A und AA, Pixel 7, ganze Seite gescrollt | 0 Verstösse, 35 bestandene Regeln | gemessen |
 | Logo-Laufband der Medien ohne Pause-Knopf für Touch | läuft endlos, pausiert nur bei Hover und Fokus | **offen**: für strenge Auslegung von WCAG 2.2.2 Pause-Knopf ergänzen oder statisch setzen |
 | axe mit `prefers-reduced-motion: reduce` | 0 Verstösse | gemessen |
+| Kontraste über Verläufen | 16 Farbpaare von Hand nach WCAG gerechnet: alle ab 5.5:1 | gemessen |
 | axe «unvollständig» | 37 Elemente Farbkontrast: Text über dem Hero-Foto, automatisch nicht berechenbar | **offen**: manuell prüfen (Scrim liegt bei 72–92 % Deckung) |
 | Tastatur: Skip-Link, Menü, Escape | bestanden | gemessen (`tools/audit/functest.js`) |
 | Funktionen: Themenübernahme, Konfigurator, Mehr Artikel, Datum offen, Trailer, Mail-Link | bestanden | gemessen |
