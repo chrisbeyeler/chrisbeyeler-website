@@ -101,11 +101,11 @@ Nach der Rückmeldung «zu viel Text, zu wenig Typografie und Spiel» wurde die 
 | Hero | Statische H1 mit Name, Rolle und Claim. Keine Absätze, eine Faktenzeile, zwei Aktionen. |
 | Kennzahlen | Eigenes Band mit grossen Ziffern. Echte Zahlen im HTML. Episoden und Bewertungen mit Quellenlink; «90+ Speeches» und «2500+» sind eigene Angaben. |
 | Keynotes | Grosse Titel zum Aufklappen statt Karussell. Jede Keynote hat einen Link, der das Thema ins Formular übernimmt. |
-| Bühnen | 41 Auftritte nach Jahr, mit Datum, Ort und Titel. 11 davon mit Link zur Quelle; die übrigen stammen aus dem eigenen Kalender. Dazu «Nächste Auftritte». |
+| Bühnen | 41 Auftritte nach Jahr, mit Datum, Ort und Titel. 14 davon mit Link zur Quelle; die übrigen stammen aus dem eigenen Kalender. Dazu «Nächste Auftritte». |
 | Stimmen | Zwei anonyme Rückmeldungen von Veranstaltern und vier Google-Bewertungen als grosse Wisch-Karten, fünf weitere eingeklappt. |
 | Anfrage | Sektion heisst «Keynote anfragen». Themenauswahl enthält die sechs aktuellen Keynotes. Der Knopf steht auf Mobilgeräten dauerhaft in der Kopfzeile. |
 | Bilder | 109 WebP-Varianten (480/960/1440 px) mit `srcset`. Skript: `tools/optimize_images.py`. |
-| Schema | Ein Graph mit WebSite, ProfilePage, Person, zwei Organisationen, sechs Keynotes als Service, PodcastSeries, zwei VideoObject mit `uploadDate`, drei Event, FAQPage. Der FAQ-Text im Schema ist wörtlich der sichtbare Text. |
+| Schema | Ein Graph mit WebSite, ProfilePage, Person, zwei Organisationen, sechs Keynotes als Service, PodcastSeries, zwei VideoObject mit `uploadDate`, fünf Event (zwei davon kommend), FAQPage. Der FAQ-Text im Schema ist wörtlich der sichtbare Text. |
 | KI-Zugang | `robots.txt` nennt die KI-Crawler ausdrücklich. `llms.txt` und `llms-full.txt` enthalten die geprüften Zahlen und belegte Auftritte. |
 | Barrierefreiheit | Skip-Link, sichtbarer Fokus, Kontraste ab 7:1 für Text, Zielgrössen ab 44 px für Knöpfe, Menü mit Escape schliessbar, Scrollbereiche per Tastatur erreichbar. |
 

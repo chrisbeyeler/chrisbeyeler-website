@@ -37,7 +37,15 @@ Weitere Themen: KI-Grundlagen für Nicht-Techniker, ethische KI-Nutzung, KI in d
 
 Formate: Keynote (typisch 30–60 Minuten), Workshop (Halb- oder Ganztag), Moderation und Podiumsdiskussion.
 
+## Nächste Auftritte
+
+- Landtechnischer Unternehmertag (Agrotec Suisse), 14. Januar 2027, KKL Luzern: Workshop «KI im Landtechnikunternehmen». https://www.agrotecsuisse.ch/de/aktuell/landtechnischer-unternehmertag-2027
+- IGKG Züri, Jubiläum, 12. April 2027, Aura, Zürich
+
 ## Belegte Auftritte (Auswahl)
+
+- ProNovia Kundentag, 22. Oktober 2026, Turbinenbräu, Zürich: Keynote «Warum KI-Projekte scheitern – und was erfolgreiche Unternehmen anders machen». https://pronovia.ch/de/pronovia-kundentag-2026/
+- Recruiting Convention, 25. September 2025, Lake Side, Zürich: «Vom White Collar zum Smart Collar: KI verändert das Recruiting». https://prospective.ch/recruiting-convention-2025/
 
 - Forum Berufslehre+, 5. November 2026, Haus der Wirtschaft, Pratteln. https://www.hdw-berufsbildung.ch/berufslehre-plus
 - Automotive Summit Switzerland 2026: «KI-Update – Entwicklungen einordnen, Potenziale bewerten, Entscheidungen treffen». https://automotivesummit.ch/as26/
