@@ -44,6 +44,27 @@ Einordnung:
 - INP ist eine Feldmetrik. Im Labor zeigen TBT und die längste Interaktion die Richtung, ersetzen aber keine Felddaten.
 - Die Seite zeigt 20 % weniger Text und ist 11 % kürzer. Die Inhalte stehen weiterhin vollständig im HTML (eingeklappte Bereiche sind für Crawler lesbar).
 
+## 1a. Live-Messung nach dem Merge (14. November 2026)
+
+Gemessen auf `https://chrisbeyeler.ch/`, mobil, Lighthouse 12, Median aus 5 Läufen. Alle Werte **gemessen**.
+
+| Messgrösse | Budget | Vorher live | Nachher live |
+|---|---|---|---|
+| LCP | ≤ 2,5 s | 2,1 s (2,0–2,9 s) | **2,1 s** (2,0–2,2 s) |
+| TBT (Laborersatz für INP) | – | 352 ms | **23 ms** |
+| CLS | ≤ 0,1 | 0 | **0** |
+| Lighthouse Performance | – | 91 | **99** |
+| Lighthouse Barrierefreiheit | – | 91 | **100** |
+| Seitengewicht beim Laden | – | 1474 KB | **201 KB** |
+| Anfragen beim Laden | – | 23 | **11** |
+| axe, WCAG 2.2 AA | 0 | 11 Elemente | **0** |
+| Schema-Validator, per URL | 0 Fehler | nicht geprüft | **0 Fehler, 0 Warnungen** |
+| KI-Crawler (6 User-Agents) | 200 | 200 | 200 |
+| Überlauf auf 11 Breiten (320–1920 px) | 0 | nicht geprüft | **0** |
+
+- Der LCP ist live gleich geblieben, weil er vor allem an der Antwortzeit des Servers hängt (TTFB rund 0,7 s). Gewonnen hat die Seite bei Rechenzeit, Gewicht und Stabilität der Messung.
+- Nach dem Livegang fiel auf, dass Impressum und Datenschutz ihre Stile verloren hatten. Das ist in einem Folge-PR korrigiert.
+
 ## 2. Baseline im Detail
 
 ### Barrierefreiheit vorher (axe, mobil)
