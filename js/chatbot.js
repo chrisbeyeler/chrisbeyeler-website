@@ -13,7 +13,7 @@ const FAQ_DATABASE = {
     },
     'keynote': {
         keywords: ['keynote', 'vortrag', 'speech', 'buehne', 'buchen', 'anfragen', 'referent', 'speaker', 'rede'],
-        answer: 'Ich hab sechs Keynote-Themen im Repertoire: «The State of AI» (der grosse Überblick mit Live-Demos), «KI und die Schweiz» (was auf uns zukommt), «Agentic AI» (autonome KI-Agenten, live gezeigt), «Führen im KI-Zeitalter» (Leadership mit Mensch und Maschine), «AI in Marketing» (Praxis pur) und «5 Erfolgsfaktoren für KI in KMU» (bodenständig und sofort umsetzbar). Dauer: 30–90 Minuten, alles individuell anpassbar. 70+ Keynotes auf Bühnen wie OMT Summit, Power Pur und Digital Day Bern. Schreib mir: chris@beyonder.ch'
+        answer: 'Ich hab sechs Keynote-Themen im Repertoire: «The State of AI» (der grosse Überblick mit Live-Demos), «KI und die Schweiz» (was auf uns zukommt), «Agentic AI» (autonome KI-Agenten, live gezeigt), «Führen im KI-Zeitalter» (Leadership mit Mensch und Maschine), «AI in Marketing» (Praxis pur) und «5 Erfolgsfaktoren für KI in KMU» (bodenständig und sofort umsetzbar). Dauer: 30–90 Minuten, alles individuell anpassbar. 90+ Speeches auf Bühnen wie OMT Summit, Power Pur und Digital Day Bern. Schreib mir: chris@beyonder.ch'
     },
     'preis': {
         keywords: ['preis', 'kosten', 'budget', 'was kostet', 'preisliste', 'tarif', 'offerte', 'angebot'],
@@ -25,7 +25,7 @@ const FAQ_DATABASE = {
     },
     'chris': {
         keywords: ['chris', 'beyeler', 'wer', 'person', 'bio', 'ueber'],
-        answer: 'Ich bin die digitale Version von Chris Beyeler. KI-Experte, Keynote Speaker, Gründer & CEO der BEYONDER AG und Präsident von swissAI. Seit 2016 im KI-Game, über 2500 Menschen ausgebildet, 70+ Keynotes, 150 Podcast-Episoden. Digital Shaper 2026. Quellcode im Blut, Neugier im Kopf.'
+        answer: 'Ich bin die digitale Version von Chris Beyeler. KI-Experte, Keynote Speaker, Gründer & CEO der BEYONDER AG und Präsident von swissAI. Seit 2016 im KI-Game, über 2500 Menschen ausgebildet, 90+ Speeches, 150 Podcast-Episoden. Digital Shaper 2026. Quellcode im Blut, Neugier im Kopf.'
     },
     'karriere': {
         keywords: ['karriere', 'lebenslauf', 'cv', 'werdegang', 'erfahrung', 'recruiting', 'siroop', 'mysign'],

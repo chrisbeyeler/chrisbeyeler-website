@@ -499,8 +499,8 @@ body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
 /* Aufklappen mit weicher Höhe, wo der Browser es kann */
 @supports (interpolate-size: allow-keywords) {
     :root { interpolate-size: allow-keywords; }
-    .talk details::details-content, .faq__item::details-content { block-size: 0; overflow: clip; transition: block-size var(--dur-2) var(--ease-out), content-visibility var(--dur-2) allow-discrete; }
-    .talk details[open]::details-content, .faq__item[open]::details-content { block-size: auto; }
+    .talk details::details-content, .faq__item::details-content, .stage-year::details-content { block-size: 0; overflow: clip; transition: block-size var(--dur-2) var(--ease-out), content-visibility var(--dur-2) allow-discrete; }
+    .talk details[open]::details-content, .faq__item[open]::details-content, .stage-year[open]::details-content { block-size: auto; }
 }
 /* Bühnenfoto folgt dem Zeiger über der Keynote-Liste (nur Maus) */
 .talk-preview {
@@ -573,6 +573,14 @@ body.trailer-active .nav { opacity: 0.18; pointer-events: none; }
 .gallery__item figcaption { margin-top: var(--sp-3); }
 
 .stage-list { border-top: 1px solid var(--c-line-strong); }
+.stage-year { border-top: 1px solid var(--c-line-strong); }
+.stage-year:last-of-type { border-bottom: 1px solid var(--c-line); }
+.stage-year summary { display: grid; grid-template-columns: 1fr auto auto; gap: var(--sp-4); align-items: center; padding-block: var(--sp-5); cursor: pointer; list-style: none; }
+.stage-year summary::-webkit-details-marker { display: none; }
+.stage-year__label { color: var(--c-text); font-size: clamp(1.75rem, 1.2rem + 2.4vw, 3.5rem); line-height: 1; letter-spacing: -0.04em; font-weight: var(--fw-strong); }
+.stage-year[open] .talk__icon { transform: rotate(45deg); background-color: var(--c-accent); border-color: var(--c-accent); background-image: linear-gradient(var(--c-on-accent), var(--c-on-accent)), linear-gradient(var(--c-on-accent), var(--c-on-accent)); }
+.stage-year .stage-list { border-top: 1px solid var(--c-line); margin-bottom: var(--sp-6); }
+.stage-year .stage:last-child { border-bottom: 0; }
 .stage { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-1) var(--sp-4); align-items: baseline; padding-block: var(--sp-4); border-bottom: 1px solid var(--c-line); }
 .stage__name { color: var(--c-text); font-size: 1.125rem; font-weight: var(--fw-strong); letter-spacing: -0.015em; }
 .stage__title { grid-column: 1; color: var(--c-text-2); }

@@ -1,18 +1,18 @@
 {
  "label": "after-local",
- "runs": 5,
+ "runs": 3,
  "perf": 99,
  "a11y": 100,
  "bp": 100,
  "seo": 100,
- "FCP_ms": 1053,
+ "FCP_ms": 1052,
  "LCP_ms": 2027,
- "TBT_ms": 39,
+ "TBT_ms": 71,
  "CLS": 0,
- "SI_ms": 1053,
- "TTI_ms": 2035,
- "bytes": 177239,
+ "SI_ms": 1052,
+ "TTI_ms": 2034,
+ "bytes": 179283,
  "requests": 12,
- "perfRange": "99/99/99/99/99",
- "LCPrange": "2031/2028/2027/2027/2026"
+ "perfRange": "99/99/99",
+ "LCPrange": "2027/2028/2025"
 }

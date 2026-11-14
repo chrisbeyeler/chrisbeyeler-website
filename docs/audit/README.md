@@ -13,14 +13,14 @@ Mobil, Lighthouse 12 (simuliertes langsames 4G, 4-fache CPU-Drosselung), Median 
 | Messgrösse | Budget | Vorher live | Vorher lokal | Nachher lokal | Status |
 |---|---|---|---|---|---|
 | LCP | ≤ 2,5 s | 2,1 s (Läufe 2,0–2,9 s) | 3,7 s (3,4–4,0 s) | **2,0 s** (2,03 s in allen Läufen) | gemessen (Labor) |
-| TBT (Laborersatz für INP) | – | 352 ms | 342 ms | **39 ms** | gemessen (Labor) |
+| TBT (Laborersatz für INP) | – | 352 ms | 342 ms | **71 ms** (Läufe 39–71 ms) | gemessen (Labor) |
 | Längste Interaktion (Tippen, 4-fache CPU-Drosselung) | INP ≤ 200 ms | – | 256 ms | **72 ms** | gemessen (Labor, kein Feld-INP) |
 | CLS | ≤ 0,1 | 0 | 0,001 | **0** | gemessen (Labor) |
 | FCP | – | 0,96 s | 1,81 s | 1,05 s | gemessen |
 | Lighthouse Performance | – | 91 | 82 | **99** | gemessen |
 | Lighthouse Barrierefreiheit | – | 91 | 91 | **100** | gemessen |
 | Lighthouse SEO / Best Practices | – | 100 / 100 | 100 / 100 | 100 / 100 | gemessen |
-| Seitengewicht beim Laden | – | 1474 KB | 1470 KB | **177 KB** | gemessen |
+| Seitengewicht beim Laden | – | 1474 KB | 1470 KB | **179 KB** | gemessen |
 | Anfragen beim Laden | – | 23 | 23 | **12** | gemessen |
 | davon Bilder | – | 1185 KB | 1184 KB | 39 KB | gemessen |
 | davon Schriften | – | 132 KB, 6 Dateien | 132 KB, 6 Dateien | 81 KB, 2 Dateien | gemessen |
@@ -99,10 +99,10 @@ Nach der Rückmeldung «zu viel Text, zu wenig Typografie und Spiel» wurde die 
 | Design-Tokens | Farbe, Typografie, Abstände, Form und Motion als Variablen am Anfang von `css/style.css`. Das CSS ist neu geschrieben (100 KB → 69 KB roh). |
 | Typografie | Eine Familie (Inter variabel mit optischer Grösse) plus Geist Mono für Labels. Claim 46 bis 152 px, Sektionstitel 36 bis 96 px, Kennzahlen bis 128 px, Typo-Band bis 240 px, Wortmarke im Footer bis 216 px. Fliesstext 17 px. |
 | Hero | Statische H1 mit Name, Rolle und Claim. Keine Absätze, eine Faktenzeile, zwei Aktionen. |
-| Kennzahlen | Eigenes Band mit grossen Ziffern. Echte Zahlen im HTML, jede mit Quelle oder dem Hinweis «Eigene Zählung». |
+| Kennzahlen | Eigenes Band mit grossen Ziffern. Echte Zahlen im HTML. Episoden und Bewertungen mit Quellenlink; «90+ Speeches» und «2500+» sind eigene Angaben. |
 | Keynotes | Grosse Titel zum Aufklappen statt Karussell. Jede Keynote hat einen Link, der das Thema ins Formular übernimmt. |
-| Bühnen | Liste mit Datum, Ort, Vortragstitel und Link zur Quelle statt nachgebauter Logos. |
-| Stimmen | Vier Bewertungen zu Keynotes als grosse Wisch-Karten, fünf weitere eingeklappt. |
+| Bühnen | 41 Auftritte nach Jahr, mit Datum, Ort und Titel. 11 davon mit Link zur Quelle; die übrigen stammen aus dem eigenen Kalender. Dazu «Nächste Auftritte». |
+| Stimmen | Zwei anonyme Rückmeldungen von Veranstaltern und vier Google-Bewertungen als grosse Wisch-Karten, fünf weitere eingeklappt. |
 | Anfrage | Sektion heisst «Keynote anfragen». Themenauswahl enthält die sechs aktuellen Keynotes. Der Knopf steht auf Mobilgeräten dauerhaft in der Kopfzeile. |
 | Bilder | 109 WebP-Varianten (480/960/1440 px) mit `srcset`. Skript: `tools/optimize_images.py`. |
 | Schema | Ein Graph mit WebSite, ProfilePage, Person, zwei Organisationen, sechs Keynotes als Service, PodcastSeries, zwei VideoObject mit `uploadDate`, drei Event, FAQPage. Der FAQ-Text im Schema ist wörtlich der sichtbare Text. |
