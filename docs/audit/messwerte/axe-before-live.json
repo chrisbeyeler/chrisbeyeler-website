@@ -1,0 +1,81 @@
+{
+ "url": "https://chrisbeyeler.ch/",
+ "violations": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "nodes": 5,
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "targets": [
+    [
+     ".keynote-card:nth-child(1) > .keynote-card__body > .keynote-card__icon"
+    ],
+    [
+     ".essay__text > p:nth-child(1)"
+    ],
+    [
+     ".essay__text > p:nth-child(2)"
+    ],
+    [
+     ".essay__text > p:nth-child(3)"
+    ],
+    [
+     ".chat-full__avatar"
+    ]
+   ]
+  },
+  {
+   "id": "label-content-name-mismatch",
+   "impact": "serious",
+   "nodes": 3,
+   "help": "Elements must have their visible text as part of their accessible name",
+   "targets": [
+    [
+     "button[aria-label=\"Trailer mit Ton abspielen\"]"
+    ],
+    [
+     "#beyonder-trailer > .trailer-stage__frame > .trailer-stage__media > .trailer-stage__start[type=\"button\"]"
+    ],
+    [
+     ".short-card[rel=\"noopener noreferrer\"][target=\"_blank\"]:nth-child(2)"
+    ]
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "nodes": 2,
+   "help": "Links must be distinguishable without relying on color",
+   "targets": [
+    [
+     "a[href$=\"mailto:hoi@beyonder.ch\"]"
+    ],
+    [
+     "span > a[rel=\"noopener\"][target=\"_blank\"]"
+    ]
+   ]
+  },
+  {
+   "id": "scrollable-region-focusable",
+   "impact": "serious",
+   "nodes": 1,
+   "help": "Scrollable region must have keyboard access",
+   "targets": [
+    [
+     ".keynotes__gallery"
+    ]
+   ]
+  }
+ ],
+ "passes": 28,
+ "incomplete": [
+  {
+   "id": "aria-prohibited-attr",
+   "nodes": 2
+  },
+  {
+   "id": "color-contrast",
+   "nodes": 308
+  }
+ ]
+}

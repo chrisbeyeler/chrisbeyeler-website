@@ -1,4 +1,21 @@
+# chrisbeyeler.ch: Suchmaschinen und KI-Systeme sind ausdrücklich willkommen.
 User-agent: *
 Allow: /
 Disallow: /k/
+
+# KI-Crawler und KI-Suche (explizit erlaubt, gleiche Regeln wie oben)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+Disallow: /k/
+
 Sitemap: https://chrisbeyeler.ch/sitemap.xml

@@ -1,0 +1,2601 @@
+{
+  "meta": {
+    "zweck": "Baseline Sichtbarkeit Chris Beyeler vor Website-Überarbeitung",
+    "erhoben_am": "2026-11-14",
+    "zeitzone_zeitstempel": "UTC (Systemuhr der Sitzung)",
+    "prompts_quelle": "docs/audit/prompts.md (wörtlich verwendet)",
+    "eigene_domains": [
+      "chrisbeyeler.ch",
+      "beyonder.ch",
+      "swissai.ch",
+      "aicast.ch",
+      "linkedin.com/in/chrisbeyeler"
+    ],
+    "referenzfakten": [
+      "Gründer und CEO BEYONDER AG",
+      "Präsident swissAI",
+      "Host AI Cast",
+      "Digital Shaper 2026",
+      "Standort Gebenstorf AG"
+    ],
+    "einschraenkungen": [
+      "Abfragestandort ist ein Cloud-Rechenzentrum, nicht die Schweiz. Das WebSearch-Tool ist laut eigener Beschreibung \"US-only\". Ergebnisse können von dem abweichen, was Nutzer in der Schweiz sehen.",
+      "Kanal A wurde je Prompt genau einmal abgefragt. KI-Antworten schwanken von Lauf zu Lauf; ein einzelner Lauf ist eine Stichprobe, kein Mittelwert.",
+      "Kanal B (klassische Suchmaschinen) lieferte keine einzige verwertbare Messung: Google reCAPTCHA, DuckDuckGo HTTP 403, Bing sachfremde Treffer. Positionen in Google/Bing/DuckDuckGo sind damit NICHT gemessen.",
+      "Die Zeitstempel von Kanal A sind Stapel-Zeitstempel (Prompts 1-5 und 6-10 je parallel abgesetzt), nicht pro Aufruf gemessen.",
+      "Die Bilanz-Seite (Digital Shapers 2026), auf die sich die Nennungen stützen, konnte aus der Sitzung nicht abgerufen werden (Host nicht erlaubt); die inhaltliche Richtigkeit der Zitate wurde nicht gegen die Quelle geprüft."
+    ],
+    "kanaele": {
+      "A_websearch": {
+        "beschreibung": "KI-System mit Websuche: WebSearch-Tool, mode \"standard\", ein Aufruf pro Prompt",
+        "status": "ok (10 von 10 gemessen)"
+      },
+      "B_google": {
+        "beschreibung": "Google-SERP per Playwright (Chromium headless), hl=de gl=ch num=20",
+        "status": "blockiert",
+        "detail": "reCAPTCHA \"Ich bin kein Roboter\" / \"ungewöhnlicher Datenverkehr\" (Weiterleitung auf google.com/sorry) bei Prompt 1, 2 Versuche, danach abgebrochen. Sperre gilt für die IP, Prompts 2-10 daher nicht abgefragt. Kein Consent-Dialog erschienen. KI-Übersicht/AI Overview: nicht messbar."
+      },
+      "B_duckduckgo": {
+        "beschreibung": "duckduckgo.com/html/ per Playwright, kl=ch-de",
+        "status": "blockiert",
+        "detail": "HTTP 403 von html.duckduckgo.com mit Fehlerseite (\"If this persists, please email us ... Error getting results\") bei Prompt 1, 2 Versuche, danach abgebrochen. Prompts 2-10 nicht abgefragt."
+      },
+      "B_bing": {
+        "beschreibung": "bing.com/search per Playwright, cc=CH setlang=de",
+        "status": "blockiert (unbrauchbar)",
+        "detail": "Kein Captcha, HTTP 200, aber bei allen 10 Prompts Treffer ohne jeden Bezug zur Suchanfrage (z. B. Zhihu-Fragen, Microsoft-Campus, Hotels in Schwyz, Bezirk Höfe, Coop Oberwil, Kosovo, Wollishofen, Rheinfall, Krim, Frankreich) bzw. \"Es gibt keine Ergebnisse\". Typisches Verhalten von Bing gegenüber erkannten Automaten/Rechenzentrums-IPs. Prompt 1: 3 Seitenaufrufe (1 Probe + 2 Versuche), Prompts 2-10: je 1-2 Versuche. Das Skript wertete einzelne Läufe wegen eines zu lockeren Wort-Abgleichs (Teilstrings \"ki\", \"ai\", \"im\") als \"ok\"; nach manueller Sichtung aller Trefferlisten sind alle 10 ungültig. Keine KI-Antwort/Copilot-Box sichtbar."
+      },
+      "C_ohne_login": {
+        "beschreibung": "ChatGPT, Perplexity, Gemini, Copilot",
+        "status": "offen (nicht versucht, Login nötig)"
+      }
+    },
+    "rohdateien_scratchpad": "/tmp/claude-0/-home-user-chrisbeyeler-website/2f3fa9c4-928e-5316-93da-9ef43022fc20/scratchpad/serp/out (HTML, Screenshots, Text; flüchtig)"
+  },
+  "prompts": [
+    {
+      "nr": 1,
+      "prompt": "KI Keynote Speaker Schweiz",
+      "absicht": "Kernbegriff",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:22Z",
+          "genannt": "teilweise (nur Nachname \"Beyeler\")",
+          "genannt_voller_name": false,
+          "genannt_nachname": true,
+          "zitat": "**Beyeler** is named on Bilanz's Digital Shapers 2026 list as a regular keynote speaker sharing his experience. He also presides over SwissAI, the Swiss AI association, per the same Bilanz list.",
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": 4,
+          "anzahl_links": 18,
+          "mitbewerber": [
+            "Dalith Steiger-Gablinger (SwissCognitive)",
+            "Andy Fitze (SwissCognitive)",
+            "Finn Hillebrandt (gradually.ai)",
+            "Michael Schwertel",
+            "Tobias Jonas (innfactory.ai)"
+          ],
+          "anmerkung": "Nur Nachname \"Beyeler\", Vorname \"Chris\" fehlt im Antworttext. Beleg ausschliesslich bilanz.ch (Digital Shapers 2026), keine eigene Domain.",
+          "links": [
+            {
+              "position": 1,
+              "domain": "netzwoche.ch",
+              "titel": "Was die Teilnehmenden am AWS Summit Zurich erwartet",
+              "url": "https://www.netzwoche.ch/news/2025-08-27/was-die-teilnehmenden-am-aws-summit-zurich-erwartet"
+            },
+            {
+              "position": 2,
+              "domain": "netzwoche.ch",
+              "titel": "Wo Unternehmen den heiligen Gral der KI-Transformation finden",
+              "url": "https://www.netzwoche.ch/news/2026-08-28/wo-unternehmen-den-heiligen-gral-der-ki-transformation-finden"
+            },
+            {
+              "position": 3,
+              "domain": "bilanz.ch",
+              "titel": "Guten Tag,",
+              "url": "https://www.bilanz.ch/people/jan-kerschgens"
+            },
+            {
+              "position": 4,
+              "domain": "bilanz.ch",
+              "titel": "www.bilanz.ch",
+              "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd"
+            },
+            {
+              "position": 5,
+              "domain": "netzwoche.ch",
+              "titel": "KI zwischen menschlicher Kontrolle und Vertrauen",
+              "url": "https://www.netzwoche.ch/news/2025-10-03/ki-zwischen-menschlicher-kontrolle-und-vertrauen"
+            },
+            {
+              "position": 6,
+              "domain": "netzwoche.ch",
+              "titel": "Wieso KI noch in den Kinderschuhen steckt",
+              "url": "https://www.netzwoche.ch/news/2024-11-22/wieso-ki-noch-in-den-kinderschuhen-steckt"
+            },
+            {
+              "position": 7,
+              "domain": "zhaw.ch",
+              "titel": "ZHAW Swiss MarTech Summit 2025 Programmbrosch%C3%BCre final",
+              "url": "https://www.zhaw.ch/storage/shared/sml/imm/ZHAW_Swiss_MarTech_Summit_2025_Programmbrosch%C3%BCre_final.pdf"
+            },
+            {
+              "position": 8,
+              "domain": "bilanz.ch",
+              "titel": "www.bilanz.ch",
+              "url": "https://www.bilanz.ch/archiv/die-schweizer-ki-akteure/4y7573z"
+            },
+            {
+              "position": 9,
+              "domain": "claude.ai",
+              "titel": "7136b323 b8d6 46cb bbc1 5d8b1d417607",
+              "url": "https://claude.ai/public/artifacts/7136b323-b8d6-46cb-bbc1-5d8b1d417607"
+            },
+            {
+              "position": 10,
+              "domain": "swisscognitive.ch",
+              "titel": "keynote speaker dalith steiger andy fitze",
+              "url": "https://swisscognitive.ch/keynote_speaker_dalith_steiger_andy_fitze/"
+            },
+            {
+              "position": 11,
+              "domain": "netzwoche.ch",
+              "titel": "AI im Marketing: Prognose für 2026",
+              "url": "https://www.netzwoche.ch/news/2026-01-26/ai-im-marketing-prognose-fuer-2026"
+            },
+            {
+              "position": 12,
+              "domain": "premium-speakers.com",
+              "titel": "premium-speakers.com",
+              "url": "https://premium-speakers.com/en/?p=52412"
+            },
+            {
+              "position": 13,
+              "domain": "sessionize.com",
+              "titel": "sessionize.com",
+              "url": "https://sessionize.com/s/pascal-brunner-nikolla/von-copilot-zu-teamkollegin-wenn-ki-teil-der-beleg/158024"
+            },
+            {
+              "position": 14,
+              "domain": "zhaw.ch",
+              "titel": "Eingabe löschen",
+              "url": "https://www.zhaw.ch/de/sml/institute-zentren/imm/martech-lab/swiss-martech-summit-2026/speakers"
+            },
+            {
+              "position": 15,
+              "domain": "gradually.ai",
+              "titel": "ai keynote speaker",
+              "url": "https://www.gradually.ai/en/ai-keynote-speaker/"
+            },
+            {
+              "position": 16,
+              "domain": "expert-marketplace.de",
+              "titel": "michael schwertel",
+              "url": "https://www.expert-marketplace.de/en/keynote-speaker/michael-schwertel"
+            },
+            {
+              "position": 17,
+              "domain": "zhaw.ch",
+              "titel": "Eingabe löschen",
+              "url": "https://www.zhaw.ch/de/sml/institute-zentren/iwi/veranstaltungen/winsights-2023/referentinnen-und-referenten"
+            },
+            {
+              "position": 18,
+              "domain": "innfactory.ai",
+              "titel": "Zum Hauptinhalt springen",
+              "url": "https://innfactory.ai/de/leistungen/ki-vortraege/"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:01:28.646Z",
+          "versuche": 2,
+          "grund": "reCAPTCHA (google.com/sorry, \"ungewöhnlicher Datenverkehr\")",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:01:53.380Z",
+          "versuche": 2,
+          "grund": "HTTP 403, Fehlerseite von html.duckduckgo.com",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:03:06.531Z",
+          "versuche": 3,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "「法兰克」这个词是怎么演化为「法兰西」的？另有德国的「弗兰肯」 …",
+              "url": "https://www.zhihu.com/question/26975059"
+            },
+            {
+              "position": 2,
+              "titel": "只听说过亚运会，有没有欧运会或者美运会呀？ - 知乎",
+              "url": "https://www.zhihu.com/question/23566058"
+            },
+            {
+              "position": 3,
+              "titel": "已经欠费的手机号一直不交费会有什么后果？ - 知乎",
+              "url": "https://www.zhihu.com/question/340351442"
+            },
+            {
+              "position": 4,
+              "titel": "买高铁二等座，出票成卧代二等座是怎样的一种体验? - 知乎",
+              "url": "https://www.zhihu.com/question/353625499"
+            },
+            {
+              "position": 5,
+              "titel": "脚上磨的泡是否应该主动挑破？ - 知乎",
+              "url": "https://www.zhihu.com/question/20579285"
+            },
+            {
+              "position": 6,
+              "titel": "大学生毕业后，档案在哪里怎么查询？ - 知乎",
+              "url": "https://www.zhihu.com/question/286668714"
+            },
+            {
+              "position": 7,
+              "titel": "在哪里可以看到b站上武器a原版视频？ - 知乎",
+              "url": "https://www.zhihu.com/question/368128667"
+            },
+            {
+              "position": 8,
+              "titel": "现在的百度网盘是取消了磁力链接的离线下载功能吗？ - 知乎",
+              "url": "https://www.zhihu.com/question/425620922/answers/updated"
+            },
+            {
+              "position": 9,
+              "titel": "zh-cn 与 zh-hans 是什么关系、有什么区别？ - 知乎",
+              "url": "https://www.zhihu.com/question/21980689?sort=created"
+            },
+            {
+              "position": 10,
+              "titel": "银环蛇、白环蛇和白链蛇怎么区分？ - 知乎",
+              "url": "https://www.zhihu.com/question/63131854"
+            }
+          ],
+          "ungueltige_treffer_probe": [
+            {
+              "position": 1,
+              "url": "https://en.wikipedia.org/wiki/Microsoft_campus"
+            },
+            {
+              "position": 2,
+              "url": "https://www.microsoft.com/en-us/about/office-locations?msockid=35c3e7f109156f8a181effe008926e29"
+            },
+            {
+              "position": 3,
+              "url": "https://news.microsoft.com/redmond-campus/?msockid=35c3e7f109156f8a181effe008926e29"
+            },
+            {
+              "position": 4,
+              "url": "https://www.mapquest.com/us/washington/microsoft-corporation-12544878"
+            },
+            {
+              "position": 5,
+              "url": "https://maps.apple.com/place?place-id=IA108CFF6BBA2E5A6"
+            },
+            {
+              "position": 6,
+              "url": "https://maps.apple.com/place?place-id=ID98CEB9F91D6FF8B"
+            },
+            {
+              "position": 7,
+              "url": "https://www.microsoft.com/de-de/rechtliche-hinweise/impressum?msockid=35c3e7f109156f8a181effe008926e29"
+            },
+            {
+              "position": 8,
+              "url": "https://businessyab.com/explore/united_states/washington/king_county/redmond/overlake/microsoft_way/1/microsoft-corporate-headquarters-425-882-8080.html"
+            },
+            {
+              "position": 9,
+              "url": "https://www.loopnet.ca/company/microsoft/k5e9vscl/"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 2,
+      "prompt": "Keynote Speaker Künstliche Intelligenz Schweiz buchen",
+      "absicht": "Buchungsabsicht",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:22Z",
+          "genannt": "nein",
+          "genannt_voller_name": false,
+          "genannt_nachname": false,
+          "zitat": null,
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": 1,
+          "anzahl_links": 17,
+          "mitbewerber": [
+            "Thilo Stadelmann (Premium Speakers)",
+            "Thomas Zurbuchen (Premium Speakers)",
+            "Pascal Kaufmann (Premium Speakers)",
+            "Benjamin Bargetzi (Premium Speakers)",
+            "Dalith Steiger / Andy Fitze (SwissCognitive)"
+          ],
+          "anmerkung": "bilanz.ch Digital Shapers 2026 steht auf Link-Position 1, wird im Antworttext aber nicht für Beyeler verwendet.",
+          "links": [
+            {
+              "position": 1,
+              "domain": "bilanz.ch",
+              "titel": "www.bilanz.ch",
+              "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd"
+            },
+            {
+              "position": 2,
+              "domain": "premium-speakers.com",
+              "titel": "Thomas Zurbuchen – From Space to Switzerland",
+              "url": "https://premium-speakers.com/?p=106829"
+            },
+            {
+              "position": 3,
+              "domain": "premium-speakers.com",
+              "titel": "Thilo Stadelmann – Der Hype um Künstliche Intelligenz",
+              "url": "https://premium-speakers.com/?p=90420"
+            },
+            {
+              "position": 4,
+              "domain": "swisscognitive.ch",
+              "titel": "keynote speaker dalith steiger andy fitze",
+              "url": "https://swisscognitive.ch/keynote_speaker_dalith_steiger_andy_fitze/"
+            },
+            {
+              "position": 5,
+              "domain": "innfactory.ai",
+              "titel": "Zum Hauptinhalt springen",
+              "url": "https://innfactory.ai/de/leistungen/ki-vortraege/"
+            },
+            {
+              "position": 6,
+              "domain": "claude.ai",
+              "titel": "7136b323 b8d6 46cb bbc1 5d8b1d417607",
+              "url": "https://claude.ai/public/artifacts/7136b323-b8d6-46cb-bbc1-5d8b1d417607"
+            },
+            {
+              "position": 7,
+              "domain": "premium-speakers.com",
+              "titel": "Thilo Stadelmann – Künstliche Intelligenz verstehen, gestalten und nutzen",
+              "url": "https://premium-speakers.com/short/thilo-stadelmann-kuenstliche-intelligenz-verstehen-gestalten-und-nutzen/"
+            },
+            {
+              "position": 8,
+              "domain": "premium-speakers.com",
+              "titel": "Pascal Kaufmann – Die Zukunft von KI und Arbeit",
+              "url": "https://premium-speakers.com/short/pascal-kaufmann-die-zukunft-von-ki-und-arbeit/"
+            },
+            {
+              "position": 9,
+              "domain": "premium-speakers.com",
+              "titel": "livia schroder",
+              "url": "https://premium-speakers.com/en/speaker-presenter/livia-schroder/"
+            },
+            {
+              "position": 10,
+              "domain": "premium-speakers.com",
+              "titel": "premium-speakers.com",
+              "url": "https://premium-speakers.com/en/?p=81467"
+            },
+            {
+              "position": 11,
+              "domain": "premium-speakers.com",
+              "titel": "premium-speakers.com",
+              "url": "https://premium-speakers.com/en/?p=113799"
+            },
+            {
+              "position": 12,
+              "domain": "premium-speakers.com",
+              "titel": "Benjamin Bargetzi – TechPreneur",
+              "url": "https://premium-speakers.com/?p=87314"
+            },
+            {
+              "position": 13,
+              "domain": "speakersassociates.com",
+              "titel": "Künstliche Intelligenz & Generative KI",
+              "url": "https://www.speakersassociates.com/de/topics/kuenstliche-intelligenz-generative-ki/page/6/"
+            },
+            {
+              "position": 14,
+              "domain": "expert-marketplace.de",
+              "titel": "michael schwertel",
+              "url": "https://www.expert-marketplace.de/en/keynote-speaker/michael-schwertel"
+            },
+            {
+              "position": 15,
+              "domain": "b2match.com",
+              "titel": "ExpertiseAktualisiert am 9. Juli 2026",
+              "url": "https://www.b2match.com/e/ki-days-2026/opportunities/UGFydGljaXBhdGlvbk9wcG9ydHVuaXR5OjI1MjI0MQ=="
+            },
+            {
+              "position": 16,
+              "domain": "premium-speakers.com",
+              "titel": "Keynote Speaker",
+              "url": "https://premium-speakers.com/en/type/keynote-speaker/page/61/"
+            },
+            {
+              "position": 17,
+              "domain": "premium-speakers.com",
+              "titel": "Artificial Intelligence / Robotics",
+              "url": "https://premium-speakers.com/en/topic/artificial-intelligence-robotic/page/8/"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:03:51.318Z",
+          "versuche": 2,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "Hotels in Schwyz | Schweiz Tourismus - Switzerland Tourism",
+              "url": "https://www.myswitzerland.com/de-ch/unterkuenfte/unterkuenfte-suche/-/schwyz/"
+            },
+            {
+              "position": 2,
+              "titel": "Die 10 besten Hotels in Schwyz, Schweiz (Ab € 135) - Booking.com",
+              "url": "https://www.booking.com/city/ch/schwyz.de.html?msockid=1de59c8beaa76aac1293849aeb5c6bd7"
+            },
+            {
+              "position": 3,
+              "titel": "Hotels und Pensionen - Tipps und Empfehlungen - SZ.de",
+              "url": "https://www.sueddeutsche.de/thema/Hotels"
+            },
+            {
+              "position": 4,
+              "titel": "Hotels in Pfäffikon SZ | Schweiz Tourismus - Switzerland Tourism",
+              "url": "https://www.myswitzerland.com/de/unterkuenfte/unterkuenfte-suche/-/pfaeffikon-sz/"
+            },
+            {
+              "position": 5,
+              "titel": "10 Best Schwyz Hotels, Switzerland (From US$149) - Booking.com",
+              "url": "https://www.booking.com/city/ch/schwyz.html?msockid=1de59c8beaa76aac1293849aeb5c6bd7"
+            },
+            {
+              "position": 6,
+              "titel": "Top Hotels ab 105 € in Innere Stadt, Bern aus 151 Hotels zu …",
+              "url": "https://de.hotels.com/de12518652/hotels-innere-stadt-schweiz/"
+            },
+            {
+              "position": 7,
+              "titel": "Hotels in Pfäffikon SZ - Skyscanner",
+              "url": "https://www.skyscanner.de/hotels-in/schweiz/pfaffikon-sz-hotels/ci-33784429?msockid=1de59c8beaa76aac1293849aeb5c6bd7"
+            },
+            {
+              "position": 8,
+              "titel": "Haustierfreundliche Hotels in Innere Stadt, Bern ab CHF 102 auf Hotels…",
+              "url": "https://ch.hotels.com/de12518652-am64/tierfreundlich-hotels-innere-stadt-schweiz/"
+            },
+            {
+              "position": 9,
+              "titel": "Elf historische Hotels in Südtirol - SZ.de",
+              "url": "https://www.sueddeutsche.de/projekte/artikel/reise/suedtirol-hotel-tipps-historie-e370282/"
+            },
+            {
+              "position": 10,
+              "titel": "151 Hotels in Innere Stadt, Bern ab CHF 108 | Hotels.com",
+              "url": "https://ch.hotels.com/de12518652/hotels-innere-stadt-schweiz/"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 3,
+      "prompt": "Bester KI Speaker Schweiz",
+      "absicht": "Empfehlung",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:22Z",
+          "genannt": "teilweise (nur Nachname \"Beyeler\")",
+          "genannt_voller_name": false,
+          "genannt_nachname": true,
+          "zitat": "One is Beyeler, who presides over the Swiss AI association SwissAI and gives keynotes. Beyeler also serves as president of SwissAI, the association for artificial intelligence in Switzerland.",
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": 1,
+          "anzahl_links": 17,
+          "mitbewerber": [
+            "Mitgründer SwissCognitive (ohne Namen, via Premium Speakers)",
+            "Jan Ditgen",
+            "Isabell Welpe"
+          ],
+          "anmerkung": "Nur Nachname \"Beyeler\". Beleg ausschliesslich bilanz.ch (Digital Shapers 2026). Das System deutete den Prompt zur Hälfte als Smart-Speaker-Frage (Echo/Nest).",
+          "links": [
+            {
+              "position": 1,
+              "domain": "bilanz.ch",
+              "titel": "www.bilanz.ch",
+              "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd"
+            },
+            {
+              "position": 2,
+              "domain": "aistudios.com",
+              "titel": "Bester KI-Sprachgenerator",
+              "url": "https://www.aistudios.com/de/best/best-ai-voice-generator"
+            },
+            {
+              "position": 3,
+              "domain": "zeeg.me",
+              "titel": "beste ki sprachassistenten",
+              "url": "https://zeeg.me/de/blog/content/beste-ki-sprachassistenten"
+            },
+            {
+              "position": 4,
+              "domain": "claude.ai",
+              "titel": "7136b323 b8d6 46cb bbc1 5d8b1d417607",
+              "url": "https://claude.ai/public/artifacts/7136b323-b8d6-46cb-bbc1-5d8b1d417607"
+            },
+            {
+              "position": 5,
+              "domain": "trengo.com",
+              "titel": "Black Friday 2026 |",
+              "url": "https://trengo.com/de/blog/best-ai-voice-assistants"
+            },
+            {
+              "position": 6,
+              "domain": "t3n.de",
+              "titel": "Unsere Marken MIT Technology Review Digital Bash",
+              "url": "https://t3n.de/news/amazon-echo-oder-google-nest-diese-smart-speaker-sind-ideal-fuer-den-einstieg-1741737/"
+            },
+            {
+              "position": 7,
+              "domain": "t3n.de",
+              "titel": "Unsere Marken MIT Technology Review Digital Bash",
+              "url": "https://t3n.de/news/?p=1741737"
+            },
+            {
+              "position": 8,
+              "domain": "thecmo.com",
+              "titel": "Die 16 besten KI-Marketing-Redner, die Sie 2026 buchen sollten",
+              "url": "https://thecmo.com/de/marketingstrategie/ki-marketing-redner/"
+            },
+            {
+              "position": 9,
+              "domain": "aircall.io",
+              "titel": "Geschwindigkeit, Präzision, Bewertungen. Das sind die besten KI-Sprachagenten 2026",
+              "url": "https://aircall.io/de/blog/tech/besten-KI-Sprachagenten/"
+            },
+            {
+              "position": 10,
+              "domain": "thecmo.com",
+              "titel": "Die 16 besten KI-Marketing-Redner, die Sie 2026 buchen sollten",
+              "url": "https://thecmo.com/de/nicht-kategorisiert/ki-marketing-redner/"
+            },
+            {
+              "position": 11,
+              "domain": "pcwelt.de",
+              "titel": "www.pcwelt.de",
+              "url": "https://www.pcwelt.de/?p=1203519"
+            },
+            {
+              "position": 12,
+              "domain": "srf.ch",
+              "titel": "Zum Inhalt springen",
+              "url": "https://www.srf.ch/wissen/wissens-chats/srf-themenwoche-ki-und-wir-ihre-fragen-zum-thema-kuenstliche-intelligenz"
+            },
+            {
+              "position": 13,
+              "domain": "premium-speakers.com",
+              "titel": "Swiss keynote speakers – The masters of words for meetings and conferences",
+              "url": "https://premium-speakers.com/en/magazin/swiss-keynote-speakers-the-masters-of-words-for-meetings-and-conferences/"
+            },
+            {
+              "position": 14,
+              "domain": "premium-speakers.com",
+              "titel": "Swiss keynote speakers – The masters of words for meetings and conferences",
+              "url": "https://premium-speakers.com/en/?p=109442"
+            },
+            {
+              "position": 15,
+              "domain": "assets01.sdd1.ch",
+              "titel": "20250410 neudenken forum april 2025 shure felix alpstaeg 16 9",
+              "url": "https://assets01.sdd1.ch/assets/lbwp-cdn/supravision/files/1744790107/20250410_neudenken-forum_april_2025_shure_felix_alpstaeg-16_9.pdf"
+            },
+            {
+              "position": 16,
+              "domain": "clickup.com",
+              "titel": "ki sprachassistenten",
+              "url": "https://clickup.com/de/blog/520218/ki-sprachassistenten"
+            },
+            {
+              "position": 17,
+              "domain": "aisuperior.com",
+              "titel": "leading machine learning companies in switzerland",
+              "url": "https://aisuperior.com/de/leading-machine-learning-companies-in-switzerland/"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:04:11.960Z",
+          "versuche": 2,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "Startseite - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/"
+            },
+            {
+              "position": 2,
+              "titel": "Umwelt - Bezirk Höfe - hoefe.ch",
+              "url": "https://www.hoefe.ch/de/bezirk-hoefe/umwelt/"
+            },
+            {
+              "position": 3,
+              "titel": "Mietschlichtung - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/judikative/mietschlichtung/"
+            },
+            {
+              "position": 4,
+              "titel": "Online-Schalter - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/verwaltung-und-aemter/online-schalter/"
+            },
+            {
+              "position": 5,
+              "titel": "Betreibungsamt - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/verwaltung-und-aemter/betreibungsamt/"
+            },
+            {
+              "position": 6,
+              "titel": "Vermittleramt - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/judikative/vermittleramt/"
+            },
+            {
+              "position": 7,
+              "titel": "Verwaltung und Ämter - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/verwaltung-und-aemter/"
+            },
+            {
+              "position": 8,
+              "titel": "Kontakt - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/kontakt/"
+            },
+            {
+              "position": 9,
+              "titel": "Offene Stellen - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/verwaltung-und-aemter/offene-stellen/"
+            },
+            {
+              "position": 10,
+              "titel": "Wahlen und Abstimmungen - Bezirk Höfe",
+              "url": "https://www.hoefe.ch/de/politik/wahlen-und-abstimmungen/"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 4,
+      "prompt": "Keynote Speaker Schweiz KI für KMU",
+      "absicht": "Thema KMU",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:22Z",
+          "genannt": "nein",
+          "genannt_voller_name": false,
+          "genannt_nachname": false,
+          "zitat": null,
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": 8,
+          "anzahl_links": 19,
+          "mitbewerber": [
+            "Benjamin Bargetzi",
+            "Jérôme Berthier (DeepLink)",
+            "Roger Basler de Roca",
+            "Riccardo Giacometti",
+            "Dario Röösli"
+          ],
+          "anmerkung": "bilanz.ch Digital Shapers 2026 auf Link-Position 8, im Antworttext nicht verwendet.",
+          "links": [
+            {
+              "position": 1,
+              "domain": "raiffeisen.ch",
+              "titel": "• Digitalisierung & Cybersicherheit",
+              "url": "https://www.raiffeisen.ch/rch/de/wissen/unternehmensthemen/digitalisierung-transformation/digitalisierung-drei-gruende.html"
+            },
+            {
+              "position": 2,
+              "domain": "zhaw.ch",
+              "titel": "ZHAW Swiss MarTech Summit 2025 Programmbrosch%C3%BCre final",
+              "url": "https://www.zhaw.ch/storage/shared/sml/imm/ZHAW_Swiss_MarTech_Summit_2025_Programmbrosch%C3%BCre_final.pdf"
+            },
+            {
+              "position": 3,
+              "domain": "weka.ch",
+              "titel": "Künstliche Intelligenz in der Arbeitswelt: Ein Überblick",
+              "url": "https://www.weka.ch/themen/management/unternehmensfuehrung/kuenstliche-intelligenz/article/kuenstliche-intelligenz-in-der-arbeitswelt-ein-ueberblick/"
+            },
+            {
+              "position": 4,
+              "domain": "spiez.ch",
+              "titel": "Handout1 ki mit wirkung handout 20260123113848",
+              "url": "https://www.spiez.ch/wAssets/docs/Tourismus/Wirtschaft/Handout1_ki_mit_wirkung_handout_20260123113848.pdf"
+            },
+            {
+              "position": 5,
+              "domain": "bfh.ch",
+              "titel": "Was können kleine Unternehmen wirklich mit künstlicher Intelligenz erreichen? Swiss AI Weeks",
+              "url": "https://www.bfh.ch/de/aktuell/fachveranstaltungen/swiss-ai-weeks-ki-fuer-kmus/"
+            },
+            {
+              "position": 6,
+              "domain": "raiffeisen.ch",
+              "titel": "• Digitalisierung & Cybersicherheit",
+              "url": "https://www.raiffeisen.ch/rch/de/wissen/unternehmensthemen/digitalisierung-transformation/digitalisierung-tipps-kommunikation.html"
+            },
+            {
+              "position": 7,
+              "domain": "spiez.ch",
+              "titel": "kmu ki keynote 20260123093205",
+              "url": "https://www.spiez.ch/wAssets/docs/Tourismus/Wirtschaft/kmu_ki_keynote_20260123093205.pdf"
+            },
+            {
+              "position": 8,
+              "domain": "bilanz.ch",
+              "titel": "www.bilanz.ch",
+              "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd"
+            },
+            {
+              "position": 9,
+              "domain": "luzern.com",
+              "titel": "KI im KMU: Zwischen Hype und echter Anwendung",
+              "url": "https://www.luzern.com/de/event/ki-im-kmu-zwischen-hype-und-echter-anwendung"
+            },
+            {
+              "position": 10,
+              "domain": "bfh.ch",
+              "titel": "- Workshop",
+              "url": "https://www.bfh.ch/wirtschaft/de/aktuell/fachveranstaltungen/ai-playbook-kmu/"
+            },
+            {
+              "position": 11,
+              "domain": "wko.at",
+              "titel": "Zum Inhalt springen",
+              "url": "https://www.wko.at/stmk/news/ki-know-how-fuehrt-patrick-ratheiser-auf-die-grossen-buehnen-eur"
+            },
+            {
+              "position": 12,
+              "domain": "satw.ch",
+              "titel": "Responsible AI als Chance fuer Schweizer KMU",
+              "url": "https://www.satw.ch/fileadmin/Documents/SATW/Focus_topics/Artificial_Intelligence/KI_und_KMU_Serie/Responsible_AI_als_Chance_fuer_Schweizer_KMU.pdf"
+            },
+            {
+              "position": 13,
+              "domain": "bfh.ch",
+              "titel": "KI-Kompetenzen gezielt im eigenen Unternehmen aufbauen AI Playbook für KMU",
+              "url": "https://www.bfh.ch/de/aktuell/fachveranstaltungen/ai-playbook-kmu/"
+            },
+            {
+              "position": 14,
+              "domain": "netzwoche.ch",
+              "titel": "Wo Unternehmen den heiligen Gral der KI-Transformation finden",
+              "url": "https://www.netzwoche.ch/news/2026-08-28/wo-unternehmen-den-heiligen-gral-der-ki-transformation-finden"
+            },
+            {
+              "position": 15,
+              "domain": "raiffeisen.ch",
+              "titel": "• Digitalisierung & Cybersicherheit",
+              "url": "https://www.raiffeisen.ch/rch/de/wissen/unternehmensthemen/digitalisierung-transformation/ki-in-schweizer-kmu.html"
+            },
+            {
+              "position": 16,
+              "domain": "zhaw.ch",
+              "titel": "Eingabe löschen",
+              "url": "https://www.zhaw.ch/de/fokusthemen/interinterdisziplinaere-kompetenzzentren/datalab/news/newsdetail/event-news/responsible-ai-als-chance-fuer-schweizer-kmu"
+            },
+            {
+              "position": 17,
+              "domain": "weka.ch",
+              "titel": "live webinar ki rechtssicher nutzen",
+              "url": "https://www.weka.ch/recht/datenschutz-und-it-recht/live-webinar-ki-rechtssicher-nutzen.html"
+            },
+            {
+              "position": 18,
+              "domain": "kmu.admin.ch",
+              "titel": "Zum Hauptinhalt springen",
+              "url": "https://www.kmu.admin.ch/de/fuenf-tipps-wie-man-ki-wirksam-im-unternehmen-einsetzt"
+            },
+            {
+              "position": 19,
+              "domain": "programm.inforomap.de",
+              "titel": "Roger Basler de Roca",
+              "url": "https://programm.inforomap.de/node/56"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:04:25.391Z",
+          "versuche": 1,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "24 Einträge für bahnhofstrasse 1 4104 oberwil - search.ch",
+              "url": "https://search.ch/tel/4104-oberwil/bahnhofstrasse-1/"
+            },
+            {
+              "position": 2,
+              "titel": "Bahnhofstrasse 1, 4104 Oberwil, Switzerland - Firmengeschichte",
+              "url": "https://www.addresshistory.ch/bahnhofstrasse-1-4104-oberwil-switzerland"
+            },
+            {
+              "position": 3,
+              "titel": "Coop retail - Supermärkte in Oberwil Bahnhofstrasse 1, 4104, Oberwil ...",
+              "url": "https://firmania.ch/oberwil-oberwil/coop-retail-709975"
+            },
+            {
+              "position": 4,
+              "titel": "Coop Oberwil Bahnhofstrasse – Import Parfumerie",
+              "url": "https://www.impo.ch/de/standorte/Coop-Oberwil-Bahnhofstrasse/s/1477_POS"
+            },
+            {
+              "position": 5,
+              "titel": "Coop Oberwil - Bahnhofstrasse 1, Oberwil - Fotos - Öffnungszeiten ...",
+              "url": "https://swisslisting.com/coopoberwiloberwil"
+            },
+            {
+              "position": 6,
+              "titel": "Coop Supermarkt Oberwil Bahnhofstrasse | coop.ch",
+              "url": "https://www.coop.ch/de/standorte/coop-supermarkt-oberwil-bahnhofstrasse/1477_POS"
+            },
+            {
+              "position": 7,
+              "titel": "Tchibo im Supermarkt in Oberwil (BL) | local.ch",
+              "url": "https://www.local.ch/de/d/oberwil-bl/4104/tchibo-im-supermarkt-UY6NMqxSaMsqvlNR5LATKA"
+            },
+            {
+              "position": 8,
+              "titel": "Karte: 4104 Oberwil - search.ch",
+              "url": "https://search.ch/map/4104-Oberwil"
+            },
+            {
+              "position": 9,
+              "titel": "Coop - Lebensmittelgeschäft in Oberwil (BL) | local.ch",
+              "url": "https://www.local.ch/de/d/oberwil-bl/4104/lebensmittelgeschaeft/coop-PVP_MflH99bnwXP-7KGVrQ"
+            },
+            {
+              "position": 10,
+              "titel": "Mendelin Benno - Massageinstitute in Oberwil Bahnhofstrasse 1, 4104 ...",
+              "url": "https://firmania.ch/oberwil-oberwil/mendelin-benno-348828"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 5,
+      "prompt": "Keynote Speaker Schweiz Agentic AI KI-Agenten",
+      "absicht": "Thema Agenten",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:22Z",
+          "genannt": "nein",
+          "genannt_voller_name": false,
+          "genannt_nachname": false,
+          "zitat": null,
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": 8,
+          "anzahl_links": 18,
+          "mitbewerber": [
+            "Cyril Imhof",
+            "Pascal Brunner-Nikolla",
+            "Tobias Jonas (innfactory.ai)",
+            "Bernd Burgdorf",
+            "Martin Hofmann"
+          ],
+          "anmerkung": "bilanz.ch Digital Shapers 2026 auf Link-Position 8, im Antworttext nicht verwendet.",
+          "links": [
+            {
+              "position": 1,
+              "domain": "sessionize.com",
+              "titel": "sessionize.com",
+              "url": "https://sessionize.com/s/pascal-brunner-nikolla/das-ende-des-promptings-arbeit-gestalten-in-einer-/158026"
+            },
+            {
+              "position": 2,
+              "domain": "sessionize.com",
+              "titel": "sessionize.com",
+              "url": "https://sessionize.com/s/pascal-brunner-nikolla/von-copilot-zu-teamkollegin-wenn-ki-teil-der-beleg/158024"
+            },
+            {
+              "position": 3,
+              "domain": "itreseller.ch",
+              "titel": "art incl pdf",
+              "url": "https://www.itreseller.ch/artikel/art_incl_pdf.cfm?aid=105657"
+            },
+            {
+              "position": 4,
+              "domain": "pretalx.com",
+              "titel": "DINAcon 2025",
+              "url": "https://pretalx.com/dinacon-2025/speaker/JBLJWT/"
+            },
+            {
+              "position": 5,
+              "domain": "sessionize.com",
+              "titel": "sessionize.com",
+              "url": "https://sessionize.com/s/pascal-brunner-nikolla/from-copilot-to-colleague-when-ai-becomes-part-of-/158023"
+            },
+            {
+              "position": 6,
+              "domain": "zhaw.ch",
+              "titel": "Eingabe löschen",
+              "url": "https://www.zhaw.ch/de/sml/institute-zentren/imm/martech-lab/swiss-martech-summit-2026/speakers"
+            },
+            {
+              "position": 7,
+              "domain": "sessionize.com",
+              "titel": "sessionize.com",
+              "url": "https://sessionize.com/s/pascal-brunner-nikolla/agent-007-war-gestern-heute-geht-es-um-copilot-age/158125"
+            },
+            {
+              "position": 8,
+              "domain": "bilanz.ch",
+              "titel": "www.bilanz.ch",
+              "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd"
+            },
+            {
+              "position": 9,
+              "domain": "zhaw.ch",
+              "titel": "Eingabe löschen",
+              "url": "https://www.zhaw.ch/de/sml/institute-zentren/imm/ueber-uns/marketing-management-labs/martech-lab/swiss-martech-summit-2026/speakers"
+            },
+            {
+              "position": 10,
+              "domain": "cmm360.ch",
+              "titel": "What AI Agents Need for Productive Use",
+              "url": "https://www.cmm360.ch/fr/articles/what-ai-agents-need-for-productive-use/"
+            },
+            {
+              "position": 11,
+              "domain": "netzwoche.ch",
+              "titel": "Agentic AI: Gesteuerte Autonomie als Erfolgsfaktor",
+              "url": "https://www.netzwoche.ch/news/2026-05-04/agentic-ai-gesteuerte-autonomie-als-erfolgsfaktor"
+            },
+            {
+              "position": 12,
+              "domain": "ssonetwork.com",
+              "titel": "Dr. Martin Hofmann",
+              "url": "https://www.ssonetwork.com/events-sharedserviceswoche/speakers/dr-martin-hofmann"
+            },
+            {
+              "position": 13,
+              "domain": "a-speakers.com",
+              "titel": "Go to main content Skip and go to the footer",
+              "url": "https://www.a-speakers.com/speakers/cyril-imhof"
+            },
+            {
+              "position": 14,
+              "domain": "sessionize.com",
+              "titel": "sessionize.com",
+              "url": "https://sessionize.com/s/pascal-brunner-nikolla/the-end-of-prompting-designing-work-in-an-agentic-/158025"
+            },
+            {
+              "position": 15,
+              "domain": "sessionize.com",
+              "titel": "sessionize.com",
+              "url": "https://sessionize.com/s/GregorBiswanger/vergiss-ki-agenten-warum-chatbots-nur-die-halbe-wa/124958"
+            },
+            {
+              "position": 16,
+              "domain": "futuristsspeakers.com",
+              "titel": "AGENTIC AI KEYNOTE SPEAKER AND ARTIFICIAL INTELLIGENCE FUTURIST FOR CORPORATE MEETINGS, CONFERENCES & VIRTUAL EVENTS",
+              "url": "https://www.futuristsspeakers.com/agentic-ai-keynote-speaker-futurist-sme/"
+            },
+            {
+              "position": 17,
+              "domain": "premium-speakers.com",
+              "titel": "bernd burgdorf",
+              "url": "https://premium-speakers.com/en/speaker-presenter/bernd-burgdorf/"
+            },
+            {
+              "position": 18,
+              "domain": "innfactory.ai",
+              "titel": "Zum Hauptinhalt springen",
+              "url": "https://innfactory.ai/de/leistungen/ki-vortraege/"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:04:45.042Z",
+          "versuche": 2,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "24 Einträge für bahnhofstrasse 1 4104 oberwil - search.ch",
+              "url": "https://search.ch/tel/4104-oberwil/bahnhofstrasse-1/"
+            },
+            {
+              "position": 2,
+              "titel": "Bahnhofstrasse 1, 4104 Oberwil, Switzerland - Firmengeschichte",
+              "url": "https://www.addresshistory.ch/bahnhofstrasse-1-4104-oberwil-switzerland"
+            },
+            {
+              "position": 3,
+              "titel": "Coop retail - Supermärkte in Oberwil Bahnhofstrasse 1, 4104, Oberwil ...",
+              "url": "https://firmania.ch/oberwil-oberwil/coop-retail-709975"
+            },
+            {
+              "position": 4,
+              "titel": "Coop Oberwil Bahnhofstrasse – Import Parfumerie",
+              "url": "https://www.impo.ch/de/standorte/Coop-Oberwil-Bahnhofstrasse/s/1477_POS"
+            },
+            {
+              "position": 5,
+              "titel": "Coop Oberwil - Bahnhofstrasse 1, Oberwil - Fotos - Öffnungszeiten ...",
+              "url": "https://swisslisting.com/coopoberwiloberwil"
+            },
+            {
+              "position": 6,
+              "titel": "Coop Supermarkt Oberwil Bahnhofstrasse | coop.ch",
+              "url": "https://www.coop.ch/de/standorte/coop-supermarkt-oberwil-bahnhofstrasse/1477_POS"
+            },
+            {
+              "position": 7,
+              "titel": "Tchibo im Supermarkt in Oberwil (BL) | local.ch",
+              "url": "https://www.local.ch/de/d/oberwil-bl/4104/tchibo-im-supermarkt-UY6NMqxSaMsqvlNR5LATKA"
+            },
+            {
+              "position": 8,
+              "titel": "Karte: 4104 Oberwil - search.ch",
+              "url": "https://search.ch/map/4104-Oberwil"
+            },
+            {
+              "position": 9,
+              "titel": "Coop - Lebensmittelgeschäft in Oberwil (BL) | local.ch",
+              "url": "https://www.local.ch/de/d/oberwil-bl/4104/lebensmittelgeschaeft/coop-PVP_MflH99bnwXP-7KGVrQ"
+            },
+            {
+              "position": 10,
+              "titel": "Mendelin Benno - Massageinstitute in Oberwil Bahnhofstrasse 1, 4104 ...",
+              "url": "https://firmania.ch/oberwil-oberwil/mendelin-benno-348828"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 6,
+      "prompt": "Keynote Speaker Schweiz KI im Marketing",
+      "absicht": "Thema Marketing",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:33Z",
+          "genannt": "nein",
+          "genannt_voller_name": false,
+          "genannt_nachname": false,
+          "zitat": null,
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": null,
+          "anzahl_links": 18,
+          "mitbewerber": [
+            "Jonathan Fearns (Accenture)",
+            "Cornelia Diethelm",
+            "Roger Basler de Roca",
+            "Daniel Hünebeck (KMU Digital)",
+            "Jens Polomski"
+          ],
+          "anmerkung": null,
+          "links": [
+            {
+              "position": 1,
+              "domain": "zhaw.ch",
+              "titel": "ZHAW Swiss MarTech Summit 2025 Programmbrosch%C3%BCre final",
+              "url": "https://www.zhaw.ch/storage/shared/sml/imm/ZHAW_Swiss_MarTech_Summit_2025_Programmbrosch%C3%BCre_final.pdf"
+            },
+            {
+              "position": 2,
+              "domain": "horizont.net",
+              "titel": "Professorin und KI-Expertin: Claudia Bünte",
+              "url": "https://www.horizont.net/schweiz/nachrichten/ki-expertin-claudia-buente-es-liegt-an-uns-menschen-diese-entwicklung-zu-steuern-218769"
+            },
+            {
+              "position": 3,
+              "domain": "zhaw.ch",
+              "titel": "SMTS Brosch%C3%BCre 2026",
+              "url": "https://www.zhaw.ch/storage/sml/institute-zentren/imm/upload/SMTS_Brosch%C3%BCre_2026.pdf"
+            },
+            {
+              "position": 4,
+              "domain": "horizont.net",
+              "titel": "Schweizer Werbe-Auftraggeberverband (SWA)",
+              "url": "https://www.horizont.net/schweiz/nachrichten/schweizer-werbe-auftraggeberverband-swa-swa-jahresmeeting-ganz-im-zeichen-der-kuenstlichen-intelligenz-218455"
+            },
+            {
+              "position": 5,
+              "domain": "zhaw.ch",
+              "titel": "Eingabe löschen",
+              "url": "https://www.zhaw.ch/de/sml/ueber-uns/news-und-medien/newsdetail/event-news/geo-ki-agenten-und-ein-award"
+            },
+            {
+              "position": 6,
+              "domain": "netzwoche.ch",
+              "titel": "\"AI in Marketing\"-Konferenz: Zwischen Technik und Kreativität",
+              "url": "https://www.netzwoche.ch/news/2026-08-31/ai-in-marketing-konferenz-zwischen-technik-und-kreativitaet"
+            },
+            {
+              "position": 7,
+              "domain": "netzwoche.ch",
+              "titel": "\"AI in Marketing\"-Konferenz: Zwischen Technik und Kreativität",
+              "url": "https://www.netzwoche.ch/news/2026-08-24/ai-in-marketing-konferenz-zwischen-technik-und-kreativitaet"
+            },
+            {
+              "position": 8,
+              "domain": "netzwoche.ch",
+              "titel": "AI im Marketing: Prognose für 2026",
+              "url": "https://www.netzwoche.ch/news/2026-01-26/ai-im-marketing-prognose-fuer-2026"
+            },
+            {
+              "position": 9,
+              "domain": "zhaw.ch",
+              "titel": "KI im Marketing: Wie Unternehmen künstliche Intelligenz sinnvoll und sicher einsetzen",
+              "url": "https://www.zhaw.ch/de/sml/institute-zentren/imm/digital-marketing-marketing-technology/ki-im-marketing"
+            },
+            {
+              "position": 10,
+              "domain": "zhaw.ch",
+              "titel": "KI im Marketing: Wie Unternehmen künstliche Intelligenz sinnvoll und sicher einsetzen",
+              "url": "https://www.zhaw.ch/de/sml/institute-zentren/imm/marketing-technology/ki-im-marketing"
+            },
+            {
+              "position": 11,
+              "domain": "programm.inforomap.de",
+              "titel": "What is real, what is AI? And how do we notice the (AI-small) difference",
+              "url": "https://programm.inforomap.de/en/node/61"
+            },
+            {
+              "position": 12,
+              "domain": "zhaw.ch",
+              "titel": "Eingabe löschen",
+              "url": "https://www.zhaw.ch/de/sml/institute-zentren/imm/ueber-uns/marketing-management-labs/martech-lab/swiss-martech-summit-2026/speakers"
+            },
+            {
+              "position": 13,
+              "domain": "cortinovis.de",
+              "titel": "www.cortinovis.de",
+              "url": "https://www.cortinovis.de/embed/"
+            },
+            {
+              "position": 14,
+              "domain": "fh-hwz.ch",
+              "titel": "Dozierendenliste CAS AI in Marketing HWZ 2026",
+              "url": "https://fh-hwz.ch/api/assets/b39afb0c-f7bc-46c9-a94f-76b9702db458/Dozierendenliste-CAS-AI-in-Marketing-HWZ-2026.pdf"
+            },
+            {
+              "position": 15,
+              "domain": "programm.inforomap.de",
+              "titel": "Roger Basler de Roca",
+              "url": "https://programm.inforomap.de/node/56"
+            },
+            {
+              "position": 16,
+              "domain": "kmudigital.ch",
+              "titel": "KI in Marketing KMU Digital V02",
+              "url": "https://kmudigital.ch/XooWebKit/bin/download.php/inline/94bf_75cb7a2255/KI_in_Marketing_KMU-Digital_V02.pdf"
+            },
+            {
+              "position": 17,
+              "domain": "haufe-akademie.de",
+              "titel": "ki im marketing",
+              "url": "https://www.haufe-akademie.de/events/anmelden/ki-im-marketing"
+            },
+            {
+              "position": 18,
+              "domain": "horizont.net",
+              "titel": "gastkommentar so verleiht ki dem marketing superkraefte 226511",
+              "url": "https://www.horizont.net/schweiz/nachrichten/gastkommentar-so-verleiht-ki-dem-marketing-superkraefte-226511"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:04:55.416Z",
+          "versuche": 1,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "Kosovo – Wikipedia",
+              "url": "https://de.wikipedia.org/wiki/Kosovo"
+            },
+            {
+              "position": 2,
+              "titel": "Geschichte des Kosovo – Wikipedia",
+              "url": "https://de.wikipedia.org/wiki/Geschichte_des_Kosovo"
+            },
+            {
+              "position": 3,
+              "titel": "Kosovo - Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Kosovo"
+            },
+            {
+              "position": 4,
+              "titel": "Kosovo | History, Map, Flag, Population, Languages, & Capital",
+              "url": "https://www.britannica.com/place/Kosovo"
+            },
+            {
+              "position": 5,
+              "titel": "Kosovo - aktuelle Nachrichten - tagesschau.de",
+              "url": "https://www.tagesschau.de/thema/kosovo"
+            },
+            {
+              "position": 6,
+              "titel": "Kosovo - aktuelle Lage - Demokratie - Regierung - Politisches System ...",
+              "url": "https://osteuropa.lpb-bw.de/kosovo-politisches-system"
+            },
+            {
+              "position": 7,
+              "titel": "Republic of Kosova - Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Republic_of_Kosova"
+            },
+            {
+              "position": 8,
+              "titel": "Kosovo - DER SPIEGEL",
+              "url": "https://www.spiegel.de/thema/kosovo/"
+            },
+            {
+              "position": 9,
+              "titel": "Kosovo - Eidgenössisches Departement für auswärtige …",
+              "url": "https://www.eda.admin.ch/deza/de/home/laender/kosovo.html"
+            },
+            {
+              "position": 10,
+              "titel": "Kosovo Länderinformationen - Länderprofil - Länderdaten - Steckbrief",
+              "url": "https://osteuropa.lpb-bw.de/kosovo-laenderprofil"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 7,
+      "prompt": "Keynote Speaker Schweiz Führung im KI-Zeitalter",
+      "absicht": "Thema Leadership",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:33Z",
+          "genannt": "nein",
+          "genannt_voller_name": false,
+          "genannt_nachname": false,
+          "zitat": null,
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": 5,
+          "anzahl_links": 19,
+          "mitbewerber": [
+            "Dalith Steiger-Gablinger (SwissCognitive)",
+            "Andy Fitze (SwissCognitive)",
+            "Jerzy Janeczko (Lonza)",
+            "Nicolas Sol (Booking.com)",
+            "Sami Atiya (ABB)"
+          ],
+          "anmerkung": "bilanz.ch Digital Shapers 2026 auf Link-Position 5; der Antworttext schreibt den Bilanz-Satz hier Steiger-Gablinger zu (\"Bilanz beschreibt Steiger-Gablinger als Keynote-Speakerin, die ihre Erfahrungen regelmässig weiter gibt\"), in Prompt 1 dagegen Beyeler. Welche Zuordnung stimmt, war nicht prüfbar (bilanz.ch aus dieser Sitzung nicht abrufbar).",
+          "links": [
+            {
+              "position": 1,
+              "domain": "pwc.ch",
+              "titel": "KI dort einsetzen, wo sie echte Probleme löst",
+              "url": "https://www.pwc.ch/de/insights/digital/pwc-imd-ki-update.html"
+            },
+            {
+              "position": 2,
+              "domain": "netzwoche.ch",
+              "titel": "Wie Führungskräfte im KI-Zeitalter unersetzbar bleiben",
+              "url": "https://www.netzwoche.ch/interviews/2026-01-28/wie-fuehrungskraefte-im-ki-zeitalter-unersetzbar-bleiben"
+            },
+            {
+              "position": 3,
+              "domain": "netzwoche.ch",
+              "titel": "Wieso KI noch in den Kinderschuhen steckt",
+              "url": "https://www.netzwoche.ch/news/2024-11-22/wieso-ki-noch-in-den-kinderschuhen-steckt"
+            },
+            {
+              "position": 4,
+              "domain": "netzwoche.ch",
+              "titel": "Wie Führungskräfte im KI-Zeitalter unersetzbar bleiben",
+              "url": "https://www.netzwoche.ch/interviews/2026-07-28/wie-fuehrungskraefte-im-ki-zeitalter-unersetzbar-bleiben"
+            },
+            {
+              "position": 5,
+              "domain": "bilanz.ch",
+              "titel": "www.bilanz.ch",
+              "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd"
+            },
+            {
+              "position": 6,
+              "domain": "netzwoche.ch",
+              "titel": "KI als Heilsbringer? Was Führungskräfte jetzt wirklich wissen müssen",
+              "url": "https://www.netzwoche.ch/news/2026-01-28/ki-als-heilsbringer-was-fuehrungskraefte-jetzt-wirklich-wissen-muessen"
+            },
+            {
+              "position": 7,
+              "domain": "netzwoche.ch",
+              "titel": "Partner-Post New Year's Executive Dinner der Adesso Schweiz",
+              "url": "https://www.netzwoche.ch/news/2026-01-19/herausforderung-trifft-chance-wie-fuehrungskraefte-die-ki-revolution-navigieren"
+            },
+            {
+              "position": 8,
+              "domain": "deutsche-handwerks-zeitung.de",
+              "titel": "Emotionale Intelligenz Wie KI Menschlichkeit als Führungsprinzip neu belebt",
+              "url": "https://www.deutsche-handwerks-zeitung.de/?p=370978"
+            },
+            {
+              "position": 9,
+              "domain": "claude.ai",
+              "titel": "7136b323 b8d6 46cb bbc1 5d8b1d417607",
+              "url": "https://claude.ai/public/artifacts/7136b323-b8d6-46cb-bbc1-5d8b1d417607"
+            },
+            {
+              "position": 10,
+              "domain": "it-daily.net",
+              "titel": "Die neue Führung",
+              "url": "https://www.it-daily.net/?p=163521"
+            },
+            {
+              "position": 11,
+              "domain": "weka.ch",
+              "titel": "KI-Kompass für Führungskräfte – Orientierung in der KI-gestützten Unternehmensführung",
+              "url": "https://www.weka.ch/fuehrung-kompetenzen/mitarbeiterfuehrung/ki-kompass-fuer-fuehrungskraefte.html"
+            },
+            {
+              "position": 12,
+              "domain": "netzwoche.ch",
+              "titel": "Digitale Skills für die Führungskräfte von morgen",
+              "url": "https://www.netzwoche.ch/news/2025-06-11/digitale-skills-fuer-die-fuehrungskraefte-von-morgen"
+            },
+            {
+              "position": 13,
+              "domain": "premium-speakers.com",
+              "titel": "Premium Speakers",
+              "url": "https://premium-speakers.com/en/speaker-presenter/katrin-j-yuan/booksoverview/"
+            },
+            {
+              "position": 14,
+              "domain": "weka.ch",
+              "titel": "www.weka.ch",
+              "url": "https://www.weka.ch/out/media/9165.pdf"
+            },
+            {
+              "position": 15,
+              "domain": "swisscognitive.ch",
+              "titel": "keynote speaker dalith steiger andy fitze",
+              "url": "https://swisscognitive.ch/keynote_speaker_dalith_steiger_andy_fitze/"
+            },
+            {
+              "position": 16,
+              "domain": "weka.ch",
+              "titel": "Zukunft der Arbeit: 9 Thesen zur Arbeitswelt von morgen",
+              "url": "https://www.weka.ch/themen/management/unternehmensfuehrung/unternehmenskultur/article/zukunft-der-arbeit-9-thesen-zur-arbeitswelt-von-morgen/"
+            },
+            {
+              "position": 17,
+              "domain": "omr.com",
+              "titel": "Future Leadership: Warum wir Führung in der KI-Ära neu denken müssen",
+              "url": "https://omr.com/de/reviews/contenthub/future-leadership"
+            },
+            {
+              "position": 18,
+              "domain": "peoplemanagingpeople.com",
+              "titel": "miriam gilbert 3",
+              "url": "https://peoplemanagingpeople.com/de/karriere/miriam-gilbert-3/"
+            },
+            {
+              "position": 19,
+              "domain": "premium-speakers.com",
+              "titel": "premium-speakers.com",
+              "url": "https://premium-speakers.com/en/?p=52412"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:05:05.252Z",
+          "versuche": 1,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "Karte: Zürich, Wollishofen - search.ch",
+              "url": "https://search.ch/map/Z%C3%BCrich,Wollishofen"
+            },
+            {
+              "position": 2,
+              "titel": "Karte Quartier Wollishofen - Karte Zürich",
+              "url": "https://www.kartezuerich.com/wollishofen/"
+            },
+            {
+              "position": 3,
+              "titel": "Karte Wollishofen - Zürich, Schweiz - Mapcarta",
+              "url": "https://mapcarta.com/de/N5053905862"
+            },
+            {
+              "position": 4,
+              "titel": "Karte Wollishofen - Stadtteil - Zürich, Schweiz - Mapcarta",
+              "url": "https://mapcarta.com/de/24936668"
+            },
+            {
+              "position": 5,
+              "titel": "Karte: Zürich, Wollishoferplatz (Haltestelle) - search.ch",
+              "url": "https://search.ch/map/Z%C3%BCrich,Wollishoferplatz-Haltestelle"
+            },
+            {
+              "position": 6,
+              "titel": "USZ Wollishofen - USZ Map - Lageplan USZ",
+              "url": "https://usz-map.ch/wollishofen/"
+            },
+            {
+              "position": 7,
+              "titel": "Wollishofen karte • maps routenplaner, landkarte",
+              "url": "https://www.routenplaner-karte.ch/landkarte/wollishofen"
+            },
+            {
+              "position": 8,
+              "titel": "Wollishofen – Wikipedia",
+              "url": "https://de.wikipedia.org/wiki/Wollishofen"
+            },
+            {
+              "position": 9,
+              "titel": "Zürich (Kreis 2) / Wollishofen, Letten: Stadtplan, Tipps & Infos | ADAC ...",
+              "url": "https://maps.adac.de/ortsteil/zuerich-kreis-2-wollishofen-letten"
+            },
+            {
+              "position": 10,
+              "titel": "Wollishofen - Zürich entfernung, karte",
+              "url": "https://www.routenplaner-karte.ch/wollishofen-zuerich"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 8,
+      "prompt": "KI Referent für Firmenevent Zürich",
+      "absicht": "Regional, Firmenanlass",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:33Z",
+          "genannt": "nein",
+          "genannt_voller_name": false,
+          "genannt_nachname": false,
+          "zitat": null,
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": null,
+          "anzahl_links": 16,
+          "mitbewerber": [
+            "Julian Yogeshwar (Hirschfeld)",
+            "Roger Basler de Roca (Hirschfeld)",
+            "Sarah Levy (Swisscom)",
+            "Agentur Hirschfeld",
+            "Zurich AI Festival"
+          ],
+          "anmerkung": null,
+          "links": [
+            {
+              "position": 1,
+              "domain": "netzwoche.ch",
+              "titel": "Wieso KI noch in den Kinderschuhen steckt",
+              "url": "https://www.netzwoche.ch/news/2024-11-22/wieso-ki-noch-in-den-kinderschuhen-steckt"
+            },
+            {
+              "position": 2,
+              "domain": "hirschfeld.de",
+              "titel": "www.hirschfeld.de",
+              "url": "https://www.hirschfeld.de/event/0528308-die-ki-frischzellenkur/pdf/druck.pdf"
+            },
+            {
+              "position": 3,
+              "domain": "zuerich.com",
+              "titel": "Momentum nutzen: Wie das Zurich AI Festival Zürich als KI-Hub stärkt",
+              "url": "https://www.zuerich.com/de/business/events-kongresse/wie-das-zurich-ai-festival-zuerich-als-ki-hub-staerkt"
+            },
+            {
+              "position": 4,
+              "domain": "zh.ch",
+              "titel": "Wenn KI vom Tool zur Teamkollegin wird – was dann?",
+              "url": "https://www.zh.ch/de/news-uebersicht/mitteilungen/2026/wirtschaft-arbeit/wenn-ki-vom-tool-zur-teamkollegin-wird.html"
+            },
+            {
+              "position": 5,
+              "domain": "netzwoche.ch",
+              "titel": "Partner-Post New Year's Executive Dinner der Adesso Schweiz",
+              "url": "https://www.netzwoche.ch/news/2026-01-19/herausforderung-trifft-chance-wie-fuehrungskraefte-die-ki-revolution-navigieren"
+            },
+            {
+              "position": 6,
+              "domain": "zkb.ch",
+              "titel": "Zum Hauptinhalt springen",
+              "url": "https://www.zkb.ch/de/unternehmen/kmu-wissen/angebote/zmorge-ki-fuer-kmu.html"
+            },
+            {
+              "position": 7,
+              "domain": "hirschfeld.de",
+              "titel": "www.hirschfeld.de",
+              "url": "https://www.hirschfeld.de/referent-speaker/0518210-roger-basler-de-roca/pdf/druck.pdf"
+            },
+            {
+              "position": 8,
+              "domain": "netzwoche.ch",
+              "titel": "Rauchende Köpfe und Küchen beim Swico",
+              "url": "https://www.netzwoche.ch/news/2024-04-22/rauchende-koepfe-und-kuechen-beim-swico"
+            },
+            {
+              "position": 9,
+              "domain": "thecmo.com",
+              "titel": "Die 16 besten KI-Marketing-Redner, die Sie 2026 buchen sollten",
+              "url": "https://thecmo.com/de/uncategorized-fi/ki-marketing-redner/"
+            },
+            {
+              "position": 10,
+              "domain": "hirschfeld.de",
+              "titel": "hirschfeld.de",
+              "url": "https://hirschfeld.de/event/0513099-hans-christian-boos/pdf/druck.pdf"
+            },
+            {
+              "position": 11,
+              "domain": "netzwoche.ch",
+              "titel": "\"AI in Marketing\"-Konferenz: Zwischen Technik und Kreativität",
+              "url": "https://www.netzwoche.ch/news/2026-08-31/ai-in-marketing-konferenz-zwischen-technik-und-kreativitaet"
+            },
+            {
+              "position": 12,
+              "domain": "hirschfeld.de",
+              "titel": "www.hirschfeld.de",
+              "url": "https://www.hirschfeld.de/event/0529609-julian-yogeshwar/pdf/druck.pdf"
+            },
+            {
+              "position": 13,
+              "domain": "netzwoche.ch",
+              "titel": "Adesso Schweiz läutet das Jahr mit Gesprächen über KI ein",
+              "url": "https://www.netzwoche.ch/news/2024-02-07/adesso-schweiz-laeutet-das-jahr-mit-ki-gespraechen-ein"
+            },
+            {
+              "position": 14,
+              "domain": "zh.ch",
+              "titel": "Hello, AI!: Künstliche Intelligenz gemeinsam gestalten",
+              "url": "https://www.zh.ch/de/news-uebersicht/mitteilungen/2025/wirtschaft-arbeit/hello-ai-kuenstliche-intelligenz-gemeinsam-gestalten.html"
+            },
+            {
+              "position": 15,
+              "domain": "mynejo.com",
+              "titel": "Dein persönlicher KI-Karriere-Agent",
+              "url": "https://mynejo.com/de-ch/job/event-sponsoring-manager~33886d4f-15ba-4944-9514-be068dcd79bc"
+            },
+            {
+              "position": 16,
+              "domain": "luma.com",
+              "titel": "Titelbild für Die Zukunft der Arbeit im KI-Zeitalter",
+              "url": "https://luma.com/y5vchux0?locale=de"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:05:15.736Z",
+          "versuche": 1,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "Liste | Rheinfall",
+              "url": "https://rheinfall.ch/informieren/anreise/liste"
+            },
+            {
+              "position": 2,
+              "titel": "Karte | Rheinfall",
+              "url": "https://rheinfall.ch/informieren/parking/karte"
+            },
+            {
+              "position": 3,
+              "titel": "Rheinfall Schaffhausen: Alles was du wissen musst — Tipps, Preise ...",
+              "url": "https://switzerlandscenic.ch/rheinfall-schaffhausen-alles-was-du-wissen-musst-tipps-preise-anreise/"
+            },
+            {
+              "position": 4,
+              "titel": "Anreise Rheinfall - Schifffahrt am Rheinfall - Rhyfall Mändli",
+              "url": "https://rhyfall-maendli.ch/planen-informieren/anreise-rheinfall/"
+            },
+            {
+              "position": 5,
+              "titel": "Rheinfall – Wikipedia",
+              "url": "https://de.wikipedia.org/wiki/Rheinfall"
+            },
+            {
+              "position": 6,
+              "titel": "Schifffahrt am Rheinfall - Erlebe den Rheinfall hautnah",
+              "url": "https://rhyfall-maendli.ch/"
+            },
+            {
+              "position": 7,
+              "titel": "Rheinfall heute: Abfluss, Wasserstand und Besuch | Seepegel",
+              "url": "https://seepegel.ch/de/fluesse/rheinfall"
+            },
+            {
+              "position": 8,
+              "titel": "Rheinfall - Karte",
+              "url": "https://karte.rheinfall.ch/"
+            },
+            {
+              "position": 9,
+              "titel": "Wie komme ich zum Rheinfall? - Hilfecenter Schweiz Tourismus",
+              "url": "https://help.myswitzerland.com/hc/de/articles/213253549-Wie-komme-ich-zum-Rheinfall"
+            },
+            {
+              "position": 10,
+              "titel": "Rheinfallquai – Der ideale Startpunkt am Rheinfall",
+              "url": "https://schiffmaendli.ch/erleben/rheinfall/rheinfallquai/"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 9,
+      "prompt": "AI keynote speaker Switzerland",
+      "absicht": "Englisch",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:33Z",
+          "genannt": "nein",
+          "genannt_voller_name": false,
+          "genannt_nachname": false,
+          "zitat": null,
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": null,
+          "anzahl_links": 19,
+          "mitbewerber": [
+            "Mark van Rijmenam (thedigitalspeaker.com)",
+            "Andy Fitze",
+            "Dalith Steiger-Gablinger",
+            "Andrew Grill",
+            "Alex Goryachev"
+          ],
+          "anmerkung": null,
+          "links": [
+            {
+              "position": 1,
+              "domain": "actionablefuturist.com",
+              "titel": "Beyond the Buzz: Five AI Actions Every Technology Leader Must Take Now",
+              "url": "https://actionablefuturist.com/events/richmond-events-switzerland-13-april-2027"
+            },
+            {
+              "position": 2,
+              "domain": "swisscognitive.ch",
+              "titel": "keynote speaker dalith steiger andy fitze",
+              "url": "https://swisscognitive.ch/keynote_speaker_dalith_steiger_andy_fitze/"
+            },
+            {
+              "position": 3,
+              "domain": "premium-speakers.com",
+              "titel": "premium-speakers.com",
+              "url": "https://premium-speakers.com/en/?p=113799"
+            },
+            {
+              "position": 4,
+              "domain": "premium-speakers.com",
+              "titel": "bernd burgdorf",
+              "url": "https://premium-speakers.com/en/speaker-presenter/bernd-burgdorf/"
+            },
+            {
+              "position": 5,
+              "domain": "my.duda.co",
+              "titel": "Speech at EPFL Lausanne together with an interactive AI Avatar",
+              "url": "https://my.duda.co/site/422a8909/de/ai-speeches"
+            },
+            {
+              "position": 6,
+              "domain": "swisstext.org",
+              "titel": "Keynote Speakers at SwissText",
+              "url": "https://www.swisstext.org/?p=4411"
+            },
+            {
+              "position": 7,
+              "domain": "champions-speakers.co.uk",
+              "titel": "andy fitze",
+              "url": "https://champions-speakers.co.uk/speaker-agent/andy-fitze"
+            },
+            {
+              "position": 8,
+              "domain": "zhaw.ch",
+              "titel": "7th European COST Conference on Artificial Intelligence in Industry and Finance",
+              "url": "https://zhaw.ch/en/engineering/institutes-centres/iamp/events/artificial-intelligence-in-industry-and-finance"
+            },
+            {
+              "position": 9,
+              "domain": "zhaw.ch",
+              "titel": "7th European COST Conference on Artificial Intelligence in Industry and Finance",
+              "url": "https://www.zhaw.ch/iamp/industrial-mathematics"
+            },
+            {
+              "position": 10,
+              "domain": "everand.com",
+              "titel": "Roger Basler de Roca",
+              "url": "https://www.everand.com/author/867929588/Roger-Basler-de-Roca"
+            },
+            {
+              "position": 11,
+              "domain": "lu.ma",
+              "titel": "AI conf 2025",
+              "url": "https://lu.ma/AI-conf-2025"
+            },
+            {
+              "position": 12,
+              "domain": "leading-minds.com",
+              "titel": "Benjamin Bargetzi",
+              "url": "https://leading-minds.com/en/expert/benjamin-bargetzi"
+            },
+            {
+              "position": 13,
+              "domain": "alexgoryachev.com",
+              "titel": "A global voice on agentic AI & innovation",
+              "url": "https://www.alexgoryachev.com/locations/geneva"
+            },
+            {
+              "position": 14,
+              "domain": "thedigitalspeaker.com",
+              "titel": "Book an AI Keynote Speaker for your Event in Switzerland",
+              "url": "https://www.thedigitalspeaker.com/ai-keynote-speaker-switzerland"
+            },
+            {
+              "position": 15,
+              "domain": "a-speakers.com",
+              "titel": "Go to main content Skip and go to the footer",
+              "url": "https://www.a-speakers.com/topic/artificial-intelligence/?page=3"
+            },
+            {
+              "position": 16,
+              "domain": "premium-speakers.com",
+              "titel": "premium-speakers.com",
+              "url": "https://premium-speakers.com/en/?p=52412"
+            },
+            {
+              "position": 17,
+              "domain": "women-speaker.com",
+              "titel": "Speaker Dalith Steiger",
+              "url": "https://www.women-speaker.com/keynote-speaker/dalith-steiger-26"
+            },
+            {
+              "position": 18,
+              "domain": "pwc.ch",
+              "titel": "AI unbound",
+              "url": "https://www.pwc.ch/en/insights/digital/ai-unbound.html"
+            },
+            {
+              "position": 19,
+              "domain": "thedigitalspeaker.com",
+              "titel": "Book an Artificial intelligence Keynote Speaker for your Event in Switzerland",
+              "url": "https://www.thedigitalspeaker.com/artificial-intelligence-keynote-speaker-switzerland"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:05:25.172Z",
+          "versuche": 1,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "Krim – Wikipedia",
+              "url": "https://de.wikipedia.org/wiki/Krim"
+            },
+            {
+              "position": 2,
+              "titel": "Autonome Republik Krim – Wikipedia",
+              "url": "https://de.wikipedia.org/wiki/Autonome_Republik_Krim"
+            },
+            {
+              "position": 3,
+              "titel": "Institut für Strafrecht und Kriminologie",
+              "url": "https://www.krim.unibe.ch/"
+            },
+            {
+              "position": 4,
+              "titel": "Krim Geschichte - Konflikt aktuell - Ukraine oder Russland? Wem …",
+              "url": "https://www.lpb-bw.de/ukraine-krim"
+            },
+            {
+              "position": 5,
+              "titel": "Krim: News zur ukrainischen Halbinsel | DIE ZEIT",
+              "url": "https://www.zeit.de/thema/krim"
+            },
+            {
+              "position": 6,
+              "titel": "Krim – Aktuelle News und alle Artikel zum Thema | NZZ",
+              "url": "https://www.nzz.ch/themen/krim"
+            },
+            {
+              "position": 7,
+              "titel": "Krim - aktuelle Nachrichten - tagesschau.de",
+              "url": "https://www.tagesschau.de/thema/krim"
+            },
+            {
+              "position": 8,
+              "titel": "Die so andere Geschichte der Halbinsel Krim – infosperber",
+              "url": "https://www.infosperber.ch/politik/welt/die-so-andere-geschichte-der-halbinsel-krim/"
+            },
+            {
+              "position": 9,
+              "titel": "Crimea - Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Crimea"
+            },
+            {
+              "position": 10,
+              "titel": "Halbinsel: Und plötzlich gehörte die Krim zur Ukraine - WELT",
+              "url": "https://www.welt.de/geschichte/article67e967b37d9ef62cd5d09d60/Halbinsel-Und-ploetzlich-gehoerte-die-Krim-zur-Ukraine.html"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    },
+    {
+      "nr": 10,
+      "prompt": "Wer ist Chris Beyeler?",
+      "absicht": "Marken-Prompt (Faktentreue)",
+      "kanaele": {
+        "A_websearch": {
+          "status": "ok",
+          "zeitstempel": "2026-11-14T19:00:33Z",
+          "genannt": "ja",
+          "genannt_voller_name": true,
+          "genannt_nachname": true,
+          "zitat": "Die Suche liefert einen klaren Treffer: Chris Beyeler ist laut CAMPIXX-Speakerprofil ein Experte für Digital Marketing, der mit der Agentur Beyonder aus der Schweiz verbunden ist.",
+          "eigene_domain_in_links": false,
+          "position_eigene_domain": null,
+          "eigene_domain_treffer": [],
+          "position_bilanz_digital_shapers_2026": null,
+          "anzahl_links": 20,
+          "mitbewerber": [],
+          "anmerkung": "Einzige Quelle: campixx.de (Link-Positionen 3 und 4). beyonder.ch wird im Fliesstext erwähnt, ist aber kein Link-Treffer. Alle übrigen Treffer betreffen andere Personen (Christoph, Peter, Thomas, Alain, Simon, André Beyeler).",
+          "faktencheck": {
+            "referenz": {
+              "Gründer und CEO BEYONDER AG": "teilweise: Verbindung zu \"Agentur Beyonder\" genannt, Rolle Gründer/CEO und Rechtsform AG fehlen",
+              "Präsident swissAI": "fehlt",
+              "Host AI Cast": "fehlt",
+              "Digital Shaper 2026": "fehlt",
+              "Standort Gebenstorf AG": "fehlt (nur \"aus der Schweiz\")"
+            },
+            "genannteFakten": [
+              "Experte für Digital Marketing (CAMPIXX-Profil)",
+              "verbunden mit der Agentur Beyonder aus der Schweiz (beyonder.ch)",
+              "Autor und Speaker",
+              "hat \"fast Jahre\" (Zahl fehlt im Antworttext) in einer renommierten Schweizer Agentur und Softwarehaus gearbeitet",
+              "Wissen über Marketing, eCommerce und Strategie"
+            ],
+            "bewertung": "Keine nachweislich falsche Aussage, aber veraltetes und unvollständiges Bild: Positionierung als Digital-Marketing-Experte statt KI-Keynote-Speaker; 0 von 5 Referenzfakten vollständig, 1 von 5 teilweise. KI, swissAI, AI Cast, Digital Shaper und Gebenstorf kommen nicht vor."
+          },
+          "links": [
+            {
+              "position": 1,
+              "domain": "de.marketscreener.com",
+              "titel": "CHRIS WHEELER A3SARF",
+              "url": "https://de.marketscreener.com/insider/CHRIS-WHEELER-A3SARF/"
+            },
+            {
+              "position": 2,
+              "domain": "be.marketscreener.com",
+              "titel": "CHRISTIAN BEYELER A1AKEJ",
+              "url": "https://be.marketscreener.com/insider/CHRISTIAN-BEYELER-A1AKEJ/"
+            },
+            {
+              "position": 3,
+              "domain": "campixx.de",
+              "titel": "Speaker & Autoren der CAMPIXX",
+              "url": "https://www.campixx.de/experten/beyeler-chris/"
+            },
+            {
+              "position": 4,
+              "domain": "campixx.de",
+              "titel": "Speaker & Autoren der CAMPIXX",
+              "url": "https://www.campixx.de/?p=49567"
+            },
+            {
+              "position": 5,
+              "domain": "graph.swiss",
+              "titel": "Christoph Beyeler",
+              "url": "https://graph.swiss/people/christoph-beyeler/539644"
+            },
+            {
+              "position": 6,
+              "domain": "bwi.ch",
+              "titel": "André Beyeler",
+              "url": "https://www.bwi.ch/en/about-us/the-bwi-team/andre-beyeler"
+            },
+            {
+              "position": 7,
+              "domain": "speedskatingnews.info",
+              "titel": "Athlete Data of ? Beyeler",
+              "url": "https://speedskatingnews.info/skater/beyeler/compare-records"
+            },
+            {
+              "position": 8,
+              "domain": "be.marketscreener.com",
+              "titel": "ALAIN BEYELER A1S4ST",
+              "url": "https://be.marketscreener.com/insider/ALAIN-BEYELER-A1S4ST"
+            },
+            {
+              "position": 9,
+              "domain": "moneyhouse.ch",
+              "titel": "beyeler peter",
+              "url": "https://www.moneyhouse.ch/en/list/person/beyeler-peter"
+            },
+            {
+              "position": 10,
+              "domain": "de.marketscreener.com",
+              "titel": "Christopher Beyer",
+              "url": "https://de.marketscreener.com/insider/CHRISTOPHER-BEYER-A1Y0YR/"
+            },
+            {
+              "position": 11,
+              "domain": "moneyhouse.ch",
+              "titel": "• Peter Beyeler",
+              "url": "https://www.moneyhouse.ch/de/person/beyeler-peter-75012735501"
+            },
+            {
+              "position": 12,
+              "domain": "wikiwand.com",
+              "titel": "Simon Beyeler",
+              "url": "https://www.wikiwand.com/en/Simon_Beyeler"
+            },
+            {
+              "position": 13,
+              "domain": "bfh.ch",
+              "titel": "thomas beyeler",
+              "url": "https://www.bfh.ch/de/thomas-beyeler"
+            },
+            {
+              "position": 14,
+              "domain": "cybersecurity.dsi.uzh.ch",
+              "titel": "chris eckert",
+              "url": "https://cybersecurity.dsi.uzh.ch/member/chris-eckert/"
+            },
+            {
+              "position": 15,
+              "domain": "clarity.fm",
+              "titel": "clarity.fm",
+              "url": "https://clarity.fm/chrisschwegler"
+            },
+            {
+              "position": 16,
+              "domain": "ch.linkedin.com",
+              "titel": "ch.linkedin.com",
+              "url": "https://ch.linkedin.com/in/cfbiehl"
+            },
+            {
+              "position": 17,
+              "domain": "morewinemaking.com",
+              "titel": "morewinemaking.com",
+              "url": "https://morewinemaking.com/about/staff/2"
+            },
+            {
+              "position": 18,
+              "domain": "theorg.com",
+              "titel": "peter beyeler",
+              "url": "https://theorg.com/org/clariant/org-chart/peter-beyeler"
+            },
+            {
+              "position": 19,
+              "domain": "startupintros.com",
+              "titel": "chris aeberli",
+              "url": "https://startupintros.com/people/chris-aeberli"
+            },
+            {
+              "position": 20,
+              "domain": "arcteryx.com",
+              "titel": "Chris Benchetler",
+              "url": "https://arcteryx.com/be/de/athletes/chris-benchetler"
+            }
+          ]
+        },
+        "B_google": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: IP-weite reCAPTCHA-Sperre nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "treffer": []
+        },
+        "B_duckduckgo": {
+          "status": "blockiert",
+          "zeitstempel": null,
+          "versuche": 0,
+          "grund": "nicht abgefragt: HTTP 403 nach 2 Versuchen bei Prompt 1, Abbruch gemäss Vorgabe",
+          "genannt": null,
+          "position": null,
+          "treffer": []
+        },
+        "B_bing": {
+          "status": "blockiert",
+          "zeitstempel": "2026-11-14T19:06:00.565Z",
+          "versuche": 2,
+          "grund": "Treffer ohne Bezug zur Suchanfrage (Bot-Degradierung), nicht verwertbar",
+          "genannt": null,
+          "position": null,
+          "ki_uebersicht": null,
+          "name_im_seitentext": false,
+          "ungueltige_treffer_beleg": [
+            {
+              "position": 1,
+              "titel": "Frankreich – Wikipedia",
+              "url": "https://de.wikipedia.org/wiki/Frankreich"
+            },
+            {
+              "position": 2,
+              "titel": "Frankreich - aktuelle Nachrichten - tagesschau.de",
+              "url": "https://www.tagesschau.de/thema/frankreich"
+            },
+            {
+              "position": 3,
+              "titel": "Region (Frankreich) – Wikipedia",
+              "url": "https://de.wikipedia.org/wiki/Region_(Frankreich)"
+            },
+            {
+              "position": 4,
+              "titel": "Frankreich - TCS Schweiz",
+              "url": "https://www.tcs.ch/de/camping-reisen/reiseinformationen/laenderinfos/frankreich.php"
+            },
+            {
+              "position": 5,
+              "titel": "Frankreich: Aktuelle News, Bilder & Nachrichten - WELT",
+              "url": "https://www.welt.de/themen/frankreich/"
+            },
+            {
+              "position": 6,
+              "titel": "Frankreich - Eidgenössische Steuerverwaltung",
+              "url": "https://www.estv.admin.ch/de/frankreich"
+            },
+            {
+              "position": 7,
+              "titel": "Frankreich - DER SPIEGEL",
+              "url": "https://www.spiegel.de/thema/frankreich/"
+            },
+            {
+              "position": 8,
+              "titel": "France.fr: Entdecken Sie Frankreich und seine Wunder",
+              "url": "https://www.france.fr/de/"
+            },
+            {
+              "position": 9,
+              "titel": "Frankreich - Eidgenössisches Departement für auswärtige ...",
+              "url": "https://www.eda.admin.ch/de/land-frankreich"
+            },
+            {
+              "position": 10,
+              "titel": "Steckbrief Frankreich - FRANCE.FR",
+              "url": "https://www.france.fr/de/artikel/steckbrief-frankreich/"
+            }
+          ]
+        },
+        "C_chatgpt": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_perplexity": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_gemini": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        },
+        "C_copilot": {
+          "status": "offen",
+          "grund": "Login nötig, nicht versucht"
+        }
+      }
+    }
+  ],
+  "auswertung": {
+    "kanal_A": {
+      "gemessen": 10,
+      "voller_name_genannt": [
+        10
+      ],
+      "nur_nachname_genannt": [
+        1,
+        3
+      ],
+      "nicht_genannt": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "eigene_domain_in_links": "bei keinem der 10 Prompts (0 von 181 Links)",
+      "bilanz_digital_shapers_2026_in_links": [
+        {
+          "nr": 1,
+          "position": 4
+        },
+        {
+          "nr": 2,
+          "position": 1
+        },
+        {
+          "nr": 3,
+          "position": 1
+        },
+        {
+          "nr": 4,
+          "position": 8
+        },
+        {
+          "nr": 5,
+          "position": 8
+        },
+        {
+          "nr": 7,
+          "position": 5
+        }
+      ],
+      "haeufigste_mitbewerber_prompts_1_bis_9": [
+        {
+          "name": "Andy Fitze",
+          "anzahl_prompts": 4
+        },
+        {
+          "name": "Dalith Steiger-Gablinger",
+          "anzahl_prompts": 3
+        },
+        {
+          "name": "Roger Basler de Roca",
+          "anzahl_prompts": 3
+        },
+        {
+          "name": "Tobias Jonas",
+          "anzahl_prompts": 2
+        },
+        {
+          "name": "Benjamin Bargetzi",
+          "anzahl_prompts": 2
+        }
+      ],
+      "haeufigste_zitierte_domains": [
+        {
+          "domain": "netzwoche.ch",
+          "in_prompts": 6
+        },
+        {
+          "domain": "bilanz.ch",
+          "in_prompts": 6
+        },
+        {
+          "domain": "premium-speakers.com",
+          "in_prompts": 6
+        },
+        {
+          "domain": "zhaw.ch",
+          "in_prompts": 5
+        },
+        {
+          "domain": "claude.ai",
+          "in_prompts": 4
+        },
+        {
+          "domain": "swisscognitive.ch",
+          "in_prompts": 4
+        },
+        {
+          "domain": "innfactory.ai",
+          "in_prompts": 3
+        },
+        {
+          "domain": "sessionize.com",
+          "in_prompts": 2
+        },
+        {
+          "domain": "expert-marketplace.de",
+          "in_prompts": 2
+        },
+        {
+          "domain": "thecmo.com",
+          "in_prompts": 2
+        },
+        {
+          "domain": "weka.ch",
+          "in_prompts": 2
+        },
+        {
+          "domain": "bfh.ch",
+          "in_prompts": 2
+        },
+        {
+          "domain": "programm.inforomap.de",
+          "in_prompts": 2
+        },
+        {
+          "domain": "a-speakers.com",
+          "in_prompts": 2
+        },
+        {
+          "domain": "pwc.ch",
+          "in_prompts": 2
+        }
+      ],
+      "anzahl_links_total": 181
+    },
+    "kanal_B": {
+      "gemessen": 0,
+      "hinweis": "Google, DuckDuckGo und Bing blockiert bzw. unbrauchbar; keine SERP-Position und keine KI-Übersicht messbar."
+    },
+    "kanal_C": {
+      "gemessen": 0,
+      "hinweis": "offen"
+    }
+  }
+}

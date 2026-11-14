@@ -25,7 +25,7 @@ const FAQ_DATABASE = {
     },
     'chris': {
         keywords: ['chris', 'beyeler', 'wer', 'person', 'bio', 'ueber'],
-        answer: 'Ich bin die digitale Version von Chris Beyeler. KI-Experte, Keynote Speaker, Gründer & CEO der BEYONDER AG und Präsident von swissAI. Seit 2016 im KI-Game, über 2500 Menschen ausgebildet, 70+ Keynotes, 150+ Podcast-Episoden. Digital Shaper 2026. Quellcode im Blut, Neugier im Kopf.'
+        answer: 'Ich bin die digitale Version von Chris Beyeler. KI-Experte, Keynote Speaker, Gründer & CEO der BEYONDER AG und Präsident von swissAI. Seit 2016 im KI-Game, über 2500 Menschen ausgebildet, 70+ Keynotes, 150 Podcast-Episoden. Digital Shaper 2026. Quellcode im Blut, Neugier im Kopf.'
     },
     'karriere': {
         keywords: ['karriere', 'lebenslauf', 'cv', 'werdegang', 'erfahrung', 'recruiting', 'siroop', 'mysign'],
@@ -33,11 +33,11 @@ const FAQ_DATABASE = {
     },
     'swissai': {
         keywords: ['swissai', 'kimpact', 'verein', 'verband', 'schweiz', 'ki verband'],
-        answer: 'swissAI ist der Schweizer Verband für Künstliche Intelligenz, den ich 2023 gegründet habe (damals noch als KImpact). Rund 300 Mitglieder, gemeinnützig. Unsere Mission: Wissen teilen, Dialog fördern und verantwortungsvolle Innovation vorantreiben. Mehr auf swissai.ch'
+        answer: 'swissAI ist der Schweizer Verband für Künstliche Intelligenz, den ich 2023 gegründet habe (damals noch als KImpact). Über 400 Mitglieder, gemeinnützig. Unsere Mission: Wissen teilen, Dialog fördern und verantwortungsvolle Innovation vorantreiben. Mehr auf swissai.ch'
     },
     'beyonder': {
         keywords: ['beyonder', 'firma', 'unternehmen', 'ag', 'kompetenzzentrum', 'team'],
-        answer: 'BEYONDER ist mein Baby. Schweizer KI-Kompetenzzentrum in Gebenstorf. 2019 gegründet, seit Juli 2025 eine AG mit Vollfokus auf KI. Mein Team: David Henzmann, Michi Kyburz, Raphael Pflugi und Luca Conconi. Wir machen Schulungen, Beratung, Implementierung und Keynotes. Kunden wie SUVA, Rotes Kreuz, BKW und Mobiliar vertrauen uns. 4.9/5 auf Google mit 133 Reviews. Mehr auf beyonder.ch'
+        answer: 'BEYONDER ist mein Baby. Schweizer KI-Kompetenzzentrum in Gebenstorf. 2019 gegründet, seit Juli 2025 eine AG mit Vollfokus auf KI. Mein Team: David Henzmann, Michi Kyburz, Raphael Pflugi und Luca Conconi. Wir machen Schulungen, Beratung, Implementierung und Keynotes. Kunden wie SUVA, Rotes Kreuz, BKW und Mobiliar vertrauen uns. 4.9/5 auf Google bei 165 Bewertungen. Mehr auf beyonder.ch'
     },
     'schulung': {
         keywords: ['workshop', 'schulung', 'training', 'kurs', 'lernen', 'masterclass', 'weiterbildung'],
@@ -45,7 +45,7 @@ const FAQ_DATABASE = {
     },
     'podcast': {
         keywords: ['podcast', 'ai cast', 'episode', 'spotify', 'apple', 'youtube', 'marketing booster'],
-        answer: 'Mein Podcast heisst AI Cast (früher Marketing BOOSTER). 150+ Episoden seit 2019, 1000 Abonnenten, 8000 Reichweite pro Folge. Ich rede über KI in der Praxis, Mensch & Maschine, Zukunft & Verantwortung. Auf Spotify, Apple Podcasts und YouTube. Reinhören: aicast.ch'
+        answer: 'Mein Podcast heisst AI Cast (früher Marketing BOOSTER). 150 Episoden seit 2019, 1000 Abonnenten, 8000 Reichweite pro Folge. Ich rede über KI in der Praxis, Mensch & Maschine, Zukunft & Verantwortung. Auf Spotify, Apple Podcasts und YouTube. Reinhören: aicast.ch'
     },
     'kontakt': {
         keywords: ['kontakt', 'email', 'mail', 'erreichen', 'schreiben', 'telefon', 'adresse'],
@@ -53,7 +53,7 @@ const FAQ_DATABASE = {
     },
     'digital_shaper': {
         keywords: ['digital shaper', 'auszeichnung', 'award', 'ringier', 'bilanz', 'acrobat'],
-        answer: '2026 wurde ich als Digital Shaper ausgezeichnet, von Ringier, Bilanz und Handelszeitung in der Kategorie «AI Acrobats». Die Digital Shapers ehren Persönlichkeiten, die die Digitalisierung in der Schweiz vorantreiben. Freut mich natürlich, aber die eigentliche Arbeit zählt mehr als der Titel.'
+        answer: '2026 wurde ich als Digital Shaper ausgezeichnet, von Bilanz, Handelszeitung, PME und digitalswitzerland in der Kategorie «AI Acrobats». Die Digital Shapers ehren Persönlichkeiten, die die Digitalisierung in der Schweiz vorantreiben. Freut mich natürlich, aber die eigentliche Arbeit zählt mehr als der Titel.'
     },
     'dozent': {
         keywords: ['dozent', 'hwz', 'maz', 'sib', 'hochschule', 'universitaet', 'lehre', 'studiengang'],
@@ -61,7 +61,7 @@ const FAQ_DATABASE = {
     },
     'review': {
         keywords: ['review', 'bewertung', 'rezension', 'google', 'proven', 'sterne', 'erfahrung', 'feedback'],
-        answer: '4.9 von 5 Sternen auf Google mit 133 Reviews, 4.47 auf ProvenExpert. Meine Teilnehmer schätzen die Praxisnähe und die verständlichen Erklärungen. «Hat meine Erwartungen übertroffen» (Daniel Keller), «Bringt Inspiration auf die Bühne» (Romi Hofer). Das freut mich jedes Mal.'
+        answer: '4.9 von 5 Sternen auf Google bei 165 Bewertungen für BEYONDER (Stand November 2026). Meine Teilnehmer schätzen die Praxisnähe und die verständlichen Erklärungen. «Hat meine Erwartungen übertroffen» (Daniel Keller), «Bringt Inspiration auf die Bühne» (Romi Hofer). Das freut mich jedes Mal.'
     },
     'essay': {
         keywords: ['essay', 'manifest', 'text', 'artikel', 'zukunft', 'meinung'],

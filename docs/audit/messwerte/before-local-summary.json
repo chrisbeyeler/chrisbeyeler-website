@@ -1,0 +1,18 @@
+{
+ "label": "before-local",
+ "runs": 5,
+ "perf": 82,
+ "a11y": 91,
+ "bp": 100,
+ "seo": 100,
+ "FCP_ms": 1811,
+ "LCP_ms": 3681,
+ "TBT_ms": 342,
+ "CLS": 0.001,
+ "SI_ms": 1955,
+ "TTI_ms": 3902,
+ "bytes": 1470544,
+ "requests": 23,
+ "perfRange": "75/87/81/85/82",
+ "LCPrange": "4046/3576/3681/3835/3397"
+}

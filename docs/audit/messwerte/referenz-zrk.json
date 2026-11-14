@@ -1,0 +1,1360 @@
+{
+ "url": "https://www.zrk.technology/",
+ "label": "zrk",
+ "desktop": {
+  "loadEventMs": 8945,
+  "atLoad": {
+   "n": 520,
+   "bytes": 52778136
+  },
+  "total": {
+   "n": 520,
+   "bytes": 52778136
+  },
+  "byType": {
+   "document": {
+    "n": 1,
+    "b": 60983
+   },
+   "stylesheet": {
+    "n": 1,
+    "b": 19983
+   },
+   "image": {
+    "n": 494,
+    "b": 24939358
+   },
+   "script": {
+    "n": 10,
+    "b": 230922
+   },
+   "font": {
+    "n": 2,
+    "b": 181207
+   },
+   "media": {
+    "n": 7,
+    "b": 27297466
+   },
+   "xhr": {
+    "n": 5,
+    "b": 48217
+   }
+  },
+  "fontFiles": [
+   "6a6b45050da8002d7ece657c_InterDisplay-Medium.woff2 139KB",
+   "6a6b45050da8002d7ece6575_GeistMono-Regular.ttf 38KB"
+  ],
+  "topReqs": [
+   "20305KB media https://pub-758149a6f557428488e5e1bf30c43d26.r2.dev/zirka%20video%20horizontal-2.mp4",
+   "4029KB media https://cdn.prod.website-files.com/6a6b45050da8002d7ece655c/6a6b45050da8002d7ece68e5_%D0%A0%D0%BE%D0",
+   "1097KB image https://cdn.prod.website-files.com/6a6b45050da8002d7ece655c/6a6b45050da8002d7ece6593_KADAK-Grain%20(",
+   "597KB media https://cdn.prod.website-files.com/6a1999afa89c739b42fcf206%2F6a1999afa89c739b42fcf23c_SCROLL_2_mp4.",
+   "555KB media https://cdn.prod.website-files.com/69f998fd504a7c84a1cd9307%2F6a1024328ea3826f43cefbde_SCROLL-1_mp4.",
+   "441KB media https://cdn.prod.website-files.com/6a1999afa89c739b42fcf206/6a1999afa89c739b42fcf223_HERO_mp4.mp4",
+   "387KB media https://cdn.prod.website-files.com/69f998fd504a7c84a1cd9307%2F6a1024328ea3826f43cefbde_SCROLL-1_mp4.",
+   "345KB media https://cdn.prod.website-files.com/6a1999afa89c739b42fcf206/6a1999afa89c739b42fcf223_HERO_mp4.mp4"
+  ],
+  "fontsLoaded": [
+   "Inter display 500 normal display:swap",
+   "Geist mono 400 normal display:swap"
+  ],
+  "typeScale": [
+   "200px/0.74 ls-0.05 w500 Inter display | n=5 chars=10 tags=div:5 | \"01\"",
+   "200px/0.75 ls-0.05 w400 Inter display | n=2 chars=6 tags=div:2 | \"948\"",
+   "48px/0.9 ls-0.04 w500 Inter display | n=7 chars=47 tags=div:7 | \"Max speed\"",
+   "47.952px/0.9 ls-0.04 w500 Inter display | n=7 chars=69 tags=p:1,div:5,h2:1 | \"Launches\"",
+   "14px/1.3 ls-0.01 w500 Inter display uppercase | n=12 chars=28 tags=div:12 | \"A.\"",
+   "14px/1.3 ls-0.01 w500 Inter display | n=14 chars=241 tags=div:14 | \"Automatic target detection\"",
+   "9.99994px/1 ls0 w400 Geist mono uppercase | n=60 chars=812 tags=div:45,a:15 | \"KYIV,\"",
+   "9.99994px/4 ls0 w400 Geist mono uppercase | n=1 chars=10 tags=a:1 | \"contact us\"",
+   "9.99994px/1.3 ls0 w400 Geist mono uppercase | n=200 chars=2847 tags=div:22,p:177,a:1 | \"An algorithm trained on thousands of rea\"",
+   "8.00006px/0.99 ls0 w400 Geist mono uppercase | n=6 chars=53 tags=div:6 | \"product\"",
+   "8.00006px/1 ls0 w400 Geist mono uppercase | n=4 chars=59 tags=div:4 | \"Zirka\""
+  ],
+  "colors": [
+   [
+    "rgb(221, 221, 221)",
+    266
+   ],
+   [
+    "rgba(221, 221, 221, 0.4)",
+    22
+   ],
+   [
+    "rgb(252, 79, 0)",
+    13
+   ],
+   [
+    "rgb(255, 255, 255)",
+    6
+   ],
+   [
+    "rgba(221, 221, 221, 0.1)",
+    5
+   ],
+   [
+    "rgb(5, 5, 5)",
+    3
+   ],
+   [
+    "rgba(221, 221, 221, 0.3)",
+    2
+   ],
+   [
+    "rgba(221, 221, 221, 0.5)",
+    1
+   ]
+  ],
+  "bgs": [
+   [
+    "rgb(0, 0, 0)",
+    7
+   ],
+   [
+    "rgba(221, 221, 221, 0.04)",
+    5
+   ],
+   [
+    "rgb(5, 5, 5)",
+    1
+   ],
+   [
+    "rgba(221, 221, 221, 0.2)",
+    1
+   ],
+   [
+    "rgba(5, 5, 5, 0.24)",
+    1
+   ]
+  ],
+  "sectionPadding": [
+   [
+    "2.88/2.88",
+    3
+   ],
+   [
+    "2.88/1.44",
+    3
+   ],
+   [
+    "15.984/24.048",
+    1
+   ],
+   [
+    "72/72",
+    1
+   ],
+   [
+    "93.6/43.2",
+    1
+   ],
+   [
+    "96.048/15.984",
+    1
+   ]
+  ],
+  "sectionSamples": [
+   "DIV.section-hero-h pt0 pb0 pl0 mt0 mb0 h9900",
+   "DIV.section-hero-st pt0 pb0 pl0 mt0 mb0 h900",
+   "DIV.section-hero pt0 pb0 pl0 mt0 mb0 h900",
+   "DIV.bg-v-st pt0 pb0 pl0 mt0 mb0 h900",
+   "DIV.bg-video-section pt0 pb0 pl0 mt0 mb0 h900",
+   "DIV.line-text pt0 pb0 pl0 mt0 mb0 h2520",
+   "DIV.number-sec-wrap pt0 pb0 pl0 mt-900 mb0 h2250",
+   "DIV.info-v-wrap-h s pt0 pb0 pl0 mt0 mb0 h4050",
+   "DIV.card-h pt72 pb72 pl0 mt0 mb0 h7650",
+   "DIV.stat-wrap pt0 pb0 pl0 mt0 mb0 h1800",
+   "DIV.stat-section pt93.6 pb43.2 pl0 mt0 mb0 h900",
+   "DIV.new-sec pt0 pb0 pl0 mt0 mb0 h4050",
+   "DIV.hover-area-wrapper pt0 pb0 pl0 mt-900 mb0 h2610",
+   "DIV.ppo-wrap pt0 pb0 pl0 mt-900 mb0 h2610",
+   "FOOTER.footer-2 pt96.048 pb15.984 pl0 mt0 mb0 h900"
+  ],
+  "gaps": [
+   [
+    "28.8px",
+    28
+   ],
+   [
+    "11.952px",
+    22
+   ],
+   [
+    "24.048px",
+    15
+   ],
+   [
+    "12.672px",
+    7
+   ],
+   [
+    "4.32px",
+    7
+   ],
+   [
+    "15.984px",
+    6
+   ],
+   [
+    "14.4px",
+    6
+   ],
+   [
+    "21.6px",
+    5
+   ],
+   [
+    "11.52px",
+    4
+   ],
+   [
+    "7.2px",
+    3
+   ],
+   [
+    "40.032px",
+    3
+   ],
+   [
+    "8.064px",
+    2
+   ],
+   [
+    "12.96px",
+    1
+   ],
+   [
+    "8.64px",
+    1
+   ],
+   [
+    "48.96px",
+    1
+   ]
+  ],
+  "radii": [],
+  "maxw": [
+   [
+    "1408px",
+    11
+   ],
+   [
+    "1440px",
+    1
+   ]
+  ],
+  "transitions": [
+   [
+    "0.35s | ease | color",
+    18
+   ],
+   [
+    "0.5s | ease | opacity",
+    1
+   ],
+   [
+    "0.35s | ease | all",
+    1
+   ],
+   [
+    "0.15s | ease | transform",
+    1
+   ]
+  ],
+  "libs": {
+   "gsap": true,
+   "gsapVersion": "3.15.1",
+   "ScrollTrigger": true,
+   "stCount": 45,
+   "Lenis": true,
+   "lenisClass": "w-mod-js w-mod-ix lenis lenis-smooth lenis-scrolling",
+   "THREE": false,
+   "barba": false,
+   "Webflow": true,
+   "next": false,
+   "nuxt": false,
+   "astro": false,
+   "canvas": 2,
+   "video": 5,
+   "generator": "Webflow"
+  },
+  "anims": [
+   [
+    "CSSAnimation 320ms linear iter:1",
+    58
+   ],
+   [
+    "CSSAnimation 220ms linear iter:1",
+    21
+   ],
+   [
+    "CSSAnimation 80000ms linear iter:Infinity",
+    20
+   ],
+   [
+    "CSSAnimation 260ms linear iter:1",
+    11
+   ],
+   [
+    "CSSAnimation 200ms linear iter:1",
+    4
+   ]
+  ],
+  "domCount": 4304,
+  "scrollH": 35640,
+  "body": {
+   "bg": "rgb(5, 5, 5)",
+   "color": "rgb(51, 51, 51)",
+   "font": "\"Inter display\", Arial, sans-serif"
+  },
+  "rootVars": {
+   "--orange": "#fc4f00",
+   "--black": "#050505",
+   "--white": "#ddd"
+  },
+  "title": "Shahed interceptor with auto-guidance | Zirka"
+ },
+ "mobile": {
+  "loadEventMs": 1206,
+  "atLoad": {
+   "n": 31,
+   "bytes": 37513914
+  },
+  "total": {
+   "n": 31,
+   "bytes": 37513914
+  },
+  "byType": {
+   "document": {
+    "n": 1,
+    "b": 60975
+   },
+   "script": {
+    "n": 10,
+    "b": 231407
+   },
+   "stylesheet": {
+    "n": 1,
+    "b": 19983
+   },
+   "font": {
+    "n": 2,
+    "b": 181199
+   },
+   "image": {
+    "n": 6,
+    "b": 1866666
+   },
+   "media": {
+    "n": 6,
+    "b": 35105514
+   },
+   "xhr": {
+    "n": 5,
+    "b": 48170
+   }
+  },
+  "fontFiles": [
+   "6a6b45050da8002d7ece6575_GeistMono-Regular.ttf 38KB",
+   "6a6b45050da8002d7ece657c_InterDisplay-Medium.woff2 139KB"
+  ],
+  "topReqs": [
+   "29150KB media https://pub-758149a6f557428488e5e1bf30c43d26.r2.dev/zirka%20video%20mobile_1.mp4",
+   "4029KB media https://cdn.prod.website-files.com/6a6b45050da8002d7ece655c/6a6b45050da8002d7ece68e5_%D0%A0%D0%BE%D0",
+   "1097KB image https://cdn.prod.website-files.com/6a6b45050da8002d7ece655c/6a6b45050da8002d7ece6593_KADAK-Grain%20(",
+   "555KB media https://cdn.prod.website-files.com/69f998fd504a7c84a1cd9307%2F6a1024328ea3826f43cefbde_SCROLL-1_mp4.",
+   "550KB media https://cdn.prod.website-files.com/69f998fd504a7c84a1cd9307%2F6a141caec0836e85222fd720_SCROLL_2_MOBI",
+   "373KB image https://cdn.prod.website-files.com/6a6b45050da8002d7ece655c/6a7060f2b4534034707ec4d1_footer%20(3).pn",
+   "153KB image https://cdn.prod.website-files.com/6a6b45050da8002d7ece655c/6a6b45050da8002d7ece68c1_Layer%201.webp",
+   "139KB font https://cdn.prod.website-files.com/6a6b45050da8002d7ece655c/6a6b45050da8002d7ece657c_InterDisplay-Me"
+  ],
+  "fontsLoaded": [
+   "Inter display 500 normal display:swap",
+   "Geist mono 400 normal display:swap"
+  ],
+  "typeScale": [
+   "120px/0.75 ls-0.047 w500 Inter display | n=5 chars=10 tags=div:5 | \"01\"",
+   "96px/0.75 ls-0.051 w400 Inter display | n=2 chars=6 tags=div:2 | \"948\"",
+   "32px/0.9 ls-0.067 w500 Inter display | n=14 chars=116 tags=div:12,p:1,h2:1 | \"Max speed\"",
+   "15.5555px/1.3 ls-0.01 w500 Inter display uppercase | n=11 chars=22 tags=div:11 | \"A.\"",
+   "15.5555px/1.3 ls-0.01 w500 Inter display | n=11 chars=209 tags=div:11 | \"Automatic target detection\"",
+   "14.0032px/1.3 ls-0.011 w500 Inter display | n=3 chars=32 tags=div:3 | \"14 11 2026\"",
+   "14.0032px/1.3 ls-0.011 w500 Inter display uppercase | n=1 chars=6 tags=div:1 | \"UTC +2\"",
+   "11.111px/1 ls0 w400 Geist mono uppercase | n=17 chars=104 tags=div:8,a:9 | \"//\"",
+   "11.111px/1.3 ls0 w400 Geist mono uppercase | n=6 chars=524 tags=div:6 | \"An algorithm trained on thousands of rea\"",
+   "10px/4.44 ls0 w400 Geist mono uppercase | n=1 chars=10 tags=a:1 | \"contact us\"",
+   "10px/1.11 ls0 w400 Geist mono uppercase | n=27 chars=529 tags=div:27 | \"TARGET ACQUIRED — 48.4647°N, 35.0462°E.\"",
+   "10px/1 ls0 w400 Geist mono uppercase | n=8 chars=101 tags=div:8 | \"//\"",
+   "10px/1.3 ls0 w400 Geist mono uppercase | n=192 chars=2304 tags=p:177,div:14,a:1 | \"The\"",
+   "8.88896px/0.99 ls0 w400 Geist mono uppercase | n=6 chars=53 tags=div:6 | \"product\"",
+   "8.88896px/1 ls0 w400 Geist mono uppercase | n=4 chars=59 tags=div:4 | \"Zirka\""
+  ],
+  "colors": [
+   [
+    "rgb(221, 221, 221)",
+    257
+   ],
+   [
+    "rgba(221, 221, 221, 0.4)",
+    21
+   ],
+   [
+    "rgb(252, 79, 0)",
+    13
+   ],
+   [
+    "rgb(255, 255, 255)",
+    6
+   ],
+   [
+    "rgba(221, 221, 221, 0.1)",
+    5
+   ],
+   [
+    "rgb(5, 5, 5)",
+    3
+   ],
+   [
+    "rgba(221, 221, 221, 0.3)",
+    2
+   ],
+   [
+    "rgba(221, 221, 221, 0.5)",
+    1
+   ]
+  ],
+  "bgs": [
+   [
+    "rgb(0, 0, 0)",
+    7
+   ],
+   [
+    "rgba(221, 221, 221, 0.04)",
+    5
+   ],
+   [
+    "rgb(5, 5, 5)",
+    1
+   ],
+   [
+    "rgba(5, 5, 5, 0.24)",
+    1
+   ]
+  ],
+  "sectionPadding": [
+   [
+    "4/4",
+    4
+   ],
+   [
+    "3.2/3.2",
+    2
+   ],
+   [
+    "16/26.72",
+    1
+   ],
+   [
+    "80/80",
+    1
+   ],
+   [
+    "104/32",
+    1
+   ],
+   [
+    "106.72/17.76",
+    1
+   ]
+  ],
+  "sectionSamples": [
+   "DIV.section-hero-h pt0 pb0 pl0 mt0 mb0 h9284",
+   "DIV.section-hero-st pt0 pb0 pl0 mt0 mb0 h844",
+   "DIV.section-hero pt0 pb0 pl0 mt0 mb0 h851",
+   "DIV.bg-v-st pt0 pb0 pl0 mt0 mb0 h844",
+   "DIV.bg-video-section pt0 pb0 pl0 mt0 mb0 h844",
+   "DIV.line-text pt0 pb0 pl0 mt0 mb0 h1857",
+   "DIV.number-sec-wrap pt0 pb0 pl0 mt-844 mb0 h2110",
+   "DIV.info-v-wrap-h s pt0 pb0 pl0 mt0 mb0 h3798",
+   "DIV.card-h pt80 pb80 pl0 mt0 mb0 h7174",
+   "DIV.stat-wrap pt0 pb0 pl0 mt0 mb0 h1688",
+   "DIV.stat-section pt104 pb32 pl0 mt0 mb0 h745",
+   "DIV.new-sec pt0 pb0 pl0 mt0 mb0 h3798",
+   "DIV.hover-area-wrapper pt0 pb0 pl0 mt-844 mb0 h2448",
+   "DIV.ppo-wrap pt0 pb0 pl0 mt-844 mb0 h2448",
+   "FOOTER.footer-2 pt106.72 pb17.76 pl0 mt0 mb0 h844"
+  ],
+  "gaps": [
+   [
+    "32px",
+    18
+   ],
+   [
+    "13.28px",
+    17
+   ],
+   [
+    "24px",
+    15
+   ],
+   [
+    "16px",
+    13
+   ],
+   [
+    "26.72px",
+    12
+   ],
+   [
+    "14.08px",
+    7
+   ],
+   [
+    "4px",
+    7
+   ],
+   [
+    "12px",
+    5
+   ],
+   [
+    "8px",
+    5
+   ],
+   [
+    "9.6px",
+    2
+   ],
+   [
+    "40px",
+    2
+   ],
+   [
+    "8.96px",
+    2
+   ],
+   [
+    "17.76px",
+    1
+   ],
+   [
+    "14.4px",
+    1
+   ],
+   [
+    "27.2px",
+    1
+   ]
+  ],
+  "radii": [],
+  "maxw": [
+   [
+    "1564.44px",
+    11
+   ]
+  ],
+  "transitions": [
+   [
+    "0.35s | ease | color",
+    18
+   ],
+   [
+    "0.6s | ease | all",
+    1
+   ],
+   [
+    "0.5s | ease | opacity",
+    1
+   ],
+   [
+    "0.35s | ease | all",
+    1
+   ],
+   [
+    "0.15s | ease | transform",
+    1
+   ]
+  ],
+  "libs": {
+   "gsap": true,
+   "gsapVersion": "3.15.1",
+   "ScrollTrigger": true,
+   "stCount": 44,
+   "Lenis": true,
+   "lenisClass": "w-mod-js w-mod-touch w-mod-ix lenis lenis-smooth lenis-scrolling",
+   "THREE": false,
+   "barba": false,
+   "Webflow": true,
+   "next": false,
+   "nuxt": false,
+   "astro": false,
+   "canvas": 2,
+   "video": 5,
+   "generator": "Webflow"
+  },
+  "anims": [
+   [
+    "CSSAnimation 320ms linear iter:1",
+    58
+   ],
+   [
+    "CSSAnimation 220ms linear iter:1",
+    21
+   ],
+   [
+    "CSSAnimation 260ms linear iter:1",
+    11
+   ],
+   [
+    "CSSAnimation 80000ms linear iter:Infinity",
+    10
+   ],
+   [
+    "CSSAnimation 200ms linear iter:1",
+    4
+   ]
+  ],
+  "domCount": 4456,
+  "scrollH": 32916,
+  "body": {
+   "bg": "rgb(5, 5, 5)",
+   "color": "rgb(51, 51, 51)",
+   "font": "\"Inter display\", Arial, sans-serif"
+  },
+  "rootVars": {
+   "--orange": "#fc4f00",
+   "--black": "#050505",
+   "--white": "#ddd"
+  },
+  "title": "Shahed interceptor with auto-guidance | Zirka"
+ },
+ "code": {
+  "cssBytes": 116682,
+  "jsBytes": 1234634,
+  "cssBezier": [
+   [
+    "cubic-bezier(0.25, 1, 0.5, 1)",
+    8
+   ]
+  ],
+  "cssTransitionDur": [
+   [
+    ".35s",
+    5
+   ],
+   [
+    "0.2s",
+    4
+   ],
+   [
+    ".1s",
+    1
+   ],
+   [
+    ".3s",
+    1
+   ],
+   [
+    ".25s",
+    1
+   ],
+   [
+    ".6s",
+    1
+   ],
+   [
+    "0.15s",
+    1
+   ],
+   [
+    "0.6s",
+    1
+   ],
+   [
+    "0.5s",
+    1
+   ]
+  ],
+  "cssAnimDur": [
+   [
+    "0.22s",
+    3
+   ],
+   [
+    "0.2s",
+    3
+   ],
+   [
+    "80s",
+    2
+   ],
+   [
+    ".8s",
+    1
+   ],
+   [
+    "0.32s",
+    1
+   ],
+   [
+    "0.26s",
+    1
+   ],
+   [
+    "0.45s",
+    1
+   ]
+  ],
+  "cssEaseKeywords": [
+   [
+    "linear",
+    4
+   ],
+   [
+    "ease",
+    3
+   ]
+  ],
+  "keyframes": 6,
+  "fontFace": [
+   [
+    "Geist mono,Arial,sans-serif",
+    21
+   ],
+   [
+    "Inter display,Arial,sans-serif",
+    7
+   ],
+   [
+    "sans-serif",
+    1
+   ],
+   [
+    "monospace",
+    1
+   ],
+   [
+    "webflow-icons",
+    1
+   ],
+   [
+    "webflow-icons!important",
+    1
+   ],
+   [
+    "Arial,sans-serif",
+    1
+   ],
+   [
+    "unset",
+    1
+   ],
+   [
+    "serif",
+    1
+   ],
+   [
+    "Helvetica Neue,Helvetica,Ubuntu,Segoe UI,Verdana,sans-serif",
+    1
+   ],
+   [
+    "Inter display",
+    1
+   ],
+   [
+    "Geist mono",
+    1
+   ]
+  ],
+  "fontDisplay": [
+   [
+    "swap",
+    2
+   ]
+  ],
+  "clamp": [
+   [
+    "1vw",
+    3
+   ],
+   [
+    "29vw",
+    2
+   ],
+   [
+    "26vw",
+    1
+   ]
+  ],
+  "fontSizes": [
+   [
+    ".69444rem",
+    16
+   ],
+   [
+    ".625rem",
+    8
+   ],
+   [
+    "14px",
+    7
+   ],
+   [
+    "2rem",
+    6
+   ],
+   [
+    "5rem",
+    5
+   ],
+   [
+    ".55556rem",
+    5
+   ],
+   [
+    "18px",
+    4
+   ],
+   [
+    ".97222rem",
+    4
+   ],
+   [
+    "3.33rem",
+    3
+   ],
+   [
+    "13.8889rem",
+    3
+   ],
+   [
+    "1.5rem",
+    3
+   ],
+   [
+    "2.5rem",
+    3
+   ],
+   [
+    "1vw",
+    3
+   ],
+   [
+    "24px",
+    2
+   ],
+   [
+    "inherit",
+    2
+   ],
+   [
+    "2.22222rem",
+    2
+   ],
+   [
+    "2.22rem",
+    2
+   ],
+   [
+    ".56rem",
+    2
+   ],
+   [
+    ".93rem",
+    2
+   ],
+   [
+    "2.2rem",
+    2
+   ],
+   [
+    ".5rem",
+    2
+   ],
+   [
+    "1rem",
+    2
+   ],
+   [
+    "13rem",
+    2
+   ],
+   [
+    "29vw",
+    2
+   ],
+   [
+    "0",
+    1
+   ],
+   [
+    "2em",
+    1
+   ],
+   [
+    "80%",
+    1
+   ],
+   [
+    "75%",
+    1
+   ],
+   [
+    "1em",
+    1
+   ],
+   [
+    "unset",
+    1
+   ],
+   [
+    "12px!important",
+    1
+   ],
+   [
+    "38px",
+    1
+   ],
+   [
+    "32px",
+    1
+   ],
+   [
+    "12px",
+    1
+   ],
+   [
+    "10px",
+    1
+   ],
+   [
+    "15px",
+    1
+   ],
+   [
+    "40px",
+    1
+   ],
+   [
+    "17px",
+    1
+   ],
+   [
+    "3.33333rem",
+    1
+   ],
+   [
+    "4.5rem",
+    1
+   ]
+  ],
+  "lineHeights": [
+   [
+    "100%",
+    14
+   ],
+   [
+    "130%",
+    11
+   ],
+   [
+    "90%",
+    7
+   ],
+   [
+    "88%",
+    4
+   ],
+   [
+    "75%",
+    4
+   ],
+   [
+    "13rem",
+    4
+   ],
+   [
+    "29vw",
+    4
+   ],
+   [
+    "20px",
+    3
+   ],
+   [
+    "inherit",
+    3
+   ],
+   [
+    "0",
+    2
+   ],
+   [
+    "normal",
+    2
+   ],
+   [
+    "18px",
+    2
+   ],
+   [
+    "22px",
+    2
+   ],
+   [
+    "2.77778rem",
+    2
+   ],
+   [
+    "94%",
+    2
+   ],
+   [
+    "1",
+    1
+   ],
+   [
+    "unset",
+    1
+   ],
+   [
+    "14px!important",
+    1
+   ],
+   [
+    "44px",
+    1
+   ],
+   [
+    "36px",
+    1
+   ]
+  ],
+  "letterSpacing": [
+   [
+    "-.13333rem",
+    5
+   ],
+   [
+    "-.00972rem",
+    4
+   ],
+   [
+    "-.06667rem",
+    3
+   ],
+   [
+    "-.25rem",
+    2
+   ],
+   [
+    "-.69444rem",
+    2
+   ],
+   [
+    "-.17rem",
+    2
+   ],
+   [
+    "-.04444rem",
+    2
+   ],
+   [
+    "-.07rem",
+    2
+   ],
+   [
+    "unset",
+    1
+   ],
+   [
+    "normal",
+    1
+   ],
+   [
+    "-.55556rem",
+    1
+   ],
+   [
+    "-.2rem",
+    1
+   ],
+   [
+    "-.30556rem",
+    1
+   ],
+   [
+    "-.35556rem",
+    1
+   ]
+  ],
+  "media": [
+   [
+    "767px",
+    8
+   ],
+   [
+    "479px",
+    5
+   ],
+   [
+    "991px",
+    4
+   ],
+   [
+    "768px",
+    1
+   ],
+   [
+    "1920px",
+    1
+   ],
+   [
+    "992px",
+    1
+   ]
+  ],
+  "reducedMotion": 0,
+  "jsReducedMotion": 3,
+  "jsEase": [
+   [
+    "none",
+    14
+   ],
+   [
+    "power2.out",
+    7
+   ],
+   [
+    "power2.inOut",
+    5
+   ],
+   [
+    "power3.out",
+    4
+   ],
+   [
+    "power4.inOut",
+    3
+   ],
+   [
+    "power3.inOut",
+    3
+   ],
+   [
+    "expo.out",
+    1
+   ],
+   [
+    "power1.out",
+    1
+   ],
+   [
+    "expo",
+    1
+   ],
+   [
+    "power4",
+    1
+   ]
+  ],
+  "jsBezier": [
+   [
+    "cubic-bezier(0.25, 1, 0.5, 1)",
+    8
+   ],
+   [
+    "cubic-bezier(0.22, 1, 0.36, 1)",
+    1
+   ],
+   [
+    "cubic-bezier(0.550, 0.085, 0.680, 0.530)",
+    1
+   ],
+   [
+    "cubic-bezier(0.250, 0.460, 0.450, 0.940)",
+    1
+   ],
+   [
+    "cubic-bezier(0.455, 0.030, 0.515, 0.955)",
+    1
+   ],
+   [
+    "cubic-bezier(0.550, 0.055, 0.675, 0.190)",
+    1
+   ],
+   [
+    "cubic-bezier(0.215, 0.610, 0.355, 1)",
+    1
+   ],
+   [
+    "cubic-bezier(0.645, 0.045, 0.355, 1)",
+    1
+   ],
+   [
+    "cubic-bezier(0.895, 0.030, 0.685, 0.220)",
+    1
+   ],
+   [
+    "cubic-bezier(0.165, 0.840, 0.440, 1)",
+    1
+   ]
+  ],
+  "jsCustomEase": [],
+  "jsCustomEaseFull": [],
+  "jsDuration": [
+   [
+    "500",
+    454
+   ],
+   [
+    "0",
+    130
+   ],
+   [
+    "0.4",
+    5
+   ],
+   [
+    "1500",
+    4
+   ],
+   [
+    "0.8",
+    4
+   ],
+   [
+    "1",
+    3
+   ],
+   [
+    "0.6",
+    3
+   ],
+   [
+    "600",
+    2
+   ],
+   [
+    "900",
+    2
+   ],
+   [
+    "1100",
+    2
+   ],
+   [
+    "0.7",
+    2
+   ],
+   [
+    "0.9",
+    2
+   ],
+   [
+    "2",
+    1
+   ],
+   [
+    "3",
+    1
+   ],
+   [
+    "700",
+    1
+   ],
+   [
+    "800",
+    1
+   ],
+   [
+    "1000",
+    1
+   ],
+   [
+    "1200",
+    1
+   ],
+   [
+    "1900",
+    1
+   ],
+   [
+    "2.2",
+    1
+   ]
+  ],
+  "jsStagger": [
+   [
+    "0",
+    2
+   ]
+  ],
+  "jsDelay": [
+   [
+    "0",
+    575
+   ]
+  ],
+  "jsScrub": [
+   [
+    "true",
+    3
+   ],
+   [
+    "1",
+    2
+   ]
+  ],
+  "jsStart": [
+   [
+    "top top",
+    3
+   ],
+   [
+    "top 85%",
+    2
+   ],
+   [
+    "55% center",
+    1
+   ]
+  ],
+  "lenis": [
+   "\n      lerp: 0.04,\n      smoothWheel: true,\n      wheelMultiplier: 0.7,\n      gestureOrientation: 'vertical',\n      normalizeWheel: false,\n      smoothTouch: false,\n    ",
+   "\n    lerp: 0.05,            // was 0.04 — 0.04 makes every correction a visible slide\n    smoothWheel: true,\n    wheelMultiplier: 0.7,\n    gestureOrientation: 'vertical',\n    normalizeWheel: true,\n    smoothTouch: false,    // native scroll on touch — keep this\n  ",
+   "\n      lerp: 0.05, // smoothness (0.05–0.12 sweet spot)\n      smoothWheel: true,\n      wheelMultiplier: 0.8,\n      gestureOrientation: 'vertical',\n      normalizeWheel: false,\n      smoothTouch: false,\n    "
+  ],
+  "lerp": [
+   [
+    "0.05",
+    2
+   ],
+   [
+    "0.04",
+    1
+   ]
+  ],
+  "signals": {
+   "gsap": true,
+   "ScrollTrigger": true,
+   "SplitText": false,
+   "lenis": true,
+   "locomotive": false,
+   "three": false,
+   "ogl": false,
+   "framerMotion": false,
+   "barba": false,
+   "swup": false,
+   "IntersectionObserver": 8,
+   "mouseenter": 9,
+   "mousemove": 17,
+   "rAF": 38,
+   "lottie": true,
+   "rive": true,
+   "viewTransition": false,
+   "scrollTimeline": false
+  }
+ }
+}

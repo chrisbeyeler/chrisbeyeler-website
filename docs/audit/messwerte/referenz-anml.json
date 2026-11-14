@@ -1,0 +1,1410 @@
+{
+ "url": "https://www.anml.com/work/salesloft",
+ "label": "anml",
+ "desktop": {
+  "loadEventMs": 5010,
+  "atLoad": {
+   "n": 106,
+   "bytes": 82481132
+  },
+  "total": {
+   "n": 131,
+   "bytes": 134448878
+  },
+  "byType": {
+   "document": {
+    "n": 1,
+    "b": 24127
+   },
+   "script": {
+    "n": 43,
+    "b": 972767
+   },
+   "stylesheet": {
+    "n": 8,
+    "b": 35278
+   },
+   "font": {
+    "n": 3,
+    "b": 66528
+   },
+   "image": {
+    "n": 22,
+    "b": 710338
+   },
+   "media": {
+    "n": 35,
+    "b": 132562250
+   },
+   "ping": {
+    "n": 1,
+    "b": 0
+   },
+   "fetch": {
+    "n": 12,
+    "b": 77437
+   },
+   "xhr": {
+    "n": 6,
+    "b": 153
+   }
+  },
+  "fontFiles": [
+   "1075ab87ea1b5b40-s.p.woff2 30KB",
+   "b0cd9a290aff5b5c-s.p.woff2 18KB",
+   "e400baae650c21fc-s.p.woff2 16KB"
+  ],
+  "topReqs": [
+   "16372KB media https://www.datocms-assets.com/132779/1789081185-3b_salesloft_marketing.mp4",
+   "12483KB media https://www.datocms-assets.com/132779/1789412134-4b_salesloft_homepage.mp4",
+   "11747KB media https://www.datocms-assets.com/132779/1789412134-4b_salesloft_homepage.mp4",
+   "9943KB media https://www.datocms-assets.com/132779/1789081847-5c_salesloft_signals.mp4",
+   "9123KB media https://www.datocms-assets.com/132779/1789080831-2c_salesloft_illustrations-and-patterns-2.mp4",
+   "7871KB media https://www.datocms-assets.com/132779/1789080859-2d_salesloft_diagrams-2.mp4",
+   "7685KB media https://www.datocms-assets.com/132779/1789081185-3b_salesloft_marketing.mp4",
+   "7455KB media https://www.datocms-assets.com/132779/1789080859-2d_salesloft_diagrams-2.mp4"
+  ],
+  "fontsLoaded": [
+   "__Crimson_Text_0965ff 400 normal display:swap",
+   "__sharpSansNo1ExtraBoldFont_5395bd 800 normal display:swap"
+  ],
+  "typeScale": [
+   "158.4px/1 ls0 w800 __sharpSansNo1ExtraBoldFont_5395bd | n=1 chars=4 tags=a:1 | \"Ford\"",
+   "68px/1.12 ls0 w400 __Crimson_Text_0965ff | n=2 chars=8 tags=span:2 | \"50\"",
+   "40px/1.2 ls0 w800 __sharpSansNo1ExtraBoldFont_5395bd | n=9 chars=251 tags=h2:9 | \"Two companies. One new Salesloft.\"",
+   "32px/1.13 ls0 w800 __sharpSansNo1ExtraBoldFont_5395bd | n=3 chars=219 tags=h3:3 | \"How do you rebrand a company without los\"",
+   "30px/1 ls0 w400 __Crimson_Text_0965ff | n=1 chars=47 tags=h2:1 | \"Signal through noise: The new Salesloft \"",
+   "20px/normal ls0 w400 __Crimson_Text_0965ff | n=1 chars=6 tags=div:1 | \"© ANML\"",
+   "20px/1.6 ls0 w400 __Crimson_Text_0965ff | n=17 chars=4910 tags=p:16,a:1 | \"Salesloft had become a different company\"",
+   "20px/1.6 ls0 w200 __Crimson_Text_0965ff | n=1 chars=18 tags=p:1 | \"Laurie Ehrbar, CMO\"",
+   "18px/1.5 ls0 w400 __Crimson_Text_0965ff | n=1 chars=29 tags=a:1 | \"More B2B SaaS web design work\"",
+   "13px/1.23 ls0.02 w800 __sharpSansNo1ExtraBoldFont_5395bd uppercase | n=5 chars=32 tags=a:5 | \"work\"",
+   "12px/normal ls0.13 w800 __sharpSansNo1ExtraBoldFont_5395bd uppercase | n=4 chars=44 tags=div:4 | \"Services\"",
+   "12px/2.17 ls0.13 w800 __sharpSansNo1ExtraBoldFont_5395bd uppercase | n=18 chars=324 tags=li:18 | \"Brand Strategy & Identity\"",
+   "12px/1.33 ls0.13 w800 __sharpSansNo1ExtraBoldFont_5395bd uppercase | n=3 chars=87 tags=div:3 | \"Higher MQL-to-Sales Rate\""
+  ],
+  "colors": [
+   [
+    "rgb(255, 255, 255)",
+    30
+   ],
+   [
+    "rgb(128, 128, 128)",
+    19
+   ],
+   [
+    "rgb(112, 112, 112)",
+    8
+   ],
+   [
+    "rgb(175, 175, 175)",
+    7
+   ],
+   [
+    "rgb(0, 0, 0)",
+    2
+   ]
+  ],
+  "bgs": [
+   [
+    "rgb(0, 0, 0)",
+    20
+   ],
+   [
+    "rgb(26, 26, 26)",
+    2
+   ],
+   [
+    "rgba(23, 23, 23, 0.72)",
+    1
+   ],
+   [
+    "rgb(255, 255, 255)",
+    1
+   ],
+   [
+    "rgb(234, 227, 221)",
+    1
+   ],
+   [
+    "rgb(1, 1, 1)",
+    1
+   ]
+  ],
+  "sectionPadding": [
+   [
+    "224/224",
+    3
+   ],
+   [
+    "112/112",
+    2
+   ],
+   [
+    "224/112",
+    1
+   ],
+   [
+    "224/0",
+    1
+   ],
+   [
+    "0/224",
+    1
+   ]
+  ],
+  "sectionSamples": [
+   "DIV.Hero_wrapper__j56zv pt0 pb0 pl0 mt0 mb0 h900",
+   "DIV.WorkDetailPage_content__BAosi pt0 pb0 pl0 mt0 mb0 h20951",
+   "SECTION. pt0 pb0 pl0 mt0 mb0 h373",
+   "SECTION.MediaTextPromoFullBleed_wrapper__ieUKE componentTh pt0 pb0 pl115.2 mt0 mb0 h772",
+   "SECTION.FullBleedPromo_wrapper__HQWSA componentTheme_light pt0 pb0 pl0 mt0 mb0 h900",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_light com pt112 pb112 pl82.512 mt0 mb0 h911",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_light com pt0 pb0 pl82.512 mt0 mb0 h717",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_light com pt112 pb112 pl82.512 mt0 mb0 h941",
+   "SECTION.TextPromo_wrapper__ngvt5 componentTheme_dark compo pt224 pb112 pl240 mt0 mb0 h496",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_dark comp pt0 pb0 pl0 mt0 mb0 h810",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_dark comp pt0 pb0 pl0 mt0 mb0 h820",
+   "SECTION.FullBleedPromo_wrapper__HQWSA componentTheme_dark  pt0 pb0 pl0 mt0 mb0 h820",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_dark comp pt0 pb0 pl0 mt0 mb0 h810",
+   "SECTION.MediaTextPromoFullBleed_wrapper__ieUKE componentTh pt224 pb0 pl115.2 mt0 mb0 h996",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_dark comp pt0 pb0 pl0 mt0 mb0 h810",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_dark comp pt0 pb0 pl0 mt0 mb0 h810",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_dark comp pt224 pb224 pl240 mt0 mb0 h1186",
+   "SECTION.SliderBlock_wrapper__TDrqT componentVerticalPaddin pt0 pb224 pl0 mt0 mb0 h924",
+   "SECTION.FullBleedPromo_wrapper__HQWSA componentTheme_dark  pt0 pb0 pl0 mt0 mb0 h900",
+   "SECTION.MediaTextPromoFullBleed_wrapper__ieUKE componentTh pt0 pb0 pl115.2 mt0 mb0 h753"
+  ],
+  "gaps": [
+   [
+    "20px",
+    6
+   ],
+   [
+    "32px",
+    4
+   ],
+   [
+    "normal 48px",
+    3
+   ],
+   [
+    "normal 3.64px",
+    1
+   ],
+   [
+    "28px",
+    1
+   ],
+   [
+    "40px",
+    1
+   ],
+   [
+    "30px",
+    1
+   ],
+   [
+    "16px",
+    1
+   ],
+   [
+    "70px",
+    1
+   ],
+   [
+    "60px",
+    1
+   ],
+   [
+    "46.8px",
+    1
+   ],
+   [
+    "12px 40px",
+    1
+   ]
+  ],
+  "radii": [
+   [
+    "8px",
+    24
+   ],
+   [
+    "999px",
+    2
+   ]
+  ],
+  "maxw": [
+   [
+    "1008px",
+    16
+   ],
+   [
+    "1440px",
+    4
+   ],
+   [
+    "3840px",
+    1
+   ],
+   [
+    "4320px",
+    1
+   ],
+   [
+    "2160px",
+    1
+   ]
+  ],
+  "transitions": [
+   [
+    "1s | ease-in-out | all",
+    20
+   ],
+   [
+    "0.45s | cubic-bezier(0.76, 0, 0.24, 1) | transform",
+    14
+   ],
+   [
+    "0.5s | ease | opacity",
+    14
+   ],
+   [
+    "0.25s | ease-in | padding",
+    8
+   ],
+   [
+    "0.3s | ease | background, color",
+    2
+   ],
+   [
+    "0.2s | ease | opacity",
+    2
+   ],
+   [
+    "0.45s | ease | background",
+    1
+   ],
+   [
+    "0.45s | cubic-bezier(0.625, 0.05, 0, 1) | padding",
+    1
+   ],
+   [
+    "0.45s | cubic-bezier(0.625, 0.05, 0, 1) | width, height",
+    1
+   ],
+   [
+    "0.2s | ease | text-decoration-color, -webkit-text-decoration-color",
+    1
+   ]
+  ],
+  "libs": {
+   "gsap": false,
+   "ScrollTrigger": false,
+   "stCount": null,
+   "Lenis": true,
+   "lenisClass": "lenis lenis-smooth",
+   "THREE": false,
+   "barba": false,
+   "Webflow": false,
+   "next": false,
+   "nuxt": false,
+   "astro": false,
+   "canvas": 0,
+   "video": 22,
+   "generator": ""
+  },
+  "anims": [],
+  "domCount": 667,
+  "scrollH": 21851,
+  "body": {
+   "bg": "rgb(0, 0, 0)",
+   "color": "rgb(255, 255, 255)",
+   "font": "__Crimson_Text_0965ff, __Crimson_Text_Fallback_0965ff"
+  },
+  "rootVars": {},
+  "title": ""
+ },
+ "mobile": {
+  "loadEventMs": 2885,
+  "atLoad": {
+   "n": 94,
+   "bytes": 81880281
+  },
+  "total": {
+   "n": 103,
+   "bytes": 104764794
+  },
+  "byType": {
+   "document": {
+    "n": 1,
+    "b": 24109
+   },
+   "stylesheet": {
+    "n": 8,
+    "b": 35278
+   },
+   "font": {
+    "n": 3,
+    "b": 66528
+   },
+   "script": {
+    "n": 35,
+    "b": 913345
+   },
+   "image": {
+    "n": 17,
+    "b": 416334
+   },
+   "media": {
+    "n": 28,
+    "b": 103303151
+   },
+   "fetch": {
+    "n": 5,
+    "b": 5896
+   },
+   "ping": {
+    "n": 1,
+    "b": 0
+   },
+   "xhr": {
+    "n": 5,
+    "b": 153
+   }
+  },
+  "fontFiles": [
+   "1075ab87ea1b5b40-s.p.woff2 30KB",
+   "b0cd9a290aff5b5c-s.p.woff2 18KB",
+   "e400baae650c21fc-s.p.woff2 16KB"
+  ],
+  "topReqs": [
+   "16372KB media https://www.datocms-assets.com/132779/1789081185-3b_salesloft_marketing.mp4",
+   "12483KB media https://www.datocms-assets.com/132779/1789412134-4b_salesloft_homepage.mp4",
+   "9943KB media https://www.datocms-assets.com/132779/1789081847-5c_salesloft_signals.mp4",
+   "9123KB media https://www.datocms-assets.com/132779/1789080831-2c_salesloft_illustrations-and-patterns-2.mp4",
+   "7871KB media https://www.datocms-assets.com/132779/1789080859-2d_salesloft_diagrams-2.mp4",
+   "7292KB media https://www.datocms-assets.com/132779/1789081185-3b_salesloft_marketing.mp4",
+   "6409KB media https://www.datocms-assets.com/132779/1789085207-5b_salesloft_solutions.mp4",
+   "6115KB media https://www.datocms-assets.com/132779/1789080831-2c_salesloft_illustrations-and-patterns-2.mp4"
+  ],
+  "fontsLoaded": [
+   "__Crimson_Text_0965ff 400 normal display:swap",
+   "__sharpSansNo1ExtraBoldFont_5395bd 800 normal display:swap"
+  ],
+  "typeScale": [
+   "68px/1.12 ls0 w400 __Crimson_Text_0965ff | n=2 chars=8 tags=span:2 | \"50\"",
+   "52px/1.1 ls0 w800 __sharpSansNo1ExtraBoldFont_5395bd | n=1 chars=4 tags=a:1 | \"Ford\"",
+   "32px/1.13 ls0 w800 __sharpSansNo1ExtraBoldFont_5395bd | n=3 chars=219 tags=h3:3 | \"How do you rebrand a company without los\"",
+   "26px/1.23 ls0 w400 __Crimson_Text_0965ff | n=1 chars=47 tags=h2:1 | \"Signal through noise: The new Salesloft \"",
+   "26px/1.23 ls0 w800 __sharpSansNo1ExtraBoldFont_5395bd | n=5 chars=141 tags=h2:5 | \"Two companies. One new Salesloft.\"",
+   "20px/1.6 ls0 w400 __Crimson_Text_0965ff | n=17 chars=4910 tags=p:16,a:1 | \"Salesloft had become a different company\"",
+   "20px/1.6 ls0 w200 __Crimson_Text_0965ff | n=1 chars=18 tags=p:1 | \"Laurie Ehrbar, CMO\"",
+   "18px/1.5 ls0 w400 __Crimson_Text_0965ff | n=1 chars=29 tags=a:1 | \"More B2B SaaS web design work\"",
+   "14px/1.71 ls0 w400 __Crimson_Text_0965ff | n=1 chars=6 tags=div:1 | \"© ANML\"",
+   "12px/normal ls0.13 w800 __sharpSansNo1ExtraBoldFont_5395bd uppercase | n=4 chars=44 tags=div:4 | \"Services\"",
+   "12px/2.17 ls0.13 w800 __sharpSansNo1ExtraBoldFont_5395bd uppercase | n=18 chars=324 tags=li:18 | \"Brand Strategy & Identity\"",
+   "12px/1.33 ls0.13 w800 __sharpSansNo1ExtraBoldFont_5395bd uppercase | n=3 chars=87 tags=div:3 | \"Higher MQL-to-Sales Rate\""
+  ],
+  "colors": [
+   [
+    "rgb(255, 255, 255)",
+    21
+   ],
+   [
+    "rgb(128, 128, 128)",
+    19
+   ],
+   [
+    "rgb(112, 112, 112)",
+    8
+   ],
+   [
+    "rgb(175, 175, 175)",
+    7
+   ],
+   [
+    "rgb(0, 0, 0)",
+    2
+   ]
+  ],
+  "bgs": [
+   [
+    "rgb(0, 0, 0)",
+    20
+   ],
+   [
+    "rgb(255, 255, 255)",
+    2
+   ],
+   [
+    "rgb(26, 26, 26)",
+    2
+   ],
+   [
+    "rgb(234, 227, 221)",
+    1
+   ],
+   [
+    "rgb(1, 1, 1)",
+    1
+   ]
+  ],
+  "sectionPadding": [
+   [
+    "32/32",
+    2
+   ],
+   [
+    "128/128",
+    2
+   ],
+   [
+    "0/32",
+    1
+   ],
+   [
+    "128/64",
+    1
+   ],
+   [
+    "128/0",
+    1
+   ],
+   [
+    "0/128",
+    1
+   ],
+   [
+    "64/64",
+    1
+   ]
+  ],
+  "sectionSamples": [
+   "DIV.Hero_wrapper__j56zv pt0 pb0 pl0 mt0 mb0 h844",
+   "DIV.WorkDetailPage_content__BAosi pt0 pb0 pl0 mt0 mb0 h14705",
+   "SECTION. pt0 pb0 pl0 mt0 mb0 h373",
+   "SECTION.MediaTextPromoFullBleed_wrapper__ieUKE componentTh pt0 pb0 pl0 mt0 mb0 h956",
+   "SECTION.FullBleedPromo_wrapper__HQWSA componentTheme_light pt0 pb0 pl0 mt0 mb0 h532",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_light com pt32 pb32 pl32 mt0 mb0 h825",
+   "SECTION.TextPromo_wrapper__ngvt5 componentTheme_dark compo pt128 pb64 pl32 mt0 mb0 h432",
+   "SECTION.FullBleedPromo_wrapper__HQWSA componentTheme_dark  pt0 pb0 pl0 mt0 mb0 h596",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_dark comp pt0 pb0 pl0 mt0 mb0 h340",
+   "SECTION.MediaTextPromoFullBleed_wrapper__ieUKE componentTh pt128 pb0 pl0 mt0 mb0 h1116",
+   "SECTION.VideoBlock_wrapper___jsUM componentTheme_dark comp pt128 pb128 pl32 mt0 mb0 h507",
+   "SECTION.SliderBlock_wrapper__TDrqT componentVerticalPaddin pt0 pb128 pl0 mt0 mb0 h664",
+   "SECTION.MobileImageSlider_wrapper__2aLWJ mobileImageSlider pt0 pb0 pl0 mt32 mb32 h380",
+   "SECTION.FullBleedPromo_wrapper__HQWSA componentTheme_dark  pt0 pb0 pl0 mt0 mb0 h844",
+   "SECTION.MediaTextPromoFullBleed_wrapper__ieUKE componentTh pt0 pb0 pl0 mt0 mb0 h656",
+   "SECTION.StatCollection_wrapper__RT75c StatCollection_dark_ pt128 pb128 pl32 mt0 mb0 h712",
+   "SECTION.componentTheme_dark componentVerticalPadding_top_a pt64 pb64 pl64 mt0 mb0 h715",
+   "SECTION.FooterNextProject_wrapper__pJx3_ pt0 pb0 pl0 mt0 mb0 h845"
+  ],
+  "gaps": [
+   [
+    "48px",
+    3
+   ],
+   [
+    "32px",
+    3
+   ],
+   [
+    "20px",
+    3
+   ],
+   [
+    "10px",
+    3
+   ],
+   [
+    "50px",
+    2
+   ],
+   [
+    "24px",
+    1
+   ],
+   [
+    "40px",
+    1
+   ],
+   [
+    "30px",
+    1
+   ],
+   [
+    "16px",
+    1
+   ],
+   [
+    "60px",
+    1
+   ],
+   [
+    "12px 40px",
+    1
+   ]
+  ],
+  "radii": [
+   [
+    "6px",
+    24
+   ],
+   [
+    "999px",
+    1
+   ]
+  ],
+  "maxw": [
+   [
+    "3840px",
+    1
+   ],
+   [
+    "4320px",
+    1
+   ],
+   [
+    "2160px",
+    1
+   ],
+   [
+    "1440px",
+    1
+   ]
+  ],
+  "transitions": [
+   [
+    "1s | ease-in-out | all",
+    20
+   ],
+   [
+    "0.45s | cubic-bezier(0.76, 0, 0.24, 1) | transform",
+    14
+   ],
+   [
+    "0.5s | ease | opacity",
+    9
+   ],
+   [
+    "0.25s | ease-in | padding",
+    8
+   ],
+   [
+    "0.3s | ease | background, color",
+    2
+   ],
+   [
+    "0.2s | ease | opacity",
+    2
+   ],
+   [
+    "0.45s | ease | background",
+    1
+   ],
+   [
+    "0.45s | cubic-bezier(0.625, 0.05, 0, 1) | width, height",
+    1
+   ],
+   [
+    "0.2s | ease | text-decoration-color, -webkit-text-decoration-color",
+    1
+   ]
+  ],
+  "libs": {
+   "gsap": false,
+   "ScrollTrigger": false,
+   "stCount": null,
+   "Lenis": true,
+   "lenisClass": "lenis lenis-smooth",
+   "THREE": false,
+   "barba": false,
+   "Webflow": false,
+   "next": false,
+   "nuxt": false,
+   "astro": false,
+   "canvas": 0,
+   "video": 22,
+   "generator": ""
+  },
+  "anims": [],
+  "domCount": 814,
+  "scrollH": 15549,
+  "body": {
+   "bg": "rgb(0, 0, 0)",
+   "color": "rgb(255, 255, 255)",
+   "font": "__Crimson_Text_0965ff, __Crimson_Text_Fallback_0965ff"
+  },
+  "rootVars": {},
+  "title": ""
+ },
+ "code": {
+  "cssBytes": 202132,
+  "jsBytes": 3014832,
+  "cssBezier": [
+   [
+    "cubic-bezier(.53,.21,0,1)",
+    6
+   ],
+   [
+    "cubic-bezier(.625,.05,0,1)",
+    5
+   ],
+   [
+    "cubic-bezier(.76,0,.24,1)",
+    1
+   ]
+  ],
+  "cssTransitionDur": [
+   [
+    ".25s",
+    6
+   ],
+   [
+    ".45s",
+    5
+   ],
+   [
+    ".2s",
+    4
+   ],
+   [
+    ".3s",
+    3
+   ],
+   [
+    ".5s",
+    3
+   ],
+   [
+    ".4s",
+    1
+   ],
+   [
+    ".6s",
+    1
+   ],
+   [
+    "1s",
+    1
+   ]
+  ],
+  "cssAnimDur": [
+   [
+    "3.4s",
+    3
+   ],
+   [
+    ".7s",
+    2
+   ],
+   [
+    "2s",
+    1
+   ]
+  ],
+  "cssEaseKeywords": [
+   [
+    "ease-in",
+    6
+   ],
+   [
+    "ease",
+    5
+   ],
+   [
+    "ease-in-out",
+    4
+   ],
+   [
+    "ease-out",
+    1
+   ]
+  ],
+  "keyframes": 6,
+  "fontFace": [
+   [
+    "var(--font-sharpSansExtraBold),tahoma,sans-serif",
+    26
+   ],
+   [
+    "var(--font-mbEmpireMedium),tahoma,sans-serif",
+    5
+   ],
+   [
+    "__Crimson_Text_0965ff",
+    3
+   ],
+   [
+    "slick",
+    3
+   ],
+   [
+    "inherit",
+    2
+   ],
+   [
+    "__Crimson_Text_Fallback_0965ff",
+    1
+   ],
+   [
+    "__Crimson_Text_0965ff,__Crimson_Text_Fallback_0965ff",
+    1
+   ],
+   [
+    "__sharpSansNo1ExtraBoldFont_5395bd",
+    1
+   ],
+   [
+    "__sharpSansNo1ExtraBoldFont_Fallback_5395bd",
+    1
+   ],
+   [
+    "__sharpSansNo1ExtraBoldFont_5395bd,__sharpSansNo1ExtraBoldFont_Fallback_5395bd",
+    1
+   ],
+   [
+    "__mbEmpireMediumFont_7eca70",
+    1
+   ],
+   [
+    "__mbEmpireMediumFont_Fallback_7eca70",
+    1
+   ]
+  ],
+  "fontDisplay": [
+   [
+    "swap",
+    5
+   ]
+  ],
+  "clamp": [
+   [
+    "calc(48px + 86*(100vw - 320px)/1120)",
+    1
+   ],
+   [
+    "calc(22px + 8*(100vw - 320px)/1120)",
+    1
+   ],
+   [
+    "min(160px,11vw)",
+    1
+   ],
+   [
+    "min(88px,9.5vw)",
+    1
+   ],
+   [
+    "min(52px,15.5vw)",
+    1
+   ],
+   [
+    "clamp(40px,6.5vw,96px)",
+    1
+   ],
+   [
+    "clamp(2.5rem,14.5vw,4.5rem)",
+    1
+   ],
+   [
+    "16vw",
+    1
+   ],
+   [
+    "21.5vw",
+    1
+   ]
+  ],
+  "fontSizes": [
+   [
+    "12px",
+    13
+   ],
+   [
+    "20px",
+    7
+   ],
+   [
+    "32px",
+    6
+   ],
+   [
+    "16px",
+    5
+   ],
+   [
+    "40px",
+    5
+   ],
+   [
+    "18px",
+    5
+   ],
+   [
+    "2rem",
+    4
+   ],
+   [
+    "24px",
+    3
+   ],
+   [
+    "11px",
+    3
+   ],
+   [
+    "1rem",
+    3
+   ],
+   [
+    "30px",
+    3
+   ],
+   [
+    "26px",
+    3
+   ],
+   [
+    "0",
+    2
+   ],
+   [
+    "13px",
+    2
+   ],
+   [
+    "100px",
+    2
+   ],
+   [
+    "28px",
+    2
+   ],
+   [
+    "1.5rem",
+    2
+   ],
+   [
+    "1.25rem",
+    2
+   ],
+   [
+    "4.25rem",
+    2
+   ],
+   [
+    "2.5rem",
+    2
+   ],
+   [
+    "1.625rem",
+    2
+   ],
+   [
+    "1.125rem",
+    2
+   ],
+   [
+    "14px",
+    1
+   ],
+   [
+    "48px",
+    1
+   ],
+   [
+    "124px",
+    1
+   ],
+   [
+    "90px",
+    1
+   ],
+   [
+    "70px",
+    1
+   ],
+   [
+    "60px",
+    1
+   ],
+   [
+    "50px",
+    1
+   ],
+   [
+    "34px",
+    1
+   ],
+   [
+    ".75rem",
+    1
+   ],
+   [
+    "1.75rem",
+    1
+   ],
+   [
+    "inherit",
+    1
+   ],
+   [
+    ".8125rem",
+    1
+   ],
+   [
+    "calc(48px + 86*(100vw - 320px)/1120)",
+    1
+   ],
+   [
+    "134px",
+    1
+   ],
+   [
+    "calc(22px + 8*(100vw - 320px)/1120)",
+    1
+   ],
+   [
+    "min(160px,11vw)",
+    1
+   ],
+   [
+    "min(88px,9.5vw)",
+    1
+   ],
+   [
+    "min(52px,15.5vw)",
+    1
+   ]
+  ],
+  "lineHeights": [
+   [
+    "1",
+    6
+   ],
+   [
+    "2rem",
+    6
+   ],
+   [
+    "0",
+    5
+   ],
+   [
+    "22px",
+    5
+   ],
+   [
+    "20px",
+    4
+   ],
+   [
+    "24px",
+    3
+   ],
+   [
+    "40px",
+    3
+   ],
+   [
+    "18px",
+    3
+   ],
+   [
+    "32px",
+    3
+   ],
+   [
+    "36px",
+    3
+   ],
+   [
+    "34px",
+    3
+   ],
+   [
+    "2.125rem",
+    3
+   ],
+   [
+    "16px",
+    2
+   ],
+   [
+    "48px",
+    2
+   ],
+   [
+    "60px",
+    2
+   ],
+   [
+    "inherit",
+    2
+   ],
+   [
+    "1.125rem",
+    2
+   ],
+   [
+    "1.75rem",
+    2
+   ],
+   [
+    "30px",
+    2
+   ],
+   [
+    "26px",
+    2
+   ]
+  ],
+  "letterSpacing": [
+   [
+    "0",
+    19
+   ],
+   [
+    ".13em",
+    12
+   ],
+   [
+    ".02rem",
+    3
+   ],
+   [
+    "-.02em",
+    2
+   ],
+   [
+    ".02em",
+    1
+   ],
+   [
+    ".04em",
+    1
+   ],
+   [
+    ".1rem",
+    1
+   ],
+   [
+    "-.05rem",
+    1
+   ],
+   [
+    "-.01em",
+    1
+   ],
+   [
+    "-.03em",
+    1
+   ],
+   [
+    ".25vw",
+    1
+   ],
+   [
+    ".08em",
+    1
+   ]
+  ],
+  "media": [
+   [
+    "768px",
+    253
+   ],
+   [
+    "940px",
+    147
+   ],
+   [
+    "1024px",
+    144
+   ],
+   [
+    "1440px",
+    55
+   ],
+   [
+    "480px",
+    21
+   ],
+   [
+    "1248px",
+    10
+   ],
+   [
+    "640px",
+    5
+   ],
+   [
+    "560px",
+    4
+   ],
+   [
+    "2056px",
+    3
+   ],
+   [
+    "375px",
+    2
+   ],
+   [
+    "769px",
+    1
+   ],
+   [
+    "1668px",
+    1
+   ]
+  ],
+  "reducedMotion": 2,
+  "jsReducedMotion": 4,
+  "jsEase": [
+   [
+    "power2.inOut",
+    18
+   ],
+   [
+    "power2.out",
+    13
+   ],
+   [
+    "expo.inOut",
+    6
+   ],
+   [
+    "expo.out",
+    2
+   ],
+   [
+    "ease",
+    1
+   ],
+   [
+    "linear",
+    1
+   ],
+   [
+    "easeOut",
+    1
+   ],
+   [
+    "none",
+    1
+   ],
+   [
+    "expo",
+    1
+   ],
+   [
+    "power4",
+    1
+   ],
+   [
+    "expo.in",
+    1
+   ],
+   [
+    "back.out(1.2)",
+    1
+   ],
+   [
+    "power1.out",
+    1
+   ],
+   [
+    "power2.in",
+    1
+   ]
+  ],
+  "jsBezier": [
+   [
+    "cubic-bezier(0.095, 0.170, 0.275, 0.990)",
+    3
+   ],
+   [
+    "cubic-bezier(${t}, ${e}, ${i}, ${n})",
+    1
+   ]
+  ],
+  "jsCustomEase": [],
+  "jsCustomEaseFull": [],
+  "jsDuration": [
+   [
+    ".5",
+    26
+   ],
+   [
+    ".3",
+    10
+   ],
+   [
+    ".4",
+    9
+   ],
+   [
+    "1",
+    8
+   ],
+   [
+    ".25",
+    8
+   ],
+   [
+    "0",
+    6
+   ],
+   [
+    ".65",
+    5
+   ],
+   [
+    "1.5",
+    5
+   ],
+   [
+    ".6",
+    4
+   ],
+   [
+    ".35",
+    3
+   ],
+   [
+    ".8",
+    2
+   ],
+   [
+    ".125",
+    2
+   ],
+   [
+    ".15",
+    2
+   ],
+   [
+    ".45",
+    1
+   ],
+   [
+    ".9",
+    1
+   ],
+   [
+    ".2",
+    1
+   ]
+  ],
+  "jsStagger": [
+   [
+    "0",
+    2
+   ],
+   [
+    ".12",
+    2
+   ],
+   [
+    ".15",
+    2
+   ],
+   [
+    ".02",
+    1
+   ],
+   [
+    ".04",
+    1
+   ],
+   [
+    ".1",
+    1
+   ],
+   [
+    ".05",
+    1
+   ]
+  ],
+  "jsDelay": [
+   [
+    ".25",
+    6
+   ],
+   [
+    ".2",
+    5
+   ],
+   [
+    ".4",
+    4
+   ],
+   [
+    "0",
+    3
+   ],
+   [
+    ".02",
+    3
+   ],
+   [
+    ".45",
+    3
+   ],
+   [
+    ".15",
+    2
+   ],
+   [
+    ".3",
+    2
+   ],
+   [
+    ".05",
+    2
+   ],
+   [
+    "1",
+    1
+   ]
+  ],
+  "jsScrub": [],
+  "jsStart": [
+   [
+    "top bottom",
+    1
+   ]
+  ],
+  "lenis": [],
+  "lerp": [
+   [
+    ".11",
+    1
+   ]
+  ],
+  "signals": {
+   "gsap": true,
+   "ScrollTrigger": true,
+   "SplitText": true,
+   "lenis": true,
+   "locomotive": false,
+   "three": false,
+   "ogl": true,
+   "framerMotion": true,
+   "barba": false,
+   "swup": false,
+   "IntersectionObserver": 19,
+   "mouseenter": 4,
+   "mousemove": 19,
+   "rAF": 31,
+   "lottie": false,
+   "rive": true,
+   "viewTransition": false,
+   "scrollTimeline": false
+  }
+ }
+}

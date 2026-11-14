@@ -1,0 +1,308 @@
+[
+  {
+    "aussage": "1. Digital Shaper 2026, Kategorie «AI Acrobats» – Chris Beyeler steht auf der Bilanz-Liste",
+    "status": "verifiziert",
+    "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd",
+    "zitat": "CHRIS BEYELER, 39 CEO Beyonder, Gebenstorf AG",
+    "datum": "2026-03-24",
+    "ort": "Zürich (Gala im Folium, laut Ringier-Mitteilung)",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Seitentitel: «AI Acrobats: Digitale Köpfe der Schweiz – Digital Shapers 2026», Autor «Bilanz-Redaktion», publiziert 24.03.2026 14:00. Bilanz nennt ihn «Inhaber und Chef der KI-Beratungsfirma Beyonder». URL steht bereits in content/press.json."
+  },
+  {
+    "aussage": "1. Digital Shapers 2026 – wer vergibt",
+    "status": "verifiziert",
+    "url": "https://www.ringier.com/digital-shapers-2026/",
+    "zitat": "For the eighth time, BILANZ, Handelszeitung, PME, and digitalswitzerland are honoring one hundred individuals who are significantly shaping digital Switzerland.",
+    "datum": "2026-03-24",
+    "ort": "Zürich, Folium",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Vergeben von BILANZ, Handelszeitung, PME und digitalswitzerland (Presenting Partner Huawei); 12-köpfige Jury unter Vorsitz von Marc Kowalsky (stv. Chefredaktor BILANZ). Dieselbe Mitteilung listet unter «The AI Acrobats»: «Chris Beyeler, Managing Director, BEYONDER AG». Korrekte Formulierung also nicht «Bilanz/Ringier» allein, sondern «BILANZ, Handelszeitung, PME und digitalswitzerland». digitalswitzerland.com-Fassung nur als Suchtreffer gesehen, nicht geöffnet."
+  },
+  {
+    "aussage": "2. Präsident von swissAI (Handelsregister)",
+    "status": "verifiziert",
+    "url": "https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-366.952.619",
+    "zitat": "Beyeler, Christopher, genannt Chris, von Guggisberg, in Gebenstorf, Präsident des Vorstandes, mit Einzelunterschrift",
+    "datum": "2024-04-02 (SHAB-Neueintragung KImpact); Namensänderung zu Swiss AI Association SHAB 2025-11-03",
+    "ort": "Gebenstorf AG",
+    "hinweis": "Gelesen über die Zefix-Schnittstelle https://www.zefix.ch/ZefixREST/api/v1/firm/1633195.json (SHAB-Meldung 1005998454) am 2026-11-14. Die angegebene URL ist der im Zefix-Datensatz verlinkte kantonale Auszug; diesen selbst habe ich nicht geöffnet. Verein hiess bis 2025 «KImpact», Statutendatum 01.09.2023."
+  },
+  {
+    "aussage": "2. Präsident von swissAI (Vorstandsseite swissai.ch)",
+    "status": "verifiziert",
+    "url": "https://www.swissai.ch/mitglieder",
+    "zitat": "Der Vorstand verantwortet Strategie, Neutralität und die Geschäftsstelle, mit dem Präsidenten an der Spitze.",
+    "datum": "abgerufen 2026-11-14",
+    "ort": "",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Chris Beyeler steht im Organigramm als einzige Person an der Spitze (HTML-Klasse org-lead), das Wort «Präsident» steht aber nicht direkt bei seinem Namen. https://swissai.ch/vorstand gibt 404. Explizit als «Präsident von SwissAI» bezeichnet ihn Bilanz (siehe Zeile 1) und Swico."
+  },
+  {
+    "aussage": "2. swissAI Mitgliederzahl «rund 300»",
+    "status": "verifiziert",
+    "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd",
+    "zitat": "Der 2023 gegründete KI-Verbund zählt rund 300 Mitglieder",
+    "datum": "2026-03-24",
+    "ort": "",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). ACHTUNG, Zahl ist überholt: swissai.ch nennt heute (Seiten /verband und /mitglieder, strukturierte Daten) «Über 400 Mitglieder aus der Deutschschweiz, der Romandie und dem Tessin». «rund 300» ist nur mit Stand März 2026 und Quelle Bilanz haltbar."
+  },
+  {
+    "aussage": "3. BEYONDER AG – Umwandlung GmbH in AG 2025, Rolle Chris Beyeler",
+    "status": "verifiziert",
+    "url": "https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-209.968.587",
+    "zitat": "Beyeler, Christopher Nurmi, von Guggisberg, in Gebenstorf, Präsident des Verwaltungsrates, mit Einzelunterschrift",
+    "datum": "2025-07-03 (SHAB; Statutenänderung/Umwandlungsplan 17.06.2025)",
+    "ort": "Gebenstorf AG",
+    "hinweis": "Gelesen über https://www.zefix.ch/ZefixREST/api/v1/firm/1152985.json (SHAB-Meldung 1006374428) am 2026-11-14; die URL ist der dort verlinkte kantonale Auszug, selbst nicht geöffnet. UID CHE-209.968.587. SHAB: «wird gemäss Umwandlungsplan vom 17.06.2025 … in eine Aktiengesellschaft umgewandelt … Firma neu: BEYONDER AG». Das Register belegt «VR-Präsident», nicht den Titel «CEO»."
+  },
+  {
+    "aussage": "3. Gründer/CEO BEYONDER",
+    "status": "verifiziert",
+    "url": "https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd",
+    "zitat": "wirkt heute als Inhaber und Chef der KI-Beratungsfirma Beyonder",
+    "datum": "2026-03-24",
+    "ort": "",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). «CEO Beyonder» steht in der Bilanz-Personenzeile. «Gründer» mit Vorbehalt: laut Handelsregister entstand BEYONDER GmbH am 24.01.2019 durch Umfirmierung und Sitzverlegung der 2013 eingetragenen Talent Sourcing GmbH (Thalwil), die Beyeler im Januar 2019 übernahm – also Gründer der Marke/Firma BEYONDER, nicht Neugründung der Rechtseinheit. Drittquelle für «Gründer»: horizont.net (in press.json; nur Such-Snippet gesehen). Eigene Darstellung: https://beyonder.ch/uber-uns/geschichte."
+  },
+  {
+    "aussage": "4. Bühne: OMT Summit (Düsseldorf)",
+    "status": "gefunden-nicht-verifiziert",
+    "url": "https://www.linkedin.com/in/pascal-peters-64a32686/",
+    "zitat": "",
+    "datum": "laut Snippet OMT Summit 2026 (Datierung im Snippet unklar)",
+    "ort": "Düsseldorf",
+    "hinweis": "NUR SUCH-SNIPPET, nicht geöffnet: LinkedIn-Beitrag eines Teilnehmers nennt Beyeler am OMT Summit mit Vortrag «Reverse Prompt Engineering». Keine Veranstalterseite gefunden, die ihn als Summit-Speaker nennt: omt.de/summit/ (Ausgabe 11.–12.03.2027) nennt ihn nicht, OMT-Suche liefert nur das Expertenprofil. 3 Suchen ausgeschöpft."
+  },
+  {
+    "aussage": "4. OMT – Expertenprofil (kein Beleg für Summit-Auftritt)",
+    "status": "verifiziert",
+    "url": "https://www.omt.de/experte/chris-beyeler/",
+    "zitat": "Chris Beyeler steht für praxisnahe künstliche Intelligenz mit Wirkung. Als Präsident von KImpact, dem Verband für künstliche Intelligenz in der Schweiz",
+    "datum": "abgerufen 2026-11-14",
+    "ort": "",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (Headless-Chrome). Seite ist Cloudflare-geschützt (curl 403). Profil «Chris Beyeler – OMT-Experte» mit einem Magazinartikel; der Summit wird dort nicht erwähnt. Belegt nur «OMT-Experte/Autor», nicht den Bühnenauftritt."
+  },
+  {
+    "aussage": "4. Bühne: Power Pur",
+    "status": "verifiziert",
+    "url": "https://power-pur.ch/rueckblick/power-pur-2024-r%C3%BCckblick",
+    "zitat": "Chris Beyeler: From Hype to Reality: KI als Chance für die Branche Chris Beyeler, Präsident von KImpact, zeigte auf",
+    "datum": "2024-05-23",
+    "ort": "JED Events, Schlieren",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Veranstalterrückblick (Galledia Event AG / dpSuisse): «Am 23. Mai 2024 traf sich die Schweizer Print- und Medienbranche zur zweiten Ausgabe von Power Pur im JED Events in Schlieren.» Die frühere Speaker-Seite power-pur.ch/speaker/chris-beyeler/ leitet heute auf die Startseite um. In den Rückblicken 2025 und 2026 kommt er nicht vor."
+  },
+  {
+    "aussage": "4. Bühne: Digital Day Bern (Berner Tourismus / Made in Bern)",
+    "status": "verifiziert",
+    "url": "https://www.htr.ch/story/people-events/berner-tourismus-ruestet-sich-fuer-die-ki-zukunft-43265",
+    "zitat": "Die Referenten Chris Beyeler von Beyonder, Antonia Zahner von KI Power Swiss und Qris Riner von Contextery zeigten",
+    "datum": "Bericht Plattform J vom 2025-07-04; Veranstaltungstag im gelesenen Ausschnitt nicht genannt",
+    "ort": "Festhalle Bernexpo, Bern",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Medienbericht (htr.ch), keine Veranstalterseite; «zweiter Digital Day von Made in Bern», rund 60 Teilnehmende, kein Vortragstitel genannt. Gleichlautend https://www.plattformj.ch/artikel/234052/ (ebenfalls gelesen). Beide URLs stehen bereits in press.json."
+  },
+  {
+    "aussage": "4. Bühne: CAMPIXX",
+    "status": "verifiziert",
+    "url": "https://www.youtube.com/watch?v=WwaLNkLw4HI",
+    "zitat": "Content in kürzester Zeit | Chris Beyeler",
+    "datum": "nicht ablesbar",
+    "ort": "nicht ablesbar",
+    "hinweis": "Gelesen über YouTube-oEmbed am 2026-11-14: Videotitel wie zitiert, Kanal «CAMPIXX» (@CAMPIXX-TV), also vom Veranstalter veröffentlicht. Zusätzlich Veranstalter-Expertenprofil https://www.campixx.de/experten/beyeler-chris/ (curl gelesen: «Beyeler, Chris – Beyonder», Bio, keine Vortragsliste, kein Datum). Jahr und Ort des Vortrags nicht belegt. Ein Such-Snippet behauptete «CAMPIXX 2027»; auf der Seite steht das nicht."
+  },
+  {
+    "aussage": "4. Bühne: KI.LIVE",
+    "status": "verifiziert",
+    "url": "https://stgallen24.ch/articles/310310-ki-live-premiere-verbindet-menschen-und-kuenstliche-intelligenz",
+    "zitat": "Höhepunkte sind ein KI-Referat von Chris Beyeler über «KI-Revolution – Wo wir heute stehen und was uns morgen erwartet»",
+    "datum": "2025-04-23",
+    "ort": "Collektiv, St.Gallen",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Vorbericht (Kürzel pd/stz., also auf Pressemitteilung gestützt) vom 22.04.2025, keine Veranstalterseite. Wichtig: «KImpact als Gastgeber und Variabel Medienvielfalt als Veranstalter» – KImpact ist Beyelers eigener Verband, also keine unabhängige Fremdbühne. ki.live nicht erreichbar. Nachbericht Tagblatt steht bereits in press.json."
+  },
+  {
+    "aussage": "4. Bühne: Automotive Summit (Switzerland) 2026",
+    "status": "verifiziert",
+    "url": "https://automotivesummit.ch/as26/",
+    "zitat": "KI-Update – Entwicklungen einordnen, Potenziale bewerten, Entscheidungen treffen Chris Beyeler Saal 1 10:15 - 10:35",
+    "datum": "2026-05-06",
+    "ort": "auf der Seite nicht genannt",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Veranstalterseite mit Präsentations-Downloads. Datum «6. Mai» aus https://automotivesummit.ch/programm/ (Headless-Chrome gelesen, «Impulse, die 2026 prägen … reserviere dir den 6. Mai»)."
+  },
+  {
+    "aussage": "4. Bühne: Automotive Summit (Switzerland) 2025",
+    "status": "verifiziert",
+    "url": "https://automotivesummit.ch/as26/",
+    "zitat": "Im Rahmen des Automotive Summit Switzerland 2025 wird Chris Beyeler aufzeigen, wie künstliche Intelligenz den Automobilvertrieb revolutionieren kann",
+    "datum": "2025 (Tagesdatum nicht ablesbar)",
+    "ort": "auf der Seite nicht genannt",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Vortragstitel «Anwendungsmöglichkeiten von KI im Autohaus», Saal 1, 11:30–12:00. Steht im Archivteil derselben Seite."
+  },
+  {
+    "aussage": "4. Bühne: AI in Marketing (Konferenz) 2026",
+    "status": "verifiziert",
+    "url": "https://www.ai-in-marketing.ch/",
+    "zitat": "swissAI | BEYONDER State of AI in Marketing 2026: Die Ära der Unabhängigkeit - Chris Beyeler",
+    "datum": "2026 (zweite Ausgabe; Tagesdatum auf der Seite nicht mehr genannt)",
+    "ort": "Zürich (2027: The Circle, Flughafen Zürich; Ort 2026 nicht ablesbar)",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Abschnitt «Das waren unsere Speaker:innen 2026» auf der Veranstalter-Startseite; Inhalt wandert vermutlich, sobald das Programm 2027 steht – Screenshot/Archivkopie empfohlen. Früherer Auftritt: Video «The State of AI in Marketing – Keynote von Chris Beyeler, AI in Marketing Konferenz Zürich» liegt nur auf dem eigenen Kanal «AI Cast von BEYONDER» (oEmbed), also kein Veranstalterbeleg. Netzwoche-Artikel vom 26.01.2026 steht in press.json."
+  },
+  {
+    "aussage": "4. Bühne: Business Schmiede",
+    "status": "nicht gefunden",
+    "url": "https://business-schmiede.ch/",
+    "zitat": "",
+    "datum": "",
+    "ort": "",
+    "hinweis": "Site-Suche von business-schmiede.ch (WordPress-Suche nach «Beyeler») liefert 0 Treffer; zwei Websuchen ohne Treffer ausser der eigenen Website. Unklar, ob diese Organisation (Business Schmiede Schweiz AG) überhaupt gemeint ist."
+  },
+  {
+    "aussage": "4. Bühne: TÜV AICon",
+    "status": "nicht gefunden",
+    "url": "",
+    "zitat": "",
+    "datum": "",
+    "ort": "",
+    "hinweis": "Zwei Websuchen ohne jeden Treffer, der Beyeler mit der TÜV AICon verbindet (letzte gefundene Ausgabe laut Snippet: 4.12.2025, Berlin). Im Repo nur in FEEDBACK-TODO.md als Logo-Wunsch erwähnt, nicht in index.html."
+  },
+  {
+    "aussage": "4. Weiterer Auftritt: Forum Berufslehre+ 2026 (Haus der Wirtschaft Baselland)",
+    "status": "verifiziert",
+    "url": "https://www.hdw-berufsbildung.ch/berufslehre-plus",
+    "zitat": "Speaker Chris Beyeler Chris Beyeler ist KI-Experte, Gründer und CEO der BEYONDER AG und Präsident von swissAI.",
+    "datum": "2026-11-05",
+    "ort": "Haus der Wirtschaft, Hardstrasse 1, Pratteln",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Veranstalterseite; Motto «Wie KI und Generation Alpha die (Berufs-)Bildung verändern», über 150 Teilnehmende. Kein Vortragstitel genannt. Liegt vor dem 15.11.2026, also kein kommender Termin."
+  },
+  {
+    "aussage": "4. Weiterer Auftritt: «KI-Stolpersteine: Erfahrungen aus der Praxis» (Swico / swissAI)",
+    "status": "verifiziert",
+    "url": "https://www.swico.ch/de/kalender-events/detail/ki-stolpersteine-erfahrungen-aus-der-praxis",
+    "zitat": "Chris Beyeler ist Präsident von swissAI und Gründer der BEYONDER AG. Als Keynote-Speaker und Host des AI Cast prägt er den KI-Diskurs",
+    "datum": "2026-08-26",
+    "ort": "GZ Buchegg, Bucheggstrasse 93, Zürich",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Rolle laut Programm: «16:00 Begrüssung, Chris Beyeler» und Talkrunde – kein eigener Vortrag. swissAI ist Mitveranstalter."
+  },
+  {
+    "aussage": "4. Weiterer Auftritt: KI Business Geflüster #12",
+    "status": "verifiziert",
+    "url": "https://luma.com/zx4gofmc",
+    "zitat": "Chris Beyeler, Inhaber von BEYONDER AG und Präsident von swissAI, bringt echte Business Cases aus der Praxis mit",
+    "datum": "2026-05-21",
+    "ort": "Langenthal",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Thema «Die Realität über AI – mit echten Business Cases». Beyeler ist auf Luma als Mitveranstalter eingetragen (mit Brian Cucchiara), also kein reiner Fremdveranstalter."
+  },
+  {
+    "aussage": "4. Weiterer Auftritt: AS-TAG 2024 (ASTAG)",
+    "status": "verifiziert",
+    "url": "https://www.youtube.com/watch?v=IuCenjqwMaI",
+    "zitat": "AS-TAG 2024: Chris Beyeler",
+    "datum": "2024",
+    "ort": "nicht ablesbar",
+    "hinweis": "Nur YouTube-oEmbed-Metadaten gelesen (2026-11-14): Titel wie zitiert, Kanal «ASTAG» (Veranstalter). Video-Link steht bereits in index.html. Datum/Ort/Vortragstitel nicht ablesbar."
+  },
+  {
+    "aussage": "4. Weiterer Auftritt: BrainFood Vol.03 (h+b)",
+    "status": "verifiziert",
+    "url": "https://www.youtube.com/watch?v=Vz5p7pJ7WEg",
+    "zitat": "BrainFood Vol.03 Keynote von Chris Beyeler (KI Impact)",
+    "datum": "nicht ablesbar",
+    "ort": "nicht ablesbar",
+    "hinweis": "Nur YouTube-oEmbed-Metadaten gelesen: Kanal «h+b». Link bereits in index.html."
+  },
+  {
+    "aussage": "4. Weitere Vorträge auf Veranstalterkanälen (marketing.ch, E-Commerce Automation)",
+    "status": "verifiziert",
+    "url": "https://www.youtube.com/watch?v=cCpdaLo0vuc",
+    "zitat": "Die wichtigsten SEO Basics für dein Business | Chris Beyeler",
+    "datum": "nicht ablesbar",
+    "ort": "nicht ablesbar",
+    "hinweis": "Nur YouTube-oEmbed-Metadaten gelesen: Kanal «marketing.ch». Zweites Video https://www.youtube.com/watch?v=rlTM4qT-g70 «Content Atomization: Maximale Wirkung auf allen Kanälen – Chris Beyeler», Kanal «E-Commerce Automation». Beide Links bereits in index.html."
+  },
+  {
+    "aussage": "5. Kommende öffentliche Auftritte ab 15.11.2026",
+    "status": "nicht gefunden",
+    "url": "",
+    "zitat": "",
+    "datum": "",
+    "ort": "",
+    "hinweis": "Kein Veranstalter nennt Chris Beyeler für einen Termin ab 15.11.2026. Geprüft (selbst gelesen): OMT Summit 11.–12.03.2027 Düsseldorf (keine Speakerliste mit ihm), AI in Marketing 21.04.2027 The Circle (nur Speaker 2026 gelistet), Power Pur 26.05.2027 Schlieren («Programm folgt demnächst»), Automotive Summit 2027 (kein Programm), Forum Berufslehre+ 2027 (Datum offen), swissAI-Eventliste (KI-Update x swissAI Meetup 02.12.2026 in Gebenstorf nennt als Referierende Michael Kyburz & Alexander Repenning, nicht Beyeler). Zwei Websuchen ohne Treffer."
+  },
+  {
+    "aussage": "6. AI Cast «mehr als 150 Episoden»",
+    "status": "verifiziert",
+    "url": "https://podcasts.apple.com/ch/podcast/ai-cast-fr%C3%BCher-marketing-booster-beyonder/id1476341514",
+    "zitat": "AI Cast (früher Marketing BOOSTER) | BEYONDER",
+    "datum": "Stand 2026-11-14; neueste Folge 2026-04-28, erste Folge 2019-08-12",
+    "ort": "",
+    "hinweis": "Exakt 150 Episoden, NICHT mehr als 150. Selbst gezählt: RSS-Feed https://anchor.fm/s/d21e1cc/podcast/rss enthält 150 <item> (alle Typ «full»); Apple-iTunes-Lookup (id1476341514) meldet trackCount 150, Artist «Chris Beyeler». Belegbar ist «150 Episoden seit 2019». Zählung umfasst die Vorgänger-Folgen «Marketing BOOSTER». Widerspruch: beyonder.ch/wissen/ai-cast---der-schweizer-ki-podcast schreibt «140 Folgen seit 2019». Seit 28.04.2026 keine neue Folge im Feed. Spotify-Seite liefert ohne Login keine Zahl."
+  },
+  {
+    "aussage": "7. «4,9 von 5 Sternen bei 133 Google Reviews»",
+    "status": "verifiziert",
+    "url": "https://maps.app.goo.gl/be9o5Z5taEUuZPCc6",
+    "zitat": "4,9 (165) Berater",
+    "datum": "abgerufen 2026-11-14",
+    "ort": "Gebenstorf",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (Headless-Chrome). Das Profil gehört der Firma, nicht Chris Beyeler persönlich: «BEYONDER | KI-Kompetenzzentrum für Schulung, Beratung, Speaker und Keynote künstliche Intelligenz in Brugg, Baden im Aargau». Aktuell 4,9 bei 165 Rezensionen, die 133 sind veraltet. Kurzlink ist auf beyonder.ch verlinkt; stabile Alternative https://www.google.com/maps?cid=9496245515344674997. beyonder.ch zeigt ebenfalls «Google 4,9 ★★★★★ (165)». Jüngste Rezensionen betreffen Kurse anderer Trainer (z. B. Michael Kyburz), nicht nur Beyelers Keynotes – im JSON-LD der Speaker-Seite daher nicht als Bewertung der Person ausgeben."
+  },
+  {
+    "aussage": "7. ProvenExpert-Wert 4,47",
+    "status": "nicht gefunden",
+    "url": "https://www.provenexpert.com/de-de/beyonder/",
+    "zitat": "Profil aktiv seit 11.03.2019 | Letzte Aktualisierung: 11.11.2026",
+    "datum": "abgerufen 2026-11-14",
+    "ort": "",
+    "hinweis": "Profil existiert und wurde selbst gelesen (curl und Headless-Chrome): «BEYONDER – AI Expert für Workshop & Speaker», Ansprechpartner Chris Beyeler, noch alte Adresse Landstrasse 105. Es zeigt aber öffentlich KEINE Gesamtnote und KEINE Bewertungsanzahl (kein aggregateRating, kein Bewertungstext). Der Wert 4,47 ist damit nicht belegbar. Profile unter /chris-beyeler/, /beyonder-ag/, /beyonder-gmbh/ gibt es nicht (HTTP 410)."
+  },
+  {
+    "aussage": "8. Lehre: HWZ",
+    "status": "verifiziert",
+    "url": "https://fh-hwz.ch/de/news/campus/von-null-auf-ki-in-fuenf-schritten-vom-marketingprofi-zum-ki-profi",
+    "zitat": "Jonas Hubmann, Studiengangsleiter des CAS AI in Marketing HWZ, und Chris Beyeler, Studiengangsleiter des CAS Advanced AI in Marketing",
+    "datum": "2025-10-20",
+    "ort": "Zürich",
+    "hinweis": "Selbst auf der Quellseite gelesen am 2026-11-14 (curl). Belegt sogar «Studiengangsleiter», nicht nur Dozent. Die per Suche gefundene «Dozierendenliste CAS AI in Marketing HWZ 2026» (PDF) gibt heute 404."
+  },
+  {
+    "aussage": "8. Lehre: MAZ",
+    "status": "verifiziert",
+    "url": "https://www.maz.ch/Web-Downloads/2020/KK_Content%20Creation_Marketing.pdf",
+    "zitat": "Chris Beyeler, Experte für Online- und Social Media Kommunikation",
+    "datum": "2020 (Kurstage 17./18.12.2020)",
+    "ort": "Luzern",
+    "hinweis": "PDF selbst gelesen (curl + pdftotext): Kompaktkurs «Social Content Creation – Marketing 2020», Beyeler unter den Dozierenden, Modul «Social Campaining». Beleg ist von 2020. Aktuellere MAZ-Kursseiten (u. a. «MAZ-Kommunikationstagung: KI in der Public Relations», laut Such-Snippet «Referent: Chris Beyeler, MAZ-Dozent, KI-Experte») leiten heute auf die Kursübersicht um – nur Snippet, nicht verifiziert. Aktuelle Dozententätigkeit am MAZ nicht belegt."
+  },
+  {
+    "aussage": "8. Lehre: zB. Zentrum Bildung",
+    "status": "verifiziert",
+    "url": "https://www.zentrumbildung.ch/sites/default/files/uploads/2020-02/zb_info_1_2020_web_sml.pdf",
+    "zitat": "Lehrgangsleiter Chris Beyeler Personal Digital Marketing Trainer Inhaber von Beyonder",
+    "datum": "2020-02",
+    "ort": "Baden",
+    "hinweis": "PDF selbst gelesen (zB. Info 1/2020, Nachdiplomstudiengang Digital Marketing). zB. Info 2/2022 (https://www.zentrumbildung.ch/sites/default/files/uploads/2022-10/zBInfo_2_2022-zb-zentrum-bildung.pdf, ebenfalls gelesen): Nachfolger «übernimmt die Leitung von Chris Beyeler, der sich wieder mehr aufs Unterrichten konzentrieren möchte». Site-Suche heute: 0 Treffer. Belegt 2020–2022, aktueller Status offen."
+  },
+  {
+    "aussage": "8. Lehre: SIB",
+    "status": "nicht gefunden",
+    "url": "",
+    "zitat": "",
+    "datum": "",
+    "ort": "",
+    "hinweis": "Kein Treffer auf sib.ch (Site-Suche) und in drei Websuchen. Die eigene Firmengeschichte (beyonder.ch/uber-uns/geschichte) nennt «HWZ, SGO und andere Institute» sowie einen «Dipl. Digital Marketing Manager/in HF NDS» ohne Schulnamen."
+  },
+  {
+    "aussage": "9. Medien: SRF, NZZ, Bilanz, Netzwoche, persoenlich.com",
+    "status": "verifiziert",
+    "url": "/home/user/chrisbeyeler-website/content/press.json",
+    "zitat": "",
+    "datum": "",
+    "ort": "",
+    "hinweis": "Bereits mit URL in press.json vorhanden, nicht erneut recherchiert: SRF (2 Einträge: SRF News, SRF Kids), NZZ (2), Bilanz (1), Netzwoche (3), persoenlich.com (2). Von mir inhaltlich geöffnet wurde davon nur der Bilanz-Artikel; die übrigen sind ungeprüft übernommen."
+  },
+  {
+    "aussage": "9. Medien: Handelszeitung",
+    "status": "nicht gefunden",
+    "url": "",
+    "zitat": "",
+    "datum": "",
+    "ort": "",
+    "hinweis": "Zwei Websuchen (eine auf handelszeitung.ch beschränkt) ohne Artikel, der Chris Beyeler nennt; die Handelszeitung-Site-Suche war nicht nutzbar (404). Einziger Bezug: Handelszeitung ist Mitträgerin der Digital Shapers (Ringier-Mitteilung). «Bekannt aus Handelszeitung» ist als redaktionelle Erwähnung nicht belegt."
+  }
+]
