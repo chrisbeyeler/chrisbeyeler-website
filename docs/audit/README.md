@@ -270,6 +270,26 @@ Einordnung:
 | Punkt | Status |
 |---|---|
 | Messwerte oben | gemessen (lokal) |
-| Live-Messung nach dem Merge | **offen** |
+| Live-Messung nach dem Merge | erledigt, siehe unten |
 | INP und Felddaten | **offen**, brauchen echte Besuche |
 | Wirkung auf echten Geräten im Mobilnetz | **geschätzt** aus der Lighthouse-Simulation |
+
+### Live-Messung am 15. November 2026, 16:55 UTC (https://chrisbeyeler.ch/, nach Merge von PR 20)
+
+| Prüfung | Vor PR 20 (live, 15:10 UTC) | Nach PR 20 (live) | Status |
+|---|---|---|---|
+| Lighthouse mobil, 5 Läufe | 95 / 99 / 99 / 95 / 99 | **100 / 100 / 100 / 100 / 100** | gemessen |
+| LCP mobil | Median 2,1 s | Median 1,53 s (1,52–1,62 s) | gemessen (Labor) |
+| Erstes Bild (FCP) mobil | 1,2 s | 1,23 s | gemessen (Labor) |
+| TBT mobil | 0–220 ms, Median 50 ms | 8 / 8 / 14 / 23 / 58 ms | gemessen (Labor) |
+| CLS | 0 | 0 | gemessen (Labor) |
+| Lighthouse Desktop-Profil, 3 Läufe | nicht gemessen | 100 / 100 / 100 · FCP 0,39–0,46 s · LCP 0,51–0,52 s | gemessen (Labor) |
+| Ladegewicht beim ersten Aufruf | 203 KB, 11 Anfragen | 200 KB, 10 Anfragen | gemessen |
+| Barrierefreiheit, Best Practices, SEO | je 100 | je 100 | gemessen |
+| axe (ganze Seite gerendert), normal und reduzierte Bewegung | 0 Verstösse | 0 Verstösse | gemessen |
+| Funktionstest | 26 von 26 | 30 von 30 | gemessen |
+| Tastatur (170 Halte), Sprungmarken (12 Wege), 11 Breiten | ohne Befund | ohne Befund | gemessen |
+| Schema.org-Validator | 0 Fehler | 0 Fehler, 0 Warnungen | gemessen |
+| KI-Crawler | Status 200 | Status 200 | gemessen |
+
+Ziel «unter 1 Sekunde»: im Desktop-Profil erreicht (LCP 0,5 s). Im Mobil-Profil (simuliertes langsames 4G) steht das erste Bild nach 1,2 s und das grösste Element nach 1,5 s.

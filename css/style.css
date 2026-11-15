@@ -1616,3 +1616,34 @@ mark.hl { padding: 0 0.12em; color: #06120F; background: linear-gradient(#C8F25A
 .stages__total { max-width: 62ch; margin-bottom: var(--sp-6); color: var(--c-text-2); font-size: var(--fs-lead); line-height: var(--lh-lead); }
 .stages__total strong { color: var(--c-text); font-weight: var(--fw-strong); }
 .stage-year__more { max-width: 68ch; margin: calc(var(--sp-4) - var(--sp-6)) 0 var(--sp-6); padding: var(--sp-4); border: 1px dashed var(--c-line-strong); color: var(--c-text-2); font-size: var(--fs-small); line-height: 1.5; }
+
+/* ===== Wort-Rahmen =====
+   Der Erkennungsrahmen des Logos um ein einzelnes Wort. Erscheint, wenn die Zeile gezeigt,
+   fokussiert, geöffnet oder beim Scrollen in der Bildmitte ist. Auch allein nutzbar:
+   <span class="frame" data-label="Thema 0.98">Wort</span> reagiert auf den eigenen Zeiger. */
+.frame { position: relative; display: inline-block; white-space: nowrap; margin-inline: 0.1em; }
+.frame::after {
+    content: ''; position: absolute; inset: -0.05em -0.09em -0.03em; pointer-events: none; opacity: 0;
+    border: 2px solid var(--c-accent);
+    background:
+        linear-gradient(var(--c-text), var(--c-text)) 0 0 / 7px 7px no-repeat border-box,
+        linear-gradient(var(--c-text), var(--c-text)) 100% 0 / 7px 7px no-repeat border-box,
+        linear-gradient(var(--c-text), var(--c-text)) 0 100% / 7px 7px no-repeat border-box,
+        linear-gradient(var(--c-text), var(--c-text)) 100% 100% / 7px 7px no-repeat border-box;
+}
+.frame::before {
+    content: attr(data-label); position: absolute; z-index: 1; left: 0.2em; top: -0.05em; transform: translateY(-62%); opacity: 0; pointer-events: none;
+    padding: 0.3em 0.6em 0.2em; background: var(--c-accent); color: var(--c-on-accent);
+    font-family: var(--font-sans); font-stretch: 100%; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.05em; line-height: 1.2; text-transform: uppercase; white-space: nowrap;
+}
+.frame:hover::after, .frame:hover::before,
+.talk summary:hover .frame::after, .talk summary:hover .frame::before,
+.talk summary:focus-visible .frame::after, .talk summary:focus-visible .frame::before,
+.talk details[open] .frame::after, .talk details[open] .frame::before,
+.js .talk.is-current .frame::after, .js .talk.is-current .frame::before { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+    .frame::after { transform: scale(1.14); transition: opacity var(--dur-1) var(--ease-out), transform var(--dur-2) var(--ease-spring); }
+    .frame::before { transition: opacity var(--dur-1) var(--ease-out) 0.12s; }
+    .frame:hover::after, .talk summary:hover .frame::after, .talk summary:focus-visible .frame::after, .talk details[open] .frame::after, .js .talk.is-current .frame::after { transform: none; }
+}
+.step__hint { color: var(--c-text-2); font-size: var(--fs-small); line-height: 1.5; }

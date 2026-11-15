@@ -1,0 +1,8 @@
+{"lauf":1,"profil":"mobil","performance":100,"fcp_ms":1230,"lcp_ms":1620,"tbt_ms":58,"cls":0}
+{"lauf":2,"profil":"mobil","performance":100,"fcp_ms":1230,"lcp_ms":1533,"tbt_ms":14,"cls":0}
+{"lauf":3,"profil":"mobil","performance":100,"fcp_ms":1230,"lcp_ms":1551,"tbt_ms":23,"cls":0}
+{"lauf":4,"profil":"mobil","performance":100,"fcp_ms":1230,"lcp_ms":1521,"tbt_ms":8,"cls":0}
+{"lauf":5,"profil":"mobil","performance":100,"fcp_ms":1230,"lcp_ms":1520,"tbt_ms":8,"cls":0}
+{"lauf":1,"profil":"desktop","performance":100,"fcp_ms":390,"lcp_ms":507,"tbt_ms":0,"cls":0.0000598203357445555}
+{"lauf":2,"profil":"desktop","performance":100,"fcp_ms":390,"lcp_ms":506,"tbt_ms":0,"cls":0.0000598203357445555}
+{"lauf":3,"profil":"desktop","performance":100,"fcp_ms":457,"lcp_ms":517,"tbt_ms":0,"cls":0.0000598203357445555}

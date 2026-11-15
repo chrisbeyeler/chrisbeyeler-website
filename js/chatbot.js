@@ -15,6 +15,10 @@ const FAQ_DATABASE = {
         keywords: ['keynote', 'vortrag', 'speech', 'buehne', 'buchen', 'anfragen', 'referent', 'speaker', 'rede'],
         answer: 'Ich hab sechs Keynote-Themen im Repertoire: «The State of AI» (der grosse Überblick mit Live-Demos), «KI und die Schweiz» (was auf uns zukommt), «Agentic AI» (autonome KI-Agenten, live gezeigt), «Führen im KI-Zeitalter» (Leadership mit Mensch und Maschine), «AI in Marketing» (Praxis pur) und «5 Erfolgsfaktoren für KI in KMU» (bodenständig und sofort umsetzbar). Dauer: 30–90 Minuten, alles individuell anpassbar. 90+ Speeches auf Bühnen wie OMT Summit, Power Pur und Digital Day Bern. Schreib mir: chris@beyonder.ch'
     },
+    'frist': {
+        keywords: ['frist', 'vorlauf', 'wie frueh', 'wie früh', 'im voraus', 'kurzfristig', 'wann anfragen', 'rechtzeitig', 'vorlaufzeit'],
+        answer: 'Für eine gesicherte Zusage brauche ich deine Anfrage mindestens vier Monate vor dem Anlass. Bei kürzerer Frist ist eine Zusage möglich, aber nicht garantiert. Am schnellsten geht es über das Anfrageformular auf dieser Seite.'
+    },
     'preis': {
         keywords: ['preis', 'kosten', 'budget', 'was kostet', 'preisliste', 'tarif', 'offerte', 'angebot'],
         answer: 'Eine Standard-Keynote gibt es ab CHF 3\'000, eine individuell entwickelte Keynote ab CHF 5\'000. Der genaue Preis hängt von Format, Dauer und Aufwand ab. Am schnellsten geht es über das Anfrageformular auf dieser Seite.'

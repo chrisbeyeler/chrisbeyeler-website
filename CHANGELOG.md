@@ -18,6 +18,7 @@
 - Medien: 12 echte Logos von den Verlagsseiten in `img/media/`, einfarbig auf hellem Band; 8 Medien weiterhin als Schriftzug
 - Chat-Dienst (`worker/index.js`): Preisregel an die neuen Ab-Preise angepasst. **Der Worker muss neu ausgerollt werden**, sonst antwortet der Chat weiter ohne Preise
 - `llms-full.txt`: unbelegte Bühne «Business Schmiede Festival» entfernt
+- Chat-Dienst: veraltete Zahlen an die Seite angeglichen (2500+ ausgebildet, 90+ Speeches, 150 Episoden, 165 Bewertungen), «Business Schmiede» entfernt
 
 ## 2026-11-15 — Scrollytelling, Trailer-Autostart, Mosaik, Preise
 

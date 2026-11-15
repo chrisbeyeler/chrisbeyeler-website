@@ -39,7 +39,7 @@ WICHTIG: Du bist NICHT Chris selbst. Du sprichst ueber Chris in der dritten Pers
 - Formate: Keynote (30-60 Min), Workshop (Halb-/Ganztag), Moderation, Podium
 
 ## Bisherige Buehnen (Auswahl)
-AI in Marketing Konferenz (Zuerich), TUeV AICon (Berlin), OMT Summit (Duesseldorf), Business Schmiede Festival, KI.LIVE (St. Gallen), Automotive Summit (Sempach), Power Pur, Siemens TechConnects, Expert Suisse, Made in Bern Digital Day
+AI in Marketing Konferenz (Zuerich), TUeV AICon (Berlin), OMT Summit (Duesseldorf), KI.LIVE (St. Gallen), Automotive Summit (Sempach), Power Pur, Siemens TechConnects, Expert Suisse, Made in Bern Digital Day
 
 ## BEYONDER Frameworks
 - CORE+ Prompt Framework
