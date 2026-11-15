@@ -109,4 +109,4 @@ Nicht mitgezählt:
 
 11 Einträge der Seite fehlen im Kalender (2026: 7, 2025: 1, früher: 3). Sie stammen aus der Liste des Auftraggebers vom 14.11.2026 und aus Veranstalter-Quellen.
 
-**Bitte bestätigen:** die Zuordnung der 54 nicht einzeln aufgeführten Einsätze. Wenn eine firmeninterne Schulung nicht als Auftritt zählen soll, sinkt die Summe entsprechend.
+**Bestätigt am 15. November 2026:** Der Auftraggeber hat die Zahlen und die Zuordnung der 54 nicht einzeln aufgeführten Einsätze bestätigt. Der Beleg (eigener Kalender) reicht ihm aus.
