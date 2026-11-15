@@ -1,0 +1,5 @@
+{"lauf":1,"performance":95,"accessibility":100,"lcp_ms":2030,"tbt_ms":220,"cls":0,"bytes":208113,"requests":11}
+{"lauf":2,"performance":99,"accessibility":100,"lcp_ms":2091,"tbt_ms":43,"cls":0,"bytes":208191,"requests":11}
+{"lauf":3,"performance":99,"accessibility":100,"lcp_ms":2054,"tbt_ms":51,"cls":0,"bytes":208135,"requests":11}
+{"lauf":4,"performance":95,"accessibility":100,"lcp_ms":2279,"tbt_ms":206,"cls":0,"bytes":208199,"requests":11}
+{"lauf":5,"performance":99,"accessibility":100,"lcp_ms":2055,"tbt_ms":0,"cls":0,"bytes":208214,"requests":11}
