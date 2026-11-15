@@ -97,14 +97,18 @@ Der Hauptkalender wurde für 2022 bis 2027 durchsucht. Daraus übernommen:
 
 Die Summe steigt damit von 95 auf **96** (42 öffentlich aufgeführt, 54 weitere), weil das Business Schmiede Live Festival im Sheet fehlte.
 
-**Widersprüche, nicht geändert, bitte klären:**
+**Vom Auftraggeber am 15. November 2026 entschieden:**
 
-- ELANTAS: Seite «Mai 2026» (Angabe des Auftraggebers vom 14.11.). Kalender und Sheet nennen den 19. Juni 2026.
-- Förderverein Idee Seetal: Seite und Sheet 24. Oktober 2024, Kalender 23. Oktober 2024.
+- ELANTAS: bleibt «Mai 2026» (Angabe des Auftraggebers: im Mai, an einem Freitag). Kalender und Sheet nennen den 19. Juni 2026; massgebend ist die Angabe des Auftraggebers.
+- Förderverein Idee Seetal: Der Tag wird weggelassen, es steht «Oktober 2024» (Sheet 24., Kalender 23. Oktober).
+- Weitere Auftritte aus dem Kalender: werden nicht einzeln aufgenommen. Auf der Seite stehen nur die öffentlichen.
+
+**Weiterhin ohne Kalendereintrag:**
+
 - Groupe Mutuel AI Week 20.3.2026: Im Kalender steht nur ein 20-minütiger Abstimmungstermin.
 - CAMPIXX, KMU Stadt Bern 2026, NZZ Podium 29.10.2024: kein Kalendereintrag gefunden.
 
-**Im Kalender gefunden, aber nicht aufgenommen** (nicht bestätigt, ob öffentlich nennbar): rund 20 weitere Auftritte bei Dritten, z. B. Neudenker Forum (2023), Startup Nights (2024), Kundenanlass AndYou, ventura.club und Verband Schweizerischer Kantonalbanken (2025), «KMU & Handwerk bauen Zukunft» und Jungle Talk (2026), geplant Swiss Post Digital Connect (16.3.2027). Dazu eigene Anlassreihen in Gebenstorf.
+**Im Kalender gefunden, auf Entscheid des Auftraggebers nicht aufgenommen:** rund 20 weitere Auftritte bei Dritten, z. B. Neudenker Forum (2023), Startup Nights (2024), Kundenanlass AndYou, ventura.club und Verband Schweizerischer Kantonalbanken (2025), «KMU & Handwerk bauen Zukunft» und Jungle Talk (2026), geplant Swiss Post Digital Connect (16.3.2027). Dazu eigene Anlassreihen in Gebenstorf.
 
 ## 5. Herleitung: 95 Auftritte und Firmeneinsätze (Stand 15. November 2026, vor dem Kalender-Nachtrag)
 
