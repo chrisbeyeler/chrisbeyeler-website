@@ -243,3 +243,33 @@ Nach dem Livegang dieselben Befehle mit `https://chrisbeyeler.ch/` ausführen un
 | Rich Results Test von Google | nur von Hand möglich | **offen** |
 | Sichtbarkeit in KI-Systemen (10 Prompts) | erst nach Neuindexierung sinnvoll | **offen** |
 | Echte Medienlogos statt Wortmarken | brauchen Dateien und Erlaubnis der Verlage | **offen** |
+
+## Nachtrag 15. November 2026, Abend: Ladezeit
+
+Ziel des Auftraggebers: Lighthouse 100 und Ladezeit unter 1 Sekunde.
+
+### Gemessen (Lighthouse mobil, lokaler Server mit 80 ms Netzverzögerung, gleiche Bedingungen für alle Varianten)
+
+| Variante | Performance | FCP | LCP | TBT | CLS |
+|---|---|---|---|---|---|
+| Stand vor der Runde (PR 18) | 98 / 98 / 99 | 1,07 s | 2,12 s | 85–116 ms | 0 |
+| Rendern nach Bedarf, CSS wie bisher | 100 / 100 / 100 | 1,07 s | 1,52 s | 23–41 ms | 0 |
+| zusätzlich Kern-CSS im Kopf (verworfen) | 99 / 95 / 98 | 0,88 s | 1,15 s | 123–253 ms | 0 |
+| ganzes CSS im HTML (verworfen) | 99 / 98 / 98 | 1,03 s | 1,60 s | 72–168 ms | 0 |
+| **Endfassung**, 5 Läufe | 97 / 100 / 100 / 99 und ein Ausreisser 80 | 1,07 s | 1,50–1,58 s (zwei Läufe 1,8 und 2,4 s) | 0 / 8 / 21 / 106 und ein Ausreisser 811 ms | 0 |
+| Endfassung im Desktop-Profil, 3 Läufe | 100 / 100 / 100 | 0,61 s | 0,71 s | 0 ms | 0 |
+
+Einordnung:
+
+- **Der Ausreisser (80 Punkte)** ist Messrauschen der Testumgebung: In diesem Lauf war alles drei- bis viermal langsamer, auch die Antwort des Servers (217 statt 90 ms). Die Seite hat sich nicht anders verhalten.
+- **Unter 1 Sekunde ist im Desktop-Profil erreicht** (0,6 bis 0,7 s). Im Mobil-Profil simuliert Lighthouse ein langsames 4G-Netz. Dort gehen allein 0,6 s für den Verbindungsaufbau weg, bevor das erste Byte ankommt. Das erste Bild steht nach 1,07 s. Näher an 1 s kam nur die Variante mit Kern-CSS (0,88 s), sie kostete aber die 100 Punkte.
+- **Ohne Drosselung gemessen** (echte Verbindung, 80 ms Verzögerung): erstes Bild nach 0,31 bis 0,43 s.
+
+### Status
+
+| Punkt | Status |
+|---|---|
+| Messwerte oben | gemessen (lokal) |
+| Live-Messung nach dem Merge | **offen** |
+| INP und Felddaten | **offen**, brauchen echte Besuche |
+| Wirkung auf echten Geräten im Mobilnetz | **geschätzt** aus der Lighthouse-Simulation |

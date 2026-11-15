@@ -6,8 +6,23 @@
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// ===== ABLAUF: Abschnitte einzeln statt am Stück =====
+// Jeder Abschnitt unten läuft als eigene kurze Aufgabe. So blockiert das Skript den Browser nie
+// länger als ein paar Millisekunden, auch auf langsamen Geräten (wichtig für TBT und INP).
+const queue = [];
+function later(fn) {
+    queue.push(fn);
+    if (queue.length === 1) setTimeout(runQueue, 0);
+}
+function runQueue() {
+    const fn = queue[0];
+    try { fn(); } catch (err) { console.error(err); }
+    queue.shift();
+    if (queue.length) setTimeout(runQueue, 0);
+}
+
 // ===== NAVIGATION =====
-(function () {
+later(function () {
     const nav = document.getElementById('nav');
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
@@ -53,10 +68,10 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
         });
     }, { rootMargin: '-45% 0px -50% 0px' });
     map.forEach(function (_a, target) { spy.observe(target); });
-})();
+});
 
 // ===== EINTRITTS-ANIMATION: einmal, kurz, ohne Scroll-Listener =====
-(function () {
+later(function () {
     const items = Array.from(document.querySelectorAll('[data-reveal]'));
     if (!items.length) return;
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
@@ -72,19 +87,19 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
         });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     items.forEach(function (el) { io.observe(el); });
-})();
+});
 
 // ===== LOGO-LAUFBAND: ausserhalb des Viewports pausieren =====
-(function () {
+later(function () {
     if (!('IntersectionObserver' in window)) return;
     const io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) { entry.target.classList.toggle('is-paused', !entry.isIntersecting); });
     });
     document.querySelectorAll('.logos-row').forEach(function (row) { row.classList.add('is-paused'); io.observe(row); });
-})();
+});
 
 // ===== CINEMATIC TRAILER CONTROLLER =====
-(function () {
+later(function () {
     const stages = Array.from(document.querySelectorAll('.trailer-stage'));
     if (!stages.length) return;
     const instances = [];
@@ -298,7 +313,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
             trigger.addEventListener('click', function (event) {
                 event.preventDefault();
                 start(true);
-                stage.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+                stage.scrollIntoView({ behavior: prefersReducedMotion || isFar(stage) ? 'auto' : 'smooth' });
             });
         });
         stage.addEventListener('click', function (event) {
@@ -381,10 +396,10 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     stages.forEach(function (stage) {
         instances.push(initStage(stage));
     });
-})();
+});
 
 // ===== KEYNOTE-KONFIGURATOR =====
-(function () {
+later(function () {
     const brancheEl = document.getElementById('konfigBranche');
     const interesseEl = document.getElementById('konfigInteresse');
     const resultEl = document.getElementById('konfigResult');
@@ -431,10 +446,10 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     }
     setup(brancheEl, 'branche');
     setup(interesseEl, 'interesse');
-})();
+});
 
 // ===== ANFRAGE: Thema aus Keynote-Liste oder URL (?thema=) übernehmen =====
-(function () {
+later(function () {
     const select = document.getElementById('contact-topic');
     if (!select) return;
 
@@ -448,10 +463,10 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     });
     const fromUrl = new URLSearchParams(location.search).get('thema');
     if (fromUrl) setTopic(fromUrl);
-})();
+});
 
 // ===== ANFRAGE: Datum noch offen =====
-(function () {
+later(function () {
     const unknownDate = document.getElementById('contact-date-unknown');
     const dateFields = document.getElementById('contact-date-fields');
     if (!unknownDate || !dateFields) return;
@@ -473,7 +488,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     }
     unknownDate.addEventListener('change', sync);
     if (unknownDate.checked) sync();
-})();
+});
 
 // ===== E-MAIL-ADRESSEN (Spam-Schutz) =====
 document.querySelectorAll('.js-mail').forEach(function (el) {
@@ -481,7 +496,7 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
 });
 
 // ===== SEKTIONSTITEL: Wörter einzeln einblenden =====
-(function () {
+later(function () {
     const titles = document.querySelectorAll('[data-split]');
     if (!titles.length || prefersReducedMotion || !('IntersectionObserver' in window)) return;
     const io = new IntersectionObserver(function (entries) {
@@ -516,10 +531,10 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         });
         io.observe(title);
     });
-})();
+});
 
 // ===== KENNZAHLEN: beim Eintritt hochzählen (der echte Wert steht im HTML) =====
-(function () {
+later(function () {
     const numbers = document.querySelectorAll('[data-count]');
     if (!numbers.length || prefersReducedMotion || !('IntersectionObserver' in window)) return;
     const io = new IntersectionObserver(function (entries) {
@@ -541,10 +556,10 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         });
     }, { threshold: 0.6 });
     numbers.forEach(function (el) { io.observe(el); });
-})();
+});
 
 // ===== GALERIE: Bilder wischen beim Eintritt auf =====
-(function () {
+later(function () {
     const gallery = document.querySelector('.gallery');
     if (!gallery) return;
     if (prefersReducedMotion || !('IntersectionObserver' in window)) { gallery.classList.add('is-in'); return; }
@@ -552,10 +567,10 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         if (entries[0].isIntersecting) { gallery.classList.add('is-in'); io.disconnect(); }
     }, { threshold: 0.2 });
     io.observe(gallery);
-})();
+});
 
 // ===== ZEIGER-EFFEKTE (nur Maus, nur wenn Bewegung erlaubt) =====
-(function () {
+later(function () {
     if (prefersReducedMotion || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
     // Bühnen-Spotlight im Hero
@@ -604,20 +619,61 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         preview.classList.add('is-on');
     }, { passive: true });
     list.addEventListener('pointerleave', function () { preview.classList.remove('is-on'); running = false; });
-})();
+});
+
+// ===== WEITE SPRÜNGE OHNE GLEITEN =====
+// Abschnitte unter dem ersten Bildschirm werden erst gerendert, wenn sie in die Nähe kommen.
+// Ein weiter, gleitender Sprung führe durch alle hindurch, ihre Höhen änderten sich unterwegs
+// und das Ziel würde verfehlt. Deshalb: nah gleiten, weit direkt springen.
+function isFar(el) {
+    return Math.abs(el.getBoundingClientRect().top) > window.innerHeight * 1.5;
+}
+document.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || a.getAttribute('href').length < 2) return;
+    const target = document.getElementById(a.getAttribute('href').slice(1));
+    if (!target || !isFar(target)) return;
+    const root = document.documentElement;
+    root.style.scrollBehavior = 'auto';
+    setTimeout(function () { root.style.scrollBehavior = ''; }, 150);
+    // Nachkontrolle: Rendert ein Abschnitt oberhalb erst jetzt, kann das Ziel verrutschen.
+    // Zweimal prüfen und korrigieren, ausser der Mensch scrollt inzwischen selbst.
+    const pad = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+    let userMoved = false;
+    const stop = function () { userMoved = true; };
+    ['wheel', 'touchstart', 'keydown'].forEach(function (type) { window.addEventListener(type, stop, { once: true, passive: true }); });
+    [140, 500].forEach(function (ms) {
+        setTimeout(function () {
+            if (userMoved) return;
+            const off = target.getBoundingClientRect().top - pad;
+            if (Math.abs(off) > 8) window.scrollBy({ top: off, behavior: 'instant' });
+        }, ms);
+    });
+}, true);
 
 // ===== SCROLLYTELLING =====
 // Ein Scroll-Listener (pro Bild höchstens einmal) schreibt den Fortschritt --p auf wenige Elemente.
 // Das ersetzt CSS-Scroll-Timelines, die nicht jeder Browser kann.
-(function () {
+later(function () {
     if (prefersReducedMotion) return;
     const items = Array.from(document.querySelectorAll('[data-scroll]'));
     const bar = document.querySelector('.progress');
     let ticking = false;
+    // Gemessen wird nur, was in der Nähe des Bildschirms ist. Sonst müsste der Browser
+    // bei jedem Scroll-Schritt auch die noch nicht gerenderten Abschnitte berechnen.
+    let near = items;
+    if ('IntersectionObserver' in window) {
+        near = new Set();
+        const watch = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) near.add(e.target); else near.delete(e.target); });
+            request();
+        }, { rootMargin: '300px 0px' });
+        items.forEach(function (el) { watch.observe(el); });
+    }
     function update() {
         ticking = false;
         const vh = window.innerHeight;
-        for (const el of items) {
+        for (const el of near) {
             const r = el.getBoundingClientRect();
             if (r.bottom < -300 || r.top > vh + 300) continue;
             el.style.setProperty('--p', Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))).toFixed(4));
@@ -650,12 +706,12 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         }, { rootMargin: '0px 0px -45% 0px' });
         years.forEach(function (y) { io2.observe(y); });
     }
-})();
+});
 
 // ===== ANFRAGE IN DREI SCHRITTEN =====
 // Ohne JavaScript bleibt es ein einziges Formular. Mit JavaScript: ein Schritt nach dem anderen,
 // Fehler stehen direkt beim Feld, vor dem Senden gibt es eine kurze Zusammenfassung.
-(function () {
+later(function () {
     const form = document.getElementById('contactForm');
     if (!form) return;
     const steps = Array.from(form.querySelectorAll('.step'));
@@ -747,11 +803,11 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
     // Thema aus einer Keynote übernommen: zurück zu Schritt 1, damit man es sieht
     document.addEventListener('click', function (e) { if (e.target.closest('[data-topic]')) show(0, false); });
     show(0, false);
-})();
+});
 
 // ===== KEYNOTE-VIDEOS: Wiedergabe direkt auf der Seite =====
 // YouTube wird erst beim Klick geladen (youtube-nocookie.com). Ohne JavaScript öffnen die Links YouTube.
-(function () {
+later(function () {
     const stage = document.getElementById('vstage');
     if (!stage) return;
     const player = stage.querySelector('.vstage__player');
@@ -773,10 +829,10 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         if (r.top < 0 || r.bottom > window.innerHeight) player.scrollIntoView({ block: 'center', behavior: prefersReducedMotion ? 'auto' : 'smooth' });
         frame.focus();
     });
-})();
+});
 
 // ===== LAUFBAND DER MEDIEN: anhalten und starten =====
-(function () {
+later(function () {
     const btn = document.querySelector('.marquee-toggle');
     const row = document.querySelector('.media__logos .logos-row');
     if (!btn || !row || prefersReducedMotion) return;
@@ -785,10 +841,10 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         const stopped = row.classList.toggle('is-stopped');
         btn.textContent = stopped ? 'Laufband starten' : 'Laufband anhalten';
     });
-})();
+});
 
 // ===== ERKENNUNGSRAHMEN: Trefferwert zählt hoch, sobald der Rahmen im Bild ist =====
-(function () {
+later(function () {
     if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
     const io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -807,11 +863,11 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         });
     }, { threshold: 0.4 });
     document.querySelectorAll('.detect[data-label]').forEach(function (el) { io.observe(el); });
-})();
+});
 
 // ===== FOOTER-SCHRIFTZUG: Buchstaben ziehen sich zum Zeiger hin zusammen =====
 // Nutzt die Breiten- und Gewichtsachse von Mona Sans. Nur mit Maus, nie breiter als die Grundform.
-(function () {
+later(function () {
     const mark = document.querySelector('.footer__mark span');
     if (!mark || prefersReducedMotion || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     const text = mark.textContent;
@@ -837,4 +893,37 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
     }
     host.addEventListener('pointermove', function (e) { x = e.clientX; y = e.clientY; if (!frame) frame = requestAnimationFrame(paint); });
     host.addEventListener('pointerleave', function () { letters.forEach(function (s) { s.style.fontVariationSettings = ''; }); });
-})();
+});
+
+// ===== KI-CHAT: Skript erst laden, wenn jemand den Chat braucht =====
+// Das spart beim Seitenaufruf Rechenzeit für alle, die den Chat nie öffnen.
+// Geladen wird beim Zeigen oder Fokussieren des Chat-Knopfs, beim Klick darauf
+// (der Klick wird nach dem Laden wiederholt) und sobald der Chat-Abschnitt näher kommt.
+later(function () {
+    let state = 0;          // 0 nicht geladen, 1 lädt, 2 bereit
+    let clickAgain = null;
+    function load(button) {
+        if (button) clickAgain = button;
+        if (state) return;
+        state = 1;
+        const s = document.createElement('script');
+        s.src = 'js/chatbot.js';
+        s.onload = function () { state = 2; if (clickAgain) clickAgain.click(); };
+        document.body.appendChild(s);
+    }
+    const widget = document.querySelector('.chatbot');
+    if (widget) {
+        widget.addEventListener('pointerenter', function () { load(); }, { once: true });
+        widget.addEventListener('focusin', function () { load(); }, { once: true });
+        widget.addEventListener('click', function (e) { if (state < 2) load(e.target.closest('button')); });
+    }
+    const section = document.getElementById('chat');
+    if (section && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver(function (entries) {
+            if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); load(); }
+        }, { rootMargin: '1200px 0px' });
+        io.observe(section);
+    } else {
+        load();
+    }
+});

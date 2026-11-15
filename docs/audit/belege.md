@@ -23,7 +23,7 @@ Legende: **selbst geprüft** = Quelle am 14.11.2026 abgerufen und Textstelle gel
 | Digital Day Bern 2025 | [htr.ch](https://www.htr.ch/story/people-events/berner-tourismus-ruestet-sich-fuer-die-ki-zukunft-43265) | Recherche |
 | AS-TAG 2024, BrainFood Vol. 03, CAMPIXX | YouTube-Videos der Veranstalter | Recherche |
 | Neun Bewertungen im Wortlaut | Google-Profil BEYONDER | Wortlaut aus der bisherigen Seite übernommen, nicht einzeln nachgeprüft |
-| 90+ Speeches | Eigene Liste der Termine | Eigene Angabe. Entscheid vom 14.11.2026: Zahl 90+, ohne Zusatz auf der Seite. |
+| 90+ Speeches | Eigener Kalender (Google Sheet), ausgezählt am 15.11.2026 | 95 Auftritte und Firmeneinsätze: 41 öffentlich aufgeführt, 54 nicht öffentlich oder nicht einzeln aufgeführt. Herleitung in Abschnitt 5. |
 | 2500+ Menschen ausgebildet | Eigene Liste der Unterrichtstage | Eigene Angabe. Entscheid vom 14.11.2026: ohne Zusatz auf der Seite. |
 | Auftritte 2024 bis 2026 ohne Quellenlink | Eigener Kalender | Eigene Angabe. Firmenanlässe dürfen laut Entscheid vom 14.11.2026 genannt werden. |
 | Zwei Stimmen von Veranstaltern (innoEVENT, Forum Berufslehre+) | Schriftliche Rückmeldungen vom November 2026 | Wortlaut übernommen, auf Wunsch anonym |
@@ -80,3 +80,33 @@ Ohne diese Angaben bleibt die Seite an den genannten Stellen schwächer als mög
 | `assets/chatbot-system-prompt.txt` | Nennt «ca. 300 Mitglieder» und «Ringier/Bilanz» |
 | `essay/2025/` | Eigene Seite mit eigenem CSS und GSAP. Nicht Teil dieser Überarbeitung. |
 | beyonder.ch | Nennt laut Recherche noch «140 Folgen» des Podcasts |
+
+## 5. Herleitung: 95 Auftritte und Firmeneinsätze (Stand 15. November 2026)
+
+Quelle ist der eigene Kalender (Google Sheet, Blatt «Tabellenblatt1»). Gezählt wurden nur Zeilen mit Dozent Chris Beyeler im Zeitraum 1.12.2022 bis 15.11.2026. Testzeilen und in allen Spalten identische Zweitzeilen sind entfernt (234 Zeilen bleiben).
+
+| Jahr | Auf der Seite mit Datum | Firmeninterne Workshops und Schulungen | Weitere Auftritte, nicht einzeln aufgeführt | Summe |
+|---|---|---|---|---|
+| 2026 (bis 15.11.) | 22 | 8 | 3 | 33 |
+| 2025 | 9 | 15 | 7 | 31 |
+| 2024 | 10 (zusammen mit früher) | 9 | 8 | 31 (zusammen mit 2023 und früher) |
+| 2023 | – | 0 | 4 | – |
+| **Total** | **41** | **32** | **22** | **95** |
+
+Was **gezählt** ist: die Zahl der Zeilen pro Jahr und Dozent, die Dubletten, die Testzeilen.
+
+Was **Zuordnung** ist (nach Titel, Auftraggeber und Modul, nicht einzeln rückgefragt):
+
+- Ob eine Zeile ein Auftritt bei einem Anlass, eine firmeninterne Schulung oder Unterricht ist.
+- Ob ein Auftritt aus dem Kalender einem Eintrag auf der Seite entspricht.
+
+Nicht mitgezählt:
+
+- 142 Zeilen Unterricht bei Bildungsanbietern (SIB, MAZ, HWZ, campus.swiss, SAWI, FHNW-Module, eigene Kurse).
+- Einsätze anderer Dozenten von BEYONDER.
+- 1 unsichere Zeile 2024 (Ruckstuhl, «KI in der Automobilbranche»), die dem AS-TAG entsprechen könnte.
+- Der Zähler «Speeches» im Dashboard des Sheets (92). Er zählt alle Zeilen unter 3¼ Stunden, auch Kurslektionen und Einsätze anderer Dozenten, und ist deshalb keine Zahl der Auftritte.
+
+11 Einträge der Seite fehlen im Kalender (2026: 7, 2025: 1, früher: 3). Sie stammen aus der Liste des Auftraggebers vom 14.11.2026 und aus Veranstalter-Quellen.
+
+**Bitte bestätigen:** die Zuordnung der 54 nicht einzeln aufgeführten Einsätze. Wenn eine firmeninterne Schulung nicht als Auftritt zählen soll, sinkt die Summe entsprechend.

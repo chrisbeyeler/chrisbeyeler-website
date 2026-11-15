@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-11-15 (Abend) — Ladezeit, Auftritte pro Jahr, echte Medienlogos
+
+### Ladezeit
+- Abschnitte unter dem ersten Bildschirm werden erst gerendert, wenn sie in die Nähe kommen (`content-visibility`). Rechenzeit beim Laden sinkt deutlich
+- Schrift wird nicht mehr vorab geladen; angeglichene Ersatzschriften verhindern Layoutsprünge beim Wechsel
+- `js/main.js` läuft in kurzen Portionen statt am Stück; `js/chatbot.js` lädt erst, wenn jemand den Chat braucht
+- Strukturierte Daten stehen am Ende des HTML statt im Kopf
+- Weite Sprünge (z. B. «Keynote anfragen» im Hero) gehen direkt statt gleitend und werden nachkontrolliert
+- Ein Kern-CSS im Kopf wurde gemessen und verworfen (schnelleres erstes Bild, aber Rechenspitzen danach)
+
+### Fehler behoben
+- `css/style.css` hatte drei Syntaxfehler aus früheren Umbauten (zwei überzählige Klammern, ein abgeschnittenes `-webkit-`). Folge: Regeln für reduzierte Bewegung beim Akzentwort und der Rahmen des Chat-Kastens wurden vom Browser verworfen. Neu prüft `tools/audit/css-check.js` das Stylesheet
+
+### Inhalt
+- Bühnen: pro Jahr öffentlich aufgeführte Auftritte plus nicht öffentliche Einsätze, Summe 95 (Herleitung in `docs/audit/belege.md`, Abschnitt 5)
+- Medien: 12 echte Logos von den Verlagsseiten in `img/media/`, einfarbig auf hellem Band; 8 Medien weiterhin als Schriftzug
+- Chat-Dienst (`worker/index.js`): Preisregel an die neuen Ab-Preise angepasst. **Der Worker muss neu ausgerollt werden**, sonst antwortet der Chat weiter ohne Preise
+- `llms-full.txt`: unbelegte Bühne «Business Schmiede Festival» entfernt
+
 ## 2026-11-15 — Scrollytelling, Trailer-Autostart, Mosaik, Preise
 
 - Typo-Band, Hero-Bild, Siegel und Werdegang hängen jetzt per JavaScript am Scroll (`--p`). Vorher lief das nur in Browsern mit CSS-Scroll-Timelines, sonst stand das Band still und war abgeschnitten
