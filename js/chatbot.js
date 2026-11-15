@@ -17,7 +17,7 @@ const FAQ_DATABASE = {
     },
     'preis': {
         keywords: ['preis', 'kosten', 'budget', 'was kostet', 'preisliste', 'tarif', 'offerte', 'angebot'],
-        answer: 'Preise nenne ich hier nicht, jedes Projekt ist anders. Schreib mir direkt an chris@beyonder.ch für ein individuelles Angebot. Dann schauen wir gemeinsam, was passt.'
+        answer: 'Eine Standard-Keynote gibt es ab CHF 3\'000, eine individuell entwickelte Keynote ab CHF 5\'000. Der genaue Preis hängt von Format, Dauer und Aufwand ab. Am schnellsten geht es über das Anfrageformular auf dieser Seite.'
     },
     'themen': {
         keywords: ['themen', 'topic', 'inhalt', 'worueber', 'wovon', 'state of ai', 'marketing', 'kmu', 'arbeit', 'agent', 'leadership', 'fuehrung', 'führung', 'ethik', 'grundlagen', 'entwicklung'],

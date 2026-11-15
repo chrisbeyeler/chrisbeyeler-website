@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-11-15 — Scrollytelling, Trailer-Autostart, Mosaik, Preise
+
+- Typo-Band, Hero-Bild, Siegel und Werdegang hängen jetzt per JavaScript am Scroll (`--p`). Vorher lief das nur in Browsern mit CSS-Scroll-Timelines, sonst stand das Band still und war abgeschnitten
+- Neu: Fortschrittsbalken oben, Keynote in der Bildmitte tritt hervor, Linie im Werdegang füllt sich
+- Trailer starten stumm von selbst, sobald sie im Bild sind, auch auf dem Handy. Ausnahmen: reduzierte Bewegung und Datensparmodus. Die Navigation bleibt dabei bedienbar
+- Beiträge und Podcast-Gastauftritte als Mosaik: alle 27 und 17 Einträge sichtbar, kein «Mehr anzeigen», keine Wischreihe. Das Raster bleibt bei jeder Anzahl lückenlos
+- Medien als grosse Wortmarken in Mona Sans, abgeleitet aus `content/press.json`. Die alten Text-Logos in `img/media/` sind gelöscht
+- Preise: Standard-Keynote ab CHF 3'000, individuelle Keynote ab CHF 5'000 (Formate, FAQ, Schema, Chatbot, `llms.txt`)
+- Keynote-Konfigurator steht jetzt direkt unter dem Sektionstitel
+- Zeilenabstand der Titel erhöht, damit Kommata die nächste Zeile nicht berühren
+- Ein schwaches Zitat entfernt
+- Impressum und Datenschutz haben ihre Gestaltung zurück
+
 ## 2026-11-14 — Überarbeitung für Buchungsanfragen: Design, Tempo, Belege, Auffindbarkeit
 
 Messwerte, Referenzanalyse und offene Punkte: `docs/audit/`.

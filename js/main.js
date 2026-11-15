@@ -89,7 +89,8 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     if (!stages.length) return;
     const instances = [];
     const saveData = navigator.connection && navigator.connection.saveData;
-    const manualOnly = prefersReducedMotion || saveData || matchMedia('(max-width: 600px)').matches;
+    // Trailer startet stumm, sobald er im Bild ist. Ausnahmen: reduzierte Bewegung und Datensparmodus.
+    const manualOnly = prefersReducedMotion || saveData;
 
     function syncBodyState() {
         document.body.classList.toggle('trailer-active', document.querySelector('.trailer-stage.is-active') !== null);
@@ -474,19 +475,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     if (unknownDate.checked) sync();
 })();
 
-// ===== PRESSESPIEGEL: weitere Artikel einblenden =====
-(function () {
-    const button = document.getElementById('articlesShowMore');
-    const grid = document.querySelector('.articles__grid');
-    if (!button || !grid) return;
-    button.addEventListener('click', function () {
-        const first = grid.querySelector('a.articles__hidden');
-        grid.classList.add('articles--expanded');
-        button.parentElement.classList.add('hidden');
-        if (first) first.focus({ preventScroll: true });
-    });
-})();
-
 // ===== E-MAIL-ADRESSEN (Spam-Schutz) =====
 document.querySelectorAll('.js-mail').forEach(function (el) {
     el.href = 'mai' + 'lto:' + el.dataset.n + '@' + el.dataset.d;
@@ -616,4 +604,50 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         preview.classList.add('is-on');
     }, { passive: true });
     list.addEventListener('pointerleave', function () { preview.classList.remove('is-on'); running = false; });
+})();
+
+// ===== SCROLLYTELLING =====
+// Ein Scroll-Listener (pro Bild höchstens einmal) schreibt den Fortschritt --p auf wenige Elemente.
+// Das ersetzt CSS-Scroll-Timelines, die nicht jeder Browser kann.
+(function () {
+    if (prefersReducedMotion) return;
+    const items = Array.from(document.querySelectorAll('[data-scroll]'));
+    const bar = document.querySelector('.progress');
+    let ticking = false;
+    function update() {
+        ticking = false;
+        const vh = window.innerHeight;
+        for (const el of items) {
+            const r = el.getBoundingClientRect();
+            if (r.bottom < -300 || r.top > vh + 300) continue;
+            el.style.setProperty('--p', Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))).toFixed(4));
+        }
+        if (bar) {
+            const max = document.documentElement.scrollHeight - vh;
+            bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0).toFixed(4) + ')';
+        }
+    }
+    function request() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    update();
+
+    if (!('IntersectionObserver' in window)) return;
+    // Keynotes: die Zeile in der Bildmitte hervorheben
+    const list = document.querySelector('.talks');
+    if (list) {
+        const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { e.target.classList.toggle('is-current', e.isIntersecting); });
+            list.classList.toggle('has-current', !!list.querySelector('.is-current'));
+        }, { rootMargin: '-42% 0px -42% 0px' });
+        list.querySelectorAll('.talk[data-talk]').forEach(function (t) { io.observe(t); });
+    }
+    // Werdegang: Jahre, die die Bildmitte passiert haben, bleiben hell
+    const years = document.querySelectorAll('.timeline[data-scroll] li');
+    if (years.length) {
+        const io2 = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting || e.boundingClientRect.top < 0) e.target.classList.add('is-past'); else e.target.classList.remove('is-past'); });
+        }, { rootMargin: '0px 0px -45% 0px' });
+        years.forEach(function (y) { io2.observe(y); });
+    }
 })();

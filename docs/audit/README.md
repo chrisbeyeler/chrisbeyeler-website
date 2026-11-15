@@ -151,7 +151,7 @@ Effekte, alle ohne Bibliothek (kein GSAP, kein ScrollTrigger, kein Lenis auf der
 
 - Mit `prefers-reduced-motion` sind alle Effekte aus. Ohne JavaScript ist der gesamte Inhalt sichtbar.
 - Scrollgekoppelte Effekte laufen in Chrome, Edge und Safari ab Version 26. Firefox zeigt den ruhenden Zustand.
-- Keine Bewegung läuft länger als 5 Sekunden von selbst, ausser dem Logo-Laufband der Medien. Es pausiert bei Hover und Fokus.
+- Länger als 5 Sekunden von selbst laufen nur das Laufband der Medien (pausiert bei Hover und Fokus) und die Trailer (stumm, mit Pause- und Schliessen-Knopf; kein Autostart bei reduzierter Bewegung oder Datensparmodus).
 
 Bewusst entfernt und warum:
 
@@ -173,7 +173,7 @@ Bewusst entfernt und warum:
 | Kontraste über Verläufen | 16 Farbpaare von Hand nach WCAG gerechnet: alle ab 5.5:1 | gemessen |
 | axe «unvollständig» | 37 Elemente Farbkontrast: Text über dem Hero-Foto, automatisch nicht berechenbar | **offen**: manuell prüfen (Scrim liegt bei 72–92 % Deckung) |
 | Tastatur: Skip-Link, Menü, Escape | bestanden | gemessen (`tools/audit/functest.js`) |
-| Funktionen: Themenübernahme, Konfigurator, Mehr Artikel, Datum offen, Trailer, Mail-Link | bestanden | gemessen |
+| Funktionen: Themenübernahme, Konfigurator, Mosaik ohne Lücke, Datum offen, Trailer-Autostart, Navigation bedienbar, Mail-Link | bestanden (Stand 15.11.2026, 20 Prüfungen) | gemessen |
 | Ohne JavaScript: Inhalte sichtbar, H1 vollständig | bestanden | gemessen |
 | Überschriften ohne Sprung, eine H1 | bestanden | gemessen |
 | Kein horizontaler Überlauf (412 px und 1440 px) | bestanden | gemessen |
@@ -207,3 +207,17 @@ node functest.js
 ```
 
 Nach dem Livegang dieselben Befehle mit `https://chrisbeyeler.ch/` ausführen und die 10 Prompts aus `prompts.md` erneut testen.
+
+## Nachtrag 15. November 2026
+
+Änderungen nach Rückmeldung: Scrollytelling per JavaScript statt CSS-Scroll-Timelines, Trailer-Autostart, Mosaik für Beiträge und Podcasts, Preise, Medien-Wortmarken. Details im `CHANGELOG.md`.
+
+| Prüfung (lokal, mobil) | Ergebnis | Status |
+|---|---|---|
+| Lighthouse, 3 Läufe | Performance 97 / 99 / 99 · LCP 2,0 s · TBT 70–180 ms · CLS 0 · 196 KB | gemessen |
+| axe, normal und mit reduzierter Bewegung | 0 Verstösse | gemessen |
+| Funktionstest | 20 von 20 | gemessen |
+| Überlauf auf 11 Breiten (320–1920 px) | kein Befund | gemessen |
+| Seitenlänge mobil | 32 051 px (live vorher 27 951 px), weil alle Beiträge und Podcasts sichtbar sind | gemessen |
+| Live-Messung nach dem Merge | – | **offen** |
+| Echte Medienlogos statt Wortmarken | brauchen Dateien und Erlaubnis der Verlage | **offen** |
