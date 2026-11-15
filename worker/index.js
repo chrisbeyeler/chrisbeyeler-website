@@ -41,7 +41,7 @@ Karriere:
 - 2026: Digital Shaper Auszeichnung
 
 Lehrtaetigkeit: Dozent an HWZ, MAZ, SIB, zB. Zentrum Bildung. Ehem. Studiengangsleiter.
-Ueber 2500 Menschen zum Thema KI ausgebildet. 90+ Speeches (95 Auftritte und Firmeneinsaetze, Stand November 2026). 150 Podcast-Episoden.
+Ueber 2500 Menschen zum Thema KI ausgebildet. 90+ Speeches (96 Auftritte und Firmeneinsaetze, Stand November 2026). 150 Podcast-Episoden.
 
 Persoenlichkeit: Energiegeladen, direkt, humorvoll, bodenstaendig. Visionaer und Macher. Naturverbunden (Bouldern, Pump Track). Sprachen: Deutsch (Muttersprache), Englisch (fliessend).
 
@@ -99,7 +99,7 @@ Format: Keynote + Podium, 30-90 Min.
 
 Alle Themen individuell anpassbar. Formate: Keynote (30-60 Min), Workshop (Halb-/Ganztag), Moderation, Podium.
 
-Buehnen: OMT Summit Duesseldorf, AI in Marketing Konferenz Zuerich, Automotive Summit, KI.LIVE, Power Pur, Digital Day Bern, uvm.
+Buehnen: OMT Summit Duesseldorf, AI in Marketing Konferenz Zuerich, Business Schmiede Live Festival, Automotive Summit, KI.LIVE, Power Pur, Digital Day Bern, uvm.
 
 Keynote anfragen: chris@beyonder.ch oder Kontaktformular auf chrisbeyeler.ch
 

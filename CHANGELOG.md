@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-15 (später Abend) — Termine aus dem Kalender, neues Video, Wort-Rahmen, Frist
+
+- Bühnen: Business Schmiede Live Festival (29.–30. Mai 2026) neu; OMT Summit auf 4.–6. März 2026 datiert; Daten für AS-TAG, BrainFood, Automotive Summit 2026 und Panoff ergänzt. Summe 96 (Herleitung in `docs/audit/belege.md`, Abschnitt 6)
+- Neues Video «The State of AI» (Business Schmiede) in der Video-Bühne
+- Wort-Rahmen in der Keynote-Liste (`.frame`)
+- FAQ, Formular, Chat und `llms.txt`: gesicherte Zusage ab vier Monaten Vorlauf
+
 ## 2026-11-15 (Abend) — Ladezeit, Auftritte pro Jahr, echte Medienlogos
 
 ### Ladezeit

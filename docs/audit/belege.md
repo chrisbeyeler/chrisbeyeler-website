@@ -81,7 +81,32 @@ Ohne diese Angaben bleibt die Seite an den genannten Stellen schwächer als mög
 | `essay/2025/` | Eigene Seite mit eigenem CSS und GSAP. Nicht Teil dieser Überarbeitung. |
 | beyonder.ch | Nennt laut Recherche noch «140 Folgen» des Podcasts |
 
-## 5. Herleitung: 95 Auftritte und Firmeneinsätze (Stand 15. November 2026)
+## 6. Nachtrag aus dem Google Kalender (15. November 2026)
+
+Der Hauptkalender wurde für 2022 bis 2027 durchsucht. Daraus übernommen:
+
+| Eintrag | Neu auf der Seite | Beleg |
+|---|---|---|
+| Business Schmiede Live Festival | 29.–30. Mai 2026, «The State of AI» | Kalendereintrag über zwei Tage; Video auf dem YouTube-Kanal der Business Schmiede Schweiz AG. An welchem der zwei Tage der Auftritt war, steht nicht im Kalender. |
+| OMT Summit | 4.–6. März 2026, Düsseldorf (vorher ohne Datum unter «früher») | Kalender: drei Tage «OMT», Flug Zürich–Düsseldorf, «OMT VIP Dinner», «OMT-Summit Speaker Audit». Titel und Auftrittstag stehen nicht im Kalender. |
+| AS-TAG | 5. November 2024, KKThun, «KI in der Transportbranche – Freund oder Feind?» | Kalender |
+| h+b BrainFood | 19. April 2024 | Kalender. «Vol. 03» stammt aus dem Titel des Videos. |
+| Automotive Summit Switzerland 2026 | 6. Mai 2026, Sempach | Kalender |
+| Panoff Consulting | 28. Mai 2026, Baar | Kalender |
+| AI in Marketing Konferenz | 27.3.2025 und 29.4.2026 bestätigt | Kalender. Für den 21.4.2027 steht ein Vormerk ohne Angaben. |
+
+Die Summe steigt damit von 95 auf **96** (42 öffentlich aufgeführt, 54 weitere), weil das Business Schmiede Live Festival im Sheet fehlte.
+
+**Widersprüche, nicht geändert, bitte klären:**
+
+- ELANTAS: Seite «Mai 2026» (Angabe des Auftraggebers vom 14.11.). Kalender und Sheet nennen den 19. Juni 2026.
+- Förderverein Idee Seetal: Seite und Sheet 24. Oktober 2024, Kalender 23. Oktober 2024.
+- Groupe Mutuel AI Week 20.3.2026: Im Kalender steht nur ein 20-minütiger Abstimmungstermin.
+- CAMPIXX, KMU Stadt Bern 2026, NZZ Podium 29.10.2024: kein Kalendereintrag gefunden.
+
+**Im Kalender gefunden, aber nicht aufgenommen** (nicht bestätigt, ob öffentlich nennbar): rund 20 weitere Auftritte bei Dritten, z. B. Neudenker Forum (2023), Startup Nights (2024), Kundenanlass AndYou, ventura.club und Verband Schweizerischer Kantonalbanken (2025), «KMU & Handwerk bauen Zukunft» und Jungle Talk (2026), geplant Swiss Post Digital Connect (16.3.2027). Dazu eigene Anlassreihen in Gebenstorf.
+
+## 5. Herleitung: 95 Auftritte und Firmeneinsätze (Stand 15. November 2026, vor dem Kalender-Nachtrag)
 
 Quelle ist der eigene Kalender (Google Sheet, Blatt «Tabellenblatt1»). Gezählt wurden nur Zeilen mit Dozent Chris Beyeler im Zeitraum 1.12.2022 bis 15.11.2026. Testzeilen und in allen Spalten identische Zweitzeilen sind entfernt (234 Zeilen bleiben).
 
