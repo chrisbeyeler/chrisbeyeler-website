@@ -117,8 +117,11 @@ Was auffällt:
 | React, Tailwind, Motion als Abhängigkeit | alle | Die Seite kommt ohne Framework aus. Ein Umbau brächte für Besucher nichts |
 | Scroll-Stapel und gepinnte Szenen | React Bits «Scroll Stack» | Verzögern den Weg zur Anfrage |
 
+## Erledigt
+
+- Datenschutztext zu YouTube: vom Auftraggeber am 15. November 2026 freigegeben.
+
 ## Offen
 
-- Datenschutztext: Der Absatz zu YouTube ist an die Wiedergabe auf der Seite angepasst. Bitte rechtlich gegenlesen.
 - Alte Farb-Aliasse im CSS (`--orange`, `--glass-bg`) zeigen auf die neuen Tokens. Sie funktionieren, heissen aber nicht nach ihrer Rolle (shadcn: «semantic colors»). Aufräumen bei Gelegenheit.
 - Screenreader-Durchgang mit echter Software (VoiceOver, NVDA) steht aus. Gemessen sind axe und Tastatur.
