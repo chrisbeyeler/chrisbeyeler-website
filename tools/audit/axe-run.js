@@ -3,6 +3,8 @@ const {chromium,devices}=require('playwright');const {AxeBuilder}=require('@axe-
 (async()=>{const [url,label,reduced]=process.argv.slice(2);
 const b=await chromium.launch();const ctx=await b.newContext({...devices['Pixel 7'],reducedMotion:reduced?'reduce':'no-preference'});
 const p=await ctx.newPage();await p.goto(url,{waitUntil:'load'});await p.waitForTimeout(2500);
+// Alle Abschnitte rendern, sonst prüft axe nur, was gerade in der Nähe des Bildschirms liegt (content-visibility)
+await p.addStyleTag({content:'*{content-visibility:visible!important}'});await p.waitForTimeout(1200);
 // scroll through page so lazy content + reveals settle
 const h=await p.evaluate(()=>document.documentElement.scrollHeight);
 for(let y=0;y<h;y+=600){await p.evaluate(y=>window.scrollTo(0,y),y);await p.waitForTimeout(120)}

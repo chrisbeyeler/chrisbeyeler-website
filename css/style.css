@@ -13,13 +13,22 @@
     font-style: normal;
     font-display: swap;
 }
-/* Ersatzschrift mit angeglichenen Metriken: kein Layoutsprung beim Schriftwechsel */
+/* Ersatzschriften mit angeglichenen Metriken: beim Wechsel auf Mona Sans springt kein Text.
+   Werte berechnet aus den Laufweiten von Mona Sans (400 bis 500 normal, 850 schmal) gegenüber Arial. */
 @font-face {
-    font-family: 'Inter Fallback';
-    src: local('Arial');
-    size-adjust: 107.4%;
-    ascent-override: 90.2%;
-    descent-override: 22.5%;
+    font-family: 'Mona Sans Fallback';
+    src: local('Arial'), local('Liberation Sans'), local('Helvetica Neue');
+    size-adjust: 103.5%;
+    ascent-override: 105.3%;
+    descent-override: 30.9%;
+    line-gap-override: 0%;
+}
+@font-face {
+    font-family: 'Mona Display Fallback';
+    src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Helvetica Neue Bold');
+    size-adjust: 80.1%;
+    ascent-override: 136.1%;
+    descent-override: 40%;
     line-gap-override: 0%;
 }
 
@@ -42,10 +51,10 @@
     --c-focus:       #C8F25A;
 
     /* Typografie: eine variable Familie (Gewicht und Breite) für Titel und Text, Mono für Labels */
-    --font-display: 'Mona Sans', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-display: 'Mona Sans', 'Mona Display Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --fw-display: 850;
     --stretch-display: 85%;   /* schmal gesetzt, damit die Versalien gross bleiben können */
-    --font-sans: 'Mona Sans', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-sans: 'Mona Sans', 'Mona Sans Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-mono: var(--font-sans);   /* Labels: gleiche Familie, Versalien, gesperrt */
 
     /* Fluide Skala, 360 px bis 1440 px Viewport */
@@ -415,7 +424,6 @@ h3.subhead { display: block; }
     .hero__claim .line--accent > .rotator { animation: line-up 0.9s var(--ease-inout) 180ms both, rotate-words 3.4s var(--ease-inout) 1.6s 1 both; }
     .js .hero__kicker, .js .hero__lead, .js .hero__ctas { animation: rise var(--dur-3) var(--ease-out) 0.35s both; }
     .js .hero__ctas { animation-delay: 0.5s; }
-    }
 }
 @media (prefers-reduced-motion: reduce) {
     .line--accent { height: auto; }
@@ -881,7 +889,6 @@ h3.subhead { display: block; }
     margin: 0 auto;
     background: var(--glass-bg);
     
-    -webkit-
     border: 1px solid var(--glass-border);
     border-radius: 22px;
     overflow: hidden;
@@ -1323,10 +1330,6 @@ h3.subhead { display: block; }
 .seal circle { fill: var(--c-spark); }
 .seal__ring { transform-origin: 50% 50%; transition: transform 1.2s var(--ease-out); }
 .seal:hover .seal__ring { transform: rotate(120deg); }
-@media (prefers-reduced-motion: no-preference) {
-    }
-}
-@keyframes seal-turn { to { transform: rotate(200deg); } }
 @media (min-width: 48rem) { .seal { top: auto; bottom: clamp(5.5rem, 11svh, 7.5rem); } }
 
 /* ===== Polarlicht: Farbe als Leuchten ===== */
@@ -1417,9 +1420,15 @@ body::before {
     .js .timeline[data-scroll] li:not(.is-past) * { color: var(--c-text-3); }
 }
 /* ===== Medien als grosse Wortmarken ===== */
-.logos-row__track--text { list-style: none; gap: clamp(2rem, 4vw, 4.5rem); }
-.logos-row__track--text li { font-family: var(--font-display); font-weight: 850; font-stretch: 85%; text-transform: uppercase; font-size: clamp(2rem, 1.3rem + 3vw, 4rem); line-height: 1; letter-spacing: -0.01em; color: var(--c-text); white-space: nowrap; }
-.logos-row__track--text li:nth-child(even) { color: var(--c-bg); -webkit-text-stroke: 1.5px var(--c-text-3); paint-order: stroke fill; }
+/* Medien: echte Logos auf hellem Band, einfarbig gehalten; Farbe erscheint mit dem Zeiger.
+   Wo keine Logodatei vorliegt, steht der Name als Schriftzug. */
+.media__logos .logos-row { background: #F0EEE9; }
+.logos-row__track--text { list-style: none; gap: clamp(2.5rem, 5vw, 5rem); padding-block: clamp(1.25rem, 1rem + 1.5vw, 2.25rem); }
+.logos-row__track--text li { flex: none; display: flex; align-items: center; }
+.logos-row__track--text img { display: block; width: auto; height: clamp(2rem, 1.4rem + 2.2vw, 3.25rem); max-width: 16rem; object-fit: contain; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.15); transition: filter var(--dur-2) var(--ease-out); }
+.logos-row__track--text img.is-white { filter: brightness(0); }
+.logos-row__track--text li:hover img:not(.is-white) { filter: none; }
+.logos-row__track--text li.is-text { font-family: var(--font-display); font-weight: 850; font-stretch: 85%; text-transform: uppercase; font-size: clamp(1.5rem, 1rem + 1.8vw, 2.5rem); line-height: 1; color: #06120F; white-space: nowrap; }
 .konfig { margin-bottom: clamp(2.5rem, 1.5rem + 4vw, 5rem); }
 
 /* ===== Beiträge und Podcasts als Mosaik =====
@@ -1583,3 +1592,27 @@ mark.hl { padding: 0 0.12em; color: #06120F; background: linear-gradient(#C8F25A
 
 /* Chat-Eingabe: sichtbarer Fokus (Befund aus dem Tastatur-Durchgang) */
 .chat-full__input input:focus-visible, .chatbot__input input:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+
+/* ===== Rendern nach Bedarf =====
+   Abschnitte unter dem ersten Bildschirm werden erst berechnet, wenn sie in die Nähe kommen.
+   Das spart beim Laden den grössten Teil der Rechenzeit. Die Höhen sind Schätzwerte, bis der
+   Abschnitt einmal gerendert wurde; danach merkt sich der Browser die echte Höhe (auto). */
+#keynotes { content-visibility: auto; contain-intrinsic-block-size: auto 8000px; }
+#testimonials { content-visibility: auto; contain-intrinsic-block-size: auto 1300px; }
+#about { content-visibility: auto; contain-intrinsic-block-size: auto 2800px; }
+#media { content-visibility: auto; contain-intrinsic-block-size: auto 7000px; }
+#podcast { content-visibility: auto; contain-intrinsic-block-size: auto 3000px; }
+#essay { content-visibility: auto; contain-intrinsic-block-size: auto 1900px; }
+#chat { content-visibility: auto; contain-intrinsic-block-size: auto 850px; }
+#faq { content-visibility: auto; contain-intrinsic-block-size: auto 1150px; }
+#contact { content-visibility: auto; contain-intrinsic-block-size: auto 1500px; }
+.footer { content-visibility: auto; contain-intrinsic-block-size: auto 580px; }
+/* Auch die Bänder direkt unter dem Hero: Solange nur das Kern-CSS da ist, dürfen sie die Seite nicht verbreitern. */
+.numbers { content-visibility: auto; contain-intrinsic-block-size: auto 420px; }
+.band { content-visibility: auto; contain-intrinsic-block-size: auto 200px; }
+.trailer-stage { content-visibility: auto; contain-intrinsic-block-size: auto 100svh; }
+
+/* ===== Bühnen: Summe und Hinweis auf nicht öffentliche Einsätze pro Jahr ===== */
+.stages__total { max-width: 62ch; margin-bottom: var(--sp-6); color: var(--c-text-2); font-size: var(--fs-lead); line-height: var(--lh-lead); }
+.stages__total strong { color: var(--c-text); font-weight: var(--fw-strong); }
+.stage-year__more { max-width: 68ch; margin: calc(var(--sp-4) - var(--sp-6)) 0 var(--sp-6); padding: var(--sp-4); border: 1px dashed var(--c-line-strong); color: var(--c-text-2); font-size: var(--fs-small); line-height: 1.5; }
