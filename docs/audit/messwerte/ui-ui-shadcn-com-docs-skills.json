@@ -1,0 +1,174 @@
+{
+ "title": "Skills - shadcn/ui",
+ "height": 2449,
+ "dom": 990,
+ "lead": "Sections Introduction Components AI Elements Installation Theming CLI Typeset Skills Registry Changelog Components Accordion Alert Alert Dialog Aspect Ratio Attachment Avatar Badge Breadcrumb Bubble Button Button Group Calendar Card Carousel Chart Checkbox Code Block Collapsible Combobox Command Context Menu Data Table Date Picker Dialog Direction Drawer Dropdown Menu Empty Field Hover Card Input Input Group Input OTP Item Kbd Label Marker Menubar Message Message Scroller Native Select Navigation Menu Pagination Popover Progress Questionnaire Radio Group Resizable Scroll Area Select Separator Sheet Sidebar Skeleton Slider Spinner Switch Table Tabs Textarea Toast Toggle Toggle Group Tooltip Trace Typography AI Elements Introduction Chain of Thought Chat Checkpoint Confirmation Context File Tree Inline Citation Message Model Selector Plan Prompt Input Queue Reasoning Sources Stack Trace Subagent Suggestion Task Terminal Test Results Tool Get Started Installation components.json Package Imports Theming Typeset Dark Mode CLI Monorepo Skills JavaScript Figma llms.txt Legacy Docs @shadcn/react Message Scroller Questionnaire @shadcn/helpers AI SDK TanStack AI Forms React Hook Form TanStack Form Formisch Utilities scroll-fade shimmer Registry Introduction Getting Started GitHub Registries Registry Directory Registry Health Examples Namespaces Authentication Dynamic Search MCP Server Open in v0 FAQ API Reference registry.json registry-item.json Skills Copy Page Previous Next Give your",
+ "heads": [
+  "H1: Skills",
+  "H2: Install#",
+  "H2: What's Included#",
+  "H3: Project Context#",
+  "H3: CLI Commands#",
+  "H3: Theming and Customization#",
+  "H3: Registry Authoring#",
+  "H3: MCP Server#",
+  "H2: How It Works#",
+  "H2: Learn More#"
+ ],
+ "btns": [
+  "Home",
+  "Docs",
+  "Components",
+  "Blocks",
+  "Charts",
+  "Directory",
+  "Typeset",
+  "Create",
+  "Search documentation...",
+  "128k",
+  "Toggle theme",
+  "New",
+  "Introduction",
+  "AI Elements",
+  "Installation",
+  "Theming",
+  "CLI",
+  "Skills",
+  "Registry",
+  "Changelog",
+  "Accordion",
+  "Alert",
+  "Alert Dialog",
+  "Aspect Ratio",
+  "Attachment",
+  "Avatar",
+  "Badge",
+  "Breadcrumb",
+  "Bubble",
+  "Button",
+  "Button Group",
+  "Calendar",
+  "Card",
+  "Carousel",
+  "Chart",
+  "Checkbox",
+  "Code Block",
+  "Collapsible",
+  "Combobox",
+  "Command",
+  "Context Menu",
+  "Data Table",
+  "Date Picker",
+  "Dialog",
+  "Direction",
+  "Drawer",
+  "Dropdown Menu",
+  "Empty",
+  "Field",
+  "Hover Card",
+  "Input",
+  "Input Group",
+  "Input OTP",
+  "Item",
+  "Kbd",
+  "Label",
+  "Marker",
+  "Menubar",
+  "Message",
+  "Message Scroller",
+  "Native Select",
+  "Navigation Menu",
+  "Pagination",
+  "Popover",
+  "Progress",
+  "Questionnaire",
+  "Radio Group",
+  "Resizable",
+  "Scroll Area",
+  "Select"
+ ],
+ "fonts": [
+  [
+   "Geist, \"Geist Fallback\"",
+   632
+  ],
+  [
+   "\"Geist Mono\", \"Geist Mono Fallback\"",
+   41
+  ]
+ ],
+ "radius": [
+  [
+   "0px",
+   479
+  ],
+  [
+   "8px",
+   166
+  ],
+  [
+   "4.4625px",
+   20
+  ],
+  [
+   "10px",
+   3
+  ],
+  [
+   "3.35544e+07px",
+   2
+  ],
+  [
+   "18px",
+   2
+  ]
+ ],
+ "shadow": [
+  [
+   "none",
+   661
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+   12
+  ]
+ ],
+ "h1": {
+  "size": "30px",
+  "weight": "600",
+  "lh": "36px",
+  "ls": "-0.75px",
+  "font": "Geist, \"Geist Fallback\"",
+  "transform": "none"
+ },
+ "body": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "color": "rgb(0, 0, 0)"
+ },
+ "p": {
+  "size": "16px",
+  "lh": "24px",
+  "color": "lab(48.496 0 0)"
+ },
+ "button": {
+  "text": "Search documentation...",
+  "bg": "lab(96.52 -0.0000298023 0.0000119209)",
+  "color": "lab(0 0 0)",
+  "radius": "10px",
+  "border": "0px none lab(90.952 0 -0.0000119209)",
+  "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+  "height": 32,
+  "pad": "8px 16px 8px 12px",
+  "weight": "500",
+  "size": "14px"
+ },
+ "video": 0,
+ "canvas": 0,
+ "iframes": 0,
+ "imgs": 0,
+ "reduced": 2,
+ "anim": 2,
+ "url": "https://ui.shadcn.com/docs/skills",
+ "requests": 250,
+ "bytesHeader": 1167574
+}

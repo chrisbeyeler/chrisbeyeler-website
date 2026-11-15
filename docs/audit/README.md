@@ -44,6 +44,27 @@ Einordnung:
 - INP ist eine Feldmetrik. Im Labor zeigen TBT und die längste Interaktion die Richtung, ersetzen aber keine Felddaten.
 - Die Seite zeigt 20 % weniger Text und ist 11 % kürzer. Die Inhalte stehen weiterhin vollständig im HTML (eingeklappte Bereiche sind für Crawler lesbar).
 
+## 1a. Live-Messung nach dem Merge (14. November 2026)
+
+Gemessen auf `https://chrisbeyeler.ch/`, mobil, Lighthouse 12, Median aus 5 Läufen. Alle Werte **gemessen**.
+
+| Messgrösse | Budget | Vorher live | Nachher live |
+|---|---|---|---|
+| LCP | ≤ 2,5 s | 2,1 s (2,0–2,9 s) | **2,1 s** (2,0–2,2 s) |
+| TBT (Laborersatz für INP) | – | 352 ms | **23 ms** |
+| CLS | ≤ 0,1 | 0 | **0** |
+| Lighthouse Performance | – | 91 | **99** |
+| Lighthouse Barrierefreiheit | – | 91 | **100** |
+| Seitengewicht beim Laden | – | 1474 KB | **201 KB** |
+| Anfragen beim Laden | – | 23 | **11** |
+| axe, WCAG 2.2 AA | 0 | 11 Elemente | **0** |
+| Schema-Validator, per URL | 0 Fehler | nicht geprüft | **0 Fehler, 0 Warnungen** |
+| KI-Crawler (6 User-Agents) | 200 | 200 | 200 |
+| Überlauf auf 11 Breiten (320–1920 px) | 0 | nicht geprüft | **0** |
+
+- Der LCP ist live gleich geblieben, weil er vor allem an der Antwortzeit des Servers hängt (TTFB rund 0,7 s). Gewonnen hat die Seite bei Rechenzeit, Gewicht und Stabilität der Messung.
+- Nach dem Livegang fiel auf, dass Impressum und Datenschutz ihre Stile verloren hatten. Das ist in einem Folge-PR korrigiert.
+
 ## 2. Baseline im Detail
 
 ### Barrierefreiheit vorher (axe, mobil)
@@ -130,7 +151,7 @@ Effekte, alle ohne Bibliothek (kein GSAP, kein ScrollTrigger, kein Lenis auf der
 
 - Mit `prefers-reduced-motion` sind alle Effekte aus. Ohne JavaScript ist der gesamte Inhalt sichtbar.
 - Scrollgekoppelte Effekte laufen in Chrome, Edge und Safari ab Version 26. Firefox zeigt den ruhenden Zustand.
-- Keine Bewegung läuft länger als 5 Sekunden von selbst, ausser dem Logo-Laufband der Medien. Es pausiert bei Hover und Fokus.
+- Länger als 5 Sekunden von selbst laufen nur das Laufband der Medien (pausiert bei Hover und Fokus) und die Trailer (stumm, mit Pause- und Schliessen-Knopf; kein Autostart bei reduzierter Bewegung oder Datensparmodus).
 
 Bewusst entfernt und warum:
 
@@ -152,7 +173,7 @@ Bewusst entfernt und warum:
 | Kontraste über Verläufen | 16 Farbpaare von Hand nach WCAG gerechnet: alle ab 5.5:1 | gemessen |
 | axe «unvollständig» | 37 Elemente Farbkontrast: Text über dem Hero-Foto, automatisch nicht berechenbar | **offen**: manuell prüfen (Scrim liegt bei 72–92 % Deckung) |
 | Tastatur: Skip-Link, Menü, Escape | bestanden | gemessen (`tools/audit/functest.js`) |
-| Funktionen: Themenübernahme, Konfigurator, Mehr Artikel, Datum offen, Trailer, Mail-Link | bestanden | gemessen |
+| Funktionen: Themenübernahme, Konfigurator, Mosaik ohne Lücke, Datum offen, Trailer-Autostart, Navigation bedienbar, Mail-Link | bestanden (Stand 15.11.2026, 20 Prüfungen) | gemessen |
 | Ohne JavaScript: Inhalte sichtbar, H1 vollständig | bestanden | gemessen |
 | Überschriften ohne Sprung, eine H1 | bestanden | gemessen |
 | Kein horizontaler Überlauf (412 px und 1440 px) | bestanden | gemessen |
@@ -186,3 +207,19 @@ node functest.js
 ```
 
 Nach dem Livegang dieselben Befehle mit `https://chrisbeyeler.ch/` ausführen und die 10 Prompts aus `prompts.md` erneut testen.
+
+## Nachtrag 15. November 2026
+
+Änderungen nach Rückmeldung: Scrollytelling per JavaScript statt CSS-Scroll-Timelines, Trailer-Autostart, Mosaik für Beiträge und Podcasts, Preise, Medien-Wortmarken. Details im `CHANGELOG.md`.
+
+| Prüfung (lokal, mobil) | Ergebnis | Status |
+|---|---|---|
+| Lighthouse, 3 Läufe | Performance 96 / 99 / 99 · Barrierefreiheit 100 · LCP 2,0 s · TBT 80–210 ms · CLS 0 · 201 KB | gemessen |
+| axe, normal und mit reduzierter Bewegung | 0 Verstösse | gemessen |
+| Funktionstest (inkl. Schritt-Formular, Video-Bühne, Laufband) | 26 von 26 | gemessen |
+| Überlauf auf 11 Breiten (320–1920 px) | kein Befund | gemessen |
+| Seitenlänge mobil | 31 065 px (live vorher 27 951 px), weil alle Beiträge und Podcasts sichtbar sind | gemessen |
+| Laufband ohne Pause-Knopf (offener Punkt aus der ersten Runde) | Knopf ergänzt | erledigt |
+| Analyse von sieben UI-Angeboten | `ui-bibliotheken.md`; sechs Websites waren gesperrt, gelesen wurden die GitHub-Repos | teilweise |
+| Live-Messung nach dem Merge | – | **offen** |
+| Echte Medienlogos statt Wortmarken | brauchen Dateien und Erlaubnis der Verlage | **offen** |

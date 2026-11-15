@@ -528,7 +528,7 @@
      "name": "Was kostet eine Keynote von Chris Beyeler?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Das Honorar hängt von Format, Dauer und Aufwand ab und wird individuell offeriert. Im Anfrageformular lässt sich ein Budgetrahmen angeben."
+      "text": "Eine Standard-Keynote kostet ab CHF 3'000. Eine individuell entwickelte Keynote kostet ab CHF 5'000. Der genaue Preis hängt von Format, Dauer und Aufwand ab."
      }
     },
     {
@@ -576,15 +576,17 @@
         </nav>
     </header>
 
+    <div class="progress" aria-hidden="true"></div>
+
     <main id="main">
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-        <div class="hero__media">
+        <div class="hero__media" data-scroll>
             <img src="img/hero-bg.jpg" srcset="img/hero-bg-960.webp 960w, img/hero-bg.webp 1920w" sizes="100vw" width="1920" height="1280" alt="Chris Beyeler spricht bei einer Keynote auf der Bühne" fetchpriority="high" decoding="async">
         </div>
         <div class="hero__spot" aria-hidden="true"></div>
-        <div class="seal" aria-hidden="true">
+        <div class="seal" aria-hidden="true" data-scroll>
             <svg viewBox="0 0 120 120">
                 <defs><path id="sealPath" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
                 <g class="seal__ring"><text><textPath href="#sealPath" textLength="290">Digital Shaper 2026 · KI-Keynote Speaker · </textPath></text></g>
@@ -668,7 +670,7 @@
     </section>
 
     <div class="band" aria-hidden="true">
-        <p class="band__track"><span>Verständlich</span><i>Relevant</i><span>Wirksam</span><i>Verständlich</i><span>Relevant</span><i>Wirksam</i></p>
+        <p class="band__track" data-scroll><span>Verständlich</span><i>Relevant</i><span>Wirksam</span><i>Verständlich</i><span>Relevant</span><i>Wirksam</i></p>
     </div>
 
 
@@ -680,6 +682,33 @@
                 <div>
                     <h2 class="section__title" data-split>Sechs Keynotes. Ein Thema: KI.</h2>
                 </div>
+            </div>
+
+            <!-- Keynote-Konfigurator -->
+            <div class="konfig panel" id="keynoteKonfig">
+                <h3 class="konfig__title">Finde die Keynote für deinen Anlass</h3>
+                <div class="konfig__row">
+                    <div role="group" aria-labelledby="konfigBrancheLabel">
+                        <span class="label konfig__label" id="konfigBrancheLabel">Branche</span>
+                        <div class="konfig__pills" id="konfigBranche">
+                            <button type="button" class="konfig-pill" data-value="marketing" aria-pressed="false">Marketing</button>
+                            <button type="button" class="konfig-pill" data-value="kmu" aria-pressed="false">KMU</button>
+                            <button type="button" class="konfig-pill" data-value="hr" aria-pressed="false">HR / Leadership</button>
+                            <button type="button" class="konfig-pill" data-value="tech" aria-pressed="false">Tech</button>
+                            <button type="button" class="konfig-pill" data-value="allgemein" aria-pressed="false">Allgemein</button>
+                        </div>
+                    </div>
+                    <div role="group" aria-labelledby="konfigInteresseLabel">
+                        <span class="label konfig__label" id="konfigInteresseLabel">Interesse</span>
+                        <div class="konfig__pills" id="konfigInteresse">
+                            <button type="button" class="konfig-pill" data-value="ueberblick" aria-pressed="false">Überblick</button>
+                            <button type="button" class="konfig-pill" data-value="praxis" aria-pressed="false">Praxis</button>
+                            <button type="button" class="konfig-pill" data-value="strategie" aria-pressed="false">Strategie</button>
+                            <button type="button" class="konfig-pill" data-value="future" aria-pressed="false">Future of Work</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="konfig__result" id="konfigResult" aria-live="polite"></p>
             </div>
 
             <ol class="talks">
@@ -823,107 +852,37 @@
                 </ul>
             </div>
 
-            <!-- Keynote-Konfigurator -->
-            <div class="block konfig panel" id="keynoteKonfig">
-                <h3 class="konfig__title">Welche Keynote passt zum Anlass?</h3>
-                <div class="konfig__row">
-                    <div role="group" aria-labelledby="konfigBrancheLabel">
-                        <span class="label konfig__label" id="konfigBrancheLabel">Branche</span>
-                        <div class="konfig__pills" id="konfigBranche">
-                            <button type="button" class="konfig-pill" data-value="marketing" aria-pressed="false">Marketing</button>
-                            <button type="button" class="konfig-pill" data-value="kmu" aria-pressed="false">KMU</button>
-                            <button type="button" class="konfig-pill" data-value="hr" aria-pressed="false">HR / Leadership</button>
-                            <button type="button" class="konfig-pill" data-value="tech" aria-pressed="false">Tech</button>
-                            <button type="button" class="konfig-pill" data-value="allgemein" aria-pressed="false">Allgemein</button>
-                        </div>
-                    </div>
-                    <div role="group" aria-labelledby="konfigInteresseLabel">
-                        <span class="label konfig__label" id="konfigInteresseLabel">Interesse</span>
-                        <div class="konfig__pills" id="konfigInteresse">
-                            <button type="button" class="konfig-pill" data-value="ueberblick" aria-pressed="false">Überblick</button>
-                            <button type="button" class="konfig-pill" data-value="praxis" aria-pressed="false">Praxis</button>
-                            <button type="button" class="konfig-pill" data-value="strategie" aria-pressed="false">Strategie</button>
-                            <button type="button" class="konfig-pill" data-value="future" aria-pressed="false">Future of Work</button>
-                        </div>
-                    </div>
-                </div>
-                <p class="konfig__result" id="konfigResult" aria-live="polite"></p>
-            </div>
-
             <div class="block">
-                <h3 class="subhead">Formate</h3>
+                <h3 class="subhead">Formate und Preise</h3>
                 <dl class="formats">
-                    <div class="format"><dt>Keynote</dt><dd>30–60 Min</dd></div>
+                    <div class="format"><dt>Keynote Standard</dt><dd>30–60 Min · ab CHF 3'000</dd></div>
+                    <div class="format"><dt>Keynote individuell</dt><dd>für den Anlass entwickelt · ab CHF 5'000</dd></div>
                     <div class="format"><dt>Workshop</dt><dd>Halbtag / Ganztag</dd></div>
-                    <div class="format"><dt>Moderation</dt><dd>Events &amp; Panels</dd></div>
-                    <div class="format"><dt>Podium</dt><dd>Diskussionsrunden</dd></div>
+                    <div class="format"><dt>Moderation &amp; Podium</dt><dd>Events, Panels, Diskussionsrunden</dd></div>
                 </dl>
             </div>
 
             <div class="block">
                 <h3 class="subhead">Keynotes im Video</h3>
-                <div class="videos__grid">
-                    <a href="https://www.youtube.com/watch?v=vtoJtsc_1QU" target="_blank" rel="noopener" class="video-card glass-card">
-                        <div class="video-card__img">
-                            <img src="img/articles/keynote-state-of-ai.jpg" srcset="img/articles/keynote-state-of-ai-480.webp 480w, img/articles/keynote-state-of-ai-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="The State of AI in Marketing" loading="lazy" width="1280" height="720">
-                            <div class="video-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div>
-                        </div>
-                        <div class="video-card__body">
-                            <span class="video-card__event">AI in Marketing Konferenz Z&uuml;rich</span>
-                            <span class="video-card__title">The State of AI in Marketing</span>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=Vz5p7pJ7WEg" target="_blank" rel="noopener" class="video-card glass-card">
-                        <div class="video-card__img">
-                            <img src="img/articles/keynote-brainfood.jpg" srcset="img/articles/keynote-brainfood-480.webp 480w, img/articles/keynote-brainfood-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="BrainFood Keynote" loading="lazy" width="1280" height="720">
-                            <div class="video-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div>
-                        </div>
-                        <div class="video-card__body">
-                            <span class="video-card__event">h+b BrainFood</span>
-                            <span class="video-card__title">BrainFood Vol.03 Keynote (KI Impact)</span>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=IuCenjqwMaI" target="_blank" rel="noopener" class="video-card glass-card">
-                        <div class="video-card__img">
-                            <img src="img/articles/keynote-astag.jpg" srcset="img/articles/keynote-astag-480.webp 480w, img/articles/keynote-astag-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="AS-TAG 2024" loading="lazy" width="1280" height="720">
-                            <div class="video-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div>
-                        </div>
-                        <div class="video-card__body">
-                            <span class="video-card__event">ASTAG</span>
-                            <span class="video-card__title">AS-TAG 2024: Chris Beyeler</span>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=WwaLNkLw4HI" target="_blank" rel="noopener" class="video-card glass-card">
-                        <div class="video-card__img">
-                            <img src="img/articles/keynote-campixx.jpg" srcset="img/articles/keynote-campixx-480.webp 480w, img/articles/keynote-campixx-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Content in k&uuml;rzester Zeit" loading="lazy" width="1280" height="720">
-                            <div class="video-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div>
-                        </div>
-                        <div class="video-card__body">
-                            <span class="video-card__event">CAMPIXX</span>
-                            <span class="video-card__title">Content in k&uuml;rzester Zeit</span>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=rlTM4qT-g70" target="_blank" rel="noopener" class="video-card glass-card">
-                        <div class="video-card__img">
-                            <img src="img/articles/keynote-content-atomization.jpg" srcset="img/articles/keynote-content-atomization-480.webp 480w, img/articles/keynote-content-atomization-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Content Atomization" loading="lazy" width="1280" height="720">
-                            <div class="video-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div>
-                        </div>
-                        <div class="video-card__body">
-                            <span class="video-card__event">E-Commerce Automation</span>
-                            <span class="video-card__title">Content Atomization: Maximale Wirkung</span>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=cCpdaLo0vuc" target="_blank" rel="noopener" class="video-card glass-card">
-                        <div class="video-card__img">
-                            <img src="img/articles/keynote-seo-basics.jpg" srcset="img/articles/keynote-seo-basics-480.webp 480w, img/articles/keynote-seo-basics-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="SEO Basics" loading="lazy" width="1280" height="720">
-                            <div class="video-card__play"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div>
-                        </div>
-                        <div class="video-card__body">
-                            <span class="video-card__event">marketing.ch</span>
-                            <span class="video-card__title">Die wichtigsten SEO Basics</span>
-                        </div>
-                    </a>
+                <div class="vstage" id="vstage">
+                    <div class="vstage__player">
+                        <a class="vstage__poster" href="https://www.youtube.com/watch?v=vtoJtsc_1QU" target="_blank" rel="noopener" data-yt="vtoJtsc_1QU" data-title="The State of AI in Marketing">
+                            <img loading="lazy" decoding="async" src="img/articles/keynote-state-of-ai.jpg" srcset="img/articles/keynote-state-of-ai-480.webp 480w, img/articles/keynote-state-of-ai-960.webp 960w" sizes="(min-width: 60rem) 60vw, 92vw" alt="" width="1280" height="720">
+                            <span class="vstage__play"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></span>
+                            <span class="vstage__now"><span class="label">AI in Marketing Konferenz Z&uuml;rich</span><strong>The State of AI in Marketing</strong></span>
+                            <span class="visually-hidden">Video abspielen</span>
+                        </a>
+                    </div>
+                    <ol class="vstage__list">
+                        <li><a href="https://www.youtube.com/watch?v=vtoJtsc_1QU" target="_blank" rel="noopener" data-yt="vtoJtsc_1QU" data-title="The State of AI in Marketing" aria-current="true"><span class="vstage__n">01</span><span class="vstage__thumb"><img loading="lazy" decoding="async" src="img/articles/keynote-state-of-ai.jpg" srcset="img/articles/keynote-state-of-ai-480.webp 480w, img/articles/keynote-state-of-ai-960.webp 960w" sizes="7rem" alt="" width="1280" height="720"></span><span class="vstage__meta"><strong>The State of AI in Marketing</strong><span class="label">AI in Marketing Konferenz Z&uuml;rich</span></span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=Vz5p7pJ7WEg" target="_blank" rel="noopener" data-yt="Vz5p7pJ7WEg" data-title="BrainFood Vol.03 Keynote (KI Impact)"><span class="vstage__n">02</span><span class="vstage__thumb"><img loading="lazy" decoding="async" src="img/articles/keynote-brainfood.jpg" srcset="img/articles/keynote-brainfood-480.webp 480w, img/articles/keynote-brainfood-960.webp 960w" sizes="7rem" alt="" width="1280" height="720"></span><span class="vstage__meta"><strong>BrainFood Vol.03 Keynote (KI Impact)</strong><span class="label">h+b BrainFood</span></span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=IuCenjqwMaI" target="_blank" rel="noopener" data-yt="IuCenjqwMaI" data-title="AS-TAG 2024: Chris Beyeler"><span class="vstage__n">03</span><span class="vstage__thumb"><img loading="lazy" decoding="async" src="img/articles/keynote-astag.jpg" srcset="img/articles/keynote-astag-480.webp 480w, img/articles/keynote-astag-960.webp 960w" sizes="7rem" alt="" width="1280" height="720"></span><span class="vstage__meta"><strong>AS-TAG 2024: Chris Beyeler</strong><span class="label">ASTAG</span></span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=WwaLNkLw4HI" target="_blank" rel="noopener" data-yt="WwaLNkLw4HI" data-title="Content in k&uuml;rzester Zeit"><span class="vstage__n">04</span><span class="vstage__thumb"><img loading="lazy" decoding="async" src="img/articles/keynote-campixx.jpg" srcset="img/articles/keynote-campixx-480.webp 480w, img/articles/keynote-campixx-960.webp 960w" sizes="7rem" alt="" width="1280" height="720"></span><span class="vstage__meta"><strong>Content in k&uuml;rzester Zeit</strong><span class="label">CAMPIXX</span></span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=rlTM4qT-g70" target="_blank" rel="noopener" data-yt="rlTM4qT-g70" data-title="Content Atomization: Maximale Wirkung"><span class="vstage__n">05</span><span class="vstage__thumb"><img loading="lazy" decoding="async" src="img/articles/keynote-content-atomization.jpg" srcset="img/articles/keynote-content-atomization-480.webp 480w, img/articles/keynote-content-atomization-960.webp 960w" sizes="7rem" alt="" width="1280" height="720"></span><span class="vstage__meta"><strong>Content Atomization: Maximale Wirkung</strong><span class="label">E-Commerce Automation</span></span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=cCpdaLo0vuc" target="_blank" rel="noopener" data-yt="cCpdaLo0vuc" data-title="Die wichtigsten SEO Basics"><span class="vstage__n">06</span><span class="vstage__thumb"><img loading="lazy" decoding="async" src="img/articles/keynote-seo-basics.jpg" srcset="img/articles/keynote-seo-basics-480.webp 480w, img/articles/keynote-seo-basics-960.webp 960w" sizes="7rem" alt="" width="1280" height="720"></span><span class="vstage__meta"><strong>Die wichtigsten SEO Basics</strong><span class="label">marketing.ch</span></span></a></li>
+                    </ol>
                 </div>
+                <p class="vstage__note">Das Video lädt erst beim Klick von YouTube.</p>
             </div>
 
             <div class="block">
@@ -1259,10 +1218,6 @@
                     <figcaption><span class="quote__name">Veranstalter</span><span class="label">innoEVENT · November 2026</span></figcaption>
                 </figure>
                 <figure class="quote-l" data-reveal>
-                    <blockquote><p>«[Die Keynote] war sehr spannend und ich habe sehr viele positive Rückmeldungen dazu bekommen.»</p></blockquote>
-                    <figcaption><span class="quote__name">Veranstalterin</span><span class="label">Forum Berufslehre+ · November 2026</span></figcaption>
-                </figure>
-                <figure class="quote-l" data-reveal>
                     <blockquote><p>«Am Digital Day für den Berner Tourismus hatten wir das Vergnügen, Chris Beyeler als Keynote Speaker zum Thema Künstliche Intelligenz zu haben. Absolut empfehlenswert.»</p></blockquote>
                     <figcaption><span class="quote__name">Made in Bern AG</span><span class="label">Veranstalterin Digital Day · Google-Bewertung</span></figcaption>
                 </figure>
@@ -1304,6 +1259,10 @@
                 </figure>
                 </div>
             </details>
+            <div class="cta-line" data-reveal>
+                <p>Das sollen deine G&auml;ste auch sagen?</p>
+                <a href="#contact" class="btn btn--primary">Termin anfragen</a>
+            </div>
         </div>
     </section>
 
@@ -1344,7 +1303,7 @@
                         </div>
                         <div>
                             <h3 class="subhead">Werdegang</h3>
-                            <ol class="timeline">
+                            <ol class="timeline" data-scroll>
                                 <li><time datetime="2016">2016</time><span>Erste intensive Beschäftigung mit generativer KI</span></li>
                                 <li><time datetime="2017">2017</time><span>CEO von RecruitingHUB</span></li>
                                 <li><time datetime="2019">2019</time><span>BEYONDER gegründet</span></li>
@@ -1404,50 +1363,9 @@
 
             <!-- Media Logos -->
             <div class="media__logos" role="group" aria-label="Medien, in denen Chris Beyeler erschienen ist">
+                <button type="button" class="marquee-toggle" hidden>Laufband anhalten</button>
                 <div class="logos-row">
-                    <div class="logos-row__track logos-row__track--media">
-                        <img src="img/media/srf.svg" alt="SRF" class="logo-item logo-item--media" loading="lazy" width="120" height="48">
-                        <img src="img/media/ringier.svg" alt="Ringier" class="logo-item logo-item--media" loading="lazy" width="160" height="48">
-                        <img src="img/media/persoenlich.svg" alt="persoenlich.com" class="logo-item logo-item--media" loading="lazy" width="220" height="48">
-                        <img src="img/media/aargauer-zeitung.svg" alt="Aargauer Zeitung" class="logo-item logo-item--media" loading="lazy" width="260" height="48">
-                        <img src="img/media/mk.svg" alt="m&k" class="logo-item logo-item--media" loading="lazy" width="120" height="48">
-                        <img src="img/media/it-reseller.svg" alt="IT Reseller" class="logo-item logo-item--media" loading="lazy" width="180" height="48">
-                        <img src="img/media/topsoft.svg" alt="topsoft" class="logo-item logo-item--media" loading="lazy" width="160" height="48">
-                        <img src="img/media/netzwoche.svg" alt="Netzwoche" class="logo-item logo-item--media" loading="lazy" width="200" height="48">
-                        <img src="img/media/swissinfo.svg" alt="swissinfo" class="logo-item logo-item--media" loading="lazy" width="180" height="48">
-                        <img src="img/media/organisator.svg" alt="Organisator" class="logo-item logo-item--media" loading="lazy" width="200" height="48">
-                        <img src="img/media/bilanz.svg" alt="Bilanz" class="logo-item logo-item--media" loading="lazy" width="200" height="48">
-                        <img src="img/media/handelszeitung.svg" alt="Handelszeitung" class="logo-item logo-item--media" loading="lazy" width="200" height="48">
-                        <img src="img/media/st-galler-tagblatt.svg" alt="St. Galler Tagblatt" class="logo-item logo-item--media" loading="lazy" width="200" height="48">
-                        <img src="img/media/nauch.svg" alt="nau.ch" class="logo-item logo-item--media" loading="lazy" width="140" height="48">
-                        <img src="img/media/marketingch.svg" alt="marketing.ch" class="logo-item logo-item--media" loading="lazy" width="220" height="48">
-                        <img src="img/media/nzz.svg" alt="NZZ" class="logo-item logo-item--media" loading="lazy" width="120" height="40">
-                        <img src="img/media/horizont.svg" alt="horizont.net" class="logo-item logo-item--media" loading="lazy" width="140" height="40">
-                        <img src="img/media/basicthinking.svg" alt="BASIC thinking" class="logo-item logo-item--media" loading="lazy" width="180" height="40">
-                        <img src="img/media/htr.svg" alt="htr.ch" class="logo-item logo-item--media" loading="lazy" width="100" height="40">
-                        <img src="img/media/badener-tagblatt.svg" alt="Badener Tagblatt" class="logo-item logo-item--media" loading="lazy" width="200" height="40">
-                        <!-- Duplicate for seamless loop -->
-                        <img src="img/media/srf.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="120" height="48">
-                        <img src="img/media/ringier.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="160" height="48">
-                        <img src="img/media/persoenlich.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="220" height="48">
-                        <img src="img/media/aargauer-zeitung.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="260" height="48">
-                        <img src="img/media/bilanz.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="200" height="48">
-                        <img src="img/media/handelszeitung.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="200" height="48">
-                        <img src="img/media/st-galler-tagblatt.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="200" height="48">
-                        <img src="img/media/mk.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="120" height="48">
-                        <img src="img/media/it-reseller.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="180" height="48">
-                        <img src="img/media/topsoft.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="160" height="48">
-                        <img src="img/media/netzwoche.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="200" height="48">
-                        <img src="img/media/swissinfo.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="180" height="48">
-                        <img src="img/media/organisator.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="200" height="48">
-                        <img src="img/media/nauch.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="140" height="48">
-                        <img src="img/media/marketingch.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="220" height="48">
-                        <img src="img/media/nzz.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="120" height="40">
-                        <img src="img/media/horizont.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="140" height="40">
-                        <img src="img/media/basicthinking.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="180" height="40">
-                        <img src="img/media/htr.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="100" height="40">
-                        <img src="img/media/badener-tagblatt.svg" alt="" class="logo-item logo-item--media" loading="lazy" aria-hidden="true" width="200" height="40">
-                    </div>
+                    <ul class="logos-row__track logos-row__track--text"><li>NZZ</li><li>SRF</li><li>Bilanz</li><li>Netzwoche</li><li>persoenlich.com</li><li>Aargauer Zeitung</li><li>Personal Schweiz</li><li>BASIC thinking</li><li>DirectPoint</li><li>IT Business</li><li>topsoft</li><li>Badener Tagblatt</li><li>Ihre Region Online</li><li>Plattform J</li><li>htr.ch</li><li>horizont.net</li><li>m&amp;k</li><li>St. Galler Tagblatt</li><li>swissinfo</li><li>nau.ch</li><li aria-hidden="true">NZZ</li><li aria-hidden="true">SRF</li><li aria-hidden="true">Bilanz</li><li aria-hidden="true">Netzwoche</li><li aria-hidden="true">persoenlich.com</li><li aria-hidden="true">Aargauer Zeitung</li><li aria-hidden="true">Personal Schweiz</li><li aria-hidden="true">BASIC thinking</li><li aria-hidden="true">DirectPoint</li><li aria-hidden="true">IT Business</li><li aria-hidden="true">topsoft</li><li aria-hidden="true">Badener Tagblatt</li><li aria-hidden="true">Ihre Region Online</li><li aria-hidden="true">Plattform J</li><li aria-hidden="true">htr.ch</li><li aria-hidden="true">horizont.net</li><li aria-hidden="true">m&amp;k</li><li aria-hidden="true">St. Galler Tagblatt</li><li aria-hidden="true">swissinfo</li><li aria-hidden="true">nau.ch</li></ul>
                 </div>
             </div>
 
@@ -1493,9 +1411,9 @@
             <div class="block media__articles" id="media-articles">
                 <h3 class="media__articles-title">Ausgewählte Artikel & Beitr&auml;ge</h3>
                 <!-- PRESS-LIST-START -->
-                <div class="articles__grid">
+                <div class="articles__grid wall">
                     <h4 class="articles__year">2026</h4>
-                    <a href="https://www.personal-schweiz.ch/aktuelles/article/vergesst-die-ki-jagd-was-teams-wirklich-brauchen/" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
+                    <a href="https://www.personal-schweiz.ch/aktuelles/article/vergesst-die-ki-jagd-was-teams-wirklich-brauchen/" target="_blank" rel="noopener" class="article-card article-card--featured glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/personal-schweiz-ki-jagd.jpg" srcset="img/articles/personal-schweiz-ki-jagd-330.webp 330w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="" class="article-card__thumb" width="330" height="270" loading="lazy" decoding="async">
                         </div>
@@ -1505,7 +1423,7 @@
                             <span class="article-card__date">Kolumne · 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.nzz.ch/wirtschaft/guenstige-und-immer-bessere-ki-aus-china-klingt-verlockend-doch-schweizer-firmen-sind-skeptisch-ld.10016209" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
+                    <a href="https://www.nzz.ch/wirtschaft/guenstige-und-immer-bessere-ki-aus-china-klingt-verlockend-doch-schweizer-firmen-sind-skeptisch-ld.10016209" target="_blank" rel="noopener" class="article-card article-card--featured glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/nzz-ki-aus-china.jpg" srcset="img/articles/nzz-ki-aus-china-480.webp 480w, img/articles/nzz-ki-aus-china-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Farbenfrohe Datenkabel als Symbol für KI aus China" class="article-card__thumb" width="1200" height="800" loading="lazy" decoding="async">
                         </div>
@@ -1515,7 +1433,7 @@
                             <span class="article-card__date">Jul 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.itmagazine.ch/artikel/87502/Wie_KMU_den_KI-Einstieg_meistern.html" target="_blank" rel="noopener" class="article-card article-card--featured article-card--text glass-card">
+                    <a href="https://www.itmagazine.ch/artikel/87502/Wie_KMU_den_KI-Einstieg_meistern.html" target="_blank" rel="noopener" class="article-card article-card--featured article-card--text glass-card" data-reveal>
                         <div class="article-card__brand">
                             <span class="article-card__brand-name">Swiss IT Magazine</span>
                         </div>
@@ -1525,7 +1443,7 @@
                             <span class="article-card__date">Jul 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
+                    <a href="https://www.bilanz.ch/digital-shapers/ai-acrobats-digitale-koepfe-der-schweiz-digital-shapers-2026/8hb6chd" target="_blank" rel="noopener" class="article-card article-card--featured glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/bilanz-digital-shapers.jpg" srcset="img/articles/bilanz-digital-shapers-480.webp 480w, img/articles/bilanz-digital-shapers-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Digital Shapers 2026: AI Acrobats" class="article-card__thumb" loading="lazy" width="1200" height="1200">
                         </div>
@@ -1535,7 +1453,7 @@
                             <span class="article-card__date">Mär 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.aargauerzeitung.ch/aargau/kanton-aargau/ki-bilder-tipps-von-aargauer-experten-und-quiz-ld.4089477" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
+                    <a href="https://www.aargauerzeitung.ch/aargau/kanton-aargau/ki-bilder-tipps-von-aargauer-experten-und-quiz-ld.4089477" target="_blank" rel="noopener" class="article-card article-card--featured glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/aargauer-zeitung-ki-bilder.jpg" srcset="img/articles/aargauer-zeitung-ki-bilder-480.webp 480w, img/articles/aargauer-zeitung-ki-bilder-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="KI-Bilder: Tipps von Experten und Quiz" class="article-card__thumb" loading="lazy" width="1024" height="768">
                         </div>
@@ -1545,7 +1463,7 @@
                             <span class="article-card__date">Mär 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.persoenlich.com/blog/die-lust-am-ki-mythos-und-warum-sie-gefahrlich-ist" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
+                    <a href="https://www.persoenlich.com/blog/die-lust-am-ki-mythos-und-warum-sie-gefahrlich-ist" target="_blank" rel="noopener" class="article-card article-card--featured glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/persoenlich-ki-mythos.jpg" srcset="img/articles/persoenlich-ki-mythos-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Die Lust am KI-Mythos und warum sie gefährlich ist" class="article-card__thumb" loading="lazy" width="500" height="500">
                         </div>
@@ -1555,7 +1473,7 @@
                             <span class="article-card__date">Feb 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.basicthinking.de/blog/2026/02/10/ki-agenten-ausser-kontrolle-menschen-und-medien-im-elfenbeinturm/" target="_blank" rel="noopener" class="article-card article-card--featured glass-card">
+                    <a href="https://www.basicthinking.de/blog/2026/02/10/ki-agenten-ausser-kontrolle-menschen-und-medien-im-elfenbeinturm/" target="_blank" rel="noopener" class="article-card article-card--featured glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/basicthinking-ki-agenten.jpg" srcset="img/articles/basicthinking-ki-agenten-480.webp 480w, img/articles/basicthinking-ki-agenten-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="KI-Agenten ausser Kontrolle" class="article-card__thumb" loading="lazy" width="1200" height="675">
                         </div>
@@ -1565,7 +1483,7 @@
                             <span class="article-card__date">Feb 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.netzwoche.ch/news/2026-01-26/ai-im-marketing-prognose-fuer-2026" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.netzwoche.ch/news/2026-01-26/ai-im-marketing-prognose-fuer-2026" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/netzwoche-ai-marketing.jpg" srcset="img/articles/netzwoche-ai-marketing-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="AI im Marketing: Prognose für 2026" class="article-card__thumb" loading="lazy" width="800" height="450">
                         </div>
@@ -1575,7 +1493,7 @@
                             <span class="article-card__date">Jan 2026</span>
                         </div>
                     </a>
-                    <a href="https://www.nzz.ch/wirtschaft/nett-aber-nicht-praxistauglich-warum-das-eth-projekt-apertus-nicht-zum-fliegen-kommt-ld.1927876" target="_blank" rel="noopener" class="article-card glass-card">
+                    <a href="https://www.nzz.ch/wirtschaft/nett-aber-nicht-praxistauglich-warum-das-eth-projekt-apertus-nicht-zum-fliegen-kommt-ld.1927876" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/nzz-apertus.jpg" srcset="img/articles/nzz-apertus-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Warum das ETH-Projekt Apertus nicht zum Fliegen kommt" class="article-card__thumb" loading="lazy" width="800" height="450">
                         </div>
@@ -1585,7 +1503,7 @@
                             <span class="article-card__date">2026</span>
                         </div>
                     </a>
-                    <a href="https://www.directpoint.ch/de/dialogmarketing/erfolgsfaktoren/stand-ki-im-marketing" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.directpoint.ch/de/dialogmarketing/erfolgsfaktoren/stand-ki-im-marketing" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/directpoint-ki-marketing.jpg" srcset="img/articles/directpoint-ki-marketing-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Ein neues Mitglied im Marketingteam" class="article-card__thumb" loading="lazy" width="800" height="450">
                         </div>
@@ -1595,7 +1513,7 @@
                             <span class="article-card__date">2026</span>
                         </div>
                     </a>
-                    <a href="https://www.itbusiness.ch/news/people-corporate/beyeler-geh%C3%B6rt-zu-den-digital-shapers-2026" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.itbusiness.ch/news/people-corporate/beyeler-geh%C3%B6rt-zu-den-digital-shapers-2026" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/itbusiness-digital-shapers.jpg" srcset="img/articles/itbusiness-digital-shapers-480.webp 480w, img/articles/itbusiness-digital-shapers-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Beyeler gehört zu den Digital Shapers 2026" class="article-card__thumb" loading="lazy" width="998" height="563">
                         </div>
@@ -1605,8 +1523,8 @@
                             <span class="article-card__date">2026</span>
                         </div>
                     </a>
-                    <h4 class="articles__year articles__hidden">2025</h4>
-                    <a href="https://topsoft.ch/themen/chris-beyeler-nur-wer-ki-praxisnah-integriert-nutzt-sie-wirksam/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <h4 class="articles__year">2025</h4>
+                    <a href="https://topsoft.ch/themen/chris-beyeler-nur-wer-ki-praxisnah-integriert-nutzt-sie-wirksam/" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/topsoft-ki-praxisnah.jpg" srcset="img/articles/topsoft-ki-praxisnah-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Nur wer KI praxisnah integriert, nutzt sie wirksam" class="article-card__thumb" loading="lazy" width="756" height="430">
                         </div>
@@ -1616,7 +1534,7 @@
                             <span class="article-card__date">Nov 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.badenertagblatt.ch/aargau/baden/gebenstorf-erstes-ki-kompetenzzentrum-im-aargau-eroeffnet-denn-die-ueberforderung-ist-vielerorts-gross-ld.2793857" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.badenertagblatt.ch/aargau/baden/gebenstorf-erstes-ki-kompetenzzentrum-im-aargau-eroeffnet-denn-die-ueberforderung-ist-vielerorts-gross-ld.2793857" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/badenertagblatt-ki-zentrum.jpg" srcset="img/articles/badenertagblatt-ki-zentrum-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Erstes KI-Kompetenzzentrum im Aargau eröffnet" class="article-card__thumb" loading="lazy" width="800" height="449">
                         </div>
@@ -1626,7 +1544,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://ihre-region-online.ch/2025/07/09/neues-kompetenzzentrum-fuer-ki/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://ihre-region-online.ch/2025/07/09/neues-kompetenzzentrum-fuer-ki/" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/ihre-region-ki-zentrum.jpg" srcset="img/articles/ihre-region-ki-zentrum-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Neues Kompetenzzentrum für KI" class="article-card__thumb" loading="lazy" width="800" height="450">
                         </div>
@@ -1636,7 +1554,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.plattformj.ch/artikel/234052/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.plattformj.ch/artikel/234052/" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/plattformj-digital-day.jpg" srcset="img/articles/plattformj-digital-day-480.webp 480w, img/articles/plattformj-digital-day-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Nicht KI ersetzt euch, sondern die Menschen, die sie nutzen" class="article-card__thumb" loading="lazy" width="1200" height="675">
                         </div>
@@ -1646,7 +1564,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.htr.ch/story/people-events/berner-tourismus-ruestet-sich-fuer-die-ki-zukunft-43265" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.htr.ch/story/people-events/berner-tourismus-ruestet-sich-fuer-die-ki-zukunft-43265" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/htr-tourismus-ki.jpg" srcset="img/articles/htr-tourismus-ki-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Berner Tourismus rüstet sich für die KI-Zukunft" class="article-card__thumb" loading="lazy" width="800" height="450">
                         </div>
@@ -1656,7 +1574,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.netzwoche.ch/news/2025-07-02/kanton-aargau-erhaelt-ein-ki-kompetenzzentrum" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.netzwoche.ch/news/2025-07-02/kanton-aargau-erhaelt-ein-ki-kompetenzzentrum" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/netzwoche-ki-zentrum.jpg" srcset="img/articles/netzwoche-ki-zentrum-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Kanton Aargau erhält ein KI-Kompetenzzentrum" class="article-card__thumb" loading="lazy" width="800" height="450">
                         </div>
@@ -1666,7 +1584,7 @@
                             <span class="article-card__date">Jul 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.horizont.net/schweiz/nachrichten/fokus-auf-ki-beyonder-baut-geschaeftsleitung-aus-und-zieht-sich-aus-dem-digitalmarketing-zurueck-228607" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.horizont.net/schweiz/nachrichten/fokus-auf-ki-beyonder-baut-geschaeftsleitung-aus-und-zieht-sich-aus-dem-digitalmarketing-zurueck-228607" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/horizont-beyonder-gl.jpg" srcset="img/articles/horizont-beyonder-gl-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="BEYONDER baut Geschäftsleitung aus, fokussiert auf KI" class="article-card__thumb" loading="lazy" width="940" height="529">
                         </div>
@@ -1676,7 +1594,7 @@
                             <span class="article-card__date">Jun 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.markt-kom.com/de/markom/business/beyonder-wird-zur-ag-und-fokussiert-voll-auf-ki/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.markt-kom.com/de/markom/business/beyonder-wird-zur-ag-und-fokussiert-voll-auf-ki/" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/marktkom-beyonder-ag.jpg" srcset="img/articles/marktkom-beyonder-ag-480.webp 480w, img/articles/marktkom-beyonder-ag-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="BEYONDER wird zur AG und fokussiert voll auf KI" class="article-card__thumb" loading="lazy" width="1200" height="675">
                         </div>
@@ -1686,7 +1604,7 @@
                             <span class="article-card__date">Jun 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.tagblatt.ch/ostschweiz/stgallen/kuenstliche-intelligenz-wenn-der-ki-gott-in-stgallen-auf-unkreative-menschen-stoesst-ld.2763514" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.tagblatt.ch/ostschweiz/stgallen/kuenstliche-intelligenz-wenn-der-ki-gott-in-stgallen-auf-unkreative-menschen-stoesst-ld.2763514" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/tagblatt-ki-event.jpg" srcset="img/articles/tagblatt-ki-event-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Wenn der KI-Gott in St.Gallen auf unkreative Menschen stösst" class="article-card__thumb" loading="lazy" width="800" height="533">
                         </div>
@@ -1696,7 +1614,7 @@
                             <span class="article-card__date">Apr 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.swissinfo.ch/ger/swiss-abroad/ki-kurse-boomen-in-der-schweiz/88796035" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.swissinfo.ch/ger/swiss-abroad/ki-kurse-boomen-in-der-schweiz/88796035" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/swissinfo-ki-kurse.jpg" srcset="img/articles/swissinfo-ki-kurse-480.webp 480w, img/articles/swissinfo-ki-kurse-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="KI-Kurse boomen in der Schweiz" class="article-card__thumb" loading="lazy" width="960" height="540">
                         </div>
@@ -1706,7 +1624,7 @@
                             <span class="article-card__date">Feb 2025</span>
                         </div>
                     </a>
-                    <a href="https://topsoft.ch/themen/chris-beyeler-ki-ist-nicht-die-loesung-aller-probleme/" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://topsoft.ch/themen/chris-beyeler-ki-ist-nicht-die-loesung-aller-probleme/" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/topsoft-ki-probleme.jpg" srcset="img/articles/topsoft-ki-probleme-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="KI ist nicht die Lösung aller Probleme" class="article-card__thumb" loading="lazy" width="696" height="392">
                         </div>
@@ -1716,7 +1634,7 @@
                             <span class="article-card__date">Jan 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.persoenlich.com/prcorporate-communication/mit-neuer-rechtsform-und-anderem-geschaftsfeld" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.persoenlich.com/prcorporate-communication/mit-neuer-rechtsform-und-anderem-geschaftsfeld" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/persoenlich-beyonder-ag.jpg" srcset="img/articles/persoenlich-beyonder-ag-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="BEYONDER: Neue Rechtsform, neues Geschäftsfeld" class="article-card__thumb" loading="lazy" width="940" height="528">
                         </div>
@@ -1726,8 +1644,8 @@
                             <span class="article-card__date">2025</span>
                         </div>
                     </a>
-                    <h4 class="articles__year articles__hidden">2024</h4>
-                    <a href="https://www.srf.ch/kids/srf-kids-reporter-in-tierschutz-und-ki-wie-passt-das-zusammen" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <h4 class="articles__year">2024</h4>
+                    <a href="https://www.srf.ch/kids/srf-kids-reporter-in-tierschutz-und-ki-wie-passt-das-zusammen" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/srf-kids-tierschutz.jpg" srcset="img/articles/srf-kids-tierschutz-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Tierschutz und KI: Wie passt das zusammen?" class="article-card__thumb" loading="lazy" width="720" height="406">
                         </div>
@@ -1737,7 +1655,7 @@
                             <span class="article-card__date">Nov 2024</span>
                         </div>
                     </a>
-                    <a href="https://www.netzwoche.ch/news/2024-06-02/vom-schriftsetzer-zum-ux-designer-zum-ai-prompter" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.netzwoche.ch/news/2024-06-02/vom-schriftsetzer-zum-ux-designer-zum-ai-prompter" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/netzwoche-schriftsetzer.jpg" srcset="img/articles/netzwoche-schriftsetzer-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Vom Schriftsetzer zum UX Designer zum AI Prompter" class="article-card__thumb" loading="lazy" width="800" height="450">
                         </div>
@@ -1747,7 +1665,7 @@
                             <span class="article-card__date">Jun 2024</span>
                         </div>
                     </a>
-                    <a href="https://www.srf.ch/news/schweiz/chatgpt-und-co-ki-kurse-in-der-schweiz-boomen" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <a href="https://www.srf.ch/news/schweiz/chatgpt-und-co-ki-kurse-in-der-schweiz-boomen" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/srf-ki-kurse.jpg" srcset="img/articles/srf-ki-kurse-480.webp 480w, img/articles/srf-ki-kurse-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="KI-Kurse in der Schweiz boomen" class="article-card__thumb" loading="lazy" width="960" height="540">
                         </div>
@@ -1757,8 +1675,8 @@
                             <span class="article-card__date">2024</span>
                         </div>
                     </a>
-                    <h4 class="articles__year articles__hidden">2023</h4>
-                    <a href="https://www.nau.ch/news/wirtschaft/marketing-podcast-zwischen-fabio-zahnd-und-chris-beyeler-66562655" target="_blank" rel="noopener" class="article-card glass-card articles__hidden">
+                    <h4 class="articles__year">2023</h4>
+                    <a href="https://www.nau.ch/news/wirtschaft/marketing-podcast-zwischen-fabio-zahnd-und-chris-beyeler-66562655" target="_blank" rel="noopener" class="article-card glass-card" data-reveal>
                         <div class="article-card__img">
                             <img src="img/articles/nau-marketing-podcast.jpg" srcset="img/articles/nau-marketing-podcast-480.webp 480w, img/articles/nau-marketing-podcast-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Marketing-Podcast: Fabio Zahnd und Chris Beyeler" class="article-card__thumb" loading="lazy" width="1360" height="680">
                         </div>
@@ -1770,16 +1688,13 @@
                     </a>
                 </div>
                 <!-- PRESS-LIST-END -->
-                <div class="articles__show-more-wrap">
-                    <button class="btn btn--secondary articles__show-more" id="articlesShowMore">Mehr Artikel anzeigen</button>
-                </div>
             </div>
 
             <!-- Podcast-Gastauftritte -->
             <div class="block media__guest-podcasts">
                 <h3 class="media__articles-title">Zu Gast in Podcasts</h3>
-                <div class="guest-podcasts__grid">
-                    <a href="https://open.spotify.com/episode/55wb2o2WcDLQkB47LW3GdE" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                <div class="guest-podcasts__grid plist">
+                    <a href="https://open.spotify.com/episode/55wb2o2WcDLQkB47LW3GdE" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/michael-weber-podcast.jpg" srcset="img/podcasts/michael-weber-podcast-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="" loading="lazy" decoding="async" width="640" height="360">
                         </div>
@@ -1788,7 +1703,7 @@
                             <span class="guest-podcast-card__topic">So nutzt du Künstliche Intelligenz, ohne dich selbst zu verlieren</span>
                         </div>
                     </a>
-                    <a href="https://www.newsletter.jillwick.com/p/ki-im-arbeitsalltag-and-human-in" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.newsletter.jillwick.com/p/ki-im-arbeitsalltag-and-human-in" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/jill-wick-human-in-the-loop.jpg" srcset="img/podcasts/jill-wick-human-in-the-loop-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="" loading="lazy" decoding="async" width="1200" height="600">
                         </div>
@@ -1797,7 +1712,7 @@
                             <span class="guest-podcast-card__topic">KI im Arbeitsalltag &amp; Human in the Loop</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/episode/6KEYD2RoiidsTox2rRR82W" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://open.spotify.com/episode/6KEYD2RoiidsTox2rRR82W" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/usem-laebe-verzellt.jpg" srcset="img/podcasts/usem-laebe-verzellt-300.webp 300w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="" loading="lazy" decoding="async" width="300" height="300">
                         </div>
@@ -1806,7 +1721,7 @@
                             <span class="guest-podcast-card__topic">Künstliche Intelligenz ist da, wir müssen uns um sie kümmern</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/episode/1SWcw7zqUUZA5ScvEikLcA" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://open.spotify.com/episode/1SWcw7zqUUZA5ScvEikLcA" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/mach-dis-ding-anwendungsfaelle.jpg" srcset="img/podcasts/mach-dis-ding-anwendungsfaelle-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="" loading="lazy" decoding="async" width="640" height="360">
                         </div>
@@ -1815,7 +1730,7 @@
                             <span class="guest-podcast-card__topic">KI-Anwendungsfälle für dein Unternehmen</span>
                         </div>
                     </a>
-                    <a href="https://creators.spotify.com/pod/profile/swissai-podcast/episodes/Wie-KI-unser-Gehirn-verndert--Chancen--Risiken-und-Neuroplastizitt-e3l44oe" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://creators.spotify.com/pod/profile/swissai-podcast/episodes/Wie-KI-unser-Gehirn-verndert--Chancen--Risiken-und-Neuroplastizitt-e3l44oe" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/swissai-podcast-gehirn.jpg" srcset="img/podcasts/swissai-podcast-gehirn-400.webp 400w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="" loading="lazy" decoding="async" width="400" height="400">
                         </div>
@@ -1824,7 +1739,7 @@
                             <span class="guest-podcast-card__topic">Wie KI unser Gehirn verändert: Chancen, Risiken und Neuroplastizität</span>
                         </div>
                     </a>
-                    <a href="https://www.ifj.ch/Startup-Talk-mit-BEYONDER" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.ifj.ch/Startup-Talk-mit-BEYONDER" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/ifj-startup-talk.jpg" srcset="img/podcasts/ifj-startup-talk-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="" loading="lazy" decoding="async" width="730" height="410">
                         </div>
@@ -1833,7 +1748,7 @@
                             <span class="guest-podcast-card__topic">Startup Talk mit BEYONDER</span>
                         </div>
                     </a>
-                    <a href="https://digital-analog.podbean.com/e/chris-beyeler-ki-bodenstandig/" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://digital-analog.podbean.com/e/chris-beyeler-ki-bodenstandig/" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/digital-analog.jpg" srcset="img/podcasts/digital-analog-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="" loading="lazy" decoding="async" width="1200" height="628">
                         </div>
@@ -1842,7 +1757,7 @@
                             <span class="guest-podcast-card__topic">Chris Beyeler: KI bodenständig</span>
                         </div>
                     </a>
-                    <a href="https://www.mach-dis-ding.ch/2026/02/19/von-der-marketingagentur-zur-ki-agentur/" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.mach-dis-ding.ch/2026/02/19/von-der-marketingagentur-zur-ki-agentur/" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/mach-dis-ding.jpg" srcset="img/podcasts/mach-dis-ding-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Mach dis Ding Podcast" loading="lazy" width="600" height="600">
                         </div>
@@ -1851,7 +1766,7 @@
                             <span class="guest-podcast-card__topic">Von der Marketingagentur zur KI-Agentur</span>
                         </div>
                     </a>
-                    <a href="https://www.boostr.ch/folge-3-podcasts-image-ai-zwischen-tiefschlaf-und-chance-warum-die-schweiz-bei-ki-jetzt-umdenken-muss/" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.boostr.ch/folge-3-podcasts-image-ai-zwischen-tiefschlaf-und-chance-warum-die-schweiz-bei-ki-jetzt-umdenken-muss/" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/boostr-image-ai.jpg" srcset="img/podcasts/boostr-image-ai-480.webp 480w, img/podcasts/boostr-image-ai-960.webp 960w, img/podcasts/boostr-image-ai-1440.webp 1440w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="BOOSTR Image AI Podcast" loading="lazy" width="1500" height="1000">
                         </div>
@@ -1860,7 +1775,7 @@
                             <span class="guest-podcast-card__topic">Warum die Schweiz bei KI umdenken muss</span>
                         </div>
                     </a>
-                    <a href="https://www.thomashutter.com/podcast-marketing-trends-2025/" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.thomashutter.com/podcast-marketing-trends-2025/" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/digital-marketing-upgrade.jpg" srcset="img/podcasts/digital-marketing-upgrade-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Digital Marketing Upgrade Podcast" loading="lazy" width="600" height="600">
                         </div>
@@ -1869,7 +1784,7 @@
                             <span class="guest-podcast-card__topic">Marketing-Trends 2025</span>
                         </div>
                     </a>
-                    <a href="https://www.podcast.de/episode/670967865/50-was-du-2025-ueber-ki-wissen-musst-um-erfolgreich-durchzustarten-mit-chris-beyeler" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.podcast.de/episode/670967865/50-was-du-2025-ueber-ki-wissen-musst-um-erfolgreich-durchzustarten-mit-chris-beyeler" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/ai-cast.jpg" srcset="img/podcasts/ai-cast-480.webp 480w" sizes="(min-width: 60rem) 22rem, 80vw" alt="Make IT Podcast" loading="lazy" width="600" height="600">
                         </div>
@@ -1878,7 +1793,7 @@
                             <span class="guest-podcast-card__topic">Was du über KI wissen musst</span>
                         </div>
                     </a>
-                    <a href="https://www.mikebite.com/podcasts/chris-beyeler-ki-kuenstliche-intelligenz-veraendert-alles" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.mikebite.com/podcasts/chris-beyeler-ki-kuenstliche-intelligenz-veraendert-alles" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/mikebite.jpg" srcset="img/podcasts/mikebite-480.webp 480w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="mikebite Podcast" loading="lazy" width="500" height="334">
                         </div>
@@ -1887,7 +1802,7 @@
                             <span class="guest-podcast-card__topic">KI ver&auml;ndert alles</span>
                         </div>
                     </a>
-                    <a href="https://www.youtube.com/watch?v=cFrLylWR9HY" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.youtube.com/watch?v=cFrLylWR9HY" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/martin-mueller.jpg" srcset="img/podcasts/martin-mueller-480.webp 480w, img/podcasts/martin-mueller-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Martin M&uuml;ller Podcast" loading="lazy" width="1280" height="720">
                         </div>
@@ -1896,7 +1811,7 @@
                             <span class="guest-podcast-card__topic">Quellcode fliesst durch seine Adern</span>
                         </div>
                     </a>
-                    <a href="https://www.youtube.com/watch?v=l3XaVSOFlu0" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.youtube.com/watch?v=l3XaVSOFlu0" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/spot-on.jpg" srcset="img/podcasts/spot-on-480.webp 480w, img/podcasts/spot-on-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="SPOT ON" loading="lazy" width="1280" height="720">
                         </div>
@@ -1905,7 +1820,7 @@
                             <span class="guest-podcast-card__topic">Gr&uuml;nder BEYONDER, Pr&auml;sident KImpact</span>
                         </div>
                     </a>
-                    <a href="https://www.youtube.com/watch?v=rbfAj-hVcV0" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.youtube.com/watch?v=rbfAj-hVcV0" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/content-talk-zahnd.jpg" srcset="img/podcasts/content-talk-zahnd-480.webp 480w, img/podcasts/content-talk-zahnd-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Content. Talk. Podcast" loading="lazy" width="1280" height="720">
                         </div>
@@ -1914,7 +1829,7 @@
                             <span class="guest-podcast-card__topic">Summer Special mit Fabio Zahnd</span>
                         </div>
                     </a>
-                    <a href="https://www.youtube.com/watch?v=oqvpOR6TDEk" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.youtube.com/watch?v=oqvpOR6TDEk" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/schaefer-shop.jpg" srcset="img/podcasts/schaefer-shop-480.webp 480w, img/podcasts/schaefer-shop-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="Sch&auml;fer Shop Podcast" loading="lazy" width="1280" height="720">
                         </div>
@@ -1923,7 +1838,7 @@
                             <span class="guest-podcast-card__topic">Zukunft des Contents: KI &amp; Innovation</span>
                         </div>
                     </a>
-                    <a href="https://www.youtube.com/watch?v=ZcHMk1YO_jc" target="_blank" rel="noopener" class="guest-podcast-card glass-card">
+                    <a href="https://www.youtube.com/watch?v=ZcHMk1YO_jc" target="_blank" rel="noopener" class="guest-podcast-card glass-card" data-reveal>
                         <div class="guest-podcast-card__img">
                             <img src="img/podcasts/swissai.jpg" srcset="img/podcasts/swissai-480.webp 480w, img/podcasts/swissai-960.webp 960w" sizes="(min-width: 75rem) 20rem, (min-width: 40rem) 45vw, 92vw" alt="swissAI Podcast" loading="lazy" width="1280" height="720">
                         </div>
@@ -2075,7 +1990,7 @@
 
             <div class="essay__grid">
                 <div class="essay__content">
-                    <p class="essay__lead">Gestalte deine Zukunft mit Künstlicher Intelligenz. Nicht mit Angst und blindem Vertrauen, sondern mit kritischem Denken und aktivem Handeln.</p>
+                    <p class="essay__lead">Gestalte deine Zukunft mit Künstlicher Intelligenz. Nicht mit Angst und blindem Vertrauen, sondern mit <mark class="hl" data-reveal="hl">kritischem Denken und aktivem Handeln</mark>.</p>
 
                     <div class="essay__text">
                         <p>Künstliche Intelligenz ist kein Zukunftsthema mehr, sie ist Gegenwart. ChatGPT, Midjourney, Claude: Millionen von Menschen nutzen täglich KI-Tools. Doch zwischen den Schlagzeilen über Superintelligenz und Jobverlust fehlt oft das Wesentliche: ein nüchterner, fundierter Blick auf das, was KI wirklich kann, was nicht, und wie wir sie sinnvoll einsetzen.</p>
@@ -2126,7 +2041,7 @@
                     <button class="chatbot__quickreply" data-question="Was ist swissAI?">swissAI</button>
                 </div>
                 <div class="chat-full__input">
-                    <input type="text" id="chatFullInput" placeholder="Frag mich etwas..." autocomplete="off">
+                    <input type="text" id="chatFullInput" aria-label="Deine Frage an die KI-Version von Chris" placeholder="Frag mich etwas..." autocomplete="off">
                     <button id="chatFullSend" aria-label="Senden">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                     </button>
@@ -2163,7 +2078,7 @@
                 </details>
                 <details class="faq__item">
                     <summary>Was kostet eine Keynote von Chris Beyeler?</summary>
-                    <p>Das Honorar hängt von Format, Dauer und Aufwand ab und wird individuell offeriert. Im Anfrageformular lässt sich ein Budgetrahmen angeben.</p>
+                    <p>Eine Standard-Keynote kostet ab CHF 3&#x27;000. Eine individuell entwickelte Keynote kostet ab CHF 5&#x27;000. Der genaue Preis hängt von Format, Dauer und Aufwand ab.</p>
                 </details>
                 <details class="faq__item">
                     <summary>Wie kann ich Chris Beyeler für einen Anlass anfragen?</summary>
@@ -2201,77 +2116,26 @@
                 <div class="contact__form-intro">
                     <span class="contact__form-kicker">Unverbindliche Anfrage</span>
                     <h3>Erz&auml;hl mir von deinem Anlass</h3>
-                    <p>Je mehr ich bereits weiss, desto konkreter kann ich dir antworten. Die Veranstaltungsdetails sind optional.</p>
+                    <p>Drei kurze Schritte. Pflicht sind nur Name, E-Mail und eine Nachricht.</p>
                 </div>
-
-                <div class="contact__form-row">
-                    <div class="form-group">
-                        <label for="contact-name">Name <span aria-hidden="true">*</span></label>
-                        <input id="contact-name" name="Name" type="text" autocomplete="name" maxlength="120" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-email">E-Mail <span aria-hidden="true">*</span></label>
-                        <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
-                    </div>
-                </div>
-
-                <div class="contact__form-row">
-                    <div class="form-group">
-                        <label for="contact-company">Organisation</label>
-                        <input id="contact-company" name="Organisation" type="text" autocomplete="organization" maxlength="160">
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-phone">Telefon</label>
-                        <input id="contact-phone" name="Telefon" type="tel" autocomplete="tel" maxlength="40">
-                    </div>
-                </div>
-
-                <fieldset class="contact__event-details">
-                    <legend>Details zum Anlass <span>optional</span></legend>
-                    <div class="contact__form-row contact__form-row--three" id="contact-date-fields">
-                        <div class="form-group">
-                            <label for="contact-date">Datum</label>
-                            <input id="contact-date" name="Datum" type="date">
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-time-from">Uhrzeit von</label>
-                            <input id="contact-time-from" name="Uhrzeit von" type="time">
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-time-to">Uhrzeit bis</label>
-                            <input id="contact-time-to" name="Uhrzeit bis" type="time">
+                <ol class="steps__nav" aria-label="Schritte der Anfrage">
+                    <li><button type="button" data-go="0"><b>1</b> Anlass</button></li>
+                    <li><button type="button" data-go="1"><b>2</b> Termin und Ort</button></li>
+                    <li><button type="button" data-go="2"><b>3</b> Kontakt</button></li>
+                </ol>
+                <fieldset class="step">
+                    <legend tabindex="-1">Was brauchst du?</legend>
+                    <div class="chipset" role="radiogroup" aria-labelledby="contact-format-label">
+                        <span class="chipset__label" id="contact-format-label">Format</span>
+                        <div class="chips">
+                            <label class="chip"><input type="radio" name="Format" value="Keynote Standard"><span>Keynote Standard<small>ab CHF 3&#x27;000</small></span></label>
+                            <label class="chip"><input type="radio" name="Format" value="Keynote individuell"><span>Keynote individuell<small>ab CHF 5&#x27;000</small></span></label>
+                            <label class="chip"><input type="radio" name="Format" value="Workshop"><span>Workshop<small>Halbtag oder Ganztag</small></span></label>
+                            <label class="chip"><input type="radio" name="Format" value="Moderation oder Podium"><span>Moderation oder Podium<small>Events und Panels</small></span></label>
+                            <label class="chip"><input type="radio" name="Format" value="Noch offen"><span>Noch offen<small>wir finden es heraus</small></span></label>
                         </div>
                     </div>
-
-                    <label class="contact__date-unknown" for="contact-date-unknown">
-                        <input id="contact-date-unknown" name="Terminstatus" type="checkbox" value="Datum und Uhrzeit noch unklar" aria-controls="contact-date-fields">
-                        <span>Datum und Uhrzeit noch unklar</span>
-                    </label>
-
                     <div class="contact__form-row">
-                        <div class="form-group">
-                            <label for="contact-location">Ort</label>
-                            <input id="contact-location" name="Ort" type="text" autocomplete="address-level2" maxlength="160" placeholder="Ort / Location">
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-audience">Anzahl Publikum</label>
-                            <input id="contact-audience" name="Anzahl Publikum" type="number" min="1" inputmode="numeric" placeholder="z. B. 150">
-                        </div>
-                    </div>
-
-                    <div class="contact__form-row">
-                        <div class="form-group">
-                            <label for="contact-budget">Budgetrahmen</label>
-                            <select id="contact-budget" name="Budgetrahmen">
-                                <option value="">Bitte ausw&auml;hlen</option>
-                                <option>Noch offen</option>
-                                <option>Bis CHF 3'000</option>
-                                <option>CHF 3'000&ndash;5'000</option>
-                                <option>CHF 5'000&ndash;8'000</option>
-                                <option>CHF 8'000&ndash;12'000</option>
-                                <option>Ab CHF 12'000</option>
-                            </select>
-                        </div>
                         <div class="form-group">
                             <label for="contact-topic">Themenwunsch</label>
                             <select id="contact-topic" name="Themenwunsch">
@@ -2286,23 +2150,95 @@
                                 <option>Noch offen</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="contact-audience">Anzahl Publikum</label>
+                            <input id="contact-audience" name="Anzahl Publikum" type="number" min="1" inputmode="numeric" placeholder="z. B. 150">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-budget">Budgetrahmen</label>
+                        <select id="contact-budget" name="Budgetrahmen">
+                                <option value="">Bitte ausw&auml;hlen</option>
+                                <option>Noch offen</option>
+                                <option>Bis CHF 3'000</option>
+                                <option>CHF 3'000&ndash;5'000</option>
+                                <option>CHF 5'000&ndash;8'000</option>
+                                <option>CHF 8'000&ndash;12'000</option>
+                                <option>Ab CHF 12'000</option>
+                            </select>
+                    </div>
+                    <div class="step__actions">
+                        <button type="button" class="btn btn--primary" data-next>Weiter zu Termin und Ort</button>
                     </div>
                 </fieldset>
-
-                <div class="form-group">
-                    <label for="contact-message">Nachricht <span aria-hidden="true">*</span></label>
-                    <textarea id="contact-message" name="Nachricht" rows="5" maxlength="5000" required placeholder="Worum geht es bei deiner Anfrage?"></textarea>
-                </div>
-
-                <label class="contact__consent" for="contact-consent">
+                <fieldset class="step">
+                    <legend tabindex="-1">Wann und wo?</legend>
+                    <div class="contact__form-row contact__form-row--three" id="contact-date-fields">
+                        <div class="form-group">
+                            <label for="contact-date">Datum</label>
+                            <input id="contact-date" name="Datum" type="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-time-from">Uhrzeit von</label>
+                            <input id="contact-time-from" name="Uhrzeit von" type="time">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-time-to">Uhrzeit bis</label>
+                            <input id="contact-time-to" name="Uhrzeit bis" type="time">
+                        </div>
+                    </div>
+                    <label class="contact__date-unknown" for="contact-date-unknown">
+                        <input id="contact-date-unknown" name="Terminstatus" type="checkbox" value="Datum und Uhrzeit noch unklar" aria-controls="contact-date-fields">
+                        <span>Datum und Uhrzeit noch unklar</span>
+                    </label>
+                    <div class="form-group">
+                        <label for="contact-location">Ort</label>
+                        <input id="contact-location" name="Ort" type="text" autocomplete="address-level2" maxlength="160" placeholder="Ort / Location">
+                    </div>
+                    <div class="step__actions">
+                        <button type="button" class="btn btn--secondary" data-prev>Zur&uuml;ck</button>
+                        <button type="button" class="btn btn--primary" data-next>Weiter zu Kontakt</button>
+                    </div>
+                </fieldset>
+                <fieldset class="step">
+                    <legend tabindex="-1">Wer fragt an?</legend>
+                    <p class="step__summary" aria-live="polite"></p>
+                    <div class="contact__form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Name <span aria-hidden="true">*</span></label>
+                            <input id="contact-name" name="Name" type="text" autocomplete="name" maxlength="120" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">E-Mail <span aria-hidden="true">*</span></label>
+                            <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                        </div>
+                    </div>
+                    <div class="contact__form-row">
+                        <div class="form-group">
+                            <label for="contact-company">Organisation</label>
+                            <input id="contact-company" name="Organisation" type="text" autocomplete="organization" maxlength="160">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Telefon</label>
+                            <input id="contact-phone" name="Telefon" type="tel" autocomplete="tel" maxlength="40">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Nachricht <span aria-hidden="true">*</span></label>
+                        <textarea id="contact-message" name="Nachricht" rows="4" maxlength="5000" required placeholder="Worum geht es bei deinem Anlass?"></textarea>
+                    </div>
+                    <label class="contact__consent" for="contact-consent">
                     <input id="contact-consent" type="checkbox" name="Datenschutz akzeptiert" value="Ja" required>
                     <span>Ich stimme zu, dass meine Angaben zur Bearbeitung der Anfrage verwendet und daf&uuml;r &uuml;ber FormSubmit &uuml;bermittelt werden. Bitte keine vertraulichen Informationen senden. Weitere Informationen im <a href="https://beyonder.ch/uber-uns/datenschutz" target="_blank" rel="noopener">Datenschutz</a>. *</span>
                 </label>
-
-                <div class="contact__submit">
-                    <button type="submit" class="btn btn--primary btn--lg">Anfrage senden</button>
-                    <p>Deine Anfrage wird per E-Mail an chris@beyonder.ch gesendet.</p>
-                </div>
+                    <div class="contact__submit">
+                        <div class="step__actions">
+                            <button type="button" class="btn btn--secondary" data-prev>Zur&uuml;ck</button>
+                            <button type="submit" class="btn btn--primary btn--lg">Anfrage senden</button>
+                        </div>
+                        <p>Deine Anfrage wird per E-Mail an chris@beyonder.ch gesendet.</p>
+                    </div>
+                </fieldset>
             </form>
             </div>
         </div>
@@ -2368,7 +2304,7 @@
                 </div>
             </div>
             <div class="chatbot__input">
-                <input type="text" id="chatbotInput" placeholder="Frag mich etwas..." autocomplete="off">
+                <input type="text" id="chatbotInput" aria-label="Deine Frage an die KI-Version von Chris" placeholder="Frag mich etwas..." autocomplete="off">
                 <button id="chatbotSend" aria-label="Senden">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 </button>

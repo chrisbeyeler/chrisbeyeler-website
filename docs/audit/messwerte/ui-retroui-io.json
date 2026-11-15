@@ -1,0 +1,112 @@
+{
+ "title": "Retro UI - Pixelated React Components",
+ "height": 900,
+ "dom": 121,
+ "lead": "Retro UI A simple pixelated UI library. Get Started GitHub",
+ "heads": [
+  "H1: RetroUI",
+  "H1: Retro UI",
+  "H1: MEW"
+ ],
+ "btns": [
+  "RetroUI",
+  "Installation",
+  "Components",
+  "Star the repo",
+  "Get Started",
+  "GitHub",
+  "Submit Form",
+  "Cancel",
+  "What is it?",
+  "What makes it different?",
+  "Is retro style good?"
+ ],
+ "fonts": [
+  [
+   "Minecraft, sans-serif",
+   41
+  ],
+  [
+   "__Inter_d65c78, __Inter_Fallback_d65c78",
+   21
+  ],
+  [
+   "MinecraftBold, sans-serif",
+   4
+  ]
+ ],
+ "radius": [
+  [
+   "0px",
+   61
+  ],
+  [
+   "6px",
+   3
+  ],
+  [
+   "4px",
+   2
+  ]
+ ],
+ "shadow": [
+  [
+   "none",
+   56
+  ],
+  [
+   "rgb(195, 129, 181) 2px 2px 0px 2px, rgb(254, 252, 208) -2px -2px 0px 2px",
+   3
+  ],
+  [
+   "rgb(0, 0, 0) 2px 2px 0px 2px, rgb(255, 255, 255) -2px -2px 0px 2px",
+   3
+  ],
+  [
+   "rgb(254, 252, 208) 2px 2px 0px 2px, rgb(195, 129, 181) -2px -2px 0px 2px",
+   2
+  ],
+  [
+   "rgb(255, 255, 255) 2px 2px 0px 2px, rgb(255, 255, 255) -2px -2px 0px 2px",
+   2
+  ]
+ ],
+ "h1": {
+  "size": "24px",
+  "weight": "400",
+  "lh": "32px",
+  "ls": "normal",
+  "font": "MinecraftBold, sans-serif",
+  "transform": "none"
+ },
+ "body": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "color": "rgb(0, 0, 0)"
+ },
+ "p": {
+  "size": "30px",
+  "lh": "36px",
+  "color": "rgb(0, 0, 0)"
+ },
+ "button": {
+  "text": "Get Started",
+  "bg": "rgb(254, 252, 208)",
+  "color": "rgb(0, 0, 0)",
+  "radius": "0px",
+  "border": "5px solid rgb(0, 0, 0)",
+  "shadow": "rgb(195, 129, 181) 2px 2px 0px 2px, rgb(254, 252, 208) -2px -2px 0px 2px",
+  "height": 34,
+  "pad": "0px 8px",
+  "weight": "400",
+  "size": "16px"
+ },
+ "video": 0,
+ "canvas": 0,
+ "iframes": 0,
+ "imgs": 4,
+ "reduced": 0,
+ "anim": 0,
+ "url": "https://retroui.io/",
+ "requests": 23,
+ "bytesHeader": 359044
+}

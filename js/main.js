@@ -89,7 +89,8 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     if (!stages.length) return;
     const instances = [];
     const saveData = navigator.connection && navigator.connection.saveData;
-    const manualOnly = prefersReducedMotion || saveData || matchMedia('(max-width: 600px)').matches;
+    // Trailer startet stumm, sobald er im Bild ist. Ausnahmen: reduzierte Bewegung und Datensparmodus.
+    const manualOnly = prefersReducedMotion || saveData;
 
     function syncBodyState() {
         document.body.classList.toggle('trailer-active', document.querySelector('.trailer-stage.is-active') !== null);
@@ -474,19 +475,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     if (unknownDate.checked) sync();
 })();
 
-// ===== PRESSESPIEGEL: weitere Artikel einblenden =====
-(function () {
-    const button = document.getElementById('articlesShowMore');
-    const grid = document.querySelector('.articles__grid');
-    if (!button || !grid) return;
-    button.addEventListener('click', function () {
-        const first = grid.querySelector('a.articles__hidden');
-        grid.classList.add('articles--expanded');
-        button.parentElement.classList.add('hidden');
-        if (first) first.focus({ preventScroll: true });
-    });
-})();
-
 // ===== E-MAIL-ADRESSEN (Spam-Schutz) =====
 document.querySelectorAll('.js-mail').forEach(function (el) {
     el.href = 'mai' + 'lto:' + el.dataset.n + '@' + el.dataset.d;
@@ -616,4 +604,237 @@ document.querySelectorAll('.js-mail').forEach(function (el) {
         preview.classList.add('is-on');
     }, { passive: true });
     list.addEventListener('pointerleave', function () { preview.classList.remove('is-on'); running = false; });
+})();
+
+// ===== SCROLLYTELLING =====
+// Ein Scroll-Listener (pro Bild höchstens einmal) schreibt den Fortschritt --p auf wenige Elemente.
+// Das ersetzt CSS-Scroll-Timelines, die nicht jeder Browser kann.
+(function () {
+    if (prefersReducedMotion) return;
+    const items = Array.from(document.querySelectorAll('[data-scroll]'));
+    const bar = document.querySelector('.progress');
+    let ticking = false;
+    function update() {
+        ticking = false;
+        const vh = window.innerHeight;
+        for (const el of items) {
+            const r = el.getBoundingClientRect();
+            if (r.bottom < -300 || r.top > vh + 300) continue;
+            el.style.setProperty('--p', Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))).toFixed(4));
+        }
+        if (bar) {
+            const max = document.documentElement.scrollHeight - vh;
+            bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0).toFixed(4) + ')';
+        }
+    }
+    function request() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    update();
+
+    if (!('IntersectionObserver' in window)) return;
+    // Keynotes: die Zeile in der Bildmitte hervorheben
+    const list = document.querySelector('.talks');
+    if (list) {
+        const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { e.target.classList.toggle('is-current', e.isIntersecting); });
+            list.classList.toggle('has-current', !!list.querySelector('.is-current'));
+        }, { rootMargin: '-42% 0px -42% 0px' });
+        list.querySelectorAll('.talk[data-talk]').forEach(function (t) { io.observe(t); });
+    }
+    // Werdegang: Jahre, die die Bildmitte passiert haben, bleiben hell
+    const years = document.querySelectorAll('.timeline[data-scroll] li');
+    if (years.length) {
+        const io2 = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting || e.boundingClientRect.top < 0) e.target.classList.add('is-past'); else e.target.classList.remove('is-past'); });
+        }, { rootMargin: '0px 0px -45% 0px' });
+        years.forEach(function (y) { io2.observe(y); });
+    }
+})();
+
+// ===== ANFRAGE IN DREI SCHRITTEN =====
+// Ohne JavaScript bleibt es ein einziges Formular. Mit JavaScript: ein Schritt nach dem anderen,
+// Fehler stehen direkt beim Feld, vor dem Senden gibt es eine kurze Zusammenfassung.
+(function () {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    const steps = Array.from(form.querySelectorAll('.step'));
+    const tabs = Array.from(form.querySelectorAll('.steps__nav button'));
+    const summary = form.querySelector('.step__summary');
+    const submit = form.querySelector('button[type="submit"]');
+    if (!steps.length || !submit) return;
+    const last = steps.length - 1;
+    const submitText = submit.textContent;
+    let current = 0;
+    form.classList.add('is-stepped');
+    form.noValidate = true;
+
+    function value(name) {
+        const el = form.elements[name];
+        return el && el.value ? String(el.value).trim() : '';
+    }
+    function writeSummary() {
+        if (!summary) return;
+        const parts = [];
+        if (value('Format')) parts.push(value('Format'));
+        const topic = form.elements['Themenwunsch'];
+        if (topic && topic.value) parts.push(topic.options[topic.selectedIndex].text);
+        if (value('Anzahl Publikum')) parts.push(value('Anzahl Publikum') + ' Personen');
+        const open = form.elements['Terminstatus'];
+        if (open && open.checked) parts.push('Termin noch offen');
+        else if (value('Datum')) parts.push(new Date(value('Datum') + 'T12:00').toLocaleDateString('de-CH'));
+        if (value('Ort')) parts.push(value('Ort'));
+        summary.textContent = parts.length ? 'Deine Anfrage: ' + parts.join(' · ') : '';
+    }
+    function show(n, moveFocus) {
+        current = Math.max(0, Math.min(last, n));
+        steps.forEach(function (s, i) { s.classList.toggle('is-active', i === current); });
+        tabs.forEach(function (t, i) {
+            if (i === current) t.setAttribute('aria-current', 'step'); else t.removeAttribute('aria-current');
+            t.classList.toggle('is-done', i < current);
+        });
+        if (current === last) writeSummary();
+        if (!moveFocus) return;
+        const legend = steps[current].querySelector('legend');
+        if (legend) legend.focus({ preventScroll: true });
+        const top = form.getBoundingClientRect().top;
+        if (top < 0 || top > window.innerHeight * 0.6) form.scrollIntoView({ block: 'start', behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    }
+    function check(el) {
+        if (!el.id || !el.willValidate) return true;
+        let note = document.getElementById(el.id + '-error');
+        if (el.checkValidity()) {
+            el.removeAttribute('aria-invalid');
+            el.removeAttribute('aria-describedby');
+            if (note) note.remove();
+            return true;
+        }
+        if (!note) {
+            note = document.createElement('p');
+            note.className = 'form-error';
+            note.id = el.id + '-error';
+            const group = el.closest('.form-group');
+            if (group) group.appendChild(note); else el.closest('label').after(note);
+        }
+        note.textContent = el.type === 'checkbox' ? 'Bitte zustimmen, sonst darf ich dir nicht antworten.'
+            : el.validity.valueMissing ? 'Bitte ausfüllen.'
+            : el.validity.typeMismatch ? 'Bitte eine gültige E-Mail-Adresse angeben.'
+            : 'Bitte prüfen.';
+        el.setAttribute('aria-invalid', 'true');
+        el.setAttribute('aria-describedby', note.id);
+        return false;
+    }
+
+    form.addEventListener('click', function (e) {
+        const b = e.target.closest('[data-next], [data-prev], [data-go]');
+        if (!b) return;
+        if (b.hasAttribute('data-next')) show(current + 1, true);
+        else if (b.hasAttribute('data-prev')) show(current - 1, true);
+        else show(Number(b.dataset.go), true);
+    });
+    ['input', 'change'].forEach(function (type) {
+        form.addEventListener(type, function (e) { if (e.target.getAttribute('aria-invalid')) check(e.target); });
+    });
+    form.addEventListener('submit', function (e) {
+        // Enter in Schritt 1 oder 2 führt weiter, statt ein halbes Formular zu senden
+        if (current < last) { e.preventDefault(); show(current + 1, true); return; }
+        const bad = Array.from(form.elements).filter(function (el) { return !check(el); });
+        if (bad.length) { e.preventDefault(); bad[0].focus(); return; }
+        submit.disabled = true;
+        submit.textContent = 'Wird gesendet …';
+    });
+    window.addEventListener('pageshow', function () { submit.disabled = false; submit.textContent = submitText; });
+    // Thema aus einer Keynote übernommen: zurück zu Schritt 1, damit man es sieht
+    document.addEventListener('click', function (e) { if (e.target.closest('[data-topic]')) show(0, false); });
+    show(0, false);
+})();
+
+// ===== KEYNOTE-VIDEOS: Wiedergabe direkt auf der Seite =====
+// YouTube wird erst beim Klick geladen (youtube-nocookie.com). Ohne JavaScript öffnen die Links YouTube.
+(function () {
+    const stage = document.getElementById('vstage');
+    if (!stage) return;
+    const player = stage.querySelector('.vstage__player');
+    const links = Array.from(stage.querySelectorAll('.vstage__list a'));
+    stage.addEventListener('click', function (e) {
+        const a = e.target.closest('a[data-yt]');
+        if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+        e.preventDefault();
+        const frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(a.dataset.yt) + '?autoplay=1&rel=0&playsinline=1';
+        frame.title = 'Video: ' + a.dataset.title;
+        frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        frame.allowFullscreen = true;
+        player.replaceChildren(frame);
+        links.forEach(function (l) {
+            if (l.dataset.yt === a.dataset.yt) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
+        });
+        const r = player.getBoundingClientRect();
+        if (r.top < 0 || r.bottom > window.innerHeight) player.scrollIntoView({ block: 'center', behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        frame.focus();
+    });
+})();
+
+// ===== LAUFBAND DER MEDIEN: anhalten und starten =====
+(function () {
+    const btn = document.querySelector('.marquee-toggle');
+    const row = document.querySelector('.media__logos .logos-row');
+    if (!btn || !row || prefersReducedMotion) return;
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+        const stopped = row.classList.toggle('is-stopped');
+        btn.textContent = stopped ? 'Laufband starten' : 'Laufband anhalten';
+    });
+})();
+
+// ===== ERKENNUNGSRAHMEN: Trefferwert zählt hoch, sobald der Rahmen im Bild ist =====
+(function () {
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            io.unobserve(entry.target);
+            const el = entry.target;
+            const m = /^(.*\s)(\d\.\d\d)$/.exec(el.dataset.label);
+            if (!m) return;
+            const target = Number(m[2]);
+            const start = performance.now();
+            (function tick(now) {
+                const t = Math.min(1, (now - start) / 900);
+                el.dataset.label = m[1] + (target * (1 - Math.pow(1 - t, 3))).toFixed(2);
+                if (t < 1) requestAnimationFrame(tick);
+            })(start);
+        });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.detect[data-label]').forEach(function (el) { io.observe(el); });
+})();
+
+// ===== FOOTER-SCHRIFTZUG: Buchstaben ziehen sich zum Zeiger hin zusammen =====
+// Nutzt die Breiten- und Gewichtsachse von Mona Sans. Nur mit Maus, nie breiter als die Grundform.
+(function () {
+    const mark = document.querySelector('.footer__mark span');
+    if (!mark || prefersReducedMotion || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const text = mark.textContent;
+    mark.textContent = '';
+    const letters = [];
+    text.split('').forEach(function (ch) {
+        if (ch === ' ') { mark.appendChild(document.createTextNode(' ')); return; }
+        const s = document.createElement('span');
+        s.textContent = ch;
+        mark.appendChild(s);
+        letters.push(s);
+    });
+    const host = mark.parentElement;
+    let frame = 0, x = 0, y = 0;
+    function paint() {
+        frame = 0;
+        letters.forEach(function (s) {
+            const r = s.getBoundingClientRect();
+            const d = Math.hypot(x - (r.left + r.width / 2), y - (r.top + r.height / 2));
+            const k = Math.max(0, 1 - d / 320);
+            s.style.fontVariationSettings = k > 0.01 ? '"wdth" ' + (85 - k * 10).toFixed(1) + ', "wght" ' + Math.round(850 + k * 50) : '';
+        });
+    }
+    host.addEventListener('pointermove', function (e) { x = e.clientX; y = e.clientY; if (!frame) frame = requestAnimationFrame(paint); });
+    host.addEventListener('pointerleave', function () { letters.forEach(function (s) { s.style.fontVariationSettings = ''; }); });
 })();

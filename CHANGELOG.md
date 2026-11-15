@@ -1,5 +1,32 @@
 # Changelog
 
+## 2026-11-15 — Scrollytelling, Trailer-Autostart, Mosaik, Preise
+
+- Typo-Band, Hero-Bild, Siegel und Werdegang hängen jetzt per JavaScript am Scroll (`--p`). Vorher lief das nur in Browsern mit CSS-Scroll-Timelines, sonst stand das Band still und war abgeschnitten
+- Neu: Fortschrittsbalken oben, Keynote in der Bildmitte tritt hervor, Linie im Werdegang füllt sich
+- Trailer starten stumm von selbst, sobald sie im Bild sind, auch auf dem Handy. Ausnahmen: reduzierte Bewegung und Datensparmodus. Die Navigation bleibt dabei bedienbar
+- Beiträge und Podcast-Gastauftritte als Mosaik: alle 27 und 17 Einträge sichtbar, kein «Mehr anzeigen», keine Wischreihe. Das Raster bleibt bei jeder Anzahl lückenlos
+- Medien als grosse Wortmarken in Mona Sans, abgeleitet aus `content/press.json`. Die alten Text-Logos in `img/media/` sind gelöscht
+- Preise: Standard-Keynote ab CHF 3'000, individuelle Keynote ab CHF 5'000 (Formate, FAQ, Schema, Chatbot, `llms.txt`)
+- Keynote-Konfigurator steht jetzt direkt unter dem Sektionstitel
+- Zeilenabstand der Titel erhöht, damit Kommata die nächste Zeile nicht berühren
+- Ein schwaches Zitat entfernt
+- Impressum und Datenschutz haben ihre Gestaltung zurück
+
+### Zweite Runde am selben Tag
+- Anfrage in drei Schritten (Anlass, Termin und Ort, Kontakt) mit Format-Auswahl inklusive Preisen, Zusammenfassung, Fehlermeldungen am Feld. Ohne JavaScript ein einziges Formular
+- Keynote-Videos als Bühne mit Wiedergabeliste; Wiedergabe direkt auf der Seite, YouTube lädt erst beim Klick (`youtube-nocookie.com`). Datenschutztext entsprechend angepasst
+- Kein Element doppelt: Beiträge als Mosaik, Podcasts als Liste mit Cover
+- Laufband der Medien lässt sich anhalten; Aufruf nach den Stimmen; Marker auf dem Kernsatz des Essays
+- Footer-Schriftzug reagiert auf den Zeiger, Trefferwert im Erkennungsrahmen zählt hoch, Knöpfe mit hartem Schatten
+- Analyse von sieben UI-Angeboten: `docs/audit/ui-bibliotheken.md`
+
+### Dritte Runde: Websites live vermessen
+- Alle sechs Websites im Browser geladen und vermessen (`tools/audit/site-scan.js`, Rohdaten in `docs/audit/messwerte/ui-*.json`); Analyse ergänzt und RetroUI korrigiert
+- Tastatur-Durchgang als Test (`tools/audit/tastatur.js`): 170 Halte ohne Befund
+- Fehler behoben: Eingabefeld im KI-Chat hatte keinen sichtbaren Fokus und nur einen Platzhalter als Namen
+- z-index-Skala aufgeräumt, leichtes Federn bei Rückmeldung am Zeiger
+
 ## 2026-11-14 — Überarbeitung für Buchungsanfragen: Design, Tempo, Belege, Auffindbarkeit
 
 Messwerte, Referenzanalyse und offene Punkte: `docs/audit/`.
