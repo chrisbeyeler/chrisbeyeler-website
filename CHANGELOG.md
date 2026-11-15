@@ -13,6 +13,14 @@
 - Ein schwaches Zitat entfernt
 - Impressum und Datenschutz haben ihre Gestaltung zurück
 
+### Zweite Runde am selben Tag
+- Anfrage in drei Schritten (Anlass, Termin und Ort, Kontakt) mit Format-Auswahl inklusive Preisen, Zusammenfassung, Fehlermeldungen am Feld. Ohne JavaScript ein einziges Formular
+- Keynote-Videos als Bühne mit Wiedergabeliste; Wiedergabe direkt auf der Seite, YouTube lädt erst beim Klick (`youtube-nocookie.com`). Datenschutztext entsprechend angepasst
+- Kein Element doppelt: Beiträge als Mosaik, Podcasts als Liste mit Cover
+- Laufband der Medien lässt sich anhalten; Aufruf nach den Stimmen; Marker auf dem Kernsatz des Essays
+- Footer-Schriftzug reagiert auf den Zeiger, Trefferwert im Erkennungsrahmen zählt hoch, Knöpfe mit hartem Schatten
+- Analyse von sieben UI-Angeboten: `docs/audit/ui-bibliotheken.md`
+
 ## 2026-11-14 — Überarbeitung für Buchungsanfragen: Design, Tempo, Belege, Auffindbarkeit
 
 Messwerte, Referenzanalyse und offene Punkte: `docs/audit/`.

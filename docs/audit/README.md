@@ -214,10 +214,12 @@ Nach dem Livegang dieselben Befehle mit `https://chrisbeyeler.ch/` ausführen un
 
 | Prüfung (lokal, mobil) | Ergebnis | Status |
 |---|---|---|
-| Lighthouse, 3 Läufe | Performance 97 / 99 / 99 · LCP 2,0 s · TBT 70–180 ms · CLS 0 · 196 KB | gemessen |
+| Lighthouse, 3 Läufe | Performance 96 / 99 / 99 · Barrierefreiheit 100 · LCP 2,0 s · TBT 80–210 ms · CLS 0 · 201 KB | gemessen |
 | axe, normal und mit reduzierter Bewegung | 0 Verstösse | gemessen |
-| Funktionstest | 20 von 20 | gemessen |
+| Funktionstest (inkl. Schritt-Formular, Video-Bühne, Laufband) | 26 von 26 | gemessen |
 | Überlauf auf 11 Breiten (320–1920 px) | kein Befund | gemessen |
-| Seitenlänge mobil | 32 051 px (live vorher 27 951 px), weil alle Beiträge und Podcasts sichtbar sind | gemessen |
+| Seitenlänge mobil | 31 065 px (live vorher 27 951 px), weil alle Beiträge und Podcasts sichtbar sind | gemessen |
+| Laufband ohne Pause-Knopf (offener Punkt aus der ersten Runde) | Knopf ergänzt | erledigt |
+| Analyse von sieben UI-Angeboten | `ui-bibliotheken.md`; sechs Websites waren gesperrt, gelesen wurden die GitHub-Repos | teilweise |
 | Live-Messung nach dem Merge | – | **offen** |
 | Echte Medienlogos statt Wortmarken | brauchen Dateien und Erlaubnis der Verlage | **offen** |
