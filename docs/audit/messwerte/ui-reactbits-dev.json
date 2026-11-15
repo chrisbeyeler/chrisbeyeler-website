@@ -1,0 +1,199 @@
+{
+ "title": "React Bits — Free Animated React Components",
+ "height": 9132,
+ "dom": 1960,
+ "lead": "/ Docs ToolsNew Pro Sponsors 52.1K Get React Bits Pro New React Bits 2.0 Center Stage Sound Lab 34 Micro components Animated React components for websites people remember. 216 animated components and backgrounds for React. Tune them yourself, or hand them to your agent. Browse components Star on GitHub Terminal $ npx shadcn@latest add @react-bits/GradientWaves-TS-TW ✔ Checking registry. ✔ Created 2 files. Hero.jsx import GradientWaves from './GradientWaves'; export default function Hero() { return ( <GradientWaves waveColor= \"#34d399\" amplitude={2.6} swell={38} lightAngle={170} speed={0.35} /> ); } Presets Ocean amplitude 1.8 · swell 25 Dune amplitude 3.2 · swell 40 Dusk amplitude 2.5 · swell 35 Silk amplitude 2.2 · swell 30 Aurora amplitude 2.6 · swell 38 Open in Background Studio What's inside Dot Field Line Waves Blob Cursor Soft Aurora Magnet Lines Antigravity Ballpit Pixel Trail Magic Rings Dot Field Line Waves Blob Cursor Soft Aurora Magnet Lines Antigravity Ballpit Pixel Trail Magic Rings Radar Shape Grid Ribbons Grainient Orbit Images Metallic Paint Balatro Aurora Splash Cursor Beams Radar Shape Grid Ribbons Grainient Orbit Images Metallic Paint Balatro Aurora Splash Cursor Beams 215+ Components Backgrounds, text effects, animations, creative UI components. The stuff you'd build from scratch, already done and battle-tested. Background Studio Center Stage Shape Magic Texture Lab Sound Lab Visual Editors Five free tools to play with components & create stunning assets f",
+ "heads": [
+  "H1: Animated React components for websites people remember.",
+  "H2: What's inside",
+  "H3: 215+ Components",
+  "H3: Visual Editors",
+  "H3: Well Organized",
+  "H3: Pick Your Stack",
+  "H3: AI-Ready",
+  "H3: Growing Fast",
+  "H2: See them in action",
+  "H2: One command, and the code is yours.",
+  "H2: Build the whole product, not just the hero.",
+  "H2: Five free tools, in your browser.",
+  "H3: Background Studio",
+  "H3: Center Stage",
+  "H3: Shape Magic",
+  "H3: Texture Lab",
+  "H3: Sound Lab",
+  "H2: Sponsors",
+  "H2: Loved by developers",
+  "H2: Questions, answered",
+  "H2: Build something people remember."
+ ],
+ "btns": [
+  "Docs",
+  "ToolsNew",
+  "Pro",
+  "Sponsors",
+  "52.1K",
+  "Get React Bits Pro",
+  "Browse components",
+  "Star on GitHub",
+  "\"#34d399\"",
+  "Ocean amplitude 1.8 · swell 25",
+  "Dune amplitude 3.2 · swell 40",
+  "Dusk amplitude 2.5 · swell 35",
+  "Silk amplitude 2.2 · swell 30",
+  "Aurora amplitude 2.6 · swell 38",
+  "Open in Background Studio",
+  "Dot Field",
+  "Line Waves",
+  "Blob Cursor",
+  "Soft Aurora",
+  "Magnet Lines",
+  "Antigravity",
+  "Ballpit",
+  "Pixel Trail",
+  "Magic Rings",
+  "Radar",
+  "Shape Grid",
+  "Ribbons",
+  "Grainient",
+  "Orbit Images",
+  "Metallic Paint",
+  "Balatro",
+  "Aurora",
+  "Splash Cursor",
+  "Beams",
+  "Micro Slats Backgrounds",
+  "Electric Logo Animations",
+  "Tech Text Text Animations",
+  "Circular Carousel Components",
+  "Hold Button Micro",
+  "Installation guide",
+  "Become a sponsor",
+  "Diamond",
+  "Silver",
+  "What is included in the free library?",
+  "What does React Bits Pro add?",
+  "What are the four flavours?",
+  "Is React Bits only for React?",
+  "Vue Bits",
+  "Svelte Bits",
+  "What are the tools for?",
+  "Open the tools",
+  "pro.reactbits.dev",
+  "Do I need to install a package?",
+  "Does it work with AI coding tools?",
+  "Browse free components",
+  "GitHub",
+  "Tools",
+  "Showcase",
+  "What's in Pro",
+  "Components",
+  "Blocks",
+  "Templates",
+  "@davidhaz",
+  "License"
+ ],
+ "fonts": [
+  [
+   "Geist, sans-serif",
+   1662
+  ],
+  [
+   "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Libe",
+   96
+  ],
+  [
+   "\"Geist Mono\", ui-monospace, monospace",
+   21
+  ]
+ ],
+ "radius": [
+  [
+   "0px",
+   1426
+  ],
+  [
+   "50%",
+   64
+  ],
+  [
+   "16px",
+   52
+  ],
+  [
+   "11px",
+   43
+  ],
+  [
+   "6px",
+   39
+  ],
+  [
+   "10px",
+   27
+  ]
+ ],
+ "shadow": [
+  [
+   "none",
+   1655
+  ],
+  [
+   "rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset",
+   56
+  ],
+  [
+   "rgba(8, 6, 12, 0.3) 0px 0px 0px 2px",
+   15
+  ],
+  [
+   "rgba(0, 0, 0, 0.7) 0px 18px 40px -14px",
+   15
+  ],
+  [
+   "rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.3) 0px 4px 14px 0px",
+   12
+  ],
+  [
+   "rgba(255, 255, 255, 0.055) 0px 0px 0px 1px inset",
+   6
+  ]
+ ],
+ "h1": {
+  "size": "41.76px",
+  "weight": "500",
+  "lh": "45.936px",
+  "ls": "-1.50336px",
+  "font": "Geist, sans-serif",
+  "transform": "none"
+ },
+ "body": {
+  "bg": "rgb(18, 15, 23)",
+  "color": "rgb(255, 255, 255)"
+ },
+ "p": {
+  "size": "15.84px",
+  "lh": "24.552px",
+  "color": "rgba(246, 244, 249, 0.6)"
+ },
+ "button": {
+  "text": "52.1K",
+  "bg": "rgba(255, 255, 255, 0.04)",
+  "color": "rgb(255, 255, 255)",
+  "radius": "10px",
+  "border": "1px solid rgba(0, 0, 0, 0)",
+  "shadow": "rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset",
+  "height": 36,
+  "pad": "0px 12px",
+  "weight": "500",
+  "size": "13px"
+ },
+ "video": 0,
+ "canvas": 9,
+ "iframes": 0,
+ "imgs": 202,
+ "reduced": 37,
+ "anim": 27,
+ "url": "https://reactbits.dev/",
+ "requests": 89,
+ "bytesHeader": 1953698
+}

@@ -1,0 +1,214 @@
+{
+ "title": "SmoothUI - Animated React Components for shadcn/ui | Motion & Tailwind",
+ "height": 11739,
+ "dom": 1909,
+ "lead": "SmoothUI Components Blocks Templates Resources educlopez/smoothui 1,059 React components. Made to move. 228 animated primitives and components for React — copy the code and make it yours. Browse primitives Read the docs $ npx shadcn@latest add @smoothui/siri-orb Landing Dashboard Experiment Start free New Meet Studio 2 — motion that ships Unlock growth with quieter analytics Give your team insights that drive conversions, tighten pipelines, and keep the fold calm. Book a demo Customers New seats by primary channel this week Customer Date Revenue ARR Next Northwind 10/31 $4.3M $13.6k 11/30 Linear 03/15 $892k $29.4k 03/15 Harbor 07/22 $1.2M $38.4k 07/22 Twine 01/08 $567k $10.6k 01/08 Cedar 05/12 $345k $14.4k 05/12 Northwind Vercel Harbor Stripe Spotify Twine Loved by developers building with shadcn/ui educlopez/smoothui 1,059 What you see is what you install Real components from the registry — preview the motion, then install with one command. Clear skies · 22° 128 1 1 2 2 8 8 Mountains Sea Forest X Bluesky Threads Updates on x.com @educalvolpz Eduardo Calvo @educalvolpz Camila Duarte @camiladuarte Sasha Kim @sashakim Freya Lund @freyalund Card 1 of 4 selected. Use arrow keys to navigate one card at a time, or click the dots below. Check this out Selected Tags react typescript tailwindcss nextjs framer-motion shadcn Overview Projects Account Workspace stats and recent activity. 0 View all components Browse SmoothUI Primitives, components, blocks and templates. Pick where to sta",
+ "heads": [
+  "H1: React components. Made to move.",
+  "H2: Unlock growth with quieter analytics",
+  "H2: What you see is what you install",
+  "H2: Browse SmoothUI",
+  "H3: Primitives",
+  "H3: Components",
+  "H3: Blocks",
+  "H3: Templates",
+  "H2: Motion you can read in the source",
+  "H3: Smooth animations",
+  "H3: Modern React",
+  "H3: Tailwind CSS v4",
+  "H3: shadcn compatible",
+  "H2: Page sections, ready to paste",
+  "H2: Built for AI-assisted development",
+  "H3: AI agents, meet your components",
+  "H3: Programmatic access to everything",
+  "H3: Machine-readable catalog",
+  "H2: The system behind design taste",
+  "H2: From people who shipped with it",
+  "H2: FEATURED ACROSS THE COMMUNITY",
+  "H2: Frequently asked questions",
+  "H3: Is SmoothUI free to use?",
+  "H3: What is SmoothUI?",
+  "H3: How is SmoothUI different from shadcn/ui?",
+  "H3: What features does SmoothUI offer?",
+  "H3: How do I install SmoothUI components?",
+  "H3: Can I customize the components?",
+  "H3: Does SmoothUI support dark mode?",
+  "H3: How can I contribute to SmoothUI?",
+  "H2: From the blog",
+  "H3: AI Design Slop: Why AI-Generated UI Looks Generic — and the Fix",
+  "H3: Best React Animation Libraries in 2026: A Complete Comparison",
+  "H3: Framer Motion Tutorial: Build Stunning React Animations in 2026"
+ ],
+ "btns": [
+  "SmoothUI",
+  "Components",
+  "Blocks",
+  "Templates",
+  "Resources",
+  "educlopez/smoothui 1,059",
+  "Browse primitives",
+  "Read the docs",
+  "Landing",
+  "Dashboard",
+  "Experiment",
+  "Start free",
+  "Meet Studio 2 — motion that ships",
+  "Book a demo",
+  "Mountains",
+  "Sea",
+  "Forest",
+  "X",
+  "Bluesky",
+  "Threads",
+  "x.com",
+  "@educalvolpz",
+  "Eduardo Calvo @educalvolpz",
+  "Camila Duarte @camiladuarte",
+  "Sasha Kim @sashakim",
+  "Freya Lund @freyalund",
+  "react",
+  "typescript",
+  "tailwindcss",
+  "nextjs",
+  "framer-motion",
+  "shadcn",
+  "Overview",
+  "Projects",
+  "Account",
+  "View all components",
+  "Primitives",
+  "Smooth animations",
+  "Hero View blocks",
+  "Pricing View blocks",
+  "Testimonial View blocks",
+  "FAQs View blocks",
+  "Footer View blocks",
+  "Logo clouds View blocks",
+  "Stats View blocks",
+  "Team sections View blocks",
+  "Browse all blocks",
+  "Learn more about AI integration",
+  "brew",
+  "Explore UI Craft",
+  "— Shikhil Saxena, Peerlist",
+  "Pause logo animation",
+  "Is SmoothUI free to use?",
+  "What is SmoothUI?",
+  "What features does SmoothUI offer?",
+  "How do I install SmoothUI components?",
+  "Can I customize the components?",
+  "Does SmoothUI support dark mode?",
+  "How can I contribute to SmoothUI?",
+  "View all posts",
+  "Dynamic Island",
+  "AI Prompt Input",
+  "Siri Orb",
+  "Infinite Slider",
+  "Getting Started",
+  "Installation",
+  "Animations",
+  "Accessibility",
+  "Changelog",
+  "wingtics.com"
+ ],
+ "fonts": [
+  [
+   "Inter, \"Inter Fallback\"",
+   1640
+  ],
+  [
+   "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Libe",
+   19
+  ]
+ ],
+ "radius": [
+  [
+   "0px",
+   1170
+  ],
+  [
+   "3.35544e+07px",
+   196
+  ],
+  [
+   "14px",
+   76
+  ],
+  [
+   "6px",
+   52
+  ],
+  [
+   "10px",
+   51
+  ],
+  [
+   "16px",
+   44
+  ]
+ ],
+ "shadow": [
+  [
+   "none",
+   1513
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+   62
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+   40
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+   9
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, lab(98.26 0 0) 0px 0px 0px 2px inset, rgba(0, 0, 0, 0) 0",
+   8
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+   4
+  ]
+ ],
+ "h1": {
+  "size": "72px",
+  "weight": "600",
+  "lh": "75.6px",
+  "ls": "-1.8px",
+  "font": "Inter, \"Inter Fallback\"",
+  "transform": "none"
+ },
+ "body": {
+  "bg": "lab(98.26 0 0)",
+  "color": "lab(3.6999 0 0)"
+ },
+ "p": {
+  "size": "20px",
+  "lh": "32.5px",
+  "color": "lab(23.44 -0.0000149012 0)"
+ },
+ "button": {
+  "text": "Read the docs",
+  "bg": "lab(98.26 0 0)",
+  "color": "lab(3.6999 0 0)",
+  "radius": "10px",
+  "border": "1px solid rgba(0, 0, 0, 0)",
+  "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+  "height": 44,
+  "pad": "0px 32px",
+  "weight": "500",
+  "size": "16px"
+ },
+ "video": 0,
+ "canvas": 3,
+ "iframes": 0,
+ "imgs": 42,
+ "reduced": 3,
+ "anim": 0,
+ "url": "https://smoothui.dev/",
+ "requests": 158,
+ "bytesHeader": 983256
+}

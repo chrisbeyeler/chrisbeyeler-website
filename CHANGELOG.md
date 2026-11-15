@@ -21,6 +21,12 @@
 - Footer-Schriftzug reagiert auf den Zeiger, Trefferwert im Erkennungsrahmen zählt hoch, Knöpfe mit hartem Schatten
 - Analyse von sieben UI-Angeboten: `docs/audit/ui-bibliotheken.md`
 
+### Dritte Runde: Websites live vermessen
+- Alle sechs Websites im Browser geladen und vermessen (`tools/audit/site-scan.js`, Rohdaten in `docs/audit/messwerte/ui-*.json`); Analyse ergänzt und RetroUI korrigiert
+- Tastatur-Durchgang als Test (`tools/audit/tastatur.js`): 170 Halte ohne Befund
+- Fehler behoben: Eingabefeld im KI-Chat hatte keinen sichtbaren Fokus und nur einen Platzhalter als Namen
+- z-index-Skala aufgeräumt, leichtes Federn bei Rückmeldung am Zeiger
+
 ## 2026-11-14 — Überarbeitung für Buchungsanfragen: Design, Tempo, Belege, Auffindbarkeit
 
 Messwerte, Referenzanalyse und offene Punkte: `docs/audit/`.

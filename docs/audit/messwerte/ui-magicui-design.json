@@ -1,0 +1,178 @@
+{
+ "title": "Magic UI",
+ "height": 3733,
+ "dom": 2079,
+ "lead": "🎉 Introducing Dither Field UI library for Design Engineers 150+ free and open-source animated components and effects built with React, Typescript, Tailwind CSS, and Motion. Perfect companion for shadcn/ui. Browse Components Browse Templates Showcase Companies choose Magic UI to build their landing pages. anara.com YC S24 aomni.com Raised seed round from notable investors. Aryan Karma Personal Portfolio cognosys.ai Backed by Google Ventures, raised $2M Darshan Paccha Personal Portfolio elhussary Personal Portfolio guarahooks.com Open Source Project infisical.com YC W23, raised $2.8M langfuse.com YC W23, raised $4M llm.report Vercel AI Accelerator 2023, won $120k lyra.marqraft.com Bootstrapped imiles.me Personal Portfolio million.dev YC W24 Overlay UI Component Library PulpSense.com n8n Expert Partner querylab.ai Bootstrapped robot-toast Open-source library trysherpa.bot Bootstrapped undrstnd.dev StartUp Act Tunisia writora.xyz Open Source Project shawn Portfolio site anara.com YC S24 aomni.com Raised seed round from notable investors. Aryan Karma Personal Portfolio cognosys.ai Backed by Google Ventures, raised $2M Darshan Paccha Personal Portfolio elhussary Personal Portfolio guarahooks.com Open Source Project infisical.com YC W23, raised $2.8M langfuse.com YC W23, raised $4M llm.report Vercel AI Accelerator 2023, won $120k lyra.marqraft.com Bootstrapped imiles.me Personal Portfolio million.dev YC W24 Overlay UI Component Library PulpSense.com n8n Expert Partner querylab.ai B",
+ "heads": [
+  "H2: Command Palette",
+  "H1: UI library for Design Engineers",
+  "H2: Showcase",
+  "H3: Companies choose Magic UI to build their landing pages.",
+  "H2: What People Are Saying on Twitter",
+  "H2: Featured on YouTube"
+ ],
+ "btns": [
+  "Magic UI",
+  "Components",
+  "Templates",
+  "Showcase",
+  "Search documentation... ⌘ K",
+  "23,257",
+  "169",
+  "Toggle theme",
+  "🎉 Introducing Dither Field",
+  "Browse Components",
+  "Browse Templates",
+  "anara.com YC S24",
+  "Aryan Karma Personal Portfolio",
+  "Darshan Paccha Personal Portfolio",
+  "elhussary Personal Portfolio",
+  "guarahooks.com Open Source Project",
+  "infisical.com YC W23, raised $2.8M",
+  "langfuse.com YC W23, raised $4M",
+  "lyra.marqraft.com Bootstrapped",
+  "imiles.me Personal Portfolio",
+  "million.dev YC W24",
+  "Overlay UI Component Library",
+  "PulpSense.com n8n Expert Partner",
+  "querylab.ai Bootstrapped",
+  "robot-toast Open-source library",
+  "trysherpa.bot Bootstrapped",
+  "undrstnd.dev StartUp Act Tunisia",
+  "writora.xyz Open Source Project",
+  "shawn Portfolio site",
+  "Jordan Hughes",
+  "@jordanphughes",
+  "Link to tweet",
+  "@dillionverma",
+  "View Tweet",
+  "jordi",
+  "@jordienr",
+  "Sumu スム",
+  "@summuning",
+  "Sadiq",
+  "@Md_Sadiq_Md",
+  "@magicuidesign",
+  "fardeen",
+  "@fardeentwt",
+  "Amrit Chera",
+  "@achera23",
+  "Sree",
+  "@eersnington",
+  "Sameer Poswal",
+  "@samposwal",
+  "sameerposwal.vercel.app",
+  "Ben Ford",
+  "@commandodev",
+  "Sand",
+  "@sxndrao",
+  "Masoud",
+  "@masoudonx",
+  "Gonçalo Margalho",
+  "@DevAlien",
+  "Taishi 🇯🇵🇨🇦",
+  "@taishik_",
+  "Raduan Al-Shedivat",
+  "@0xRaduan",
+  "Weston Walker",
+  "@wes_walke",
+  "yazin",
+  "@yazinsai",
+  "Fred Maia",
+  "@fredmaiaarantes",
+  "Ben Everman",
+  "@beneverman"
+ ],
+ "fonts": [
+  [
+   "Geist, sans-serif",
+   1792
+  ],
+  [
+   "\"Geist Mono\", monospace",
+   2
+  ]
+ ],
+ "radius": [
+  [
+   "0px",
+   1541
+  ],
+  [
+   "14px",
+   131
+  ],
+  [
+   "10px",
+   81
+  ],
+  [
+   "3.35544e+07px",
+   39
+  ],
+  [
+   "8px",
+   1
+  ],
+  [
+   "4px",
+   1
+  ]
+ ],
+ "shadow": [
+  [
+   "none",
+   1747
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+   38
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+   6
+  ],
+  [
+   "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+   3
+  ]
+ ],
+ "h1": {
+  "size": "72px",
+  "weight": "600",
+  "lh": "72px",
+  "ls": "-3.6px",
+  "font": "Geist, sans-serif",
+  "transform": "none"
+ },
+ "body": {
+  "bg": "lab(100 0 0)",
+  "color": "lab(2.75381 0 0)"
+ },
+ "p": {
+  "size": "14px",
+  "lh": "20px",
+  "color": "lab(48.496 0 0)"
+ },
+ "button": {
+  "text": "Search documentation... ⌘ K",
+  "bg": "oklab(0.969998 -0.00000959635 0.0000227094 / 0.5)",
+  "color": "lab(48.496 0 0)",
+  "radius": "8px",
+  "border": "1px solid lab(90.952 0 -0.0000119209)",
+  "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0",
+  "height": 32,
+  "pad": "8px 48px 8px 16px",
+  "weight": "400",
+  "size": "14px"
+ },
+ "video": 3,
+ "canvas": 0,
+ "iframes": 0,
+ "imgs": 128,
+ "reduced": 1,
+ "anim": 7,
+ "url": "https://magicui.design/",
+ "requests": 120,
+ "bytesHeader": 1033541
+}
