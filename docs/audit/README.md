@@ -221,5 +221,25 @@ Nach dem Livegang dieselben Befehle mit `https://chrisbeyeler.ch/` ausführen un
 | Seitenlänge mobil | 31 065 px (live vorher 27 951 px), weil alle Beiträge und Podcasts sichtbar sind | gemessen |
 | Laufband ohne Pause-Knopf (offener Punkt aus der ersten Runde) | Knopf ergänzt | erledigt |
 | Analyse von sieben UI-Angeboten | `ui-bibliotheken.md`; sechs Websites waren gesperrt, gelesen wurden die GitHub-Repos | teilweise |
-| Live-Messung nach dem Merge | – | **offen** |
+| Live-Messung nach dem Merge | siehe unten | erledigt |
+
+### Live-Messung am 15. November 2026, 15:10 UTC (https://chrisbeyeler.ch/, nach Merge von PR 18)
+
+| Prüfung | Ergebnis | Status |
+|---|---|---|
+| Lighthouse mobil, 5 Läufe | Performance 95 / 99 / 99 / 95 / 99 (Median 99) · Barrierefreiheit 100 · Best Practices 100 · SEO 100 | gemessen |
+| LCP | 2,0 / 2,1 / 2,1 / 2,3 / 2,1 s (Median 2,1 s, Ziel ≤ 2,5 s) | gemessen (Labor) |
+| TBT | 220 / 40 / 50 / 210 / 0 ms (Median 50 ms) | gemessen (Labor) |
+| CLS | 0 (Ziel ≤ 0,1) | gemessen (Labor) |
+| Ladegewicht beim ersten Aufruf | 203 KB, 11 Anfragen | gemessen |
+| axe Startseite, normal und mit reduzierter Bewegung | 0 Verstösse | gemessen |
+| axe Impressum und Datenschutz | 0 Verstösse; Gestaltung wieder vorhanden | gemessen |
+| Tastatur-Durchgang | 170 Halte, 0 Befunde | gemessen |
+| Funktionstest | 26 von 26 | gemessen |
+| Überlauf auf 11 Breiten | kein Befund | gemessen |
+| Schema.org-Validator | 0 Fehler, 0 Warnungen | gemessen |
+| KI-Crawler (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, OAI-SearchBot, CCBot) | alle Status 200 | gemessen |
+| INP und Felddaten (CrUX) | brauchen echte Besuche über 28 Tage | **offen** |
+| Rich Results Test von Google | nur von Hand möglich | **offen** |
+| Sichtbarkeit in KI-Systemen (10 Prompts) | erst nach Neuindexierung sinnvoll | **offen** |
 | Echte Medienlogos statt Wortmarken | brauchen Dateien und Erlaubnis der Verlage | **offen** |
