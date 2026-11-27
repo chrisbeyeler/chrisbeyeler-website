@@ -135,3 +135,5 @@ Der Essay «Gestalte deine Zukunft mit KI» plädiert für kritisches Denken, ak
 - YouTube: https://youtube.com/beyondernow
 - Pressekit, Kurzbiografie: https://chrisbeyeler.ch/assets/pressekit/bio-kurz.txt
 - Pressekit, Langbiografie: https://chrisbeyeler.ch/assets/pressekit/bio-lang.txt
+- Pressekit, Kurz-CV: https://chrisbeyeler.ch/assets/pressekit/kurz-cv.txt
+- Pressekit, Übersicht mit Fotos: https://chrisbeyeler.ch/assets/pressekit/

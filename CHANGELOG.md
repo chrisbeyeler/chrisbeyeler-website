@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-27 — Pressekit als Download-Kit
+
+- Neue Seite `assets/pressekit/`: Kurzbeschrieb, Bio kurz, Bio lang, Kurz-CV (je kopieren oder als TXT), Fotos in mehreren Formaten, ZIP mit allem
+- Fotos: Porträt als Hochformat 4:5, Quadrat, Querformat und Avatar; Bühnenfotos als Web (1600 px) und Druck (Original); zwei neue Hochformat-Bühnenfotos
+- Texte auf die Zahlen der Website gebracht (2500 Ausgebildete, 150 Folgen, 400+ Mitglieder)
+- Alte Fotoseite `assets/pressekit/fotos/` leitet aufs Pressekit um; Startseite und `llms*.txt` verlinken das Kit
+
 ## 2026-11-15 (später Abend) — Termine aus dem Kalender, neues Video, Wort-Rahmen, Frist
 
 - Bühnen: Business Schmiede Live Festival (29.–30. Mai 2026) neu; OMT Summit auf 4.–6. März 2026 datiert; Daten für AS-TAG, BrainFood, Automotive Summit 2026 und Panoff ergänzt. Summe 96 (Herleitung in `docs/audit/belege.md`, Abschnitt 6)

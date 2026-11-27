@@ -61,7 +61,8 @@ Formate: Keynote (typisch 30–60 Minuten), Workshop (Halb- oder Ganztag), Moder
 - Website und Profil: https://chrisbeyeler.ch/
 - Vollständiges Profil: https://chrisbeyeler.ch/llms-full.txt
 - Essay: https://chrisbeyeler.ch/essay/2025/
-- Pressekit: https://chrisbeyeler.ch/assets/pressekit/bio-lang.txt
+- Pressekit (Fotos, Bio, Kurz-CV): https://chrisbeyeler.ch/assets/pressekit/
+- Pressekit, Langbiografie: https://chrisbeyeler.ch/assets/pressekit/bio-lang.txt
 - Keynote-Anfrage: https://chrisbeyeler.ch/#contact
 - LinkedIn: https://linkedin.com/in/chrisbeyeler
 - YouTube: https://youtube.com/beyondernow

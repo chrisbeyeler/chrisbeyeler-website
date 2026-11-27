@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pressekit — Chris Beyeler</title>
+    <meta name="description" content="Pressekit von Chris Beyeler: Fotos in mehreren Formaten, Kurzbeschrieb, Bio kurz und lang, Kurz-CV. Alles einzeln oder als ZIP.">
+    <link rel="icon" type="image/png" href="../../img/favicon.png">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body { background: var(--c-bg); color: var(--c-text); margin: 0; min-height: 100vh; }
+        .kit { max-width: 1120px; margin: 0 auto; padding: 56px 20px 96px; font-family: var(--font-body); }
+        .kit a { color: inherit; }
+        .kit-back { display: inline-block; color: var(--c-text); opacity: .7; text-decoration: none; font-size: .9rem; margin-bottom: 32px; }
+        .kit-back:hover { opacity: 1; color: var(--c-accent); }
+        .kit h1 { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 12px; line-height: 1.05; }
+        .kit h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 64px 0 20px; }
+        .kit-lead { max-width: 62ch; opacity: .8; margin: 0 0 28px; line-height: 1.55; }
+        .kit-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--c-line-strong); border-radius: var(--r-m); background: transparent; color: var(--c-text); font: inherit; font-size: .875rem; font-weight: 600; text-decoration: none; cursor: pointer; }
+        .kit-btn:hover, .kit-btn:focus-visible { border-color: var(--c-accent); color: var(--c-accent); }
+        .kit-btn--main { background: var(--c-accent-fill); border-color: var(--c-accent-fill); color: var(--c-on-accent); }
+        .kit-btn--main:hover { color: var(--c-on-accent); filter: brightness(1.1); }
+        .kit-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+        .kit-toc { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 20px; font-size: .9rem; opacity: .75; }
+
+        .texts { display: grid; gap: 16px; }
+        .text-card { border: 1px solid var(--c-line); background: var(--c-surface); border-radius: var(--r-m); padding: 20px; }
+        .text-card header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+        .text-card h3 { margin: 0; font-size: 1.05rem; }
+        .text-card .meta { font-size: .8rem; opacity: .6; }
+        .text-card pre { white-space: pre-wrap; font-family: var(--font-body); font-size: .95rem; line-height: 1.55; margin: 0 0 16px; max-height: 22em; overflow: auto; }
+        .text-card--cv pre { font-family: var(--font-mono, monospace); font-size: .82rem; }
+
+        .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .photo { border: 1px solid var(--c-line); background: var(--c-surface); border-radius: var(--r-m); overflow: hidden; display: flex; flex-direction: column; }
+        .photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; cursor: zoom-in; background: var(--c-surface-2); }
+        .photo--tall img { object-position: center 25%; }
+        .photo-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+        .photo-name { font-weight: 600; font-size: .95rem; }
+        .photo-dl { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+        .photo-dl a { display: flex; justify-content: space-between; gap: 12px; padding: 8px 10px; border: 1px solid var(--c-line); border-radius: var(--r-m); text-decoration: none; font-size: .85rem; }
+        .photo-dl a:hover { border-color: var(--c-accent); color: var(--c-accent); }
+        .photo-dl span:last-child { opacity: .6; white-space: nowrap; }
+
+        .kit-note { margin-top: 48px; padding: 20px; border-left: 2px solid var(--c-accent); background: var(--c-surface); font-size: .9rem; line-height: 1.55; }
+        .kit-note p { margin: 0 0 8px; }
+        .kit-note p:last-child { margin: 0; }
+
+        .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,.92); align-items: center; justify-content: center; cursor: zoom-out; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 92vw; max-height: 92vh; object-fit: contain; }
+        .lightbox-close { position: fixed; top: 16px; right: 20px; color: #fff; font-size: 2rem; background: none; border: 0; cursor: pointer; line-height: 1; }
+    </style>
+</head>
+<body>
+<main class="kit">
+    <a href="../../#media" class="kit-back">&larr; Zurück zur Website</a>
+    <h1>Pressekit Chris&nbsp;Beyeler</h1>
+    <p class="kit-lead">Alles für Medien, Veranstalter und Moderationen: Fotos in mehreren Formaten, Texte in drei Längen und ein Kurz-CV. Einzeln herunterladen, Text kopieren oder alles als ZIP (Texte und Fotos in Web-Auflösung).</p>
+    <div class="kit-actions">
+        <a class="kit-btn kit-btn--main" href="chris-beyeler-pressekit.zip" download>Alles als ZIP herunterladen</a>
+    </div>
+    <nav class="kit-toc" aria-label="Inhalt">
+        <a href="#texte">Texte</a><a href="#fotos">Fotos</a><a href="#nutzung">Nutzung &amp; Kontakt</a>
+    </nav>
+
+    <h2 id="texte">Texte</h2>
+    <div class="texts">
+        <article class="text-card">
+            <header><h3>Kurzbeschrieb</h3><span class="meta">1 Satz · für Programmhefte, Anmoderation, Bildlegenden</span></header>
+            <pre data-src="kurzbeschrieb.txt">Chris Beyeler ist KI-Stratege und Keynote Speaker, Gründer und CEO der BEYONDER AG und Präsident von swissAI, dem Schweizer Dachverband für Künstliche Intelligenz.</pre>
+            <div class="kit-actions"><button class="kit-btn js-copy" type="button">Text kopieren</button><a class="kit-btn" href="kurzbeschrieb.txt" download>TXT</a></div>
+        </article>
+        <article class="text-card">
+            <header><h3>Bio kurz</h3><span class="meta">ca. 100 Wörter · für Speaker-Seiten und Ankündigungen</span></header>
+            <pre data-src="bio-kurz.txt">Text wird geladen …</pre>
+            <div class="kit-actions"><button class="kit-btn js-copy" type="button">Text kopieren</button><a class="kit-btn" href="bio-kurz.txt" download>TXT</a></div>
+        </article>
+        <article class="text-card">
+            <header><h3>Beschreibung (Bio lang)</h3><span class="meta">ca. 400 Wörter · mit Keynote-Themen und Formaten</span></header>
+            <pre data-src="bio-lang.txt">Text wird geladen …</pre>
+            <div class="kit-actions"><button class="kit-btn js-copy" type="button">Text kopieren</button><a class="kit-btn" href="bio-lang.txt" download>TXT</a></div>
+        </article>
+        <article class="text-card text-card--cv">
+            <header><h3>Kurz-CV</h3><span class="meta">Stationen, Lehre, Auszeichnung</span></header>
+            <pre data-src="kurz-cv.txt">Text wird geladen …</pre>
+            <div class="kit-actions"><button class="kit-btn js-copy" type="button">Text kopieren</button><a class="kit-btn" href="kurz-cv.txt" download>TXT</a></div>
+        </article>
+    </div>
+
+    <h2 id="fotos">Fotos</h2>
+    <p class="kit-lead">Web: bis 1600&nbsp;px, für Websites und Social Media. Druck: Originaldatei in voller Auflösung.</p>
+    <div class="photos">
+        <figure class="photo" style="margin:0">
+            <img src="fotos/chris-beyeler-portrait-4x5.jpg" alt="Chris Beyeler, Porträt" loading="lazy" data-full="fotos/chris-beyeler-about.jpg">
+            <figcaption class="photo-body">
+                <span class="photo-name">Porträt</span>
+                <ul class="photo-dl">
+                    <li><a href="fotos/chris-beyeler-portrait-4x5.jpg" download><span>Hochformat 4:5</span><span>781 × 976</span></a></li>
+                    <li><a href="fotos/chris-beyeler-portrait-quadrat.jpg" download><span>Quadrat 1:1</span><span>1023 × 1023</span></a></li>
+                    <li><a href="fotos/chris-beyeler-hero.jpg" download><span>Querformat 3:2</span><span>1537 × 1023</span></a></li>
+                    <li><a href="fotos/chris-beyeler-about.jpg" download><span>Quadrat, Brustbild</span><span>976 × 976</span></a></li>
+                    <li><a href="fotos/chris-beyeler-avatar.jpg" download><span>Profilbild / Avatar</span><span>600 × 600</span></a></li>
+                </ul>
+            </figcaption>
+        </figure>
+        <figure class="photo" style="margin:0">
+            <img src="fotos/chris-beyeler-keynote-web.jpg" alt="Chris Beyeler hält eine Keynote vor Publikum" loading="lazy">
+            <figcaption class="photo-body">
+                <span class="photo-name">Keynote, Querformat</span>
+                <ul class="photo-dl">
+                    <li><a href="fotos/chris-beyeler-keynote-web.jpg" download><span>Web</span><span>1600 × 1067</span></a></li>
+                    <li><a href="fotos/chris-beyeler-keynote.jpg" download><span>Druck</span><span>5693 × 3795 · 8.6 MB</span></a></li>
+                </ul>
+            </figcaption>
+        </figure>
+        <figure class="photo" style="margin:0">
+            <img src="fotos/chris-beyeler-omt-web.jpg" alt="Chris Beyeler spricht am OMT Summit" loading="lazy">
+            <figcaption class="photo-body">
+                <span class="photo-name">Vortrag OMT Summit, Querformat</span>
+                <ul class="photo-dl">
+                    <li><a href="fotos/chris-beyeler-omt-web.jpg" download><span>Web</span><span>1600 × 1067</span></a></li>
+                    <li><a href="fotos/chris-beyeler-omt.jpg" download><span>Druck</span><span>6524 × 4349 · 11 MB</span></a></li>
+                </ul>
+            </figcaption>
+        </figure>
+        <figure class="photo photo--tall" style="margin:0">
+            <img src="fotos/chris-beyeler-buehne-hoch-web.jpg" alt="Chris Beyeler auf der Bühne, Hochformat" loading="lazy">
+            <figcaption class="photo-body">
+                <span class="photo-name">Bühne, Hochformat</span>
+                <ul class="photo-dl">
+                    <li><a href="fotos/chris-beyeler-buehne-hoch-web.jpg" download><span>Web</span><span>1069 × 1600</span></a></li>
+                    <li><a href="fotos/chris-beyeler-buehne-hoch.jpg" download><span>Druck</span><span>2275 × 3406 · 3.5 MB</span></a></li>
+                </ul>
+            </figcaption>
+        </figure>
+        <figure class="photo photo--tall" style="margin:0">
+            <img src="fotos/chris-beyeler-buehne-emotion-web.jpg" alt="Chris Beyeler gestikuliert auf der Bühne" loading="lazy">
+            <figcaption class="photo-body">
+                <span class="photo-name">Bühne, Hochformat (Action)</span>
+                <ul class="photo-dl">
+                    <li><a href="fotos/chris-beyeler-buehne-emotion-web.jpg" download><span>Web</span><span>1069 × 1600</span></a></li>
+                    <li><a href="fotos/chris-beyeler-buehne-emotion.jpg" download><span>Druck</span><span>2473 × 3702 · 3.4 MB</span></a></li>
+                </ul>
+            </figcaption>
+        </figure>
+    </div>
+
+    <div class="kit-note" id="nutzung">
+        <p><strong>Nutzung:</strong> Fotos und Texte sind honorarfrei für redaktionelle Beiträge und Veranstaltungs­kommunikation rund um Chris Beyeler. Texte dürfen gekürzt werden.</p>
+        <p><strong>Medienanfragen:</strong> <a href="#" class="js-mail" data-n="hoi" data-d="beyonder.ch">E-Mail an BEYONDER</a> · <a href="https://www.linkedin.com/in/chrisbeyeler" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Foto gross">
+    <button class="lightbox-close" type="button" aria-label="Schliessen">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+    // Texte aus den TXT-Dateien laden, damit Seite und Download identisch bleiben
+    document.querySelectorAll('pre[data-src]').forEach(function (pre) {
+        fetch(pre.dataset.src).then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+            .then(function (t) { pre.textContent = t.trim(); })
+            .catch(function () { if (pre.textContent.indexOf('geladen') > -1) pre.textContent = 'Bitte TXT herunterladen.'; });
+    });
+    document.querySelectorAll('.js-copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var text = btn.closest('.text-card').querySelector('pre').textContent;
+            navigator.clipboard.writeText(text).then(function () {
+                var old = btn.textContent; btn.textContent = 'Kopiert ✓';
+                setTimeout(function () { btn.textContent = old; }, 1800);
+            });
+        });
+    });
+    document.querySelectorAll('.js-mail').forEach(function (el) {
+        el.href = 'mai' + 'lto:' + el.dataset.n + '@' + el.dataset.d;
+    });
+    var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.photo img').forEach(function (img) {
+        img.addEventListener('click', function () { lbImg.src = img.dataset.full || img.src; lbImg.alt = img.alt; lb.classList.add('active'); });
+    });
+    lb.addEventListener('click', function () { lb.classList.remove('active'); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('active'); });
+</script>
+</body>
+</html>
