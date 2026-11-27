@@ -58,7 +58,7 @@ Vor BEYONDER arbeitete Chris Beyeler unter anderem als Software-Entwickler sowie
 
 ### Lehre
 
-Chris Beyeler lehrt oder lehrte an der HWZ Hochschule für Wirtschaft Zürich, am MAZ – Die Schweizer Journalistenschule, am SIB Schweizerischen Institut für Betriebsökonomie und am zB. Zentrum Bildung. Am zB. Zentrum Bildung war er Studiengangsleiter.
+Chris Beyeler ist Studiengangsleiter des CAS Advanced AI in Marketing an der HWZ Hochschule für Wirtschaft Zürich und Dozent an der FHNW, der HWZ und am MAZ – Die Schweizer Journalistenschule. Früher war er Studiengangsleiter am SIB Schweizerischen Institut für Betriebsökonomie und am zB. Zentrum Bildung.
 
 ## Preise
 
@@ -135,3 +135,5 @@ Der Essay «Gestalte deine Zukunft mit KI» plädiert für kritisches Denken, ak
 - YouTube: https://youtube.com/beyondernow
 - Pressekit, Kurzbiografie: https://chrisbeyeler.ch/assets/pressekit/bio-kurz.txt
 - Pressekit, Langbiografie: https://chrisbeyeler.ch/assets/pressekit/bio-lang.txt
+- Pressekit, Kurz-CV: https://chrisbeyeler.ch/assets/pressekit/kurz-cv.txt
+- Pressekit, Übersicht mit Fotos: https://chrisbeyeler.ch/assets/pressekit/

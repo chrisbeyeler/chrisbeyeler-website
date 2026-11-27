@@ -1,24 +1,26 @@
-Chris Beyeler lebt und atmet Künstliche Intelligenz. Quellcode im Blut, Neugier im Kopf, Vermitteln im Herz. Als Präsident von swissAI und Gründer von BEYONDER baut er Brücken zwischen Mensch und Maschine: wirksam, bodenständig, inspirierend.
+Chris Beyeler lebt und atmet Künstliche Intelligenz. Quellcode im Blut, Neugier im Kopf, Vermitteln im Herz. Als Präsident von swissAI und Gründer der BEYONDER AG baut er Brücken zwischen Mensch und Maschine: wirksam, bodenständig, inspirierend.
 
-2016 kam er als einer der Ersten in der Schweiz mit generativer KI in Berührung und wurde zum Early Adopter. Mit über 140 Folgen des AI Cast prägt er seit Jahren den Diskurs rund um KI in der Schweiz und zeigt, wie Technologie Kreativität, Effizienz und Verantwortung verbindet.
+2016 kam er als einer der Ersten in der Schweiz mit generativer KI in Berührung und wurde zum Early Adopter. Seit 2019 prägt er mit dem AI Cast, inzwischen 150 Folgen, den Diskurs rund um KI in der Schweiz und zeigt, wie Technologie Kreativität, Effizienz und Verantwortung verbindet.
 
-Sein Weg führte ihn vom Software-Entwickler über RecruitingHUB und siroop (Swisscom/Coop) zu BEYONDER, das er 2019 gründete und 2025 zur AG formte. Heute bildet er mit seinem Team Unternehmen in der ganzen Schweiz im Umgang mit KI aus, darunter Organisationen wie SUVA, Rotes Kreuz, BKW, Mobiliar und viele mehr.
+Sein Weg führte ihn vom Front-End-Entwickler und Online-Marketer über siroop (Swisscom/Coop) und das KI-Startup RecruitingHUB zu BEYONDER, das er 2019 gründete und 2025 zur AG formte. Heute begleitet er mit seinem Team Schweizer Organisationen von der KI-Strategie über Use Cases bis zum Rollout von Microsoft Copilot, ChatGPT Enterprise und Claude, darunter SUVA, Rotes Kreuz, BKW und Mobiliar.
 
-Als Dozent an der HWZ, am MAZ und am SIB hat er über 2000 Menschen zum Thema KI ausgebildet. Als ehemaliger Studiengangsleiter am zB. Zentrum Bildung kennt er die Bildungslandschaft von innen.
+Als Studiengangsleiter des CAS Advanced AI in Marketing an der HWZ, früher auch am SIB und am zB. Zentrum Bildung, und als Dozent an FHNW, HWZ und MAZ hat er über 2500 Menschen zum Thema KI ausgebildet.
 
-2023 gründete er swissAI (vormals KImpact), den Schweizer Verband für Künstliche Intelligenz mit über 400 Mitgliedern, der als Plattform für den Austausch zwischen Wirtschaft, Politik und Gesellschaft dient.
+2023 initiierte er swissAI (damals KImpact), den Schweizer Dachverband für Künstliche Intelligenz. Mit über 400 Mitgliedern verbindet swissAI Wirtschaft, Politik und Gesellschaft für eine kompetente Nutzung von KI.
 
 2026 wurde er als Digital Shaper ausgezeichnet (Bilanz, Handelszeitung, PME und digitalswitzerland, Kategorie «AI Acrobats»).
 
-Bekannt für seine fachlich vertieften, inspirierenden und humorvollen Vorträge hat Chris über 90 Speeches auf Bühnen wie der AI in Marketing Konferenz (The Circle Zürich), dem OMT Summit (Düsseldorf), dem Automotive Summit und dem Business Schmiede Festival gehalten.
+Bekannt für fachlich vertiefte, inspirierende und humorvolle Vorträge hat Chris über 90 Speeches gehalten, unter anderem an der AI in Marketing Konferenz (The Circle Zürich), am OMT Summit (Düsseldorf), am Automotive Summit und am Business Schmiede Festival.
 
 Keynote-Themen:
 - The State of AI
+- KI und die Schweiz: Was kommt auf uns zu?
+- Agentic AI: Wenn KI selbstständig arbeitet
+- Führen im KI-Zeitalter
 - The State of AI in Marketing
 - 5 Erfolgsfaktoren für KI in KMU
-- Wie KI die Arbeit beeinflusst
 
-Formate: Keynote (30-60 Min), Workshop (Halb-/Ganztag), Moderation, Podiumsdiskussion
+Formate: Keynote (30–60 Min.), Workshop (Halb-/Ganztag), Moderation, Podiumsdiskussion
 
 Kontakt: chris@beyonder.ch
 Website: chrisbeyeler.ch
